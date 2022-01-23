@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_login"
+    android:layout_margin="55dp">
+
+    <TextView
+        style="@style/dialog_header"
+        android:text="Select avatar"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="180dp"
+        android:background="@drawable/custom_button_dialog"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:id="@+id/btnTakePhotos"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:text="@string/take_photos" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="180dp"
+        android:background="@drawable/custom_button_dialog"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:text="@string/choose_from_gallery"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:id="@+id/btnChooseFromGallery"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="90dp"
+        android:background="@drawable/custom_button_dialog_black"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:text="@string/cancel"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:id="@+id/btnCancel"
+        />
+
+
+
+
+
+
+
+
+</LinearLayout>

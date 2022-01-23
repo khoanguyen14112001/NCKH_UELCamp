@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_login"
+    android:layout_margin="55dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/varification_failed"
+        android:gravity="center"
+        android:fontFamily="@font/fjalla_one_regular"
+        android:textSize="24.5sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/be_vietnam_light"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:text="@string/your_vertification_code_is_incorrect"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_button_dialog"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:id="@+id/btnOK"
+        android:textSize="16sp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/be_vietnam_medium"
+        />
+
+
+
+
+
+
+
+</LinearLayout>

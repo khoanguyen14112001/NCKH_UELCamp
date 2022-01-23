@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/primary_yellow"
+    tools:context=".home.AllNotificationScreen"
+    android:backgroundTint="@color/white">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/in_BigHeaderText"
+        android:text="@string/notifications"
+        android:id="@+id/txtNotification"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/imvBackNotifications"
+        style="@style/imageViewComback"
+
+        />
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintRight_toLeftOf="@id/lnFilterNotification"
+        app:layout_constraintTop_toBottomOf="@id/txtNotification"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        app:searchIcon="@drawable/ic_search"
+        android:background="@drawable/searchview_custom"
+        app:queryHint="@string/search_notifications"
+        app:iconifiedByDefault="false"
+        android:focusable="false"
+        app:theme="@style/SearchViewStyle"
+        app:queryBackground="@android:color/transparent"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/svNotification"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/svNotification"
+        app:layout_constraintBottom_toBottomOf="@id/svNotification"
+        app:layout_constraintLeft_toRightOf="@id/svNotification"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/lnFilterNotification"
+        android:orientation="vertical"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_filter"
+            android:id="@+id/imvFilterNotification"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/filter"
+            android:textSize="11sp"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:textColor="@color/blackUI"/>
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/a1231"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/svNotification"
+        app:layout_constraintLeft_toLeftOf="@id/svNotification"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:scrollbars="none"
+        app:layout_constraintRight_toRightOf="@id/svNotification">
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="@id/svNotification"
+            >
+
+            <RadioButton
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:text="@string/all"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:checked="true"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:id="@+id/radNotificationAllAll"
+                />
+            <RadioButton
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:text="@string/unread"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radNotificationAllUnread"
+                />
+            <RadioButton
+                android:layout_width="98dp"
+                android:layout_height="30dp"
+                android:text="@string/transaction"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radTransaction"
+                />
+
+            <RadioButton
+                android:layout_width="95dp"
+                android:layout_height="30dp"
+                android:text="@string/from_admin"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radFromAdmin"
+                />
+
+
+        </RadioGroup>
+    </HorizontalScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/layout_notification"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/a1231"
+        android:orientation="vertical"
+        >
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

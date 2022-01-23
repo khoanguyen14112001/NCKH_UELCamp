@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:id="@+id/layout_item_notification_all_bold">
+
+
+
+    <ImageView
+
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/img_newnotice"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/imvThumbNotification"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/imvThumbNotification"
+        app:layout_constraintTop_toTopOf="@id/imvThumbNotification"
+        android:layout_marginLeft="17dp"
+        android:orientation="vertical"
+        android:id="@+id/lnInfoNoti"
+        app:layout_constraintBottom_toBottomOf="@id/imvThumbNotification"
+        app:layout_constraintRight_toLeftOf="@id/imbMore"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtNotificationContent"
+            android:text="@string/the_parking_lot_will_be_under_maintenance_from_14_jan_to_20_jan"
+            android:fontFamily="@font/be_vietnam_semibold"
+            android:textSize="15sp"
+            android:maxLines="2"
+            android:textColor="@color/blackUI"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/txtNotificationDate"
+            android:text="@string/_20_oct_10_07"
+            android:textColor="@color/xamChu"
+
+            android:fontFamily="@font/be_vietnam_regular"
+            android:textSize="10sp"/>
+
+    </LinearLayout>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imbMore"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_more"
+        app:layout_constraintLeft_toRightOf="@id/lnInfoNoti"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

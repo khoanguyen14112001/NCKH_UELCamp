@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:overScrollMode="never"
+    tools:context=".home.AllNoticeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingBottom="8dp"
+            android:paddingEnd="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recent"
+                style="@style/in_SmallHeaderText"
+                android:id="@+id/txtRecent"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mark_all_as_read"
+                android:gravity="end"
+                android:textSize="19sp"
+                android:fontFamily="@font/be_vietnam_semibold"
+                android:textColor="@color/primary_yellow"
+                android:id="@+id/txtMarkAllAsRead"
+                />
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:overScrollMode="never"
+            android:nestedScrollingEnabled="false"
+            android:id="@+id/rcvRecentNotice"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/before"
+            android:id="@+id/txtBefore"
+            android:paddingBottom="8dp"
+            style="@style/in_SmallHeaderText"
+
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:id="@+id/rcvBeforeNotice"
+            android:overScrollMode="never"
+            android:paddingBottom="10dp"
+            android:nestedScrollingEnabled="false"
+            />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

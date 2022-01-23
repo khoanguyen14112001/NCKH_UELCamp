@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup.PersonalInformationSetScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/focus_thiefResetPassScreen"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1"
+            android:id="@+id/gLeft7"
+
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9"
+            android:id="@+id/gRight7"/>
+
+        <ImageView
+            style="@style/imageViewComback"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imvComebackUserinfo"/>
+
+        <TextView
+            style="@style/out_BigHeaderText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/txtPersonalInformation"
+            android:text="@string/personal_information"
+            />
+
+        <TextView
+            android:id="@+id/txTellUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tell_us_about_yourself"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="#AB000000"
+            android:fontFamily="@font/be_vietnam_medium"
+            app:layout_constraintTop_toBottomOf="@id/txtPersonalInformation"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/img_avatar_female"
+            app:layout_constraintTop_toBottomOf="@id/txTellUs"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="15dp"
+            android:id="@+id/imvAvatar"
+            />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/imvAvatar"
+            app:layout_constraintRight_toRightOf="@id/imvAvatar"
+            android:src="@drawable/ic_camera"
+            android:layout_marginRight="15dp"
+            android:id="@+id/imvCamera"
+            />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/radioGroupGioiTinh"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/imvAvatar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:textColor="@color/xamChu"
+                android:button="@drawable/custom_radio"
+                android:paddingLeft="7dp"
+                android:id="@+id/radFemale"
+                android:checked="true"
+                android:fontFamily="@font/be_vietnam_light"/>
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/custom_radio"
+                android:id="@+id/radMale"
+                android:paddingLeft="7dp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/xamChu"
+                android:fontFamily="@font/be_vietnam_light"
+                android:text="@string/male"/>
+        </RadioGroup>
+
+        <EditText
+            style="@style/inputStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtIDStudent"
+            android:hint="@string/id_student"
+            android:drawableStart="@drawable/ic_user"
+            android:inputType="textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupGioiTinh"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            />
+
+        <TextView
+            style="@style/errorInputStyle"
+            app:layout_constraintTop_toBottomOf="@id/edtIDStudent"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtErrorIDStudent"
+            android:paddingStart="12dp"/>
+
+
+
+        <nguyenhoanganhkhoa.com.myapplication.another.CustomSpinner
+            android:dropDownWidth="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtErrorIDStudent"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:dropDownVerticalOffset = "50dp"
+            android:id="@+id/spnFaculty"
+            android:background="@drawable/custom_edt"
+            android:layout_marginTop="13dp"
+            android:popupBackground="@drawable/spin_custom"
+            />
+
+
+        <TextView
+            style="@style/errorInputStyle"
+            app:layout_constraintTop_toBottomOf="@id/spnFaculty"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtErrorSpnFaculty"
+            android:paddingStart="12dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/spnFaculty"
+            app:layout_constraintBottom_toBottomOf="@id/spnFaculty"
+            app:layout_constraintLeft_toLeftOf="@id/spnFaculty"
+            android:src="@drawable/ic_faculty"
+            android:id="@+id/imvFaculty"
+            android:layout_marginLeft="15dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/spnFaculty"
+            app:layout_constraintBottom_toBottomOf="@id/spnFaculty"
+            app:layout_constraintRight_toRightOf="@id/spnFaculty"
+            android:src="@drawable/ic_arrow_down_spinner"
+            android:id="@+id/imvDropdown"
+            android:layout_marginRight="15dp"/>
+
+
+        <AutoCompleteTextView
+            style="@style/inputStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/adtMajors"
+            android:hint="@string/major"
+            android:maxLines="2"
+            android:drawableStart="@drawable/ic_major"
+            app:layout_constraintTop_toBottomOf="@+id/txtErrorSpnFaculty"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            android:layout_marginTop="13dp"
+            android:dropDownVerticalOffset = "7dp"
+            android:popupBackground="@drawable/spin_custom"
+            android:dropDownSelector="@drawable/text_custom_spin"
+
+            />
+
+
+
+        <TextView
+            style="@style/errorInputStyle"
+            app:layout_constraintTop_toBottomOf="@id/adtMajors"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtErrorMajor"
+            android:paddingStart="12dp"/>
+
+
+        <TextView
+            style="@style/inputStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/edtDateOfBirth"
+            android:hint="@string/date_of_birth"
+            android:drawableStart="@drawable/ic_dateofbirth"
+            app:layout_constraintTop_toBottomOf="@+id/txtErrorMajor"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            android:layout_marginTop="13dp"
+            />
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/edtDateOfBirth"
+            app:layout_constraintRight_toRightOf="@id/gRight7"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="0sp"
+            android:textColor="@color/red"
+            android:id="@+id/txtErrorDataofbirth"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:paddingStart="12dp"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/buttonYellow"
+            app:layout_constraintTop_toBottomOf="@id/txtErrorDataofbirth"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/btnSave"
+            android:text="@string/save"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

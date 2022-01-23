@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottomsheet_dialog_custom">
+
+    <TextView
+        style="@style/in_BigHeaderText"
+        android:textSize="25sp"
+        android:layout_marginTop="10dp"
+        android:text="Language"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/txtLanguage"/>
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toTopOf="@id/txtLanguage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/txtLanguage"
+        android:src="@drawable/ic_close_bottomsheet"
+        android:backgroundTint="@color/black"
+        android:layout_marginEnd="18dp"
+        android:id="@+id/imvClose"/>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/txtLanguage"
+        android:background="@color/black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/view"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vietnamese"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        style="@style/in_setting_header"
+        android:id="@+id/txtVietnamese"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/txtVietnamese"
+        android:background="@color/black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/view2"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="English"
+        app:layout_constraintTop_toBottomOf="@id/view2"
+        style="@style/in_setting_header"
+        android:id="@+id/txtEnglish"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/txtEnglish"
+        android:background="@color/black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/view3"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/view3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/buttonYellow"
+        android:id="@+id/btnApply"
+        android:text="@string/apply"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnApply"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

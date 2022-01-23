@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signup.EmailScreen">
+
+    <View
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/focus_thiefUpdatePassScreen"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        android:id="@+id/gLeft5"
+
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        android:id="@+id/gRight5"/>
+
+    <ImageView
+        style="@style/imageViewComback"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/imvComebackEmailScreen"/>
+
+    <TextView
+        style="@style/out_BigHeaderText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/txtSignUpScreen"
+        android:text="@string/sign_up_text_screen"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtSignUpScreen"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/imvSignup"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/img_signup"
+        app:layout_constraintVertical_bias="0.07"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imvSignup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp"
+        android:text="@string/sign_in_to_your_uel_email_address_n_to_create_parking_system_account"
+        android:gravity="center"
+        android:id="@+id/txtSignUpLongText"
+        android:textSize="15sp"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:textColor="#AB000000"/>
+
+    <EditText
+        style="@style/inputStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtSignUpLongText"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft5"
+        app:layout_constraintRight_toRightOf="@id/gRight5"
+        android:layout_marginTop="30dp"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/ic_mail"
+        android:hint="@string/email_uel"
+        android:id="@+id/edtEmail"
+        />
+
+    <TextView
+        style="@style/errorInputStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtErrorEmail"
+        android:paddingStart="15dp"
+        android:gravity="left"
+        app:layout_constraintTop_toBottomOf="@id/edtEmail"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft5"
+        app:layout_constraintRight_toRightOf="@id/gRight5"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/buttonYellow"
+        android:text="@string/verify"
+        app:layout_constraintTop_toBottomOf="@id/edtEmail"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft5"
+        app:layout_constraintRight_toRightOf="@id/gRight5"
+        app:layout_constraintBottom_toTopOf="@id/lnLoginHere"
+        app:layout_constraintVertical_bias="0.45"
+        android:id="@+id/btnVerifyEmail"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:id="@+id/lnLoginHere">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_an_account"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:textColor="#AB000000"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_here_signup"
+            android:id="@+id/txtLoginHere"
+
+            android:fontFamily="@font/be_vietnam_bold"
+            android:textColor="#FFD428"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

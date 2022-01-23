@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".forgotpass.ResetPasswordScreen"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        android:id="@+id/gLeft6"
+
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        android:id="@+id/gRight6"/>
+
+    <ImageView
+        style="@style/imageViewComback"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/imvComebackVerificationSignUp"/>
+
+    <TextView
+        style="@style/out_BigHeaderText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/txtVerificationSignUp"
+        android:text="@string/verification"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtVerificationSignUp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/imvVerificationScreenSignUp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/img_signup"
+        app:layout_constraintVertical_bias="0.07"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imvVerificationScreenSignUp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/we_sent_your_code_to_your_email_nthis_code_will_be_expired_in_30_seconds"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:id="@+id/txtVerificationCodeSignUp"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:textColor="#AB000000"/>
+
+    <com.chaos.view.PinView
+        app:layout_constraintTop_toBottomOf="@id/txtVerificationCodeSignUp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:id="@+id/pvVerificationSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:cursorVisible="true"
+        android:inputType="number"
+        android:itemBackground="@color/primary_yellow"
+        android:textSize="40sp"
+        android:fontFamily="@font/fjalla_one_regular"
+        style="@style/PinWidget.PinView"
+        app:cursorWidth="2dp"
+        app:hideLineWhenFilled="true"
+        app:itemCount="4"
+        app:itemHeight="65dp"
+        app:itemRadius="10dp"
+        app:lineColor="@color/primary_yellow"
+        app:itemSpacing="30dp"
+        app:itemWidth="50dp"
+        app:lineWidth="2dp"
+        app:viewType="rectangle"/>
+
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="@string/verify"
+        style="@style/buttonYellow"
+        app:layout_constraintTop_toBottomOf="@id/pvVerificationSignUp"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft6"
+        app:layout_constraintRight_toRightOf="@id/gRight6"
+        app:layout_constraintBottom_toTopOf="@id/lnResend"
+        app:layout_constraintVertical_bias="0.4"
+        android:id="@+id/btnVerifySignUp" />
+    <TextView
+        style="@style/errorInputStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtErrorCodeSignUp"
+        android:paddingStart="12dp"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/pvVerificationSignUp"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft6"
+        app:layout_constraintRight_toRightOf="@id/gRight6"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/gLeft6"
+        app:layout_constraintRight_toRightOf="@id/gRight6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/lnResend"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/you_didn_t_receive_a_code"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:textColor="#AB000000"
+            android:textSize="16.5sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resend"
+            android:textSize="16.5sp"
+            android:textColor="@color/primary_yellow"
+            android:fontFamily="@font/be_vietnam_bold"
+            android:id="@+id/txtResendCodeSignUp"
+            />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

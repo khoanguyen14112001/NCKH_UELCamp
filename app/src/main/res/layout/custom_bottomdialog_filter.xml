@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bottomsheet_dialog_custom">
+    <TextView
+        style="@style/in_BigHeaderText"
+        android:textSize="25sp"
+        android:layout_marginTop="10dp"
+        android:text="@string/filters"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/txtFilers"/>
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toTopOf="@id/txtFilers"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/txtFilers"
+        android:src="@drawable/ic_close_bottomsheet"
+        android:backgroundTint="@color/black"
+        android:layout_marginEnd="18dp"
+        android:id="@+id/imvClose"/>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/txtFilers"
+        android:background="@color/black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/view"/>
+
+    <nguyenhoanganhkhoa.com.myapplication.another.CustomSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:dropDownWidth="match_parent"
+        android:dropDownVerticalOffset = "60dp"
+
+
+        android:background="@drawable/spin_custom"
+        android:popupBackground="@drawable/spin_custom"
+        android:gravity="right"
+        android:layout_margin="30dp"
+        android:id="@+id/spnFilter"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/spnFilter"
+        app:layout_constraintBottom_toBottomOf="@id/spnFilter"
+        app:layout_constraintLeft_toLeftOf="@id/spnFilter"
+        android:layout_marginStart="20dp"
+        android:text="@string/sort_by"
+        android:textColor="@color/xamChu"
+        android:textSize="18sp"
+        android:fontFamily="@font/be_vietnam_regular"
+       />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arror_down_spinner_black"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/imvDropdown"
+        app:layout_constraintTop_toTopOf="@id/spnFilter"
+        app:layout_constraintBottom_toBottomOf="@id/spnFilter"
+        app:layout_constraintRight_toRightOf="@id/spnFilter"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_filter_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingStart="50dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="50dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spnFilter">
+
+        <TextView
+            android:id="@+id/txtFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/be_vietnam_medium"
+            android:text="FROM"
+            android:textColor="@color/xamChu"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/txtFilterFromDate"
+            app:layout_constraintEnd_toStartOf="@+id/txtFilterFromDate"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtFilterFromDate" />
+
+        <TextView
+            android:id="@+id/txtFilterFromDate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:background="@drawable/textview_filter_date_custom"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:paddingStart="18dp"
+            android:textColorHint="@color/xamChu"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:hint="@string/choose_date"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtFrom"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_date"
+            app:layout_constraintBottom_toBottomOf="@id/txtFilterFromDate"
+            app:layout_constraintRight_toRightOf="@id/txtFilterFromDate"
+            app:layout_constraintTop_toTopOf="@id/txtFilterFromDate" />
+
+
+        <TextView
+            android:id="@+id/txtTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/be_vietnam_medium"
+            android:text="TO"
+            android:textColor="@color/xamChu"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/txtFilterToDate"
+            app:layout_constraintStart_toStartOf="@id/txtFrom"
+            app:layout_constraintTop_toTopOf="@id/txtFilterToDate" />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/txtFilterToDate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_filter_date_custom"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:paddingStart="18dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:hint="@string/choose_date"
+            android:textColorHint="@color/xamChu"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="@+id/txtFilterFromDate"
+            app:layout_constraintTop_toBottomOf="@id/txtFilterFromDate" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_date"
+            app:layout_constraintBottom_toBottomOf="@id/txtFilterToDate"
+            app:layout_constraintRight_toRightOf="@id/txtFilterToDate"
+            app:layout_constraintTop_toTopOf="@id/txtFilterToDate"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_filter_date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:id="@+id/lnTitleStatus">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textColor="@color/xamChu"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:textSize="11sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="2dp"
+            android:layout_gravity="center"
+            android:background="@color/xamChu"/>
+
+    </LinearLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/layout_filter_status"
+        app:layout_constraintTop_toBottomOf="@id/lnTitleStatus">
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4"
+            android:id="@+id/gLeft"
+
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6"
+            android:id="@+id/gRight"
+
+            />
+
+
+        <CheckBox
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/unsuccessful"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="@id/gLeft"
+            android:button="@android:color/transparent"
+            android:paddingTop="60dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="7dp"
+            android:gravity="center"
+            android:paddingEnd="7dp"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:background="@drawable/custom_checkbox_filter"
+            android:id="@+id/chkUnsuccessful"/>
+
+        <CheckBox
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/successful"
+            app:layout_constraintLeft_toLeftOf="@id/gRight"
+            app:layout_constraintTop_toTopOf="parent"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_checkbox_filter"
+            android:paddingTop="60dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:id="@+id/chkSuccessful"
+            android:textColor="@color/black"
+            android:fontFamily="@font/be_vietnam_regular"
+            />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="@id/chkUnsuccessful"
+            app:layout_constraintLeft_toLeftOf="@id/chkUnsuccessful"
+            android:src="@drawable/ic_warning_red"/>
+
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="@id/chkSuccessful"
+            app:layout_constraintLeft_toLeftOf="@id/chkSuccessful"
+            android:src="@drawable/ic_tickbutton"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_filter_status"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:id="@+id/lnTitleAmount">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:textColor="@color/xamChu"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:textSize="11sp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="3dp"
+            android:layout_gravity="center"
+            android:background="@color/xamChu"/>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_filter_amount"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/lnTitleAmount">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.43"
+            android:id="@+id/gLeft2"
+
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.57"
+            android:id="@+id/gRight2"
+
+            />
+
+        <EditText
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/gLeft2"
+            android:layout_marginLeft="30dp"
+            android:inputType="number"
+            android:background="@drawable/textview_filter_date_custom"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="0"
+            android:textSize="27sp"
+            android:maxLength="6"
+            android:gravity="center"
+            style="@style/in_BigHeaderText"
+            android:id="@+id/edtValueFrom"
+            />
+
+        <EditText
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/gRight2"
+            android:layout_marginRight="30dp"
+            android:inputType="number"
+            android:background="@drawable/textview_filter_date_custom"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:maxLength="6"
+            android:text="500000"
+            android:textSize="27sp"
+            android:gravity="center"
+            style="@style/in_BigHeaderText"
+            android:id="@+id/edtValueTo"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:text="-"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edtValueFrom"
+            app:layout_constraintBottom_toBottomOf="@id/edtValueTo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@string/vnd"
+            android:textColor="@color/black"
+            android:fontFamily="@font/be_vietnam_light"
+            app:layout_constraintRight_toRightOf="@id/edtValueTo"
+            app:layout_constraintBottom_toTopOf="@id/edtValueTo"/>
+
+        <View
+            android:layout_width="42dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/view1"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="@id/edtValueFrom"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/be_vietnam_light"
+
+            android:text="Minimum"
+            android:textColor="@color/black"
+
+            android:textSize="8sp"
+            android:layout_marginTop="21dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/view1"
+            app:layout_constraintRight_toRightOf="@id/view1" />
+
+        <View
+            android:layout_width="42dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/view2"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintLeft_toLeftOf="@id/edtValueTo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/be_vietnam_light"
+
+            android:text="Maximum"
+            android:textColor="@color/black"
+
+            android:textSize="8sp"
+            android:layout_marginTop="21dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/view2"
+            app:layout_constraintRight_toRightOf="@id/view2" />
+
+
+
+
+        <com.google.android.material.slider.RangeSlider
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:valueFrom="0"
+            android:valueTo="500000"
+            android:id="@+id/sliderAmount"
+            app:values="@array/initial_slider_values"
+            android:stepSize="1"
+            style="@style/Widget.App.Slider"
+            app:tickColorInactive = "@color/black"
+            app:layout_constraintTop_toBottomOf="@id/edtValueTo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_filter_amount"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintRight_toRightOf="@id/spnFilter"
+        android:text="@string/clear_filters"
+        android:fontFamily="@font/be_vietnam_regular"
+        android:textColor="@color/black"
+        android:id="@+id/txtClearFilters"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/txtClearFilters"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        style="@style/buttonYellow"
+        android:id="@+id/btnApply"
+        android:text="@string/apply"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnApply"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

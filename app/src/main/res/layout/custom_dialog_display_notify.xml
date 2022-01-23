@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/xamNen"
+    android:layout_margin="55dp"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sometext"
+        android:padding="5dp"
+        android:background="@color/primary_yellow"
+        android:id="@+id/txtDate"
+        android:fontFamily="@font/be_vietnam_semibold"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:paddingLeft="5dp"
+        android:inputType="textMultiLine"
+        android:fontFamily="@font/be_vietnam_regular"
+        android:id="@+id/txtNotifyDisplay"
+        android:text="@string/warning_wrong_password_try_again"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="@string/ok"
+        android:layout_width="90dp"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:background="@drawable/custom_button"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:id="@+id/btnOK"
+        />
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,384 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.TopUpAmountFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:id="@+id/lnText1"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:text="@string/enter_the"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:text="@string/space"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+
+                android:textColor="@color/primary_yellow"
+                android:fontFamily="@font/be_vietnam_semibold"
+                android:text="@string/amount"/>
+
+        </LinearLayout>
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/you_want_to_top_up_into_your_wallet"/>
+
+
+    </LinearLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08"
+        android:id="@+id/gLeft1"
+
+        />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92"
+        android:id="@+id/gRight1"
+
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lnText1"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/cslHolderAmount">
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.08"
+            android:id="@+id/gLeft"
+
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.92"
+            android:id="@+id/gRight"
+
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft"
+            app:layout_constraintRight_toRightOf="@id/gRight"
+            android:background="@drawable/view_custom_corner_small_blackstroke"
+            android:id="@+id/viewHolder"
+            android:layout_marginTop="10dp"/>
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:id="@+id/viewHoldText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/viewHolder"
+            app:layout_constraintRight_toRightOf="@id/viewHolder"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/viewHoldText"
+            app:layout_constraintLeft_toLeftOf="@id/viewHoldText"
+            app:layout_constraintRight_toRightOf="@id/viewHoldText"
+            app:layout_constraintBottom_toBottomOf="@id/viewHoldText"
+            android:text="@string/amount_caps"
+            android:textSize="15sp"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/edtAmount"
+            app:layout_constraintTop_toTopOf="@id/viewHolder"
+            app:layout_constraintLeft_toRightOf="@id/imbMinus"
+            app:layout_constraintRight_toLeftOf="@id/imbPlus"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolder"
+            android:background="@color/white"
+            android:hint="0"
+            android:text="0"
+            android:maxLength="6"
+            android:textColorHint="@color/xamChu"
+            android:inputType="numberDecimal"
+            android:textSize="50sp"
+            android:fontFamily="@font/big_shoulder_display_bold"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/viewHolder"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolder"
+            app:layout_constraintLeft_toLeftOf="@id/viewHolder"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="25dp"
+            android:src="@drawable/ic_minus"
+            android:id="@+id/imbMinus"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/viewHolder"
+            app:layout_constraintBottom_toBottomOf="@id/viewHolder"
+            app:layout_constraintRight_toRightOf="@id/viewHolder"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="25dp"
+            android:id="@+id/imbPlus"
+            android:src="@drawable/ic_plus"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/viewHolder"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minimum"
+                android:textSize="14sp"
+                android:textColor="#AB000000"
+                android:fontFamily="@font/be_vietnam_regular"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/space"
+                android:textSize="14sp"
+                android:textColor="#AB000000"
+                android:fontFamily="@font/be_vietnam_regular"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_10_000vnd"
+                android:textSize="14sp"
+                android:textColor="@color/primary_yellow"
+                android:fontFamily="@font/be_vietnam_medium"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/space"
+                android:textSize="14sp"
+                android:fontFamily="@font/be_vietnam_regular"
+
+                android:textColor="#AB000000"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:fontFamily="@font/be_vietnam_regular"
+
+                android:layout_height="wrap_content"
+                android:text="@string/maximum"
+                android:textSize="14sp"
+                android:textColor="#AB000000"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/be_vietnam_regular"
+
+                android:text="@string/space"
+                android:textSize="14sp"
+                android:textColor="#AB000000"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/be_vietnam_medium"
+
+                android:text="@string/_500_000vnd"
+                android:textSize="14sp"
+                android:textColor="@color/primary_yellow"
+                />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TableLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/cslHolderAmount"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.075"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft1"
+        app:layout_constraintRight_toRightOf="@id/gRight1"
+        android:stretchColumns="*"
+        android:id="@+id/tbMoneyPrice"
+        android:focusable="true"
+        android:focusedByDefault="true"
+        >
+        <TableRow>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_button_amount"
+                android:text="10.000"
+                android:id="@+id/btn10k"
+                android:stateListAnimator="@null"
+                android:fontFamily="@font/big_shoulder_display_bold"
+                android:textSize="25sp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_button_amount"
+                android:text="20.000"
+                android:id="@+id/btn20k"
+                android:stateListAnimator="@null"
+                android:textSize="25sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/big_shoulder_display_bold" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/btn50k"
+                android:stateListAnimator="@null"
+                android:background="@drawable/custom_button_amount"
+                android:text="50.000"
+                android:fontFamily="@font/big_shoulder_display_bold"
+                android:textSize="25sp"/>
+        </TableRow>
+
+        <TableRow android:layout_marginTop="15dp">
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_button_amount"
+                android:text="100.000"
+                android:id="@+id/btn100k"
+                android:stateListAnimator="@null"
+                android:fontFamily="@font/big_shoulder_display_bold"
+                android:textSize="25sp"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_button_amount"
+                android:text="@string/_150_000"
+                android:id="@+id/btn150k"
+                android:stateListAnimator="@null"
+                android:textSize="25sp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/big_shoulder_display_bold" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/btn200k"
+                android:stateListAnimator="@null"
+                android:background="@drawable/custom_button_amount"
+                android:text="200.000"
+                android:fontFamily="@font/big_shoulder_display_bold"
+                android:textSize="25sp"/>
+        </TableRow>
+
+
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tbMoneyPrice"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft1"
+        app:layout_constraintRight_toRightOf="@id/gRight1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/lnProtect"
+        >
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_checkprotect"
+            android:layout_gravity="center"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all_your_information_will_be_encrypted_for_confidentiality"
+                android:textSize="10.11sp"
+                android:fontFamily="@font/be_vietnam_light"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Learn more"
+                android:textColor="@color/primary_yellow"
+                android:textSize="11sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/buttonYellow"
+        android:text="@string/request_transfer"
+        app:layout_constraintTop_toBottomOf="@id/lnProtect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/btnRequestTransfer"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

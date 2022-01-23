@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:id="@+id/layout_item_trans">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/viewAround"
+        android:background="@drawable/oval_shape"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_topup"
+        app:layout_constraintBottom_toBottomOf="@id/viewAround"
+        app:layout_constraintLeft_toLeftOf="@id/viewAround"
+        app:layout_constraintRight_toRightOf="@id/viewAround"
+        app:layout_constraintTop_toTopOf="@+id/viewAround"
+        android:id="@+id/imvStatusTrans"/>
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/viewAround"
+        app:layout_constraintRight_toRightOf="@id/viewAround"
+        android:id="@+id/imvSuccessTrans"
+        android:src="@drawable/ic_tickbutton"
+        android:layout_marginBottom="3dp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/viewAround"
+        app:layout_constraintTop_toTopOf="@id/viewAround"
+        android:layout_marginLeft="17dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/viewAround"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtStatusTrans"
+            android:text="@string/top_up"
+            android:fontFamily="@font/be_vietnam_semibold"
+            android:textSize="15sp"
+            android:textColor="@color/blackUI"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDateStatusTrans"
+            android:text="@string/_20_oct_10_07"
+            android:textColor="@color/xamChu"
+
+            android:fontFamily="@font/be_vietnam_medium"
+            android:textSize="12sp"/>
+    </LinearLayout>
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtMoneyTrans"
+        android:text="@string/vnd"
+        android:textSize="14sp"
+        android:textColor="@color/blackUI"
+        android:fontFamily="@font/be_vietnam_light"
+        android:id="@+id/txtVND"/>
+
+    <TextView
+        android:id="@+id/txtMoneyTrans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/big_shoulder_display_bold"
+        android:paddingRight="7dp"
+        android:text="@string/_50_000"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/viewAround"
+        app:layout_constraintRight_toLeftOf="@id/txtVND"
+        app:layout_constraintTop_toTopOf="@id/viewAround" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

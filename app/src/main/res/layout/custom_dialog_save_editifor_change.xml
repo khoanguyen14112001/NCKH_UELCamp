@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_login"
+    android:layout_margin="55dp">
+
+    <TextView
+        style="@style/dialog_header"
+        android:text="@string/saved_changes" />
+
+
+    <TextView
+        style="@style/dialog_text"
+        android:text="@string/your_changes_have_been_n_successfully_saved"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="90dp"
+        android:background="@drawable/custom_button_dialog"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:text="@string/ok"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:id="@+id/btnOK"
+        />
+
+
+
+
+
+
+
+</LinearLayout>

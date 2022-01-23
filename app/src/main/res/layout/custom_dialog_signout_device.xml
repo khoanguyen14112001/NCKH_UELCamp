@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_login"
+    android:layout_margin="55dp">
+
+    <TextView
+        style="@style/dialog_header"
+        android:text="@string/sign_out_this_device" />
+
+
+    <TextView
+        style="@style/dialog_text"
+        android:text="@string/you_are_signing_out_this_device_are_you_sure"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:text="@string/yes"
+            android:id="@+id/btnOK"
+            android:layout_width="90dp"
+            android:background="@drawable/custom_button_dialog"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:text="@string/cancel"
+            android:id="@+id/btnCancel"
+            android:layout_width="90dp"
+            android:background="@drawable/custom_button_dialog_black"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:layout_marginLeft="30dp"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>

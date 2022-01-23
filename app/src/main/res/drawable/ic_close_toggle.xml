@@ -1,0 +1,37 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="23dp"
+    android:height="18dp"
+    android:viewportWidth="55"
+    android:viewportHeight="46">
+  <path
+      android:pathData="M13.1413,36.5339C8.1477,32.9884 4.1962,28.3765 1.9633,25.4643C1.3389,24.6604 1,23.6714 1,22.6535C1,21.6357 1.3389,20.6467 1.9633,19.8428C6.0042,14.5678 15.6989,3.7065 27.0176,3.7065C32.095,3.7065 36.8423,5.8907 40.902,8.7786"
+      android:strokeAlpha="0.8"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#000000"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M32.7825,16.9333C32.0308,16.1692 31.1354,15.5614 30.1477,15.1451C29.16,14.7287 28.0997,14.5121 27.0278,14.5076C25.956,14.5031 24.8939,14.7109 23.9028,15.1189C22.9116,15.5269 22.0111,16.1272 21.2531,16.885C20.4951,17.6428 19.8947,18.5432 19.4864,19.5342C19.0781,20.5253 18.8701,21.5873 18.8743,22.6592C18.8786,23.731 19.095,24.7914 19.5111,25.7792C19.9272,26.7669 20.5347,27.6626 21.2987,28.4144"
+      android:strokeAlpha="0.8"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#000000"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M5.3655,44.3043L48.6698,1"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#242A37"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M21.6045,40.7967C23.3616,41.3197 25.1843,41.5895 27.0175,41.5978C38.3362,41.5978 48.031,30.7365 52.0718,25.4615C52.696,24.6569 53.0346,23.6674 53.0341,22.649C53.0336,21.6306 52.6941,20.6414 52.0691,19.8374C50.649,17.9847 49.1255,16.2137 47.5059,14.5326"
+      android:strokeAlpha="0.8"
+      android:strokeLineJoin="round"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#000000"
+      android:strokeLineCap="round"/>
+</vector>

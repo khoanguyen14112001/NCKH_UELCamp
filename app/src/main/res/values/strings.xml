@@ -1,0 +1,312 @@
+<resources>
+    <string name="app_name">myParking</string>
+    <string name="sign_up"> <u>Sign up</u> </string>
+    <string name="login_failed">Login failed</string>
+    <string name="warning_wrong_password_try_again">Your username or password is\n incorrect. Please try again</string>
+    <string name="ok">OK</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="verification">Verification</string>
+    <string name="resend"><u>Resend</u></string>
+    <string name="error">Error</string>
+    <string name="your_vertification_code_is_incorrect">Your verification code is incorrect. \nPlease try again.</string>
+    <string name="create_new_password">Create new password</string>
+    <string name="your_identity_has_been_verified_nset_your_new_password">Your identity has been verified! \nSet your new password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="successful">Successful</string>
+    <string name="your_password_has_been_updated">Your password has been updated. \nLog in now.</string>
+    <string name="log_in">Log in</string>
+    <string name="varification_failed">Verification failed</string>
+    <string name="cancel">Cancel</string>
+    <string name="welcome_to_nmy_parking_system">Welcome to \nmy parking system!</string>
+    <string name="sign_in_with_google">Sign in with google</string>
+    <string name="login_to_existent_account">Login to existent account</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?\u0020</string>
+    <string name="update">Update</string>
+    <string name="phone">Phone</string>
+    <string name="send">Send</string>
+    <string name="verify">Verify</string>
+    <string name="you_didn_t_receive_a_code">Didn’t receive a code?\u0020</string>
+    <string name="invalid_email_address">Invalid email address</string>
+    <string name="field_cannot_be_empty">Field cannot be empty</string>
+    <string name="try_again_after_an_hour">Too many failed login. Try again after 1 hour</string>
+    <string name="too_many_failed_login_try_again_in">Too many failed login. Try again in \u0020</string>
+    <string name="seconds">\u0020 seconds</string>
+    <string name="your_password_must_be_match">Your password must be match</string>
+    <string name="your_phone_number_is_too_long">Your phone number is too long</string>
+    <string name="please_enter_four_numbers_of_code">Please enter 4 numbers of code</string>
+    <string name="your_password_is_too_weak">Your password is too weak</string>
+    <string name="reset_password">Reset password</string>
+    <string name="enter_your_phone_number_nand_we_ll_send_a_code_to_your_phone">Enter your phone number \nand we’ll send a code to your phone</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="create_an_account_to_get_all_features">Create an account to get all features</string>
+    <string name="full_name">Full name*</string>
+    <string name="username1">Username*</string>
+    <string name="phone1">Phone*</string>
+    <string name="password1">Password*</string>
+    <string name="already_have_an_account">Already have an account?\u0020</string>
+    <string name="login_here">Login here</string>
+    <string name="your_phone_does_not_exists">Your phone does not exists</string>
+    <string name="we_sent_your_code_to_your_phone_nthis_code_will_be_expired_in_30_seconds">We sent your code to your phone.\nThis code will be expired in 30 seconds</string>
+    <string name="we_sent_your_code_to_your_email_nthis_code_will_be_expired_in_30_seconds">We sent your code to your email.\nThis code will be expired in 30 seconds</string>
+    <string name="we_sent_your_code_to_your_phone">We sent your code to your phone.\n</string>
+    <string name="we_sent_your_code_to_your_email">We sent your code to your email.\n</string>
+    <string name="this_code_will_be_expired_in">This code will be expired in\u0020</string>
+    <string name="we_have_not_received_your_code_yet">We have not received your code yet, \n</string>
+    <string name="to_do_it_again_click_resend_below">to do it again click Resend below</string>
+    <string name="a_strong_password_must_have_at_least_8_characters_upper_lowercase_letters_and_at_least_one_number">A strong password must have at least 8 \ncharacters, upper and lowercase letters \nand at least one number</string>
+    <string name="reset_password_failed">Reset password failed</string>
+    <string name="you_have_5_failed_otp_attempts_n_reset_password_feature_is_locked_n_within_30_minutes">You have 5 failed OTP attempts. \n Reset password feature is locked \n within 30 minutes</string>
+    <string name="you_have_4_failed_login_attempts">You have 3 failed login attempts. \n</string>
+    <string name="try_again_in">Try again in\u0020</string>
+    <string name="sign_up_text_screen">Sign up</string>
+    <string name="sign_in_to_your_uel_email_address_n_to_create_parking_system_account">Sign in to your UEL email address \n to create parking system account</string>
+    <string name="email_uel">Email UEL*</string>
+    <string name="login_here_signup"><u>Login here</u></string>
+    <string name="your_username_is_already_exists">Your username is already exists</string>
+    <string name="your_password_is_too_long">Your password is too long</string>
+    <string name="your_phone_is_already_registered">Your phone is already registered</string>
+    <string name="sign_up_no_underline">Sign up</string>
+    <string name="unsaved_changes">Unsaved changes</string>
+    <string name="congratulation">Congratulation!</string>
+    <string name="your_account_has_been_successfully_created">Your account has been \n successfully created.</string>
+    <string name="go">GO</string>
+    <string name="personal_information">Personal information</string>
+    <string name="tell_us_about_yourself">Tell us about yourself</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="id_student">ID student*</string>
+    <string name="save">Save</string>
+    <string name="date_of_birth">Date of birth*</string>
+    <string name="all_your_changes_will_not_be_saved_n_are_you_sure_want_to_leave">All your changes will not be saved. \n Are you sure want to leave?</string>
+    <string name="sign_up_failed">Sign up failed</string>
+    <string name="you_have_5_failed_otp_attempts_n_sign_up_feature_is_locked_n_within_30_minutes">You have 5 failed OTP attempts. \n Sign up feature is locked \n within 30 minutes</string>
+    <string name="major">Major*</string>
+    <string name="please_enter_your_date_of_birth">Please enter your date of birth with precise format</string>
+    <string name="please_enter_full_of_date">Please enter full of date</string>
+    <string name="take_photos">Take photos</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="saved_information">Saved information</string>
+    <string name="your_personal_information_n_has_been_saved">Your personal information \n has been saved.</string>
+    <string name="verification_successful">Verification successful</string>
+    <string name="continue_to_fill_in_personal_n_information_to_complete_nsign_up_process">Continue to fill in personal \n information to complete \nsign up process</string>
+    <string name="home">Home</string>
+    <string name="history">History</string>
+    <string name="wallet">Wallet</string>
+    <string name="account">Account</string>
+    <string-array name="faculty">
+        <item>Faculty*</item>
+        <item>Faculty of Economics</item>
+        <item>Faculty of International Economic Relations</item>
+        <item>Faculty of Finance - Banking</item>
+        <item>Faculty of Accounting - Auditing</item>
+        <item>Faculty of Information Systems</item>
+        <item>Faculty of Business Administration</item>
+        <item>Faculty of Economic Mathematics</item>
+        <item>Faculty of Law</item>
+        <item>Faculty of Economic Law</item>
+        <item>Department of Foreign Languages</item>
+    </string-array>
+
+    <string-array name="facultyEditInfo">
+        <item>Faculty of Economics</item>
+        <item>Faculty of International Economic Relations</item>
+        <item>Faculty of Finance - Banking</item>
+        <item>Faculty of Accounting - Auditing</item>
+        <item>Faculty of Information Systems</item>
+        <item>Faculty of Business Administration</item>
+        <item>Faculty of Economic Mathematics</item>
+        <item>Faculty of Law</item>
+        <item>Faculty of Economic Law</item>
+        <item>Department of Foreign Languages</item>
+    </string-array>
+
+    <string-array name="major">
+        <item>International Business</item>
+        <item>Economics</item>
+        <item>Economics and Public Management</item>
+        <item>Finance and Banking</item>
+        <item>Accounting</item>
+        <item>Management Information Systems</item>
+        <item>Business Administration</item>
+        <item>Auditing</item>
+        <item>Marketing and Electronic Commerce</item>
+        <item>Business Law</item>
+        <item>International Trade Law</item>
+        <item>Civil Law and Finance - Banking - Securities Law</item>
+        <item>E-Commerce</item>
+
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="heo">Truong Hoang Y</string>
+    <string name="hello">Hello,</string>
+    <string name="your_balance">Your balance</string>
+    <string name="vnd">VND</string>
+    <string name="acitivities">Activities</string>
+    <string name="qr_code">QR CODE</string>
+    <string name="withdraw">WITHDRAW</string>
+    <string name="withdrawLow">Withdraw</string>
+    <string name="last_transaction">Last Transaction</string>
+    <string name="see_all">See All</string>
+    <string name="top_up">Top up</string>
+    <string name="_20_oct_10_07">20 Oct, 10:07</string>
+    <string name="search_history">Search history</string>
+    <string name="filter">Filter</string>
+    <string name="all">All</string>
+    <string name="exit">Exit</string>
+    <string name="oct_2021">Oct 2021</string>
+    <string name="entry">Entry</string>
+    <string name="contact_support">Contact support</string>
+    <string name="my_profile">Profile</string>
+    <string name="student">Student</string>
+    <string name="july_06_2001">July 06, 2001</string>
+    <string name="k194111641">K194111641</string>
+    <string name="faculty_of_information_systems">Faculty of Information Systems</string>
+    <string name="contact_infomation">Contact infomation</string>
+    <string name="_0971759040">0971759040</string>
+    <string name="yth19411c_st_uel_edu_vn">yth19411c@st.uel.edu.vn</string>
+    <string name="joined">Joined</string>
+    <string name="space">\u0020</string>
+    <string name="march_24_2021">March 24, 2021</string>
+    <string name="sign_out">Sign out</string>
+    <string name="auto_update_after">Auto update after</string>
+    <string name="_60s">60s</string>
+    <string name="_150_000">150.000</string>
+    <string name="transaction">Transaction</string>
+    <string name="search_transaction">Search transaction</string>
+    <string name="the_parking_lot_will_be_under_maintenance_from_14_jan_to_20_jan">The parking lot will be under maintenance from 14, Jan to 20, Jan</string>
+    <string name="e_commerce">E-commerce</string>
+    <string name="notifications">Notifications</string>
+    <string name="search_notifications">Search notifications</string>
+    <string name="unread">Unread</string>
+    <string name="read">Read</string>
+    <string name="recent">Recent</string>
+    <string name="mark_all_as_read">Mark all as read</string>
+    <string name="before">Before</string>
+    <string name="about_us">About us</string>
+    <string name="_50_000">+50.000</string>
+    <string name="other_activities">Other activities</string>
+    <string name="help_center">Help center</string>
+    <string name="setting">Setting</string>
+    <string name="security_center">Security center</string>
+    <string name="enter_the">Enter the </string>
+    <string name="amount">amount</string>
+    <string name="you_want_to_top_up_into_your_wallet">you want to top up into your wallet</string>
+    <string name="amount_caps">Amount</string>
+    <string name="minimum">Minimum:</string>
+    <string name="_10_000vnd">10.000VND</string>
+    <string name="maximum">- Maximum:</string>
+    <string name="_500_000vnd">500.000VND</string>
+    <string name="all_your_information_will_be_encrypted_for_confidentiality">All your information will be encrypted for confidentiality.</string>
+    <string name="request_transfer">Request transfer</string>
+    <string name="_27_oct_2021_23_20">27 Oct 2021, 23:20</string>
+    <string name="time">Time:</string>
+    <string name="amount_2cham">Amount:</string>
+    <string name="please_payment_within">Please payment within</string>
+    <string name="_240s">240s</string>
+    <string name="save_qr_cde">Save QR Cde</string>
+    <string name="transaction_code">Transaction code:</string>
+    <string name="cb07">CB07</string>
+    <string name="please_enter_the_correct">Please enter the correct</string>
+    <string name="transaction_code_cap">transaction code</string>
+    <string name="message">Message</string>
+    <string name="section_when_making_transactions_at">section when making transactions at</string>
+    <string name="parking_payment">Parking payment</string>
+    <string name="mark_all_as_unread">Mark all as unread</string>
+    <string name="our_team">Our team</string>
+    <string name="introduce">Introduce</string>
+    <string name="textIntroduceTeam">myPARKING team consists of 5 members from the high-quality E-Commerce course 19, Faculty of Information Systems, University of Economics and Law. </string>
+    <string name="textIntroduceSystem">PARKING SYSTEM is a system created to serve students of UEL to optimize parking and minimize parking problems thanks to the automatic payment feature. In addition, students can also monitor the status of their vehicles.</string>
+    <string name="contact_us">Contact us</string>
+    <string name="linkGmail">support.myPARKING@gmail.com</string>
+    <string name="linkFace">https://www.facebook.com/dufourofficial</string>
+    <string name="news">News</string>
+    <string name="news_from_organization">News from organization</string>
+    <string name="advertisement">Advertisement</string>
+    <string name="how_can_we_help_you">How can we help you?</string>
+    <string name="search_problem">Search problem</string>
+    <string name="popular_questions">Popular questions</string>
+    <string name="problem_categories">Problem Categories</string>
+    <string name="payment_setting">Payment setting</string>
+    <string name="secure_my_account">Secure my account</string>
+    <string name="confirm_quick_payment">Confirm quick payment</string>
+    <string name="login_setting">Login setting</string>
+    <string name="automatically_lock_the_app">Automatically lock the app</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="other">Other</string>
+    <string name="app_information">App information</string>
+    <string name="_45s">45s</string>
+    <string name="from_admin">From admin</string>
+    <string name="saved_changes">Saved changes!</string>
+    <string name="your_changes_have_been_n_successfully_saved">Your changes have been \n successfully saved</string>
+    <string name="how_do_we_protect_your_information">How do we protect your information?</string>
+    <string name="terms_of_service">Terms of service</string>
+    <string name="you_are_signing_out_nare_you_sure">You are signing out. \nAre you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="phone2">Phone*</string>
+    <string name="choose_the">Choose the</string>
+    <string name="e_wallet">E-Wallet</string>
+    <string name="you_want_to_top_up">you want to top up</string>
+    <string name="momo">MOMO</string>
+    <string name="viettel_pay">VIETTEL PAY</string>
+    <string name="next">Next</string>
+    <string name="pci_dss_security_standards_certificate">PCI-DSS Security Standards certificate</string>
+    <string name="your_email_has_already_registered">Your email has already registered!</string>
+    <string name="edit_activities">Edit activities</string>
+    <string name="favorite_activities">Favorite activities</string>
+    <string name="filters">Filters</string>
+    <string name="sort_by">Sort by</string>
+    <string name="choose_date">Choose date …</string>
+    <string name="apply">Apply</string>
+    <string name="clear_filters">Clear filters</string>
+    <string name="unsuccessful">Unsuccessful</string>
+    <string name="filter_applied">Filter applied</string>
+    <string name="trading_code">Trading code:\u0020</string>
+    <string name="what_problem_do_you_have">What problem do you have?</string>
+    <string name="text_help_center_detail">Please double-check your top up transaction information again.</string>
+    <string name="text_help_center_detail2">If you really think this is a mistake, please click the button <font fgcolor='#FFD428'>Request help</font>\u0020below and fill in the necessary information so that we can best assist you.</string>
+    <string name="was_the_information_useful_to_you">Was the information useful to you?</string>
+    <string name="request_help">Request help</string>
+    <string name="service">Service:</string>
+    <string name="fill_the_information">Please fill in the necessary information \n so that we can best assist you</string>
+    <string name="add_pictures">Add pictures</string>
+    <string name="send_request_successful">Send request successful</string>
+    <string name="success_request">We have received your request, please wait for us to process</string>
+
+    <string name="delete">Delete</string>
+    <string name="mark_as_read">Mark as read</string>
+
+    <string name="login_setting_title">Login Setting</string>
+    <string name="truong_hoang_y">Truong Hoang Y</string>
+    <string name="sign_out_all_devices">Sign out all devices</string>
+    <string name="e_commerce_course_19">E-commerce, course 19</string>
+    <string name="username_must_not_contain">Username must not contains special characters</string>
+    <string name="currently_signin_devices">Currently, this account is signed in on the following devices:</string>
+    <string name="iphone_8_plus">iPhone 8 Plus</string>
+    <string name="currently_using">- <font fgcolor='#FFD428'>Currently using</font></string>
+    <string name="ios">IOS</string>
+    <string name="last_operating_time">Last operating time</string>
+    <string name="wednesday_dec_01_2021_at_00_04_37_in_thu_duc_hcmc">Wednesday, Dec 01, 2021 at 00:04:37 in Thu Duc, HCMC</string>
+    <string name="sign_out_this_device">Sign out this device</string>
+    <string name="you_are_signing_out_this_device_are_you_sure">You are signing out this device.\n Are you sure?</string>
+    <string name="you_are_signing_out_all_devices_are_you_sure">You are signing out all devices.\n Are you sure?</string>
+    <string name="_1_min">1 min</string>
+    <string name="set_a_password">Set a password</string>
+    <string name="enter_your_current_password">Enter your current password</string>
+    <string name="current_password">Current password</string>
+    <string name="wrong_password_please_try_again">Wrong password, please try again</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="updated_successful">Updated successful</string>
+    <string name="your_new_password_has_been_updated">Your new password has been updated.</string>
+
+    <array name="initial_slider_values">
+        <item>0</item>
+        <item>500000</item>
+    </array>
+
+</resources>

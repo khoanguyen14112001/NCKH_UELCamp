@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_login"
+    android:layout_margin="30dp">
+
+    <TextView
+        style="@style/dialog_header"
+        android:text="@string/sign_up_failed" />
+
+    <TextView
+        style="@style/dialog_text"
+        android:text="@string/you_have_5_failed_otp_attempts_n_sign_up_feature_is_locked_n_within_30_minutes"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="90dp"
+        android:background="@drawable/custom_button_dialog"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:layout_height="40dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:text="@string/ok"
+        android:fontFamily="@font/be_vietnam_medium"
+        android:id="@+id/btnOK"
+        />
+
+
+
+
+
+
+
+</LinearLayout>

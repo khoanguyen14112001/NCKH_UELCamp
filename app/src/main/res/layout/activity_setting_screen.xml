@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.SettingScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            style="@style/in_BigHeaderText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/setting"
+            android:id="@+id/txtSettings"
+            />
+        <ImageView
+            style="@style/imageViewComback"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/imvSettingBack"
+
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintTop_toBottomOf="@id/txtSettings">
+
+            <TextView
+                style="@style/in_setting_header"
+                android:text="@string/payment_setting"
+            />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    style="@style/in_setting_imv"
+                    android:src="@drawable/ic_topup" />
+
+                <TextView
+                    style="@style/in_setting_text"
+                    android:text="@string/confirm_quick_payment" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/in_setting_header"
+                android:text="@string/secure_my_account" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    style="@style/in_setting_imv"
+                    android:src="@drawable/ic_setting_login" />
+
+                <TextView
+                    android:id="@+id/txtLoginSetting"
+                    style="@style/in_setting_text"
+                    android:text="@string/login_setting"
+                    android:clickable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    style="@style/in_setting_imv"
+                    android:src="@drawable/ic_setting_password" />
+
+                <TextView
+                    android:id="@+id/txtSetAPass"
+                    style="@style/in_setting_text"
+                    android:text="@string/set_a_password" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    style="@style/in_setting_imv"
+                    android:src="@drawable/ic_setting_autolock" />
+
+                <TextView
+                    android:id="@+id/txtSetTime"
+                    style="@style/in_setting_text"
+                    android:clickable="true"
+                    android:text="@string/automatically_lock_the_app" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/be_vietnam_light"
+                    android:gravity="end|center"
+                    android:text="@string/_1_min"
+                    android:id="@+id/txtMinutes"
+                    android:textColor="@color/xamChu"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/in_setting_header"
+                android:text="@string/secure_my_account" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    style="@style/in_setting_imv"
+                    android:src="@drawable/ic_setting_language" />
+
+                <TextView
+                    android:id="@+id/txtLanguage"
+                    style="@style/in_setting_text"
+                    android:clickable="true"
+                    android:text="@string/language" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/be_vietnam_light"
+                    android:gravity="end|center"
+                    android:id="@+id/txtLanguageSpec"
+                    android:text="@string/english"
+                    android:textColor="@color/xamChu"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/in_setting_header"
+                android:text="@string/other" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/ic_app_rec" />
+
+                <TextView
+                    style="@style/in_setting_text"
+                    android:text="@string/app_information" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/lnSignoutSetting">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/button_black_activities"
+                    android:backgroundTint="@color/red"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_signout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/be_vietnam_medium"
+                    android:gravity="center"
+                    android:text="@string/sign_out"
+                    android:textColor="@color/red"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>
