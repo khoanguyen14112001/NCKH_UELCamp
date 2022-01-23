@@ -44,7 +44,7 @@ public class LoginScreen extends AppCompatActivity {
     ReusedConstraint reusedConstraint = new ReusedConstraint(LoginScreen.this);
 
     String username, password;
-
+    // new branch
     private void linkView() {
         edtUsername = findViewById(R.id.edtUsername);
         edtPassword = findViewById(R.id.edtPassword);
