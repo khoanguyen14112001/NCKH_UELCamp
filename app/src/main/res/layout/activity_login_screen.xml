@@ -40,7 +40,7 @@
         style="@style/out_BigHeaderText"
         android:id="@+id/txtWelcome"
         android:lines="2"
-        android:text="@string/welcome_to_nmy_parking_system"
+        android:text="@string/welcome_to_n_my_uel_services_app"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.05416667"
@@ -66,10 +66,13 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/imgXeOm"
-        android:src="@drawable/img_xe_om"
+        android:src="@drawable/img_school_art"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:adjustViewBounds="true"
         app:layout_constraintTop_toBottomOf="@id/txtExistent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -181,6 +184,7 @@
         app:layout_constraintBottom_toTopOf="@id/lnSignUp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.25"
         android:id="@+id/btnLogin"
         android:text="@string/log_in" />
 

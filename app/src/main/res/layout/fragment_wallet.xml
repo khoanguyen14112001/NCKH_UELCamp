@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/xamNen"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="nguyenhoanganhkhoa.com.fragments.WalletFragment">
 
@@ -11,73 +12,75 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="20dp"
-        >
+        android:paddingTop="20dp">
+
         <TextView
+            android:id="@+id/txtWallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:textAllCaps="true"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/fjalla_one_regular"
+            android:text="@string/wallet"
+            android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="30sp"
-            android:layout_marginTop="8dp"
-            android:text="@string/wallet"
-            android:id="@+id/txtWallet"
-            />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="90dp"
-            android:layout_marginTop="13dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="13dp"
             android:layout_marginRight="13dp"
-            app:layout_constraintTop_toTopOf="@id/cvBalanceWallet"
-            app:cardCornerRadius="20dp"
             app:cardBackgroundColor="#EBE9E7"
-            app:cardElevation="0dp"/>
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintTop_toTopOf="@id/cvBalanceWallet" />
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvBalanceWallet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-
+            app:cardElevation="0dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            app:layout_constraintTop_toBottomOf="@id/txtWallet"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/cvBalanceWallet"
-            app:cardCornerRadius="20dp"
-            android:backgroundTint="@color/primary_yellow"
-            >
+            app:layout_constraintTop_toBottomOf="@id/txtWallet">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/txtMoneyDisplay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/big_shoulder_display_bold"
-                    android:textSize="30sp"
+                    android:text="150.000"
                     android:textColor="@color/black"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="30sp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:id="@+id/txtMoneyDisplay"
-                    android:text="150.000"/>
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <TextView
+                    android:id="@+id/txtVND"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/txtMoneyDisplay"
-                    android:textSize="23sp"
-                    android:text="@string/vnd"
-                    android:paddingLeft="8dp"
-                    android:textColor="@color/black"
                     android:fontFamily="@font/be_vietnam_light"
-                    android:id="@+id/txtVND"
+                    android:paddingLeft="8dp"
+                    android:text="@string/vnd"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
                     app:layout_constraintBaseline_toBaselineOf="@id/txtMoneyDisplay"
+                    app:layout_constraintLeft_toRightOf="@id/txtMoneyDisplay"
 
                     />
 
@@ -104,118 +107,169 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
         <TextView
+            android:id="@+id/txtActivities"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/cvBalanceWallet"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@string/acitivities"
             android:layout_marginStart="20dp"
             android:layout_marginTop="22dp"
-            android:textColor="@color/black"
             android:fontFamily="@font/be_vietnam_semibold"
+            android:text="@string/acitivities"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:id="@+id/txtActivities"
-            />
-        <LinearLayout
-            app:layout_constraintTop_toBottomOf="@id/txtActivities"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="16dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintTop_toBottomOf="@id/cvBalanceWallet" />
+
+        <LinearLayout
             android:id="@+id/lnQRCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical">
-            <ImageButton
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_qrcode"
-                android:padding="10dp"
-                android:id="@+id/imbQRCodeWallet"
-                android:background="@drawable/custom_button_homepage"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/qr_code"
-                android:layout_gravity="center"
-                android:fontFamily="@font/be_vietnam_semibold"
-                android:paddingTop="4dp"
-                android:textColor="@color/blackUI"/>
-
-        </LinearLayout>
-        <LinearLayout
-            app:layout_constraintTop_toBottomOf="@id/txtActivities"
-            app:layout_constraintLeft_toRightOf="@id/lnQRCode"
-            app:layout_constraintRight_toRightOf="parent"
-            android:padding="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center">
-
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lnTransfer"
+            app:layout_constraintTop_toBottomOf="@id/txtActivities">
 
             <ImageButton
+                android:id="@+id/imbQRCodeWallet"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_transaction"
+                android:background="@drawable/custom_button_homepage"
                 android:padding="10dp"
-                android:id="@+id/imbTransaction"
-                android:background="@drawable/custom_button_homepage"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_qrcode" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAllCaps="true"
-                android:text="@string/transaction"
                 android:layout_gravity="center"
                 android:fontFamily="@font/be_vietnam_semibold"
                 android:paddingTop="4dp"
-                android:textColor="@color/blackUI"/>
+                android:text="@string/qr_code"
+                android:textSize="12sp"
+                android:textColor="@color/blackUI" />
+
         </LinearLayout>
+
         <LinearLayout
-            app:layout_constraintTop_toBottomOf="@id/txtActivities"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/lnQRCode"
-            android:padding="16dp"
+            android:id="@+id/lnTransfer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/lnQRCode"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+            app:layout_constraintTop_toBottomOf="@id/txtActivities">
+
             <ImageButton
+                android:id="@+id/imbTransferWallet"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_topup"
-                android:id="@+id/imbTopUpWallet"
+                android:background="@drawable/custom_button_homepage"
                 android:padding="10dp"
-                android:background="@drawable/custom_button_homepage"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_transfer" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TOP UP"
                 android:layout_gravity="center"
                 android:fontFamily="@font/be_vietnam_semibold"
                 android:paddingTop="4dp"
-                android:textColor="@color/blackUI"/>
+                android:text="@string/transfer"
+                android:textAllCaps="true"
+                android:textSize="12sp"
+                android:textColor="@color/blackUI" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxWidth="70dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/lnQRCode"
+            app:layout_constraintTop_toBottomOf="@id/txtActivities">
+
+
+            <ImageButton
+                android:id="@+id/imbTransaction"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/custom_button_homepage"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_transaction" />
+
+
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/lnQRCode"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@string/other_activities"
+            android:layout_gravity="center"
+            android:fontFamily="@font/be_vietnam_semibold"
+            android:paddingTop="4dp"
+            android:textSize="12sp"
+            android:text="@string/transaction"
+            android:textAllCaps="true"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+            app:layout_constraintLeft_toLeftOf="@+id/linearLayout3"
+            app:layout_constraintRight_toRightOf="@+id/linearLayout3"
+            android:textColor="@color/blackUI" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/lnTransfer"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtActivities">
+
+            <ImageButton
+                android:id="@+id/imbTopUpWallet"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/custom_button_homepage"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_topup" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/be_vietnam_semibold"
+                android:paddingTop="4dp"
+                android:text="TOP UP"
+                android:textSize="12sp"
+                android:textColor="@color/blackUI" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtOtherActivities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="22dp"
-            android:textColor="@color/black"
             android:fontFamily="@font/be_vietnam_semibold"
+            android:text="@string/other_activities"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:id="@+id/txtOtherActivities"
-            />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lnQRCode" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -228,9 +282,9 @@
                 android:id="@+id/lnHelpCenter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/lnSecurityCenter"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -259,9 +313,9 @@
             <LinearLayout
                 android:id="@+id/lnSecurityCenter"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="12dp"
-
                 android:layout_height="wrap_content"
+
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/lnSetting"
                 app:layout_constraintRight_toRightOf="parent"
@@ -289,11 +343,11 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginBottom="12dp"
-
                 android:id="@+id/lnSetting"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toTopOf="@+id/lnSignout"
                 app:layout_constraintRight_toRightOf="parent"
@@ -321,10 +375,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginBottom="12dp"
                 android:id="@+id/lnSignout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

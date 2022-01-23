@@ -105,15 +105,7 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    TransAllAdapter transAllAdapter;
-    RecyclerView rcvHistoryTrans;
-    TextView txtSeeAllTrans;
-    ImageButton imbEditActivities;
     ImageView imvNoteBell;
-
-    HomeButtonAdapter homeButtonAdapter;
-    RecyclerView rcvButtonsHome;
-
     TextView txtNameDisplayUser, txtMoneyDisplay;
     ImageView imvInsideAvatar;
 
@@ -130,8 +122,6 @@ public class HomeFragment extends Fragment {
 
         // Xử lý sự kiện
         getDataFromFirebase();
-        initData();
-        initButton();
         addEvents();
         return view;
 
@@ -139,32 +129,9 @@ public class HomeFragment extends Fragment {
 
     }
 
-    private void initButton() {
-        homeButtonAdapter = new HomeButtonAdapter(getContext(),R.layout.item_home_button);
-        homeButtonAdapter.setData(getButtonList());
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
-        rcvButtonsHome.setLayoutManager(linearLayoutManager);
-
-        rcvButtonsHome.setAdapter(homeButtonAdapter);
-    }
-
-    private List<HomeButtons> getButtonList() {
-        List<HomeButtons> list = new ArrayList<>();
-        list.add(new HomeButtons(R.drawable.ic_topup, AppUtil.top_up));
-        list.add(new HomeButtons(R.drawable.ic_qrcode,AppUtil.qr_code));
-        list.add(new HomeButtons(R.drawable.ic_news,AppUtil.news));
-        list.add(new HomeButtons(R.drawable.ic_aboutus,AppUtil.about_us));
-        return list;
-
-    }
 
     private void linkView(View view) {
-        rcvHistoryTrans = view.findViewById(R.id.rcvHistoryTrans);
-        txtSeeAllTrans = view.findViewById(R.id.txtSeeAllTrans);
         imvNoteBell = view.findViewById(R.id.imvNoteBell);
-        imbEditActivities = view.findViewById(R.id.imbEditActivities);
-        rcvButtonsHome = view.findViewById(R.id.rcvButtonsHome);
 
         txtNameDisplayUser = view.findViewById(R.id.txtNameDisplayUser);
         imvInsideAvatar = view.findViewById(R.id.imvInsideAvatar);
@@ -173,54 +140,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void addEvents() {
-
-        imbEditActivities.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                CustomDialogEditActivities dialog = new CustomDialogEditActivities(getActivity(),
-//                        R.layout.custom_dialog_edit_activities,imbEditActivities);
-//                dialog.cvEdit.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view){
-//                        Intent intent = new Intent(getContext(),EditActivitiesScreen.class);
-//                        startActivity(intent);
-//
-//                    }
-//                });
-//                dialog.show();
-
-
-
-
-                Context wrapper = new ContextThemeWrapper(getContext(),R.style.PopUpCustomStyle);
-                PopupMenu popupMenu = new PopupMenu(wrapper,imbEditActivities);
-                popupMenu.getMenuInflater().inflate(R.menu.menu_edit_activities,popupMenu.getMenu());
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        Intent intent = new Intent(getContext(),EditActivitiesScreen.class);
-                        startActivity(intent);
-                        return true;
-                    }
-                });
-                popupMenu.show();
-
-
-            }
-        });
-
-
-        txtSeeAllTrans.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ShowAllTransactionScreen.class);
-                startActivity(intent);
-            }
-        });
-
-
-
         imvNoteBell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -238,38 +157,6 @@ public class HomeFragment extends Fragment {
         });
     }
 
-
-    private void initData() {
-        try {
-            transAllAdapter = new TransAllAdapter(getContext());
-            transAllAdapter.setData(getTransactionList());
-
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
-            rcvHistoryTrans.setLayoutManager(linearLayoutManager);
-
-            rcvHistoryTrans.setAdapter(transAllAdapter);
-        }
-        catch (Exception e){
-            Log.d("Error", "Cannot load adapter in HomeFragment: " + e);
-        }
-
-    }
-
-
-    private List<Transaction> getTransactionList() {
-        List<Transaction> list = new ArrayList<>();
-        list.add(new Transaction("Top up","20 Oct, 10:07 ","+50.000",R.drawable.ic_topup,R.drawable.ic_tickbutton));
-        list.add(new Transaction("Parking payment","10 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_tickbutton));
-        list.add(new Transaction("Parking payment","09 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_tickbutton));
-        list.add(new Transaction("Parking payment","08 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_tickbutton));
-        list.add(new Transaction("Parking payment","07 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_tickbutton));
-        list.add(new Transaction("Parking payment","06 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_tickbutton));
-        list.add(new Transaction("Parking payment","05 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_tickbutton));
-        list.add(new Transaction("Parking payment","04 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_warning_red));
-        list.add(new Transaction("Parking payment","03 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_warning_red));
-
-        return list;
-    }
     private void getDataFromFirebase(){
         AppUtil.databaseReference.child(AppUtil.DATA_OBJECT).child(AppUtil.USERNAME_AFTER_LOGGIN)
                 .addValueEventListener(new ValueEventListener() {
