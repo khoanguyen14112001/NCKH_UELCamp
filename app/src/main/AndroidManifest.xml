@@ -13,9 +13,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        tools:ignore="LockedOrientationActivity"
-        android:theme="@style/Theme.MyApplication">
-
+        android:theme="@style/Theme.MyApplication"
+        tools:ignore="LockedOrientationActivity">
+        <activity
+            android:name=".home.TransferMainScreen"
+            android:exported="false" />
         <activity
             android:name=".home.EnterNewPasswordScreen"
             android:exported="true"
@@ -91,7 +93,7 @@
         <activity
             android:name=".home.HomePageScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -117,8 +119,7 @@
         <activity
             android:name=".forgotpass.CreateNewPasswordScreen"
             android:exported="true"
-            android:screenOrientation="portrait"
-             />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".forgotpass.VerificationScreen"
             android:exported="true"
@@ -133,14 +134,10 @@
         <activity
             android:name=".login.LoginScreen"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".login.SplashScreen"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name="nguyenhoanganhkhoa.com.test.MainActivity"
             android:exported="true"

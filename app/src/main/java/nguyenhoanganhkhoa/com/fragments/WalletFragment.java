@@ -27,6 +27,7 @@ import nguyenhoanganhkhoa.com.myapplication.home.SecurityCenterScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.SettingScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.ShowAllTransactionScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.TopUpMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.TransferMainScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -78,7 +79,7 @@ public class WalletFragment extends Fragment {
         }
     }
 
-    ImageButton imbTopUpWallet, imbQRCodeWallet, imbTransaction;
+    ImageButton imbTopUpWallet, imbQRCodeWallet, imbTransaction, imbTransferWallet;
     LinearLayout lnHelpCenter,lnSetting,lnSignout ,lnSecurityCenter;
 
     TextView txtMoneyDisplay;
@@ -168,6 +169,14 @@ public class WalletFragment extends Fragment {
             }
         });
 
+        imbTransferWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), TransferMainScreen.class);
+                startActivity(intent);
+            }
+        });
+
     }
     private void linkView(View view) {
         imbTopUpWallet = view.findViewById(R.id.imbTopUpWallet);
@@ -179,6 +188,7 @@ public class WalletFragment extends Fragment {
         lnSecurityCenter= view.findViewById(R.id.lnSecurityCenter);
 
         txtMoneyDisplay= view.findViewById(R.id.txtMoneyDisplay);
+        imbTransferWallet = view.findViewById(R.id.imbTransferWallet);
 
     }
     ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());

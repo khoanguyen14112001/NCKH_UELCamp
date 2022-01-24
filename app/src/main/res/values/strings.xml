@@ -308,6 +308,10 @@
     <string name="get_started">Get Started</string>
     <string name="welcome_to_n_my_uel_services_app">Welcome to \n my UEL services app!</string>
     <string name="transfer">Transfer</string>
+    <string name="search_receiver">Search receiver here</string>
+    <string name="quick_access">Quick access</string>
+    <string name="all_friends">All friends</string>
+    <string name="ho_ng">Hoàng Ý</string>
 
     <array name="initial_slider_values">
         <item>0</item>
