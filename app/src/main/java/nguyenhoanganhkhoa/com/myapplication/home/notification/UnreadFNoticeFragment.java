@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.notification;
 
 import android.os.Bundle;
 
@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
 import nguyenhoanganhkhoa.com.models.Notification;
@@ -23,10 +22,10 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FromAdminNoticeFragment#newInstance} factory method to
+ * Use the {@link UnreadFNoticeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FromAdminNoticeFragment extends Fragment {
+public class UnreadFNoticeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,7 +36,7 @@ public class FromAdminNoticeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FromAdminNoticeFragment() {
+    public UnreadFNoticeFragment() {
         // Required empty public constructor
     }
 
@@ -47,11 +46,11 @@ public class FromAdminNoticeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FromAdminNoticeFragment.
+     * @return A new instance of fragment UnreadFNoticeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FromAdminNoticeFragment newInstance(String param1, String param2) {
-        FromAdminNoticeFragment fragment = new FromAdminNoticeFragment();
+    public static UnreadFNoticeFragment newInstance(String param1, String param2) {
+        UnreadFNoticeFragment fragment = new UnreadFNoticeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,61 +66,68 @@ public class FromAdminNoticeFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
     RecyclerView rcvDisplayNotifications;
-    ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
     DialogNotificationAdapter adapter;
-    SearchView searchView;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
+    SearchView searchview;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_from_admin_notice, container, false);
+        View view = inflater.inflate(R.layout.fragment_unread_f_notice, container, false);
 
         linkView(view);
+        addEvent();
         initAdapter();
-        reusedConstraint.addSearchForNotification(searchView,adapter);
+        reusedConstraint.addSearchForNotification(searchview, adapter);
 
         return view;
     }
 
-    private void linkView(View view) {
-        rcvDisplayNotifications = view.findViewById(R.id.rcvDisplayNotifications);
-        searchView = requireActivity().findViewById(R.id.svNotification);
-    }
-
-
     private void initAdapter() {
-        try {
+        try{
             adapter = new DialogNotificationAdapter(getContext(),R.layout.item_notification_all_bold);
-
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
+            rcvDisplayNotifications.setAdapter(adapter);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
             rcvDisplayNotifications.setLayoutManager(linearLayoutManager);
 
             adapter.setData(getListNotify());
             rcvDisplayNotifications.setAdapter(adapter);
         }
-        catch (Exception e) {
-            Log.d("Error", "Fail to load adapter in FromAdminNoticeFragment: " + e);
+        catch (Exception e){
+            Log.d("Error", "Fail to set adapter in UnreadFragment: " + e);
         }
 
     }
 
     private List<Notification> getListNotify() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-
+        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
+                "money to pay, please top up","01 Nov, 18:45"));
+        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
+                "money to pay, please top up","01 Nov, 18:45"));
+        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
+                "money to pay, please top up","01 Nov, 18:45"));
+        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
+                "money to pay, please top up","01 Nov, 18:45"));
+        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
+                "money to pay, please top up","01 Nov, 18:45"));
+        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"There was an error occurs in your transaction, " +
+                "please try again","01 Nov, 18:45"));
         return list;
+
     }
+
+    private void addEvent() {
+    }
+
+    private void linkView(View view) {
+        rcvDisplayNotifications = view.findViewById(R.id.rcvDisplayNotifications);
+        searchview = requireActivity().findViewById(R.id.svNotification);
+    }
+
+
 }

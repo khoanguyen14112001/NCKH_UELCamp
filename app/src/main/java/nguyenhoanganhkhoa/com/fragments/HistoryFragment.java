@@ -1,7 +1,5 @@
 package nguyenhoanganhkhoa.com.fragments;
 
-import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,21 +12,15 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.SearchView;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.adapter.DateAdapter;
-import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilter;
 import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilterHistory;
 import nguyenhoanganhkhoa.com.models.Date;
 import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.ShowAllTransactionScreen;
 
 /**
  * A simple {@link Fragment} subclass.

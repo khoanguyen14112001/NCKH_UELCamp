@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.topup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -91,7 +92,7 @@ public class TopUpQRCodeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 updateBalanceToFirebase();
-                startActivity(new Intent(getContext(),HomePageScreen.class));
+                startActivity(new Intent(getContext(), HomePageScreen.class));
             }
         });
     }

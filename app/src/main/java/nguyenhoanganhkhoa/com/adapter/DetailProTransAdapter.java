@@ -2,29 +2,20 @@ package nguyenhoanganhkhoa.com.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.models.Date;
 import nguyenhoanganhkhoa.com.models.DetailProTrans;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.ContactSupportScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.DetailTransaction;
-import nguyenhoanganhkhoa.com.myapplication.home.HelpCenterDetailScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.HelpCenterOutFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.helpcenter.HelpCenterDetailScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class DetailProTransAdapter extends RecyclerView.Adapter<DetailProTransAdapter.ViewHolder> {

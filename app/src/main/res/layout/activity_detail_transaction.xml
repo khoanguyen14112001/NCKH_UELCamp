@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_yellow"
-    tools:context=".home.DetailTransaction">
+    tools:context=".home.transaction.DetailTransaction">
 
 
 

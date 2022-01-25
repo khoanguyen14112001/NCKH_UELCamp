@@ -16,7 +16,7 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.ContactSupportScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.helpcenter.ContactSupportScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {

@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.helpcenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -11,21 +11,30 @@ import android.widget.ImageView;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 
-public class TransferMainScreen extends AppCompatActivity {
+public class HelpCenterDetailScreen extends AppCompatActivity {
+
     ImageView imvBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transfer_main_screen);
+        setContentView(R.layout.activity_help_center_detail_screen);
+
         linkView();
         addFragment();
         addEvents();
 
+
+
     }
 
-    private void linkView() {
-        imvBack = findViewById(R.id.imvBackTopUpMain);
 
+    @Override
+    public void onBackPressed() {
+        if(getFragmentManager().getBackStackEntryCount()>0) {
+            getFragmentManager().popBackStack();
+        }
+        else HelpCenterDetailScreen.super.onBackPressed();
     }
 
     private void addEvents() {
@@ -35,9 +44,13 @@ public class TransferMainScreen extends AppCompatActivity {
                 if(getFragmentManager().getBackStackEntryCount()>0) {
                     getFragmentManager().popBackStack();
                 }
-                else TransferMainScreen.super.onBackPressed();
+                else HelpCenterDetailScreen.super.onBackPressed();
             }
         });
+    }
+
+    private void linkView() {
+        imvBack = findViewById(R.id.imvBack);
     }
 
     private void addFragment() {
@@ -46,13 +59,16 @@ public class TransferMainScreen extends AppCompatActivity {
         try {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-            TransferHomeFragment transferHomeFragment = new TransferHomeFragment();
+            HelpCenterOutFragment fragment = new HelpCenterOutFragment();
 
-            fragmentTransaction.add(R.id.lnFragmentRelace, transferHomeFragment);
+            fragmentTransaction.add(R.id.layout_fragment, fragment);
             fragmentTransaction.commit();
         }
-        catch (Exception e) {
-            Log.d("Error", "Fail to addFragment in TopUpScreen: " + e);
+        catch (Exception e){
+            Log.d("Error", "Fail to add fragment in HelpCenterScreen: " + e);
         }
+
     }
+
+
 }

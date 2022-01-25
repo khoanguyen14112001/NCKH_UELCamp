@@ -6,7 +6,7 @@
     android:layout_marginTop="20dp"
     android:overScrollMode="never"
     android:orientation="vertical"
-    tools:context=".home.TransNoticeFragment">
+    tools:context=".home.notification.TransNoticeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

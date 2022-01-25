@@ -1,11 +1,10 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.transaction;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +18,7 @@ import nguyenhoanganhkhoa.com.adapter.DetailProTransAdapter;
 import nguyenhoanganhkhoa.com.models.DetailProTrans;
 import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class DetailTransaction extends AppCompatActivity {
@@ -108,7 +108,7 @@ public class DetailTransaction extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DetailTransaction.this,HomePageScreen.class);
+                Intent intent = new Intent(DetailTransaction.this, HomePageScreen.class);
                 startActivity(intent);
             }
         });

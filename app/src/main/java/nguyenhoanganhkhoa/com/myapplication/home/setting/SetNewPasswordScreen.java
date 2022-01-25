@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.setting;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -97,7 +97,7 @@ public class SetNewPasswordScreen extends AppCompatActivity {
                                 String pass = snapshot.child(AppUtil.FB_PASSWORD).getValue(String.class);
                                 if(password.equals(pass)){
                                     setCorrectPass();
-                                    startActivity(new Intent(SetNewPasswordScreen.this,EnterNewPasswordScreen.class));
+                                    startActivity(new Intent(SetNewPasswordScreen.this, EnterNewPasswordScreen.class));
                                 }
                                 else{
                                     txtErrorCurrentPassword.setText(R.string.wrong_password_please_try_again);

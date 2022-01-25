@@ -1,10 +1,12 @@
 package nguyenhoanganhkhoa.com.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -87,6 +89,21 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
 
         }
 
+        if(layout_item == R.layout.item_friends_add){
+            setFriend(holder,friends);
+            holder.btnAddFriendItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!friends.isSendRequest()){
+                        friends.setSendRequest(true);
+                        holder.btnAddFriendItem.setBackground(context.getDrawable(R.drawable.custom_button_dialog_black));
+                        holder.btnAddFriendItem.setText("Request sent");
+                        holder.btnAddFriendItem.setTextColor(context.getColor(R.color.white));
+                    }
+                }
+            });
+        }
+
     }
 
     private void setFriend(FriendAdapter.ViewHolder holder, Friends friends){
@@ -119,6 +136,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtNameFriend, txtPhoneFriend;
         ImageView imvFriend, btnLove;
+        Button btnAddFriendItem;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -127,6 +145,8 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
             txtPhoneFriend =itemView.findViewById(R.id.txtPhoneFriend);
             imvFriend =itemView.findViewById(R.id.imvFriend);
             btnLove =itemView.findViewById(R.id.btnLove);
+
+            btnAddFriendItem =itemView.findViewById(R.id.btnAddFriendItem);
         }
     }
 }

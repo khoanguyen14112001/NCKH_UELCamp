@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -80,7 +81,7 @@ public class QRCodeScreen extends AppCompatActivity {
         viewHoldImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QRCodeScreen.this,TopUpMainScreen.class);
+                Intent intent = new Intent(QRCodeScreen.this, TopUpMainScreen.class);
                 startActivity(intent);
             }
         });
@@ -108,9 +109,15 @@ public class QRCodeScreen extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        long balance = snapshot.child(AppUtil.FB_BALANCE).getValue(Long.class);
-                        double balanceDisplay = Double.parseDouble(String.valueOf(balance));
-                        txtMoneyDisplay.setText(reusedConstraint.formatCurrency(balanceDisplay));
+                        try {
+                            long balance = snapshot.child(AppUtil.FB_BALANCE).getValue(Long.class);
+                            double balanceDisplay = Double.parseDouble(String.valueOf(balance));
+                            txtMoneyDisplay.setText(reusedConstraint.formatCurrency(balanceDisplay));
+                        }
+                        catch (Exception e){
+                            Log.d("Error", "Fail to load data in QR Code Screen " + e);
+                        }
+
                     }
 
                     @Override

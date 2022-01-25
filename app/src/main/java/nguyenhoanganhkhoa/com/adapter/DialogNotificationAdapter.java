@@ -24,12 +24,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.customdialog.CustomDialog;
 import nguyenhoanganhkhoa.com.customdialog.CustomDialogNotify;
 import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.AllNotificationScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.UnreadFNoticeFragment;
 
 public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotificationAdapter.ViewHolder> implements Filterable {
 

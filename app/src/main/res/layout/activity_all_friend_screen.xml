@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.transfer.AllFriendScreen">
+    <ImageView
+        style="@style/imageViewComback"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/imvBackAllFriends"
+        />
+
+    <TextView
+        style="@style/in_BigHeaderText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/all_friends"
+        android:id="@+id/txtTopUp"
+        android:layout_marginHorizontal="20dp"
+        />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/svFriends"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/searchview_custom"
+        android:focusable="false"
+        app:iconifiedByDefault="false"
+        app:layout_constraintTop_toBottomOf="@id/txtTopUp"
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="@string/search"
+        app:searchIcon="@drawable/ic_search"
+        android:layout_marginHorizontal="20dp"
+
+        app:theme="@style/SearchViewStyle" />
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/buttonYellow"
+        android:text="@string/add_new_friend"
+        app:layout_constraintTop_toBottomOf="@id/svFriends"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btnAddFriend"
+        android:layout_marginHorizontal="20dp"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/rcvFriends"
+        android:layout_marginHorizontal="20dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAddFriend"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,12 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.models.Images;
 import nguyenhoanganhkhoa.com.models.QuestionsCategories;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.HelpCenterDetailScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.helpcenter.HelpCenterDetailScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
-import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.ViewHolder> implements Filterable {
 

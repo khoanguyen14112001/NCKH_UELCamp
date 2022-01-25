@@ -1,29 +1,19 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.notification;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
-import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilter;
 import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilterHistory;
-import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
 
 public class AllNotificationScreen extends AppCompatActivity {

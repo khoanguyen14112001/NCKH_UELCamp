@@ -312,6 +312,14 @@
     <string name="quick_access">Quick access</string>
     <string name="all_friends">All friends</string>
     <string name="ho_ng">Hoàng Ý</string>
+    <string name="search">Search</string>
+    <string name="add_new_friend">Add new friend</string>
+    <string name="add_friend">Add friend</string>
+    <string name="people_you_may_know">People you may know</string>
+    <string name="change">Change</string>
+    <string name="enter_message_0_400">Enter message 0/400</string>
+    <string name="enter_message">Enter message...</string>
+    <string name="transfer_money">Transfer money</string>
 
     <array name="initial_slider_values">
         <item>0</item>

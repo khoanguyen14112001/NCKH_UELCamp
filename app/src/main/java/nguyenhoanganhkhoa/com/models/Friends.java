@@ -5,6 +5,15 @@ public class Friends {
     private String friendName;
     private String friendPhone;
     private boolean isFavoriteFriend;
+    private boolean isSendRequest = false;
+
+    public boolean isSendRequest() {
+        return isSendRequest;
+    }
+
+    public void setSendRequest(boolean sendRequest) {
+        isSendRequest = sendRequest;
+    }
 
     public boolean isMaleFriend() {
         return isMaleFriend;
@@ -45,4 +54,15 @@ public class Friends {
         this.isFavoriteFriend = isFavoriteFriend;
 
     }
+
+    public Friends(boolean isMaleFriend, String friendName, String friendPhone, boolean isFavoriteFriend, boolean isSendRequest) {
+        this.isMaleFriend = isMaleFriend;
+        this.friendName = friendName;
+        this.friendPhone = friendPhone;
+        this.isFavoriteFriend = isFavoriteFriend;
+        this.isSendRequest = isSendRequest;
+
+    }
+
+
 }

@@ -1,57 +1,26 @@
 package nguyenhoanganhkhoa.com.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import nguyenhoanganhkhoa.com.adapter.TransAllAdapter;
 import nguyenhoanganhkhoa.com.customdialog.CustomDialogFragmentHome;
-import nguyenhoanganhkhoa.com.models.Date;
-import nguyenhoanganhkhoa.com.models.HomeButtons;
-import nguyenhoanganhkhoa.com.models.Transaction;
-import nguyenhoanganhkhoa.com.myapplication.home.TopUpMainScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.AboutUsScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.AllNotificationScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.NewsScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.notification.AllNotificationScreen;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.ShowAllTransactionScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 

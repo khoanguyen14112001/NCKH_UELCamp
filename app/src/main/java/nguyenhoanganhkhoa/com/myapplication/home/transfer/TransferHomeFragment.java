@@ -1,5 +1,6 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.transfer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,12 +12,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.FriendAdapter;
-import nguyenhoanganhkhoa.com.adapter.MonthTransAdapter;
 import nguyenhoanganhkhoa.com.models.Friends;
 import nguyenhoanganhkhoa.com.myapplication.R;
 
@@ -69,6 +70,7 @@ public class TransferHomeFragment extends Fragment {
 
     RecyclerView rcvQuickAccess, rcvAllFriends;
     FriendAdapter adapter;
+    TextView txtSeeAllFriend;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -115,7 +117,7 @@ public class TransferHomeFragment extends Fragment {
 
     }
 
-    private List<Friends> getListFriend() {
+    public static List<Friends> getListFriend() {
         List<Friends> list = new ArrayList<>();
         list.add(new Friends(false,"Ý Heo","090855577",true));
         list.add(new Friends(true,"Anh Khoa","090855577",true));
@@ -134,9 +136,16 @@ public class TransferHomeFragment extends Fragment {
     private void linkView(View view) {
         rcvQuickAccess = view.findViewById(R.id.rcvQuickAccess);
         rcvAllFriends = view.findViewById(R.id.rcvAllFriends);
+        txtSeeAllFriend = view.findViewById(R.id.txtSeeAllFriend);
     }
 
     private void addEvents() {
+        txtSeeAllFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), AllFriendScreen.class));
+            }
+        });
 
     }
 

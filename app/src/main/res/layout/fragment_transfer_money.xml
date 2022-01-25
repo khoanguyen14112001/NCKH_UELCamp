@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.transfer.TransferMoneyFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:background="@color/primary_yellow"
+        android:id="@+id/lnFirst"
+        app:layout_constraintTop_toTopOf="parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:src="@drawable/img_avatar_female"
+            android:id="@+id/imvAva"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imvAva"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/in_SmallHeaderText"
+                android:text="Hoang Y"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0971759040"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/be_vietnam_light"
+                />
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/change"
+            android:background="@drawable/custom_button_dialog"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lnFirst"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:paddingHorizontal="20dp"
+        android:text="Enter the amount you want to transfer"
+        android:fontFamily="@font/be_vietnam_regular"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/text"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="20dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/cons2"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        >
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/edtAmount"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/imbMinus"
+            app:layout_constraintRight_toLeftOf="@id/imbPlus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/white"
+            android:hint="0"
+            android:text="0"
+            android:maxLength="6"
+            android:textColorHint="@color/xamChu"
+            android:inputType="numberDecimal"
+            android:textSize="50sp"
+            android:fontFamily="@font/big_shoulder_display_bold"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="25dp"
+            android:src="@drawable/ic_minus"
+            android:id="@+id/imbMinus"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="25dp"
+            android:id="@+id/imbPlus"
+            android:src="@drawable/ic_plus"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:id="@+id/cons3"
+        app:layout_constraintTop_toBottomOf="@id/cons2">
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/view_custom_corner_small_blackstroke"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:paddingHorizontal="2dp"
+            android:text="@string/enter_message_0_400"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/view1"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/be_vietnam_light"
+            android:gravity="top"
+            android:hint="@string/enter_message"
+            android:inputType="textMultiLine"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/xamChu"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/view1"
+            app:layout_constraintLeft_toLeftOf="@id/view1"
+            app:layout_constraintRight_toRightOf="@id/view1"
+            app:layout_constraintTop_toTopOf="@id/view1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="@string/transfer_money"
+        app:layout_constraintTop_toBottomOf="@id/cons3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        style="@style/buttonYellow"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,14 +19,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import nguyenhoanganhkhoa.com.customdialog.CustomDialogTwoButton;
-import nguyenhoanganhkhoa.com.myapplication.home.HelpCenterScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.helpcenter.HelpCenterScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.SecurityCenterScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.SettingScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.ShowAllTransactionScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.TopUpMainScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.TransferMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transaction.ShowAllTransactionScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;

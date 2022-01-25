@@ -3,7 +3,6 @@ package nguyenhoanganhkhoa.com.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.models.DetailProTrans;
 import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.DetailTransaction;
+import nguyenhoanganhkhoa.com.myapplication.home.transaction.DetailTransaction;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class TransAllAdapter extends RecyclerView.Adapter<TransAllAdapter.ViewHolder> {

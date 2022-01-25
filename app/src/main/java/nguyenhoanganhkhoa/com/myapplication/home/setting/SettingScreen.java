@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.setting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetComponent;
-import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilter;
 import nguyenhoanganhkhoa.com.customdialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
@@ -46,7 +46,7 @@ public class SettingScreen extends AppCompatActivity {
         txtSetAPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SettingScreen.this,SetNewPasswordScreen.class));
+                startActivity(new Intent(SettingScreen.this, SetNewPasswordScreen.class));
             }
         });
         txtMinutes.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +87,7 @@ public class SettingScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(AppUtil.SIGNAL_COMEBACK_FOR_SETTING == AppUtil.SIGNAL_TO_HOME){
-                    startActivity(new Intent(SettingScreen.this,HomePageScreen.class));
+                    startActivity(new Intent(SettingScreen.this, HomePageScreen.class));
                     AppUtil.SIGNAL_COMEBACK_FOR_SETTING = 0;
                 }
                 else{

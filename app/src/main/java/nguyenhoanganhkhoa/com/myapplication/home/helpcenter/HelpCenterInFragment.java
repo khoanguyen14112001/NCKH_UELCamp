@@ -1,8 +1,6 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.helpcenter;
 
 import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -14,11 +12,8 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -35,11 +30,11 @@ import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.customdialog.CustomDialog;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.signup.PersonalInformationSetScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transaction.ShowAllTransactionScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 /**
@@ -259,10 +254,10 @@ public class HelpCenterInFragment extends Fragment {
                         @Override
                         public void onClick(View view) {
                             if(AppUtil.HELP_PROBLEM_CONTEXT.equals(ContactSupportScreen.class.toString())){
-                                startActivity(new Intent(getContext(),HomePageScreen.class));
+                                startActivity(new Intent(getContext(), HomePageScreen.class));
                             }
                             else{
-                                startActivity(new Intent(getContext(),ShowAllTransactionScreen.class));
+                                startActivity(new Intent(getContext(), ShowAllTransactionScreen.class));
                             }
                         }
                     });

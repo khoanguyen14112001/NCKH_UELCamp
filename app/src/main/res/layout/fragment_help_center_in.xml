@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="20dp"
-    tools:context=".home.HelpCenterInFragment">
+    tools:context=".home.helpcenter.HelpCenterInFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
