@@ -37,6 +37,22 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
 
     private int layoutItem;
 
+    public DialogNotificationAdapter(Context context, int layoutItem, int screen) {
+        this.context = context;
+        this.layoutItem = layoutItem;
+        this.screen = screen;
+    }
+
+    private int screen = 0;
+
+    public static final String NOTIFICATION_FRIEND = "friend";
+    public static final String NOTIFICATION_WALLET = "wallet";
+    public static final String NOTIFICATION_PARKING = "parking";
+
+
+    public static final String NOTIFICATION_GENDER_MALE = "male";
+    public static final String NOTIFICATION_GENDER_FEMALE = "female";
+
     public DialogNotificationAdapter(Context context, int layoutItem) {
 
         this.context = context;
@@ -52,13 +68,30 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
     }
 
 
+    private static int TYPE_FRIEND_REQUEST = 1;
+    private static int TYPE_NOMAL = 2;
+    @Override
+    public int getItemViewType(int position) {
+        Notification notification = mNotification.get(position);
+        if(notification.isFriendRequest()){
+            return TYPE_FRIEND_REQUEST;
+        }
+        else{
+            return TYPE_NOMAL;
+        }
+    }
 
     @NonNull
     @Override
     public DialogNotificationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(layoutItem,parent,false);
-
+        View view;
+        if(viewType == TYPE_FRIEND_REQUEST && screen !=1){
+            view = inflater.inflate(R.layout.item_notification_friend_request,parent,false);
+        }
+        else{
+            view =  inflater.inflate(layoutItem,parent,false);
+        }
         return new ViewHolder(view);
     }
 
@@ -71,31 +104,49 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
         }
         holder.txtNotificationDate.setText(notification.getNotificationDate());
         holder.txtNotificationContent.setText(notification.getNotificationContent());
-        holder.imvThumbNotification.setImageResource(notification.getNotificationThumb());
-
-        changeReadImage(holder);
-        addEvents(holder, position);
+        switch (notification.getNotificationType()){
+            case NOTIFICATION_FRIEND:
+                if(notification.getGender().equals(NOTIFICATION_GENDER_MALE)){
+                    holder.imvThumbNotification.setImageResource(R.drawable.img_avatar_male);
+                }
+                else{
+                    holder.imvThumbNotification.setImageResource(R.drawable.img_avatar_female);
+                }
+                break;
+            case NOTIFICATION_WALLET:
+                holder.imvThumbNotification.setImageResource(R.drawable.img_nomoney_notice);
+                break;
+            case NOTIFICATION_PARKING:
+                holder.imvThumbNotification.setImageResource(R.drawable.img_notice);
+                break;
+        }
+        setNotificationStatus(holder,notification);
+        addEvents(holder, notification, position);
 
     }
-
-
-    private void addEvents(DialogNotificationAdapter.ViewHolder holder, int position) {
-
-        if(layoutItem==R.layout.item_notification)
-        {
-            holder.layout_item_notification.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    changeNotice(holder);
-                }
-            });
+    private void setNotificationStatus(DialogNotificationAdapter.ViewHolder holder, Notification notification){
+        if(notification.isNewNotification()){
+            holder.viewNewsNotification.setVisibility(View.VISIBLE);
+            Typeface typeface = context.getResources().getFont(R.font.be_vietnam_bold);
+            holder.txtNotificationContent.setTypeface(typeface);
         }
+        else{
+            holder.viewNewsNotification.setVisibility(View.GONE);
+            Typeface typeface = context.getResources().getFont(R.font.be_vietnam_light);
+            holder.txtNotificationContent.setTypeface(typeface);
+        }
+    }
+
+    private void addEvents(DialogNotificationAdapter.ViewHolder holder, Notification notification, int position){
         if(layoutItem==R.layout.item_notification_all_bold)
         {
             holder.layout_item_notification_all_bold.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    changeNotice(holder);
+                    if(notification.isNewNotification()){
+                        notification.setNewNotification(false);
+                        setNotificationStatus(holder, notification);
+                    }
                     displayFullNotification(position);
                 }
             });
@@ -106,7 +157,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
                     PopupMenu popupMenu = new PopupMenu(wrapper,holder.imbMore);
                     popupMenu.getMenuInflater().inflate(R.menu.menu_edit_notification,popupMenu.getMenu());
 
-                    if(changeReadImage(holder)){
+                    if(!notification.isNewNotification()){
                         popupMenu.getMenu().findItem(R.id.mnMarkAsRead).setTitle("Mark as unread");
                     }
                     else{
@@ -117,10 +168,12 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
                         public boolean onMenuItemClick(MenuItem menuItem) {
                             if(menuItem.getItemId()==R.id.mnMarkAsRead){
                                 if(menuItem.getTitle()=="Mark as read"){
-                                    changeNotice(holder);
+                                    notification.setNewNotification(false);
+                                    setNotificationStatus(holder, notification);
                                 }
                                 else{
-                                    changeNoticeToUnread(holder);
+                                    notification.setNewNotification(true);
+                                    setNotificationStatus(holder, notification);
                                 }
                             }
                             if(menuItem.getItemId()==R.id.mnDelete){
@@ -133,6 +186,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
                 }
             });
         }
+
     }
 
     private void displayFullNotification(int position) {
@@ -148,7 +202,6 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
         dialog.show();
 
     }
-
     private void deleteItem (int position){
         try {
             mNotification.remove(position);
@@ -163,60 +216,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
 
     }
 
-    private boolean changeReadImage(DialogNotificationAdapter.ViewHolder holder) {
-        Drawable.ConstantState drawable = holder.imvThumbNotification.getDrawable().getConstantState();
-        Drawable.ConstantState drawable1 = context.getResources().getDrawable(R.drawable.img_notice).getConstantState();
-        Drawable.ConstantState drawable2 = context.getResources().getDrawable(R.drawable.img_nomoney_notice).getConstantState();
-        if(drawable==drawable1 || drawable==drawable2)
-        {
-            Typeface typeface = context.getResources().getFont(R.font.be_vietnam_light);
-            holder.txtNotificationContent.setTypeface(typeface);
-            return true;
-        }
-        else{
-            Typeface typeface = context.getResources().getFont(R.font.be_vietnam_bold);
-            holder.txtNotificationContent.setTypeface(typeface);
-            return false;
-        }
-    }
 
-    private void changeNotice(DialogNotificationAdapter.ViewHolder holder) {
-        Typeface typeface = context.getResources().getFont(R.font.be_vietnam_light);
-        holder.txtNotificationContent.setTypeface(typeface);
-
-        Drawable.ConstantState drawable = holder.imvThumbNotification.getDrawable().getConstantState();
-        Drawable.ConstantState drawable1 = context.getResources().getDrawable(R.drawable.img_newnotice).getConstantState();
-        Drawable.ConstantState drawable2 = context.getResources().getDrawable(R.drawable.ic_img_nomoney_notice_new).getConstantState();
-
-        if(drawable == drawable1)
-        {
-            holder.imvThumbNotification.setImageResource(R.drawable.img_notice);
-        }
-        if(drawable == drawable2)
-        {
-            holder.imvThumbNotification.setImageResource(R.drawable.img_nomoney_notice);
-        }
-
-    }
-
-    private void changeNoticeToUnread(DialogNotificationAdapter.ViewHolder holder) {
-        Typeface typeface = context.getResources().getFont(R.font.be_vietnam_bold);
-        holder.txtNotificationContent.setTypeface(typeface);
-
-        Drawable.ConstantState drawable = holder.imvThumbNotification.getDrawable().getConstantState();
-        Drawable.ConstantState drawable1 = context.getResources().getDrawable(R.drawable.img_notice).getConstantState();
-        Drawable.ConstantState drawable2 = context.getResources().getDrawable(R.drawable.img_nomoney_notice).getConstantState();
-
-        if(drawable == drawable1)
-        {
-            holder.imvThumbNotification.setImageResource(R.drawable.img_newnotice);
-        }
-        if(drawable == drawable2)
-        {
-            holder.imvThumbNotification.setImageResource(R.drawable.ic_img_nomoney_notice_new);
-        }
-
-    }
 
     @Override
     public int getItemCount() {
@@ -270,10 +270,14 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtNotificationDate,txtNotificationContent;
         ImageView imvThumbNotification;
+        View viewNewsNotification;
+
         ConstraintLayout layout_item_notification,layout_item_notification_all_bold;
         ImageButton imbMore;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            viewNewsNotification = itemView.findViewById(R.id.viewNewsNotification);
+
             txtNotificationDate = itemView.findViewById(R.id.txtNotificationDate);
             txtNotificationContent = itemView.findViewById(R.id.txtNotificationContent);
             imvThumbNotification = itemView.findViewById(R.id.imvThumbNotification);

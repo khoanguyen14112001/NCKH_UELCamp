@@ -1,16 +1,24 @@
 package nguyenhoanganhkhoa.com.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -18,6 +26,10 @@ import java.util.List;
 import nguyenhoanganhkhoa.com.models.Friends;
 import nguyenhoanganhkhoa.com.models.KidTerm;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMain2Screen;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMoneyDetailFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMoneyFragment;
 
 public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder> {
     private Context context;
@@ -61,6 +73,17 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
 
         if(layout_item == R.layout.item_friends_quickacess){
             setFriend(holder,friends);
+            holder.lnQuickAccess.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((FragmentActivity)context).getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.lnFragmentReplaceTransfer, new TransferMoneyFragment()).addToBackStack(null)
+                            .commit();
+                }
+            });
+
+
         }
 
         if(layout_item == R.layout.item_friends_all){
@@ -86,6 +109,30 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
                 }
             });
 
+            if(screen ==1){
+                holder.consAllFriend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((FragmentActivity)context).getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.lnFragmentReplaceTransfer, new TransferMoneyFragment()).addToBackStack(null)
+                            .commit();
+                }
+            });
+            }
+            if (screen != 1){
+                holder.consAllFriend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    context.startActivity(new Intent(context.getApplicationContext(), TransferMain2Screen.class));
+
+                }
+            });
+            }
+
+
+
+
 
         }
 
@@ -104,7 +151,12 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
             });
         }
 
+
+
+
     }
+
+
 
     private void setFriend(FriendAdapter.ViewHolder holder, Friends friends){
         holder.txtNameFriend.setText(friends.getFriendName());
@@ -138,6 +190,9 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
         ImageView imvFriend, btnLove;
         Button btnAddFriendItem;
 
+        ConstraintLayout consAllFriend;
+        LinearLayout lnQuickAccess;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -147,6 +202,10 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
             btnLove =itemView.findViewById(R.id.btnLove);
 
             btnAddFriendItem =itemView.findViewById(R.id.btnAddFriendItem);
+            lnQuickAccess =itemView.findViewById(R.id.lnQuickAccess);
+            consAllFriend =itemView.findViewById(R.id.consAllFriend);
+
+
         }
     }
 }

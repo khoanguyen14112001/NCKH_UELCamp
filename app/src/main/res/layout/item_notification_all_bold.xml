@@ -9,14 +9,23 @@
 
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
 
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:src="@drawable/img_newnotice"
+        android:src="@drawable/img_notice"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/imvThumbNotification"/>
+    <View
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/oval_shape_circle_indicator3"
+        app:layout_constraintRight_toRightOf="@id/imvThumbNotification"
+        android:id="@+id/viewNewsNotification"
+        app:layout_constraintTop_toTopOf="@id/imvThumbNotification"/>
 
     <LinearLayout
         android:layout_width="0dp"

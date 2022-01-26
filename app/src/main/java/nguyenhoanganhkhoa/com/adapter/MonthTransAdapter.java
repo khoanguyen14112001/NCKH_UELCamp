@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,7 +57,17 @@ public class MonthTransAdapter extends RecyclerView.Adapter<MonthTransAdapter.Vi
 
         holder.rcvTransactionList.setAdapter(transAllAdapter);
 
+        if(month.getTransactions().isEmpty()){
+            holder.lnItemMonthTrans.setVisibility(View.GONE);
+            ViewGroup.LayoutParams params = holder.lnItemMonthTrans.getLayoutParams();
+            params.height = 0;
+            params.width = 0;
+            holder.lnItemMonthTrans.setLayoutParams(params);
+        }
+
+
     }
+
 
     @Override
     public int getItemCount() {
@@ -69,10 +80,12 @@ public class MonthTransAdapter extends RecyclerView.Adapter<MonthTransAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txtMonthAll;
         private RecyclerView rcvTransactionList;
+        private LinearLayout lnItemMonthTrans;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtMonthAll = itemView.findViewById(R.id.txtMonthAll);
             rcvTransactionList = itemView.findViewById(R.id.rcvTransactionList);
+            lnItemMonthTrans = itemView.findViewById(R.id.lnItemMonthTrans);
         }
     }
 }

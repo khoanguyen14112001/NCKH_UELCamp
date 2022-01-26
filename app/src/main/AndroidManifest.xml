@@ -16,6 +16,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
+            android:name=".home.transfer.TransferResultScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.transfer.TransferMain2Screen"
+            android:exported="false" />
+        <activity
             android:name=".home.transfer.AddNewFriendScreen"
             android:exported="false" />
         <activity
@@ -48,7 +54,6 @@
             android:name=".home.transaction.DetailTransaction"
             android:exported="true"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".home.topup.TopUpMainScreen"
             android:exported="true"

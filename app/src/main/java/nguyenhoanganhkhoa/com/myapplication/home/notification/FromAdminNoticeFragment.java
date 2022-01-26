@@ -108,19 +108,13 @@ public class FromAdminNoticeFragment extends Fragment {
 
     private List<Notification> getListNotify() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-
+        List<Notification> listAll = AllAllNoticeFragment.getListAllAllNotification();
+        int i;
+        for(i = 0; i<listAll.size();i++){
+            if(listAll.get(i).getNotificationType().equals(DialogNotificationAdapter.NOTIFICATION_PARKING)){
+                list.add(listAll.get(i));
+            }
+        }
         return list;
     }
 }

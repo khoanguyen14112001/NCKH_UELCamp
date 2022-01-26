@@ -105,20 +105,14 @@ public class UnreadFNoticeFragment extends Fragment {
 
     private List<Notification> getListNotify() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"There was an error occurs in your transaction, " +
-                "please try again","01 Nov, 18:45"));
+        List<Notification> listAll = AllAllNoticeFragment.getListAllAllNotification();
+        int i;
+        for(i = 0; i<listAll.size();i++){
+            if(listAll.get(i).isNewNotification()){
+                list.add(listAll.get(i));
+            }
+        }
         return list;
-
     }
 
     private void addEvent() {

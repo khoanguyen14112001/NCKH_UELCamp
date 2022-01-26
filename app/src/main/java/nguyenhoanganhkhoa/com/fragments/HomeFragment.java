@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -76,6 +77,8 @@ public class HomeFragment extends Fragment {
     TextView txtNameDisplayUser, txtMoneyDisplay;
     ImageView imvInsideAvatar;
 
+    ImageButton imbParkingLot;
+
 
 
 
@@ -104,9 +107,16 @@ public class HomeFragment extends Fragment {
         imvInsideAvatar = view.findViewById(R.id.imvInsideAvatar);
 
         txtMoneyDisplay = view.findViewById(R.id.txtMoneyDisplay);
+        imbParkingLot = view.findViewById(R.id.imbParkingLot);
     }
 
     private void addEvents() {
+        imbParkingLot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         imvNoteBell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

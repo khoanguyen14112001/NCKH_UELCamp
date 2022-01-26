@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:paddingVertical="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/consAllFriend"
     android:orientation="horizontal">
 
     <de.hdodenhof.circleimageview.CircleImageView

@@ -56,7 +56,7 @@ public class AllAllNoticeFragment extends Fragment {
 
     }
 
-    private List<Notification> getListAllAllNotification() {
+    public static List<Notification> getListAllAllNotification() {
         List<Notification> list = new ArrayList<>();
 
         list.addAll(AllNoticeFragment.getListRecentNotification());

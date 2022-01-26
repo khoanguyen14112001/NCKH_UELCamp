@@ -61,7 +61,7 @@
     <string name="you_have_4_failed_login_attempts">You have 3 failed login attempts. \n</string>
     <string name="try_again_in">Try again in\u0020</string>
     <string name="sign_up_text_screen">Sign up</string>
-    <string name="sign_in_to_your_uel_email_address_n_to_create_parking_system_account">Sign in to your UEL email address \n to create parking system account</string>
+    <string name="sign_in_to_your_uel_email_address_n_to_create_parking_system_account">Sign in to your UEL email address \n to create UEL CAMP account</string>
     <string name="email_uel">Email UEL*</string>
     <string name="login_here_signup"><u>Login here</u></string>
     <string name="your_username_is_already_exists">Your username is already exists</string>
@@ -203,7 +203,6 @@
     <string name="request_transfer">Request transfer</string>
     <string name="_27_oct_2021_23_20">27 Oct 2021, 23:20</string>
     <string name="time">Time:</string>
-    <string name="amount_2cham">Amount:</string>
     <string name="please_payment_within">Please payment within</string>
     <string name="_240s">240s</string>
     <string name="save_qr_cde">Save QR Cde</string>
@@ -217,11 +216,11 @@
     <string name="mark_all_as_unread">Mark all as unread</string>
     <string name="our_team">Our team</string>
     <string name="introduce">Introduce</string>
-    <string name="textIntroduceTeam">myPARKING team consists of 5 members from the high-quality E-Commerce course 19, Faculty of Information Systems, University of Economics and Law. </string>
-    <string name="textIntroduceSystem">PARKING SYSTEM is a system created to serve students of UEL to optimize parking and minimize parking problems thanks to the automatic payment feature. In addition, students can also monitor the status of their vehicles.</string>
+    <string name="textIntroduceTeam">UEL CAMP team consists of 5 members from the high-quality E-Commerce course 19, Faculty of Information Systems, University of Economics and Law. </string>
+    <string name="textIntroduceSystem">UEL CAMP is a system created to serve UEL students to synchronize campus services with automation. In addition, students can also pay quickly using this application.</string>
     <string name="contact_us">Contact us</string>
-    <string name="linkGmail">support.myPARKING@gmail.com</string>
-    <string name="linkFace">https://www.facebook.com/dufourofficial</string>
+    <string name="linkGmail">support.uelcamp@gmail.com</string>
+    <string name="linkFace">https://www.facebook.com/uelcamp</string>
     <string name="news">News</string>
     <string name="news_from_organization">News from organization</string>
     <string name="advertisement">Advertisement</string>
@@ -320,6 +319,27 @@
     <string name="enter_message_0_400">Enter message 0/400</string>
     <string name="enter_message">Enter message...</string>
     <string name="transfer_money">Transfer money</string>
+    <string name="money_resource">Money resource</string>
+    <string name="transaction_detail">Transaction detail</string>
+    <string name="transfer_to">Transfer to:</string>
+    <string name="phone_2cham">Phone:</string>
+    <string name="amount_2cham">Amount:</string>
+    <string name="_50_000_vnd">50.000 VND</string>
+    <string name="transaction_fee_2cham">Transaction fee:</string>
+    <string name="free">Free</string>
+    <string name="total">Total:</string>
+    <string name="confirm">Confirm</string>
+    <string name="transaction_result">Transaction result</string>
+    <string name="trans_result_text">You have successfully \n made a transfer of the amount of</string>
+    <string name="name_of_receiver_2cham">Name of receiver:</string>
+    <string name="time_transaction_2cham">Time transaction:</string>
+    <string name="_21_oct_10_07">21 Oct, 10:07</string>
+    <string name="message_transaction_2cham">Message transaction:</string>
+    <string name="canteen">Canteen</string>
+    <string name="parking">Parking</string>
+    <string name="slspace">SLSpace</string>
+    <string name="stationery">Stationery</string>
+    <string name="accept">Accept</string>
 
     <array name="initial_slider_values">
         <item>0</item>

@@ -1,5 +1,6 @@
 package nguyenhoanganhkhoa.com.myapplication.home.transfer;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,16 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpAmountFragment;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TransferMoneyFragment#newInstance} factory method to
+ * Use the {@link TransferMoneyDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TransferMoneyFragment extends Fragment {
+public class TransferMoneyDetailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +30,7 @@ public class TransferMoneyFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TransferMoneyFragment() {
+    public TransferMoneyDetailFragment() {
         // Required empty public constructor
     }
 
@@ -39,11 +40,11 @@ public class TransferMoneyFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TransferMoneyFragment.
+     * @return A new instance of fragment TransferMoneyDetailFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TransferMoneyFragment newInstance(String param1, String param2) {
-        TransferMoneyFragment fragment = new TransferMoneyFragment();
+    public static TransferMoneyDetailFragment newInstance(String param1, String param2) {
+        TransferMoneyDetailFragment fragment = new TransferMoneyDetailFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,30 +61,30 @@ public class TransferMoneyFragment extends Fragment {
         }
     }
 
-    Button btnTransfer;
-
+    Button btnConfirm;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_transfer_money, container, false);
+        View view =  inflater.inflate(R.layout.fragment_transfer_money_detail, container, false);
         linkView(view);
         addEvents();
+
+
         return view;
     }
 
     private void addEvents() {
-        btnTransfer.setOnClickListener(new View.OnClickListener() {
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.lnFragmentReplaceTransfer,new TransferMoneyDetailFragment());
-                fragmentTransaction.addToBackStack(null).commit();
+                startActivity(new Intent(getContext(), TransferResultScreen.class));
             }
         });
+
     }
 
     private void linkView(View view) {
-        btnTransfer = view.findViewById(R.id.btnTransfer);
+        btnConfirm = view.findViewById(R.id.btnConfirm);
     }
 }

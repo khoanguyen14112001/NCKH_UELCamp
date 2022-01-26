@@ -1,11 +1,13 @@
 package nguyenhoanganhkhoa.com.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +17,19 @@ import android.widget.RadioButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.adapter.DateAdapter;
+import nguyenhoanganhkhoa.com.adapter.MonthTransAdapter;
+import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilter;
 import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilterHistory;
 import nguyenhoanganhkhoa.com.models.Date;
 import nguyenhoanganhkhoa.com.models.History;
+import nguyenhoanganhkhoa.com.models.Month;
+import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transaction.ShowAllTransactionScreen;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,12 +77,13 @@ public class HistoryFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    ImageView imvFilter;
-    RecyclerView rcvDisplayHistoryAndDate;
-    DateAdapter dateAdapter;
-    RadioButton radHistoryAll, radHistoryEntry, radHistoryExit;
+    RecyclerView rcvDisplayTransaction;
+    MonthTransAdapter monthTransAdapter;
+    ImageView imvFilterTrans;
+    RadioButton radTransAllAll, radTransAllWallet, radTransAllCanteen, radTransAllParking, radTransAlLSLSpace, radTransAllThuQuan;
 
-    CustomBottomSheetFilterHistory bottomSheetDialog;
+    CustomBottomSheetFilter bottomSheetDialog = null;
+    ImageView imvClose;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,8 +91,9 @@ public class HistoryFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_history, container, false);
 
         linkView(view);
-        addEvent();
         initAdapter();
+        addEvents();
+
 
         return view;
 
@@ -90,132 +101,222 @@ public class HistoryFragment extends Fragment {
     }
 
     private void linkView(View view) {
-        rcvDisplayHistoryAndDate = view.findViewById(R.id.rcvDisplayHistoryAndDate);
-        radHistoryAll = view.findViewById(R.id.radHistoryAll);
-        radHistoryEntry = view.findViewById(R.id.radHistoryEntry);
-        radHistoryExit = view.findViewById(R.id.radHistoryExit);
 
-        imvFilter = view.findViewById(R.id.imvFilter);
+        radTransAllAll= view.findViewById(R.id.radTransAllAll);
+        radTransAllWallet= view.findViewById(R.id.radTransAllWallet);
+        radTransAllCanteen= view.findViewById(R.id.radTransAllCanteen);
+        radTransAllParking= view.findViewById(R.id.radTransAllParking);
+        radTransAlLSLSpace= view.findViewById(R.id.radTransAlLSLSpace);
+        radTransAllThuQuan= view.findViewById(R.id.radTransAllThuQuan);
+
+        imvClose= view.findViewById(R.id.imvClose);
+        imvFilterTrans= view.findViewById(R.id.imvFilterTrans);
+
+        rcvDisplayTransaction = view.findViewById(R.id.rcvDisplayTransaction);
     }
 
-    private void addEvent() {
-        imvFilter.setOnClickListener(new View.OnClickListener() {
+
+    private void createBottomSheetDialog() {
+        if(bottomSheetDialog ==null){
+            bottomSheetDialog = new CustomBottomSheetFilter(requireContext(),R.style.BottomSheetDialogTheme,R.layout.custom_bottomdialog_filter);
+        }
+        bottomSheetDialog.show();
+
+    }
+
+    private void addEvents() {
+        imvFilterTrans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(bottomSheetDialog ==null){
-                    bottomSheetDialog = new CustomBottomSheetFilterHistory(requireContext(),R.style.BottomSheetDialogTheme,R.layout.custom_bottomdialog_filter);
-                }
-                bottomSheetDialog.show();
+                createBottomSheetDialog();
             }
         });
 
-        radHistoryAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                initAdapter();
 
-            }
-        });
-        radHistoryExit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                initAdapter();
-
-            }
-        });
-        radHistoryEntry.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        radTransAllAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 initAdapter();
             }
         });
+
+        radTransAllWallet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                initAdapter();
+            }
+        });
+
+        radTransAllCanteen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                initAdapter();
+            }
+        });
+
+        radTransAllParking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                initAdapter();
+            }
+        });
+
+        radTransAllThuQuan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                initAdapter();
+            }
+        });
+
+        radTransAlLSLSpace.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                initAdapter();
+            }
+        });
+
+
     }
 
     private void initAdapter() {
-        dateAdapter= new DateAdapter(getContext(),R.layout.item_history_recycleview);
+        try {
+            monthTransAdapter= new MonthTransAdapter(getContext());
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
+            rcvDisplayTransaction.setLayoutManager(linearLayoutManager);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
-        rcvDisplayHistoryAndDate.setLayoutManager(linearLayoutManager);
+            monthTransAdapter.setData(getListMonth());
+            rcvDisplayTransaction.setAdapter(monthTransAdapter);
+        }
+        catch (Exception e)
+        {
+            Log.d("Error", "Fail to load adapter in ShowAllTransactionScreen: " + e);
+        }
 
-        dateAdapter.setData(getListDate());
-        rcvDisplayHistoryAndDate.setAdapter(dateAdapter);
     }
 
-    private List<Date> getListDate() {
-        List<Date> listMonth = new ArrayList<>();
+    private List<Month> getListMonth() {
+        List<Month> listMonth = new ArrayList<>();
 
-        List<History> listHis1 = new ArrayList<>();
-        List<History> listHis2 = new ArrayList<>();
-        List<History> listHis3 = new ArrayList<>();
+        List<Transaction> listTrans1 = new ArrayList<>();
+        List<Transaction> listTrans2 = new ArrayList<>();
+        List<Transaction> listTrans3 = new ArrayList<>();
+        List<Transaction> listTrans4 = new ArrayList<>();
+        List<Transaction> listTrans5 = new ArrayList<>();
 
-        listHis1.add(new History(R.drawable.img_green_bike,"Entry","21 Oct, 20:07"));
-        listHis1.add(new History(R.drawable.img_red_bike,"Exit","20 Oct, 16:49"));
-        listHis1.add(new History(R.drawable.img_green_bike,"Entry","20 Oct, 12:14"));
-        listHis1.add(new History(R.drawable.img_red_bike,"Exit","06 Oct, 12:07"));
-        listHis1.add(new History(R.drawable.img_green_bike,"Entry","06 Oct, 09:18"));
-        listHis1.add(new History(R.drawable.img_red_bike,"Exit","04 Oct, 16:53"));
-        listHis1.add(new History(R.drawable.img_green_bike,"Entry","04 Oct, 07:07"));
+        listTrans1.add(new Transaction("Top up","20 Oct, 10:07 ","+50.000",R.drawable.ic_topup,R.drawable.ic_tickbutton));
+        listTrans1.add(new Transaction("Parking payment","10 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_warning_red));
+        listTrans1.add(new Transaction("Order in Canteen","09 Oct, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans1.add(new Transaction("Order in SLSpace","09 Oct, 16:19 ","-26.000",R.drawable.ic_quancafe,R.drawable.ic_tickbutton));
 
-        listHis2.add(new History(R.drawable.img_red_bike,"Exit","29 Sep, 15:53"));
-        listHis2.add(new History(R.drawable.img_green_bike,"Entry","29 Sep, 06:57"));
-        listHis2.add(new History(R.drawable.img_red_bike,"Exit","27 Sep, 11:58"));
-        listHis2.add(new History(R.drawable.img_green_bike,"Entry","27 Sep, 07:04"));
-        listHis2.add(new History(R.drawable.img_red_bike,"Exit","24 Sep, 14:53"));
+        listTrans2.add(new Transaction("Payment at Stationery","20 Sep, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
+        listTrans2.add(new Transaction("Transfer money","10 Sep, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
 
-        listHis3.add(new History(R.drawable.img_green_bike,"Entry","24 Aug, 06:57"));
-        listHis3.add(new History(R.drawable.img_red_bike,"Exit","22 Aug, 11:58"));
-        listHis3.add(new History(R.drawable.img_green_bike,"Entry","22 Aug, 07:04"));
-        listHis3.add(new History(R.drawable.img_red_bike,"Exit","20 Aug, 14:53"));
-        listHis3.add(new History(R.drawable.img_green_bike,"Entry","20 Aug, 07:04"));
+        listTrans3.add(new Transaction("Payment at Stationery","20 Aug, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
+        listTrans3.add(new Transaction("Transfer money","10 Aug, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
+        listTrans3.add(new Transaction("Order in Canteen","09 Aug, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans3.add(new Transaction("Order in Canteen","09 Aug, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans3.add(new Transaction("Order in Canteen","09 Aug, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans3.add(new Transaction("Top up","20 Aug, 10:07 ","+50.000",R.drawable.ic_topup,R.drawable.ic_tickbutton));
+        listTrans3.add(new Transaction("Order in SLSpace","09 Aug, 16:19 ","-26.000",R.drawable.ic_quancafe,R.drawable.ic_tickbutton));
 
-        listMonth.add(new Date("Oct 2021",addGetCategory(listHis1)));
-        listMonth.add(new Date("Sep 2021",addGetCategory(listHis2)));
-        listMonth.add(new Date("Aug 2021",addGetCategory(listHis3)));
 
+        listTrans4.add(new Transaction("Payment at Stationery","20 July, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
+        listTrans4.add(new Transaction("Transfer money","10 July, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
+        listTrans4.add(new Transaction("Order in Canteen","09 July, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans4.add(new Transaction("Order in Canteen","09 July, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans4.add(new Transaction("Payment at Stationery","20 July, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
+        listTrans4.add(new Transaction("Transfer money","10 July, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
+        listTrans4.add(new Transaction("Top up","20 July, 10:07 ","+50.000",R.drawable.ic_topup,R.drawable.ic_tickbutton));
+
+        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans5.add(new Transaction("Payment at Stationery","20 Jun, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
+        listTrans5.add(new Transaction("Transfer money","10 Jun, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
+        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
+
+
+        listMonth.add(new Month("Oct 2021",addGetCategory(listTrans1)));
+        listMonth.add(new Month("Sep 2021",addGetCategory(listTrans2)));
+        listMonth.add(new Month("Aug 2021",addGetCategory(listTrans3)));
+        listMonth.add(new Month("July 2021",addGetCategory(listTrans4)));
+        listMonth.add(new Month("Jun 2021",addGetCategory(listTrans5)));
 
         // Nếu tháng nào không có dữ liệu thì xóa
-        for(int i =0; i< listMonth.size();i++)
-        {
-            if(listMonth.get(i).getHistories().isEmpty())
-            {
-                listMonth.remove(i);
-
-            }
-        }
 
         return listMonth;
     }
 
-    private List<History> addGetCategory(List<History> list) {
 
-        List<History> listValue = new ArrayList<>();
-        if(radHistoryAll.isChecked())
+
+    private List<Transaction> addGetCategory(List<Transaction> list) {
+        List<Transaction> listValue = new ArrayList<>();
+        if(radTransAllAll.isChecked())
         {
             return list;
         }
-        if(radHistoryEntry.isChecked())
+        if(radTransAllWallet.isChecked())
         {
             for (int i = 0;i<list.size();i++)
             {
-                if(list.get(i).getStatusInOut().equals("Entry"))
+                if(list.get(i).getStatusTrans().equals("Top up")||list.get(i).getStatusTrans().equals("Transfer money"))
                 {
                     listValue.add(list.get(i));
                 }
             }
             return listValue;
         }
-        if(radHistoryExit.isChecked())
+        if(radTransAllCanteen.isChecked())
         {
             for (int i = 0;i<list.size();i++)
             {
-                if(list.get(i).getStatusInOut().equals("Exit"))
+                if(list.get(i).getStatusTrans().equals("Order in Canteen"))
                 {
                     listValue.add(list.get(i));
                 }
             }
             return listValue;
         }
-        return listValue;
+
+        if(radTransAllParking.isChecked())
+        {
+            for (int i = 0;i<list.size();i++)
+            {
+                if(list.get(i).getStatusTrans().equals("Parking payment"))
+                {
+                    listValue.add(list.get(i));
+                }
+            }
+            return listValue;
+        }
+
+        if(radTransAlLSLSpace.isChecked())
+        {
+            for (int i = 0;i<list.size();i++)
+            {
+                if(list.get(i).getStatusTrans().equals("Order in SLSpace"))
+                {
+                    listValue.add(list.get(i));
+                }
+            }
+            return listValue;
+        }
+
+
+        if(radTransAllThuQuan.isChecked())
+        {
+            for (int i = 0;i<list.size();i++)
+            {
+                if(list.get(i).getStatusTrans().equals("Payment at Stationery"))
+                {
+                    listValue.add(list.get(i));
+                }
+            }
+            return listValue;
+        }
+
+
+        return null;
 
     }
 }

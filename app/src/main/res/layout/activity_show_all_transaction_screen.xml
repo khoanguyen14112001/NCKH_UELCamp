@@ -67,64 +67,119 @@
 
     </LinearLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
+    <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/svTransaction"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="12dp"
-        >
-        <RadioButton
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toBottomOf="@id/svHistory"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@string/all"
-            android:textColor="@color/blackUI"
-            android:button="@android:color/transparent"
-            android:gravity="center"
-            android:background="@drawable/custom_rad_filter"
-            android:checked="true"
-            android:textAllCaps="false"
-            android:fontFamily="@font/be_vietnam_regular"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/radTransAllAll"
-            />
-        <RadioButton
-            android:layout_width="75dp"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toBottomOf="@id/svHistory"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@string/top_up"
-            android:textColor="@color/blackUI"
-            android:button="@android:color/transparent"
-            android:gravity="center"
-            android:background="@drawable/custom_rad_filter"
-            android:textAllCaps="false"
-            android:fontFamily="@font/be_vietnam_regular"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/radTransAllTopUp"
-            />
-        <RadioButton
-            android:layout_width="135dp"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toBottomOf="@id/svHistory"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@string/parking_payment"
-            android:textColor="@color/blackUI"
-            android:button="@android:color/transparent"
-            android:gravity="center"
-            android:background="@drawable/custom_rad_filter"
-            android:textAllCaps="false"
-            android:fontFamily="@font/be_vietnam_regular"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/radTransAllParkingPayment"
-            />
+        android:id="@+id/horScroll"
+        android:scrollbars="none"
+        android:paddingHorizontal="20dp">
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_marginTop="12dp"
+            >
+            <RadioButton
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/all"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:checked="true"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:id="@+id/radTransAllAll"
+                />
+            <RadioButton
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/wallet"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radTransAllWallet"
+                />
+
+            <RadioButton
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/canteen"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radTransAllCanteen"
+                />
+            <RadioButton
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/parking"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radTransAllParking"
+                />
 
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/radTransAlLSLSpace"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/custom_rad_filter"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:gravity="center"
+                android:text="@string/slspace"
+                android:textAllCaps="false"
+                android:textColor="@color/blackUI"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
+
+            <RadioButton
+                android:id="@+id/radTransAllThuQuan"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/custom_rad_filter"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:gravity="center"
+                android:text="@string/stationery"
+                android:textAllCaps="false"
+                android:textColor="@color/blackUI"
+                app:layout_constraintLeft_toLeftOf="parent"
+               />
+
+
+        </RadioGroup>
+    </HorizontalScrollView>
+
 
 
 
@@ -135,7 +190,7 @@
         android:layout_marginTop="20dp"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@id/horScroll" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -131,37 +131,69 @@ public class AllNoticeFragment extends Fragment {
 
     public static List<Notification> getListRecentNotification() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(R.drawable.img_newnotice,"The parking lot will be under " +
-                "maintenance from 14, Jan to 20, Jan","13 Jan, 19:04"));
-        list.add(new Notification(R.drawable.img_newnotice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
-        list.add(new Notification(R.drawable.img_notice,"Due to the Christmas holiday, " +
-                "the parking lot will not be open","23 Dec, 18:35"));
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+                "Tường Vy has accepted your friend request",
+                "13 Jan, 19:04",
+                true,
+                true,
+                DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+                "Anh Khoa has accepted your friend request",
+                "13 Jan, 19:04",
+                false,
+                true,
+                DialogNotificationAdapter.NOTIFICATION_GENDER_FEMALE
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
+                "Due to the Christmas holiday, the parking lot will not be open",
+                "13 Jan, 19:04",
+                true
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
+                "You currently do not have enough money to pay, please top up",
+                "13 Jan, 19:04",
+                false
+        ));
+
+
 
         return list;
     }
     public static List<Notification> getListBeforeNotification() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(R.drawable.img_newnotice,"The parking lot will be under " +
-                "maintenance from 11 Nov to 14 Nov","13 Jan, 19:04"));
-        list.add(new Notification(R.drawable.img_newnotice,"You currently do not have enough " +
-                "money to pay, please top up","03 Nov, 17:05"));
-        list.add(new Notification(R.drawable.img_newnotice,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.ic_img_nomoney_notice_new,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.img_nomoney_notice,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.img_nomoney_notice,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.img_nomoney_notice,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
-        list.add(new Notification(R.drawable.img_nomoney_notice,"You currently do not have enough " +
-                "money to pay, please top up","01 Nov, 18:45"));
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+                "Tường Vy has accepted your friend request",
+                "13 Jan, 19:04",
+                true,
+                true,
+                DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
+                ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+                "Anh Khoa has accepted your friend request",
+                "13 Jan, 19:04",
+                false,
+                false,
+                DialogNotificationAdapter.NOTIFICATION_GENDER_FEMALE
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
+                "Due to the Christmas holiday, the parking lot will not be open",
+                "13 Jan, 19:04",
+                true
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
+                "You currently do not have enough money to pay, please top up",
+                "13 Jan, 19:04",
+                false
+        ));
+
+
         return list;
     }
 }

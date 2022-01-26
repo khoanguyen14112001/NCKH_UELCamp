@@ -12,13 +12,14 @@ import android.widget.TextView;
 import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetComponent;
 import nguyenhoanganhkhoa.com.customdialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.AboutUsScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class SettingScreen extends AppCompatActivity {
     ImageView imvSettingBack ;
-    LinearLayout lnSignOutSetting;
+    LinearLayout lnSignOutSetting, lnInfoApp;
     TextView txtLoginSetting, txtSetTime, txtLanguage,txtMinutes, txtSetAPass;
     CustomBottomSheetComponent bottomSheetDialogLanguage = null;
     CustomBottomSheetComponent bottomSheetDialogTime = null;
@@ -33,6 +34,8 @@ public class SettingScreen extends AppCompatActivity {
         txtMinutes=findViewById(R.id.txtMinutes);
         txtLanguageSpec=findViewById(R.id.txtLanguageSpec);
         txtSetAPass=findViewById(R.id.txtSetAPass);
+        lnInfoApp=findViewById(R.id.lnInfoApp);
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,12 @@ public class SettingScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
+        lnInfoApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SettingScreen.this, AboutUsScreen.class));
+            }
+        });
         txtSetAPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

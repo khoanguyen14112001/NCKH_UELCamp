@@ -79,8 +79,8 @@ public class AboutUsScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
-        reusedConstraint.changeColor(txtIntroduceTeam,0,14,R.color.primary_yellow);
-        reusedConstraint.changeColor(txtIntroduceSystem,0,14,R.color.primary_yellow);
+        reusedConstraint.changeColor(txtIntroduceTeam,0,13,R.color.primary_yellow);
+        reusedConstraint.changeColor(txtIntroduceSystem,0,8,R.color.primary_yellow);
         imvComebackAboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

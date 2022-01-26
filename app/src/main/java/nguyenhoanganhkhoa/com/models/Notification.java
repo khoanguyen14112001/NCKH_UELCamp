@@ -1,16 +1,35 @@
 package nguyenhoanganhkhoa.com.models;
 
 public class Notification {
-    private int notificationThumb;
+    private String notificationType;
     private String notificationContent;
     private String notificationDate;
+    private boolean isNewNotification;
+    private boolean isFriendRequest = false;
+    private String gender;
 
-    public int getNotificationThumb() {
-        return notificationThumb;
+    public Notification(String notificationType, String notificationContent, String notificationDate, boolean isNewNotification, boolean isFriendRequest, String gender) {
+        this.notificationType = notificationType;
+        this.notificationContent = notificationContent;
+        this.notificationDate = notificationDate;
+        this.isNewNotification = isNewNotification;
+        this.isFriendRequest = isFriendRequest;
+        this.gender = gender;
     }
 
-    public void setNotificationThumb(int notificationThumb) {
-        this.notificationThumb = notificationThumb;
+    public Notification(String notificationType, String notificationContent, String notificationDate, boolean isNewNotification) {
+        this.notificationType = notificationType;
+        this.notificationContent = notificationContent;
+        this.notificationDate = notificationDate;
+        this.isNewNotification = isNewNotification;
+    }
+
+    public String getNotificationType() {
+        return notificationType;
+    }
+
+    public void setNotificationType(String notificationType) {
+        this.notificationType = notificationType;
     }
 
     public String getNotificationContent() {
@@ -29,9 +48,27 @@ public class Notification {
         this.notificationDate = notificationDate;
     }
 
-    public Notification(int notificationThumb, String notificationContent, String notificationDate) {
-        this.notificationThumb = notificationThumb;
-        this.notificationContent = notificationContent;
-        this.notificationDate = notificationDate;
+    public boolean isNewNotification() {
+        return isNewNotification;
+    }
+
+    public void setNewNotification(boolean newNotification) {
+        isNewNotification = newNotification;
+    }
+
+    public boolean isFriendRequest() {
+        return isFriendRequest;
+    }
+
+    public void setFriendRequest(boolean friendRequest) {
+        isFriendRequest = friendRequest;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

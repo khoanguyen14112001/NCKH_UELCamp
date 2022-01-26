@@ -11,16 +11,15 @@ import android.widget.ImageView;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 
-public class TransferMainScreen extends AppCompatActivity {
+public class TransferMain2Screen extends AppCompatActivity {
     ImageView imvBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transfer_main_screen);
+        setContentView(R.layout.activity_transfer_main2_screen);
         linkView();
         addFragment();
         addEvents();
-
     }
 
     private void linkView() {
@@ -35,7 +34,7 @@ public class TransferMainScreen extends AppCompatActivity {
                 if(getFragmentManager().getBackStackEntryCount()>0) {
                     getFragmentManager().popBackStack();
                 }
-                else TransferMainScreen.super.onBackPressed();
+                else TransferMain2Screen.super.onBackPressed();
             }
         });
     }
@@ -46,13 +45,12 @@ public class TransferMainScreen extends AppCompatActivity {
         try {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-            TransferHomeFragment transferHomeFragment = new TransferHomeFragment();
 
-            fragmentTransaction.add(R.id.lnFragmentReplaceTransfer, transferHomeFragment);
+            fragmentTransaction.add(R.id.lnFragmentReplaceTransfer, new TransferMoneyFragment());
             fragmentTransaction.commit();
         }
         catch (Exception e) {
-            Log.d("Error", "Fail to addFragment in TopUpScreen: " + e);
+            Log.d("Error", "Fail to addFragment in TransferMainScreen: " + e);
         }
     }
 }

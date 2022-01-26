@@ -109,7 +109,7 @@ public class HelpCenterScreen extends AppCompatActivity {
     private List<QuestionsCategories> getProblemsCateList() {
         List<QuestionsCategories> list = new ArrayList<>();
 
-        list.add(new QuestionsCategories("E-Wallet and Top up",
+        list.add(new QuestionsCategories("E-Wallet",
                 R.drawable.ic_topup,12));
         list.add(new QuestionsCategories("Parking lot",
                 R.drawable.ic_bike,8));
@@ -119,6 +119,12 @@ public class HelpCenterScreen extends AppCompatActivity {
                 R.drawable.ic_aboutus,12));
         list.add(new QuestionsCategories("User manual",
                 R.drawable.ic_news,8));
+        list.add(new QuestionsCategories("Canteen",
+                R.drawable.ic_canteen,11));
+        list.add(new QuestionsCategories("SLSPace",
+                R.drawable.ic_quancafe,9));
+        list.add(new QuestionsCategories("Stationery",
+                R.drawable.ic_thuquan,4));
 
         return list;
     }
@@ -127,17 +133,21 @@ public class HelpCenterScreen extends AppCompatActivity {
         List<QuestionsCategories> list = new ArrayList<>();
 
 
-        list.add(new QuestionsCategories("How to top up my wallet?",
-                R.drawable.ic_topup));
+        list.add(new QuestionsCategories("How to add product into cart in Canteen?",
+                R.drawable.ic_canteen));
         list.add(new QuestionsCategories("I did not see my latest history",
                 R.drawable.ic_bike));
         list.add(new QuestionsCategories("I have not received money from Momo wallet",
                 R.drawable.ic_topup));
-        list.add(new QuestionsCategories("How to recover my password?",
-                R.drawable.ic_topup));
-        list.add(new QuestionsCategories("I did not see my latest history",
-                R.drawable.ic_topup));
+        list.add(new QuestionsCategories("I did not see where I can order in SLSpace?",
+                R.drawable.ic_quancafe));
         list.add(new QuestionsCategories("How to top up my wallet?",
+                R.drawable.ic_topup));
+        list.add(new QuestionsCategories("I did not see my latest transaction in Stationery",
+                R.drawable.ic_thuquan));
+        list.add(new QuestionsCategories("How to add friend into list friends",
+                R.drawable.ic_topup));
+        list.add(new QuestionsCategories("How to transfer money to friend",
                 R.drawable.ic_topup));
 
 
