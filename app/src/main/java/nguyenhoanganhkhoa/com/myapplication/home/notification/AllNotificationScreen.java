@@ -2,27 +2,19 @@ package nguyenhoanganhkhoa.com.myapplication.home.notification;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
-import com.google.android.material.navigation.NavigationView;
-
-import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilterHistory;
+import nguyenhoanganhkhoa.com.custom.bottomsheetdialog.CustomBottomSheetFilterHistory;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class AllNotificationScreen extends AppCompatActivity {

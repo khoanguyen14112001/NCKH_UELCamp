@@ -1,6 +1,5 @@
-package nguyenhoanganhkhoa.com.fragments;
+package nguyenhoanganhkhoa.com.myapplication.home.homepage;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,19 +16,12 @@ import android.widget.RadioButton;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-import nguyenhoanganhkhoa.com.adapter.DateAdapter;
 import nguyenhoanganhkhoa.com.adapter.MonthTransAdapter;
-import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilter;
-import nguyenhoanganhkhoa.com.customdialog.CustomBottomSheetFilterHistory;
-import nguyenhoanganhkhoa.com.models.Date;
-import nguyenhoanganhkhoa.com.models.History;
+import nguyenhoanganhkhoa.com.custom.bottomsheetdialog.CustomBottomSheetFilter;
 import nguyenhoanganhkhoa.com.models.Month;
 import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.transaction.ShowAllTransactionScreen;
 
 /**
  * A simple {@link Fragment} subclass.

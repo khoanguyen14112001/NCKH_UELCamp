@@ -35,7 +35,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/view"/>
 
-    <nguyenhoanganhkhoa.com.myapplication.another.CustomSpinner
+    <nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/view"

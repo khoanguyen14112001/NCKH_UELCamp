@@ -1,19 +1,11 @@
-package nguyenhoanganhkhoa.com.customdialog;
+package nguyenhoanganhkhoa.com.custom.bottomsheetdialog;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,7 +14,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,13 +32,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import nguyenhoanganhkhoa.com.adapter.FacultyEditAdapter;
 import nguyenhoanganhkhoa.com.adapter.FilterAdapter;
 import nguyenhoanganhkhoa.com.models.Filter;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.another.CustomSpinner;
-import nguyenhoanganhkhoa.com.myapplication.another.DateTimeFormat;
-import nguyenhoanganhkhoa.com.myapplication.home.EditInfomationScreen;
+import nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class CustomBottomSheetFilter extends BottomSheetDialog {

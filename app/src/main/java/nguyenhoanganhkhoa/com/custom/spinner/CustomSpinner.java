@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.another;
+package nguyenhoanganhkhoa.com.custom.spinner;
 
 
 import android.content.Context;

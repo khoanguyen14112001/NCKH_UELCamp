@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.fragments;
+package nguyenhoanganhkhoa.com.myapplication.home.homepage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import nguyenhoanganhkhoa.com.customdialog.CustomDialogFragmentHome;
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogFragmentHome;
 import nguyenhoanganhkhoa.com.myapplication.home.notification.AllNotificationScreen;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;

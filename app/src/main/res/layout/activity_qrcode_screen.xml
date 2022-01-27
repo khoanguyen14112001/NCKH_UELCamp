@@ -37,6 +37,7 @@
             <TextView
                 style="@style/in_BigHeaderText"
                 android:text="@string/qr_code"
+                android:id="@+id/txtHeader"
                 />
 
             <de.hdodenhof.circleimageview.CircleImageView

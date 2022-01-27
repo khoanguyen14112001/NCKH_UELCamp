@@ -15,9 +15,8 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nguyenhoanganhkhoa.com.models.Member;
-import nguyenhoanganhkhoa.com.myapplication.home.OurTeamScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.aboutus.OurTeamScreen;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
     private Context context;

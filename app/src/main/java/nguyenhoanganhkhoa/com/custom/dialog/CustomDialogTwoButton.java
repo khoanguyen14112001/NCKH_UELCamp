@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.customdialog;
+package nguyenhoanganhkhoa.com.custom.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -9,21 +9,22 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 
-public class CustomDialogThreeButton extends Dialog {
-    public Button btnTakePhotos, btnChooseFromGallery, btnCancel;
+public class CustomDialogTwoButton extends Dialog {
+    public Button btnOK, btnCancel;
     Activity activity;
-    public CustomDialogThreeButton(@NonNull Context context, int dialoglayout) {
+    public CustomDialogTwoButton(@NonNull Context context, int dialogLayout) {
 
         super(context);
         this.activity = (Activity) context;
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(dialoglayout);
+        setContentView(dialogLayout);
 
         Window window = this.getWindow();
         if (window == null){
@@ -45,8 +46,7 @@ public class CustomDialogThreeButton extends Dialog {
     }
 
     private void linkView() {
-        btnTakePhotos = findViewById(R.id.btnTakePhotos);
+        btnOK = findViewById(R.id.btnOK);
         btnCancel = findViewById(R.id.btnCancel);
-        btnChooseFromGallery = findViewById(R.id.btnChooseFromGallery);
     }
 }

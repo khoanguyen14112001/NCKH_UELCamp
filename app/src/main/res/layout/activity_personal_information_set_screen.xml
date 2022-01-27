@@ -142,7 +142,7 @@
 
 
 
-        <nguyenhoanganhkhoa.com.myapplication.another.CustomSpinner
+        <nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner
             android:dropDownWidth="match_parent"
             app:layout_constraintTop_toBottomOf="@+id/txtErrorIDStudent"
             app:layout_constraintLeft_toLeftOf="@id/gLeft7"

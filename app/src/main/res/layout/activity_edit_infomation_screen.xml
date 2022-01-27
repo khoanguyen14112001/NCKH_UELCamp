@@ -181,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtErrorIDStudentEditInfo"
                 android:paddingStart="12dp"/>
-            <nguyenhoanganhkhoa.com.myapplication.another.CustomSpinner
+            <nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner
                 android:dropDownWidth="match_parent"
                 app:layout_constraintTop_toBottomOf="@id/txtErrorIDStudentEditInfo"
                 app:layout_constraintLeft_toLeftOf="@id/gLeft7"

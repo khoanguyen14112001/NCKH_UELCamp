@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.customdialog;
+package nguyenhoanganhkhoa.com.custom.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -15,10 +15,11 @@ import androidx.annotation.NonNull;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 
-public class CustomDialogTwoButton extends Dialog {
-    public Button btnOK, btnCancel;
+public class CustomDialogNotify extends Dialog {
+    public Button btnOK;
+    public TextView txtText, txtDate;
     Activity activity;
-    public CustomDialogTwoButton(@NonNull Context context, int dialogLayout) {
+    public CustomDialogNotify(@NonNull Context context, int dialogLayout) {
 
         super(context);
         this.activity = (Activity) context;
@@ -43,10 +44,16 @@ public class CustomDialogTwoButton extends Dialog {
 
         linkView();
 
+
+
+
     }
 
-    private void linkView() {
+
+
+    public void linkView() {
         btnOK = findViewById(R.id.btnOK);
-        btnCancel = findViewById(R.id.btnCancel);
+        txtDate = findViewById(R.id.txtDate);
+        txtText = findViewById(R.id.txtNotifyDisplay);
     }
 }

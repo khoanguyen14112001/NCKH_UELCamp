@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.customdialog;
+package nguyenhoanganhkhoa.com.custom.bottomsheetdialog;
 
 import android.content.Context;
 import android.util.Log;

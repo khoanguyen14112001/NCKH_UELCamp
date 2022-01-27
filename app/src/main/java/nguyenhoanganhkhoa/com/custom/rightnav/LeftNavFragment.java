@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.custom.rightnav;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +7,19 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import nguyenhoanganhkhoa.com.customdialog.CustomDialogTwoButton;
+import org.w3c.dom.Text;
+
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
@@ -67,6 +73,9 @@ public class LeftNavFragment extends Fragment {
         }
     }
     LinearLayout lnOpenHome, lnOpenParkingLot , lnOpenTopUp, lnOpenTransfer, lnOpenQRCode, lnOpenSetting, lnSignoutNav;
+    TextView txtTransfer, txtParkingLot, txtTopUp, txtQuanCafe, txtThuQuan, txtSetting, txtQRCode;
+    DrawerLayout drawerLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,9 +86,17 @@ public class LeftNavFragment extends Fragment {
         return view;
     }
 
-    private void addEvents() {
-        DrawerLayout drawerLayout = requireActivity().findViewById(R.id.drawerLayout);
+    private void openScreen(TextView txt, Class activity){
 
+        TextView txtHeader = requireActivity().findViewById(R.id.txtHeader);
+        if (!txt.getText().toString().toLowerCase().trim().equals(txtHeader.getText().toString().toLowerCase().trim())) {
+            Intent intent = new Intent(getContext(), activity);
+            startActivity(intent);
+        }
+        drawerLayout.closeDrawer(GravityCompat.END);
+    }
+
+    private void addEvents() {
         lnOpenHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,36 +109,28 @@ public class LeftNavFragment extends Fragment {
         lnOpenParkingLot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), ParkingLotHomeScreen.class);
-                startActivity(intent);
-                drawerLayout.closeDrawer(GravityCompat.END);
+               openScreen(txtParkingLot,ParkingLotHomeScreen.class);
             }
         });
 
         lnOpenTopUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), TopUpMainScreen.class);
-                startActivity(intent);
-                drawerLayout.closeDrawer(GravityCompat.END);
+                openScreen(txtTopUp,TopUpMainScreen.class);
             }
         });
 
         lnOpenTransfer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), TransferMainScreen.class);
-                startActivity(intent);
-                drawerLayout.closeDrawer(GravityCompat.END);
+                openScreen(txtTransfer,TransferMainScreen.class);
             }
         });
 
         lnOpenQRCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), QRCodeScreen.class);
-                startActivity(intent);
-                drawerLayout.closeDrawer(GravityCompat.END);
+                openScreen(txtQRCode,QRCodeScreen.class);
 
             }
         });
@@ -129,9 +138,7 @@ public class LeftNavFragment extends Fragment {
         lnOpenSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), SettingScreen.class);
-                startActivity(intent);
-                drawerLayout.closeDrawer(GravityCompat.END);
+                openScreen(txtSetting,SettingScreen.class);
             }
         });
 
@@ -158,17 +165,25 @@ public class LeftNavFragment extends Fragment {
             }
         });
     }
-
     private void linkView(View view) {
         lnOpenHome = view.findViewById(R.id.lnOpenHome);
+        drawerLayout = requireActivity().findViewById(R.id.drawerLayout);
 
         lnOpenParkingLot = view.findViewById(R.id.lnOpenParkingLot);
+        txtParkingLot = view.findViewById(R.id.txtParkingLot);
 
         lnOpenTopUp = view.findViewById(R.id.lnOpenTopUp);
+        txtTopUp = view.findViewById(R.id.txtTopUp);
+
         lnOpenTransfer = view.findViewById(R.id.lnOpenTransfer);
+        txtTransfer = view.findViewById(R.id.txtTransfer);
+
         lnOpenQRCode = view.findViewById(R.id.lnOpenQRCode);
+        txtQRCode = view.findViewById(R.id.txtQRCode);
 
         lnOpenSetting = view.findViewById(R.id.lnOpenSetting);
+        txtSetting = view.findViewById(R.id.txtSetting);
+
         lnSignoutNav = view.findViewById(R.id.lnSignoutNav);
     }
 }

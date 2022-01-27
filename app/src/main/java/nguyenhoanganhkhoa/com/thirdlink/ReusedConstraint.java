@@ -19,38 +19,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.bumptech.glide.Glide;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
-import nguyenhoanganhkhoa.com.customdialog.CustomDialog;
-import nguyenhoanganhkhoa.com.customdialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.LeftNavFragment;
-import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMoneyFragment;
-import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
+import nguyenhoanganhkhoa.com.custom.rightnav.LeftNavFragment;
 
 public class ReusedConstraint {
     Context context;

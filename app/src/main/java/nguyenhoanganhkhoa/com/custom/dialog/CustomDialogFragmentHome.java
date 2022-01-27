@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.customdialog;
+package nguyenhoanganhkhoa.com.custom.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;

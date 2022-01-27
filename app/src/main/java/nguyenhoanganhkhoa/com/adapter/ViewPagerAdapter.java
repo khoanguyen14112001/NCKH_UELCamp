@@ -7,10 +7,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import nguyenhoanganhkhoa.com.fragments.AccountFragment;
-import nguyenhoanganhkhoa.com.fragments.HistoryFragment;
-import nguyenhoanganhkhoa.com.fragments.HomeFragment;
-import nguyenhoanganhkhoa.com.fragments.WalletFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.homepage.AccountFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.homepage.HistoryFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomeFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.homepage.WalletFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 

@@ -41,7 +41,11 @@
         <activity
             android:name=".home.transfer.TransferMainScreen"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".home.setting.EnterNewPasswordScreen"
@@ -108,13 +112,13 @@
 
         </activity>
         <activity
-            android:name=".home.OurTeamScreen"
+            android:name=".home.aboutus.OurTeamScreen"
             android:exported="true"
             android:screenOrientation="portrait">
 
         </activity>
         <activity
-            android:name=".home.AboutUsScreen"
+            android:name=".home.aboutus.AboutUsScreen"
             android:exported="true"
             android:screenOrientation="portrait">
 
@@ -145,14 +149,10 @@
         </activity>
 
         <activity
-            android:name=".home.HomePageScreen"
+            android:name=".home.homepage.HomePageScreen"
             android:exported="true"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 

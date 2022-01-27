@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home;
+package nguyenhoanganhkhoa.com.myapplication.home.homepage;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
