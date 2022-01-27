@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_left_home"
+            android:title="@string/home_cap"
+            />
+
+
+        <item
+            android:id="@+id/nav_left_parking_lot"
+            android:title="@string/parking_lot_cap"
+            android:icon="@drawable/ic_parking"
+
+            />
+        <item
+            android:id="@+id/nav_left_canteen"
+            android:title="@string/canteen_cap"
+            android:icon="@drawable/ic_canteen"
+
+            />
+        <item
+            android:id="@+id/nav_left_quancafe"
+            android:icon="@drawable/ic_quancafe"
+            android:title="@string/startup_amp_language_space_cap"
+
+            />
+        <item
+            android:id="@+id/nav_left_thuquan"
+            android:icon="@drawable/ic_thuquan"
+            android:title="@string/stationery_cap"
+            />
+
+    </group>
+
+    <item android:title="Action">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_left_topup"
+                    android:icon="@drawable/ic_topup"
+                    android:title="@string/top_up_cap"
+                    />
+
+                <item
+                    android:id="@+id/nav_left_transfer"
+                    android:icon="@drawable/ic_transfer"
+                    android:title="@string/transfer_cap"
+                    />
+
+                <item
+                    android:icon="@drawable/ic_qrcode"
+                    android:id="@+id/nav_left_qrcode"
+                    android:title="@string/qr_code_cap"
+                    />
+            </group>
+        </menu>
+    </item>
+    <item android:title="More">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:icon="@drawable/ic_setting_black"
+                    android:id="@+id/nav_left_setting"
+                    android:title="@string/setting_cap"
+                    />
+                <item
+                    android:id="@+id/nav_left_signout"
+                    android:icon="@drawable/ic_signout"
+                    android:title="@string/sign_out_cap"
+                    />
+            </group>
+        </menu>
+    </item>
+</menu>

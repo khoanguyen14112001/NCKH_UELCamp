@@ -19,12 +19,14 @@ import java.util.List;
 import nguyenhoanganhkhoa.com.adapter.QuestionsAdapter;
 import nguyenhoanganhkhoa.com.models.QuestionsCategories;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class HelpCenterScreen extends AppCompatActivity {
     QuestionsAdapter questionsAdapter;
     RecyclerView rcvQuestions, rcvProblemCate;
     ImageView imvComebackHelpCenter;
     androidx.appcompat.widget.SearchView searchView;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     private void linkView() {
         rcvQuestions = findViewById(R.id.rcvQuestions);
@@ -42,6 +44,7 @@ public class HelpCenterScreen extends AppCompatActivity {
         initAdapter(R.layout.item_question);
         addSearchView();
         addEvents();
+        reusedConstraint.openNav(this);
     }
 
     private void addSearchView() {
@@ -78,6 +81,12 @@ public class HelpCenterScreen extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
+    }
+
     private void initAdapter(int layout) {
         if(layout == R.layout.item_question)
         {

@@ -103,6 +103,11 @@ public class HomePageScreen extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+//        checkExistingUser();
+
+    }
+
+    private void checkExistingUser(){
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser == null) {

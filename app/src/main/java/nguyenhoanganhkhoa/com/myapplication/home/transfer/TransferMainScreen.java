@@ -1,6 +1,8 @@
 package nguyenhoanganhkhoa.com.myapplication.home.transfer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -10,9 +12,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class TransferMainScreen extends AppCompatActivity {
     ImageView imvBack;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,12 +24,27 @@ public class TransferMainScreen extends AppCompatActivity {
         linkView();
         addFragment();
         addEvents();
+        reusedConstraint.openNav(this);
 
     }
 
     private void linkView() {
         imvBack = findViewById(R.id.imvBackTopUpMain);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        if(drawerLayout.isDrawerVisible(GravityCompat.END)){
+            drawerLayout.closeDrawer(GravityCompat.END);
+        }
+        else{
+            if(getFragmentManager().getBackStackEntryCount()>0) {
+                getFragmentManager().popBackStack();
+            }
+            else TransferMainScreen.super.onBackPressed();
+        }
     }
 
     private void addEvents() {

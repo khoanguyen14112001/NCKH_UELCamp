@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".home.LeftNavFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal"
+            android:id="@+id/nav_top_content"
+            android:layout_marginTop="20dp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/img_logo_uel"
+                />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_logo"
+                android:layout_marginHorizontal="20dp"
+                />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/img_logo_fis"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_yellow"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/nav_top_content"
+            android:paddingVertical="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hello"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/be_vietnam_semibold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/truong_hoang_y"
+                    android:textSize="16sp"
+                    android:id="@+id/txtName"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/be_vietnam_medium"/>
+
+                <TextView
+                    android:fontFamily="@font/be_vietnam_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="@string/e_commerce_course_19"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imvAvatar"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:src="@drawable/img_avatar_female" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_dialog_custom"
+                        android:fontFamily="@font/be_vietnam_regular"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/student"
+                        android:textColor="@color/primary_yellow"
+                        app:layout_constraintTop_toBottomOf="@id/imvAvatar"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:id="@+id/txtStudentEditInfo"
+                        android:textSize="11sp"
+                        android:layout_marginTop="4dp"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            style="@style/LeftNavStyleLayout"
+            android:id="@+id/lnOpenHome"
+            >
+
+            <TextView
+                android:text="@string/home_cap"
+                style="@style/LeftNavStyleText"/>
+            <ImageView
+                style="@style/LeftNavStyleIcon"
+                android:src="@drawable/ic_home_left_nav"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+            <LinearLayout
+                style="@style/LeftNavStyleLayout"
+                android:id="@+id/lnOpenParkingLot"
+                >
+
+                <TextView
+                    android:text="@string/parking_lot_cap"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    style="@style/LeftNavStyleIcon"
+                    android:src="@drawable/ic_parking"/>
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LeftNavStyleLayout"
+                >
+                <TextView
+                    android:text="@string/canteen_cap"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    style="@style/LeftNavStyleIcon"
+                    android:src="@drawable/ic_canteen"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LeftNavStyleLayout"
+                >
+                <TextView
+                    android:text="@string/startup_amp_language_space_cap"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    style="@style/LeftNavStyleIcon"
+                    android:src="@drawable/ic_quancafe"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LeftNavStyleLayout"
+                >
+                <TextView
+                    android:text="@string/stationery_cap"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    style="@style/LeftNavStyleIcon"
+                    android:src="@drawable/ic_thuquan"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+            <LinearLayout
+                style="@style/LeftNavStyleLayout"
+                android:id="@+id/lnOpenTopUp"
+                >
+                <TextView
+                    android:text="@string/top_up_cap"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    style="@style/LeftNavStyleIcon"
+                    android:src="@drawable/ic_topup"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                style="@style/LeftNavStyleLayout"
+                android:id="@+id/lnOpenTransfer"
+                >
+                <TextView
+                    android:text="@string/transfer_cap"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    style="@style/LeftNavStyleIcon"
+                    android:src="@drawable/ic_transfer"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LeftNavStyleLayout"
+                android:id="@+id/lnOpenQRCode"
+                >
+
+                <TextView
+                    android:text="@string/qr_code_cap"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    style="@style/LeftNavStyleIcon"
+                    android:src="@drawable/ic_qrcode"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp">
+            <LinearLayout
+                style="@style/LeftNavStyleLayout.TwoLast"
+                android:id="@+id/lnOpenSetting"
+                >
+                <TextView
+                    android:text="@string/setting"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_setting_black"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/LeftNavStyleLayout.TwoLast"
+                android:id="@+id/lnSignoutNav"
+                >
+                <TextView
+                    android:text="@string/sign_out"
+                    style="@style/LeftNavStyleText"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_signoutitem"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,6 +1,8 @@
 package nguyenhoanganhkhoa.com.thirdlink;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.CountDownTimer;
 import android.text.Html;
@@ -21,6 +23,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +39,18 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
+import nguyenhoanganhkhoa.com.customdialog.CustomDialog;
+import nguyenhoanganhkhoa.com.customdialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.LeftNavFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMoneyFragment;
+import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 
 public class ReusedConstraint {
     Context context;
@@ -173,6 +191,46 @@ public class ReusedConstraint {
     }
 
 
+    public void openNav (Activity activity){
+        ImageView imvOpenNav = activity.findViewById(R.id.imvOpenNav);
+        DrawerLayout drawerLayout = activity.findViewById(R.id.drawerLayout);
 
+        imvOpenNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(drawerLayout.isDrawerVisible(GravityCompat.END)){
+                    drawerLayout.closeDrawer(GravityCompat.END);
+                }
+                else{
+                    drawerLayout.openDrawer(GravityCompat.END);
+                }
+            }
+        });
 
+        ((FragmentActivity)context).getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.layoutFragmentLeftNav, new LeftNavFragment())
+                .commit();
+    }
+
+    public void checkNavStatusComeBack(Activity activity){
+        DrawerLayout drawerLayout = activity.findViewById(R.id.drawerLayout);
+        if(drawerLayout.isDrawerVisible(GravityCompat.END)){
+            drawerLayout.closeDrawer(GravityCompat.END);
+        }
+        else{
+            activity.finish();
+        }
+    }
+
+    public void checkNavStatusComeBack(Activity activity, Class activityComeback){
+        DrawerLayout drawerLayout = activity.findViewById(R.id.drawerLayout);
+        if(drawerLayout.isDrawerVisible(GravityCompat.END)){
+            drawerLayout.closeDrawer(GravityCompat.END);
+        }
+        else{
+           Intent intent = new Intent(context, activityComeback);
+           context.startActivity(intent);
+        }
+    }
 }

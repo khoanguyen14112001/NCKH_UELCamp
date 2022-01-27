@@ -17,12 +17,14 @@ import nguyenhoanganhkhoa.com.adapter.TermAdapter;
 import nguyenhoanganhkhoa.com.models.KidTerm;
 import nguyenhoanganhkhoa.com.models.Term;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class SecurityCenterScreen extends AppCompatActivity {
 
     RecyclerView rcvTerms;
     TermAdapter termAdapter;
     ImageView imvSecuritySettingBack;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     private void linkView() {
         rcvTerms = findViewById(R.id.rcvTerms);
@@ -36,6 +38,7 @@ public class SecurityCenterScreen extends AppCompatActivity {
 
         linkView();
         initAdapter();
+        reusedConstraint.openNav(this);
         addEvents();
     }
 
@@ -86,5 +89,10 @@ public class SecurityCenterScreen extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 }

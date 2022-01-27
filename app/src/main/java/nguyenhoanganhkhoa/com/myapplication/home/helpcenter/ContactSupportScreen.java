@@ -20,6 +20,7 @@ import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class ContactSupportScreen extends AppCompatActivity {
 
@@ -32,6 +33,8 @@ public class ContactSupportScreen extends AppCompatActivity {
 
     ImageView imvStatus;
     TextView txtStatusSupport, txtDateSupport;
+
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     private void linkView() {
         rcvContactSupport = findViewById(R.id.rcvContactSupport);
@@ -52,6 +55,8 @@ public class ContactSupportScreen extends AppCompatActivity {
         initAdapter();
         getData();
         addEvents();
+        reusedConstraint.openNav(this);
+
 
     }
 
@@ -105,9 +110,10 @@ public class ContactSupportScreen extends AppCompatActivity {
         catch (Exception e){
             Log.d("Error", "Cannot get data from history adapter " + e);
         }
+    }
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 }

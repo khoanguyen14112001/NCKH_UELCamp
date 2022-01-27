@@ -41,6 +41,7 @@ public class AboutUsScreen extends AppCompatActivity {
         linkView();
         initAdapter();
         addEvents();
+        reusedConstraint.openNav(this);
     }
 
     private void initAdapter() {
@@ -91,5 +92,8 @@ public class AboutUsScreen extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
+    }
 }

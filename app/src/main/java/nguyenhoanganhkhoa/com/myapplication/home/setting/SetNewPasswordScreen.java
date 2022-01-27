@@ -40,8 +40,14 @@ public class SetNewPasswordScreen extends AppCompatActivity {
 
         linkView();
         addEvent();
+        reusedConstraint.openNav(this);
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 
     private void addEvent() {

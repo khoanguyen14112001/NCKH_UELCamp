@@ -1,6 +1,8 @@
 package nguyenhoanganhkhoa.com.myapplication.home.transaction;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +23,9 @@ import nguyenhoanganhkhoa.com.models.Month;
 import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.LeftNavFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.notification.AllNoticeFragment;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class ShowAllTransactionScreen extends AppCompatActivity {
 
@@ -50,6 +55,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
 
     }
 
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +64,12 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         linkView();
         initAdapter();
         addEvents();
+        reusedConstraint.openNav(this);
         
 
     }
+
+
 
 
     private void createBottomSheetDialog() {

@@ -7,16 +7,20 @@ import android.view.View;
 import android.widget.ImageView;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class TransferResultScreen extends AppCompatActivity {
     ImageView imvBack;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transfer_result_screen);
         linkView();
-        addEvents();    }
+        addEvents();
+        reusedConstraint.openNav(this);
+    }
 
     private void addEvents() {
         imvBack.setOnClickListener(new View.OnClickListener() {
@@ -25,6 +29,11 @@ public class TransferResultScreen extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 
     private void linkView() {

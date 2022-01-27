@@ -1,6 +1,8 @@
 package nguyenhoanganhkhoa.com.myapplication.home.setting;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import nguyenhoanganhkhoa.com.myapplication.home.AboutUsScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class SettingScreen extends AppCompatActivity {
     ImageView imvSettingBack ;
@@ -23,6 +26,7 @@ public class SettingScreen extends AppCompatActivity {
     TextView txtLoginSetting, txtSetTime, txtLanguage,txtMinutes, txtSetAPass;
     CustomBottomSheetComponent bottomSheetDialogLanguage = null;
     CustomBottomSheetComponent bottomSheetDialogTime = null;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     TextView txtLanguageSpec;
     private void linkView() {
@@ -43,6 +47,7 @@ public class SettingScreen extends AppCompatActivity {
         setContentView(R.layout.activity_setting_screen);
         linkView();
         addEvents();
+        reusedConstraint.openNav(this);
     }
 
     private void addEvents() {
@@ -145,13 +150,20 @@ public class SettingScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(AppUtil.SIGNAL_COMEBACK_FOR_SETTING == AppUtil.SIGNAL_TO_HOME){
-            startActivity(new Intent(SettingScreen.this,HomePageScreen.class));
-            AppUtil.SIGNAL_COMEBACK_FOR_SETTING = 0;
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        if(drawerLayout.isDrawerVisible(GravityCompat.END)){
+            drawerLayout.closeDrawer(GravityCompat.END);
         }
         else{
-            AppUtil.SIGNAL_COMEBACK_FOR_SETTING = 0;
-            finish();
+            if(AppUtil.SIGNAL_COMEBACK_FOR_SETTING == AppUtil.SIGNAL_TO_HOME){
+                startActivity(new Intent(SettingScreen.this,HomePageScreen.class));
+                AppUtil.SIGNAL_COMEBACK_FOR_SETTING = 0;
+            }
+            else{
+                AppUtil.SIGNAL_COMEBACK_FOR_SETTING = 0;
+                finish();
+            }
         }
+
     }
 }

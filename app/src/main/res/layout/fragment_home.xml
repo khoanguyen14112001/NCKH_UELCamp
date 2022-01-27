@@ -214,7 +214,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/be_vietnam_semibold"
-                    android:text="PARKING LOT"
+                    android:text="@string/parking_lot_cap"
+                    android:textAllCaps="true"
                     android:textAlignment="center"
                     android:textColor="@color/blackUI"
                />
@@ -263,7 +264,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/be_vietnam_semibold"
-                    android:text="CANTEEN"
+                    android:text="@string/canteen_cap"
+                    android:textAllCaps="true"
                     android:textAlignment="center"
                     android:textColor="@color/blackUI"
               />
@@ -326,7 +328,8 @@
                     android:textSize="11.5sp"
                     android:paddingHorizontal="10dp"
                     android:fontFamily="@font/be_vietnam_semibold"
-                    android:text="STARTUP &amp; LANGUAGE SPACE"
+                    android:text="Startup &amp; language space"
+                    android:textAllCaps="true"
                     android:lineSpacingExtra="-5dp"
                     android:textColor="@color/blackUI" />
             </LinearLayout>

@@ -1,174 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:openDrawer="end"
     tools:context=".home.helpcenter.HelpCenterScreen">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1"
-        android:id="@+id/gLeft"
-
-        />
-    <androidx.constraintlayout.widget.Guideline
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9"
-        android:id="@+id/gRight"/>
-    <ImageView
-        style="@style/imageViewComback"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/imvComebackHelpCenter"/>
-    <TextView
-        style="@style/in_BigHeaderText"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/txtHelpCenter"
-        android:text="@string/help_center"
-        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primary_yellow"
-        app:layout_constraintTop_toBottomOf="@id/txtHelpCenter"
-        android:orientation="horizontal"
-        android:focusable="true"
-        android:focusedByDefault="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/lnHello"
-        app:layout_constraintVertical_bias="0.04">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:layout_marginStart="20dp"
             android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1"
+            android:id="@+id/gLeft"
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9"
+            android:id="@+id/gRight"/>
+        <ImageView
+            android:id="@+id/imvOpenNav"
+            style="@style/imageViewOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            style="@style/imageViewComback"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-            <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imvComebackHelpCenter"/>
+        <TextView
+            style="@style/in_BigHeaderText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/txtHelpCenter"
+            android:text="@string/help_center"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_yellow"
+            app:layout_constraintTop_toBottomOf="@id/txtHelpCenter"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusedByDefault="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/lnHello"
+            app:layout_constraintVertical_bias="0.04">
+            <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hello"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/be_vietnam_semibold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/how_can_we_help_you"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/be_vietnam_medium"/>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:src="@drawable/img_question"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintRight_toLeftOf="@id/gRight"
+            app:layout_constraintTop_toBottomOf="@id/lnHello"
+            app:layout_constraintLeft_toLeftOf="@id/gLeft"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.04"
+            app:searchIcon="@drawable/ic_search"
+            android:background="@drawable/searchview_custom"
+            app:queryHint="@string/search_problem"
+            app:iconifiedByDefault="false"
+            android:focusable="false"
+            app:theme="@style/SearchViewStyle"
+            app:queryBackground="@android:color/transparent"
+            android:id="@+id/svProblem"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/svProblem"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintVertical_bias="0.04"
+            android:orientation="vertical"
+            android:id="@+id/lnPorpular">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hello"
-                android:textSize="22sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/be_vietnam_semibold"/>
-            <TextView
-                android:layout_width="wrap_content"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/in_SmallHeaderText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:text="@string/popular_questions"/>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/how_can_we_help_you"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:fontFamily="@font/be_vietnam_medium"/>
+                android:id="@+id/rcvQuestions"
+                android:paddingTop="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:overScrollMode="never"
+                android:paddingBottom="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/lnPorpular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:overScrollMode="never"
+
+            app:layout_constraintVertical_bias="0.06"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/in_SmallHeaderText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:text="@string/problem_categories"/>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:id="@+id/rcvProblemCate"
+                android:overScrollMode="never"
+                android:layout_marginBottom="10dp"
+                />
 
         </LinearLayout>
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="80dp"
-            android:src="@drawable/img_question"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:paddingTop="10dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        app:layout_constraintRight_toLeftOf="@id/gRight"
-        app:layout_constraintTop_toBottomOf="@id/lnHello"
-        app:layout_constraintLeft_toLeftOf="@id/gLeft"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.04"
-        app:searchIcon="@drawable/ic_search"
-        android:background="@drawable/searchview_custom"
-        app:queryHint="@string/search_problem"
-        app:iconifiedByDefault="false"
-        android:focusable="false"
-        app:theme="@style/SearchViewStyle"
-        app:queryBackground="@android:color/transparent"
-        android:id="@+id/svProblem"/>
-    <LinearLayout
+    <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/svProblem"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.04"
-        android:orientation="vertical"
-        android:id="@+id/lnPorpular">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            android:orientation="horizontal">
-            <TextView
-                style="@style/in_SmallHeaderText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:text="@string/popular_questions"/>
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
 
-        </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rcvQuestions"
-            android:paddingTop="10dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:overScrollMode="never"
-            android:paddingBottom="10dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/lnPorpular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:overScrollMode="never"
+        </ScrollView>
 
-        app:layout_constraintVertical_bias="0.06"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            android:orientation="horizontal">
-            <TextView
-                style="@style/in_SmallHeaderText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:text="@string/problem_categories"/>
+    </com.google.android.material.navigation.NavigationView>
 
-        </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            android:id="@+id/rcvProblemCate"
-            android:overScrollMode="never"
-            android:layout_marginBottom="10dp"
-            />
-
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

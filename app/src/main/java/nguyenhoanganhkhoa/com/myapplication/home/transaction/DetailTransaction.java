@@ -20,6 +20,7 @@ import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.HomePageScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class DetailTransaction extends AppCompatActivity {
 
@@ -31,6 +32,9 @@ public class DetailTransaction extends AppCompatActivity {
     TextView txtStatusTrans, txtMoneyTrans, txtDateTrans;
 
     Transaction transaction;
+
+
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     private void linkView() {
         rcvDetailProblem = findViewById(R.id.rcvDetailProblem);
@@ -52,6 +56,7 @@ public class DetailTransaction extends AppCompatActivity {
         initAdapter();
         getData();
         addEvents();
+        reusedConstraint.openNav(this);
 
     }
 
@@ -108,8 +113,7 @@ public class DetailTransaction extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DetailTransaction.this, HomePageScreen.class);
-                startActivity(intent);
+                reusedConstraint.checkNavStatusComeBack(DetailTransaction.this,HomePageScreen.class);
             }
         });
 
@@ -117,7 +121,6 @@ public class DetailTransaction extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(DetailTransaction.this,HomePageScreen.class);
-        startActivity(intent);
+        reusedConstraint.checkNavStatusComeBack(this,HomePageScreen.class);
     }
 }

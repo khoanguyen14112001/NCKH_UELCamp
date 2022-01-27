@@ -92,6 +92,14 @@
         <item name="backgroundTint">@color/white</item>
     </style>
 
+    <style name="imageViewOpenNav">
+        <item name="android:src">@drawable/ic_open_nav</item>
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_margin">16sp</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
     <!--    text Style Login-->
     <style name="out_BigHeaderText">
         <item name="android:layout_width">wrap_content</item>
@@ -252,6 +260,44 @@
         <item name="android:textColor">@color/black</item>
         <item name="fontFamily">@font/be_vietnam_regular</item>
         <item name="android:fontFamily">@font/be_vietnam_regular</item>
+    </style>
+
+<!--    custom left nav-->
+    <style name="FontLeftNavViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/be_vietnam_semibold</item>
+    </style>
+
+    <style name="LeftNavStyleText">
+<!--        <item name="android:background">@drawable/custom_button_dialog</item>-->
+        <item name="fontFamily">@font/be_vietnam_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="LeftNavStyleIcon">
+        <!--        <item name="android:background">@drawable/custom_button_dialog</item>-->
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
+    </style>
+
+    <style name="LeftNavStyleLayout">
+        <!--        <item name="android:background">@drawable/custom_button_dialog</item>-->
+        <item name="android:paddingVertical">5dp</item>
+        <item name="android:paddingRight">25dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:gravity">center_vertical|end</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/xamNen</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="LeftNavStyleLayout.TwoLast">
+        <!--        <item name="android:background">@drawable/custom_button_dialog</item>-->
+        <item name="android:background">@color/white</item>
     </style>
 
 

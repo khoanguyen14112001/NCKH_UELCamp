@@ -37,6 +37,7 @@ public class OurTeamScreen extends AppCompatActivity {
         linkView();
         initAdapter();
         addEvents();
+        reusedConstraint.openNav(this);
 
     }
 
@@ -60,6 +61,10 @@ public class OurTeamScreen extends AppCompatActivity {
         viewPagerOurTeam.setCurrentItem(MemberAdapter.memberNumber);
     }
 
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
+    }
 
     private void initAdapter() {
         try {

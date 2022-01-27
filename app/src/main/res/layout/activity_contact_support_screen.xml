@@ -1,128 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/xamNen"
+    tools:openDrawer="end"
+    android:id="@+id/drawerLayout"
     tools:context=".home.helpcenter.ContactSupportScreen">
 
-
-
-
-    <TextView
-        android:text="@string/contact_support"
-        style="@style/in_BigHeaderText"
-        android:id="@+id/txtHeader"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-    <ImageView
-        style="@style/imageViewComback"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/imvBack"/>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txtHeader"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/gCenter"
-        android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.4"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/img_green_bike"
-            android:background="@drawable/oval_shape"
-            android:id="@+id/imvStatus"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="@string/contact_support"
+            style="@style/in_BigHeaderText"
+            android:id="@+id/txtHeader"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtStatusSupport"
-            android:text="@string/entry"
-            android:layout_gravity="center_horizontal"
-            style="@style/in_SmallHeaderText"
-            android:layout_marginTop="5dp"/>
+            app:layout_constraintLeft_toLeftOf="parent"/>
+        <ImageView
+            android:id="@+id/imvOpenNav"
+            style="@style/imageViewOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            style="@style/imageViewComback"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/imvBack"/>
 
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="21 Oct, 10:07 "
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:id="@+id/txtDateSupport"
-            android:fontFamily="@font/be_vietnam_medium"
-            android:textColor="@color/xamChu"
-            android:textSize="20sp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtHeader"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/gCenter"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            app:layout_constraintVertical_bias="0.4"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/img_green_bike"
+                android:background="@drawable/oval_shape"
+                android:id="@+id/imvStatus"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtStatusSupport"
+                android:text="@string/entry"
+                android:layout_gravity="center_horizontal"
+                style="@style/in_SmallHeaderText"
+                android:layout_marginTop="5dp"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21 Oct, 10:07 "
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:id="@+id/txtDateSupport"
+                android:fontFamily="@font/be_vietnam_medium"
+                android:textColor="@color/xamChu"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/be_vietnam_regular"
+                    android:textColor="@color/black"
+                    android:text="@string/trading_code"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/be_vietnam_regular"
+                    android:textColor="@color/primary_yellow"
+                    android:text="3802042925"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
+            app:layout_constraintGuide_percent="0.47"
+            android:id="@+id/gCenter"
+            />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            app:layout_constraintTop_toTopOf="@id/gCenter"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/what_problem_do_you_have"
+                android:layout_margin="20dp"
                 android:textSize="20sp"
-                android:fontFamily="@font/be_vietnam_regular"
                 android:textColor="@color/black"
-                android:text="@string/trading_code"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:fontFamily="@font/be_vietnam_semibold"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:fontFamily="@font/be_vietnam_regular"
-                android:textColor="@color/primary_yellow"
-                android:text="3802042925"/>
+                android:id="@+id/rcvContactSupport"/>
+
 
         </LinearLayout>
-    </LinearLayout>
 
-    <androidx.constraintlayout.widget.Guideline
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.47"
-        android:id="@+id/gCenter"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toTopOf="@id/gCenter"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/what_problem_do_you_have"
-            android:layout_margin="20dp"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/be_vietnam_semibold"/>
-        <androidx.recyclerview.widget.RecyclerView
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rcvContactSupport"/>
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
 
 
-    </LinearLayout>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

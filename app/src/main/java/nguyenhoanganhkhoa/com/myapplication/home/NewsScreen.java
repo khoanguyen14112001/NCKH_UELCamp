@@ -84,6 +84,7 @@ public class NewsScreen extends AppCompatActivity {
         loadFireBaseData("news",R.layout.item_news);
 
         addEvents();
+        reusedConstraint.openNav(this);
       //  addAutoEvents();
 
 
@@ -143,6 +144,11 @@ public class NewsScreen extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 
     private void createSlideShow(int size) {

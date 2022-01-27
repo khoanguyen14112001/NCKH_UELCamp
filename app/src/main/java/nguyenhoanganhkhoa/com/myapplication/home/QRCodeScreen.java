@@ -38,6 +38,7 @@ public class QRCodeScreen extends AppCompatActivity {
         getDataFromFirebase();
         displayBalanceFromFirebase();
         addEvents();
+        reusedConstraint.openNav(this);
 
     }
 
@@ -93,6 +94,11 @@ public class QRCodeScreen extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 
     private void linkView() {

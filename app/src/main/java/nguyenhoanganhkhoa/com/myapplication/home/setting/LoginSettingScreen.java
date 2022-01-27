@@ -26,6 +26,7 @@ import nguyenhoanganhkhoa.com.customdialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.models.Devices;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class LoginSettingScreen extends AppCompatActivity {
 
@@ -37,6 +38,7 @@ public class LoginSettingScreen extends AppCompatActivity {
 
     boolean isSignOut;
 
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class LoginSettingScreen extends AppCompatActivity {
         getDataFromFirebase();
         initAdapter(getListDevices());
         addEvents();
+        reusedConstraint.openNav(this);
 
     }
 
@@ -110,6 +113,11 @@ public class LoginSettingScreen extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 
     private void linkView() {

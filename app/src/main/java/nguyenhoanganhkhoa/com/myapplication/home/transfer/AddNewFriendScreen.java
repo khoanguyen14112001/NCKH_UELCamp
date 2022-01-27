@@ -10,12 +10,14 @@ import android.widget.ImageView;
 
 import nguyenhoanganhkhoa.com.adapter.FriendAdapter;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class AddNewFriendScreen extends AppCompatActivity {
 
     RecyclerView rcvAddNewFriend;
     FriendAdapter adapter;
     ImageView imvBack;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class AddNewFriendScreen extends AppCompatActivity {
         linkView();
         initAdapter();
         addEvents();
+        reusedConstraint.openNav(this);
     }
 
     private void linkView() {
@@ -42,12 +45,18 @@ public class AddNewFriendScreen extends AppCompatActivity {
         rcvAddNewFriend.setAdapter(adapter);
     }
 
+
     private void addEvents() {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                reusedConstraint.checkNavStatusComeBack(AddNewFriendScreen.this);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(AddNewFriendScreen.this);
     }
 }

@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -151,9 +153,11 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
         initAdapterFaculty();
         initAderterMarjor();
         addResultLauncher();
+        reusedConstraint.openNav(this);
         getData();
         getUserImages();
         addEvents();
+
 
 
     }
@@ -354,7 +358,14 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
     }
     @Override
     public void onBackPressed() {
-        comeBackScreen();
+
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        if(drawerLayout.isDrawerVisible(GravityCompat.END)){
+            drawerLayout.closeDrawer(GravityCompat.END);
+        }
+        else{
+            comeBackScreen();
+        }
     }
 
     private void addEvents() {

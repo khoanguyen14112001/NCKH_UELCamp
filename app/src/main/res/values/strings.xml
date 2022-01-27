@@ -340,6 +340,16 @@
     <string name="slspace">SLSpace</string>
     <string name="stationery">Stationery</string>
     <string name="accept">Accept</string>
+    <string name="parking_lot_cap">PARKING LOT</string>
+    <string name="canteen_cap">CANTEEN</string>
+    <string name="home_cap">HOME</string>
+    <string name="startup_amp_language_space_cap"><![CDATA[STARTUP & LANGUAGE SPACE]]></string>
+    <string name="stationery_cap">STATIONERY</string>
+    <string name="top_up_cap">TOP UP</string>
+    <string name="transfer_cap">TRANSFER</string>
+    <string name="qr_code_cap">QR CODE</string>
+    <string name="setting_cap">SETTING</string>
+    <string name="sign_out_cap">SIGN OUT</string>
 
     <array name="initial_slider_values">
         <item>0</item>

@@ -53,6 +53,7 @@ public class EnterNewPasswordScreen extends AppCompatActivity {
         setContentView(R.layout.activity_enter_new_password_screen);
         linkView();
         addEvents();
+        reusedConstraint.openNav(this);
     }
 
     private void clearFocus(){
@@ -173,6 +174,11 @@ public class EnterNewPasswordScreen extends AppCompatActivity {
             return true;
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 
     private void addEvents() {
