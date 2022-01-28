@@ -88,8 +88,14 @@ public class LeftNavFragment extends Fragment {
 
     private void openScreen(TextView txt, Class activity){
 
-        TextView txtHeader = requireActivity().findViewById(R.id.txtHeader);
-        if (!txt.getText().toString().toLowerCase().trim().equals(txtHeader.getText().toString().toLowerCase().trim())) {
+        try {
+            TextView txtHeader = requireActivity().findViewById(R.id.txtHeader);
+            if (!txt.getText().toString().toLowerCase().trim().equals(txtHeader.getText().toString().toLowerCase().trim())) {
+                Intent intent = new Intent(getContext(), activity);
+                startActivity(intent);
+            }
+        }
+        catch (Exception e){
             Intent intent = new Intent(getContext(), activity);
             startActivity(intent);
         }
