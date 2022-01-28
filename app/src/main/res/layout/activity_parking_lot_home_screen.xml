@@ -1,9 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:openDrawer="end"
+    android:background="@color/xamNen"
+    android:id="@+id/drawerLayout"
     tools:context=".home.parkinglot.ParkingLotHomeScreen">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imvOpenNav"
+            style="@style/imageViewOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageView
+            android:id="@+id/imvBack"
+            style="@style/imageViewComback"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            style="@style/in_BigHeaderText"
+            android:text="@string/parking_lot_cap"
+            android:id="@+id/txtHeader"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtHeader"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:textColor="@color/black80"
+            android:layout_marginTop="10dp"
+            android:id="@+id/txtText"
+            android:text="@string/this_is_uel_s_student_parking_application"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txtText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="30dp"
+            android:id="@+id/imvXeOm"
+            android:src="@drawable/img_xe_om"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/nest_scrollview_custom"
+            app:layout_constraintTop_toBottomOf="@id/imvXeOm"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <View
+                android:layout_width="50dp"
+                android:background="@drawable/nest_srollview_up"
+                android:layout_marginTop="15dp"
+                android:layout_height="6dp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    style="@style/in_SmallHeaderText"
+                    android:text="@string/last_history_of_parking"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    style="@style/in_SmallHeaderText"
+                    android:textColor="@color/primary_yellow"
+                    android:text="@string/see_all"
+                    android:id="@+id/txtSeeAll"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:id="@+id/rcvHistory"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

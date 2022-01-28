@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,6 +62,14 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
         historyAdapter.setData(date.getHistories());
         holder.rcvHistory.setAdapter(historyAdapter);
 
+        if (date.getHistories().isEmpty()){
+            holder.layout_item_date_history.setVisibility(View.GONE);
+            ViewGroup.LayoutParams params = holder.layout_item_date_history.getLayoutParams();
+            params.height = 0;
+            params.width = 0;
+            holder.layout_item_date_history.setLayoutParams(params);
+        }
+
     }
 
     @Override
@@ -74,10 +83,12 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txtDayAll;
         private RecyclerView rcvHistory;
+        private LinearLayout layout_item_date_history;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtDayAll = itemView.findViewById(R.id.txtDayAll);
             rcvHistory = itemView.findViewById(R.id.rcvHistory);
+            layout_item_date_history = itemView.findViewById(R.id.layout_item_date_history);
         }
     }
 }

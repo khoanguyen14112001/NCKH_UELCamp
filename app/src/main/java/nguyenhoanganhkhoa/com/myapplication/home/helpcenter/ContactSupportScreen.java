@@ -101,9 +101,18 @@ public class ContactSupportScreen extends AppCompatActivity {
             Bundle bundle = intent.getBundleExtra(AppUtil.MY_BUNDLE_TRANS);
             if(bundle!=null){
                 history = (History) bundle.getSerializable(AppUtil.SELECTED_ITEM_TRANS);
-                imvStatus.setImageResource(history.getColorHis());
-                txtStatusSupport.setText(history.getStatusInOut());
-                txtDateSupport.setText(history.getDayInOut());
+                txtDateSupport.setText(history.getDateHistory());
+                if(history.isEntry()){
+                    imvStatus.setImageResource(R.drawable.img_green_bike);
+                    txtStatusSupport.setText("Entry");
+                }
+                else{
+                    imvStatus.setImageResource(R.drawable.img_red_bike);
+                    txtStatusSupport.setText("Exit");
+                }
+
+
+
             }
         }
 

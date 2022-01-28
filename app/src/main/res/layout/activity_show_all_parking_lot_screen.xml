@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="end"
+    android:id="@+id/drawerLayout"
+    tools:context=".home.parkinglot.ShowAllParkingLotScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            style="@style/imageViewComback"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/imvBack"
+            />
+        <ImageView
+            android:id="@+id/imvOpenNav"
+            style="@style/imageViewOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            style="@style/in_BigHeaderText"
+            android:id="@+id/txtHeader"
+            android:text="@string/history"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svTransaction"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/searchview_custom"
+            android:focusable="false"
+            app:iconifiedByDefault="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/lnFilterTrans"
+            app:layout_constraintTop_toBottomOf="@id/txtHeader"
+            app:queryBackground="@android:color/transparent"
+            app:queryHint="@string/search_transaction"
+            app:searchIcon="@drawable/ic_search"
+            app:theme="@style/SearchViewStyle" />
+
+        <LinearLayout
+            android:id="@+id/lnFilterTrans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/svTransaction"
+            app:layout_constraintLeft_toRightOf="@id/svTransaction"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/svTransaction">
+
+            <ImageView
+                android:id="@+id/imvFilter"
+                android:layout_width="25dp"
+                android:layout_height="31dp"
+                android:src="@drawable/ic_filter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:text="@string/filter"
+                android:textColor="@color/blackUI"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/svTransaction"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/horScroll"
+            android:scrollbars="none"
+            android:paddingHorizontal="20dp">
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_marginTop="12dp"
+                >
+                <RadioButton
+                    android:layout_width="55dp"
+                    android:layout_height="30dp"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@string/all"
+                    android:textColor="@color/blackUI"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:background="@drawable/custom_rad_filter"
+                    android:checked="true"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/be_vietnam_regular"
+                    android:id="@+id/radHistoryAll"
+                    />
+                <RadioButton
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@string/entry"
+                    android:textColor="@color/blackUI"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:background="@drawable/custom_rad_filter"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/be_vietnam_regular"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/radHistoryEntry"
+                    />
+                <RadioButton
+                    android:layout_width="75dp"
+                    android:layout_height="30dp"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@string/exit"
+                    android:textColor="@color/blackUI"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:background="@drawable/custom_rad_filter"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/be_vietnam_regular"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/radHistoryExit"
+                    />
+
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvHistoryParkingAll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horScroll" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

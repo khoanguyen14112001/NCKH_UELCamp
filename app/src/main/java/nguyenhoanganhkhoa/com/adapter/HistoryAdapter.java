@@ -51,9 +51,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             return;
         }
 
-        holder.imvColorHis.setImageResource(history.getColorHis());
-        holder.txtEntryExit.setText(history.getStatusInOut());
-        holder.txtDateEntryExit.setText(history.getDayInOut());
+
+        holder.txtDateEntryExit.setText(history.getDateHistory());
+        if(history.isEntry()){
+            holder.txtEntryExit.setText("Entry");
+            holder.imvColorHis.setImageResource(R.drawable.img_green_bike);
+        }
+        else{
+            holder.txtEntryExit.setText("Exit");
+            holder.imvColorHis.setImageResource(R.drawable.img_red_bike);
+
+        }
 
         holder.btnContactSp.setOnClickListener(new View.OnClickListener() {
             @Override

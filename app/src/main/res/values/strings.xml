@@ -350,6 +350,8 @@
     <string name="qr_code_cap">QR CODE</string>
     <string name="setting_cap">SETTING</string>
     <string name="sign_out_cap">SIGN OUT</string>
+    <string name="this_is_uel_s_student_parking_application">This is UEL\'s student parking application</string>
+    <string name="last_history_of_parking">Last history of parking</string>
 
     <array name="initial_slider_values">
         <item>0</item>
