@@ -12,7 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.Objects;
+
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTransferConfirm;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,12 +66,14 @@ public class TransferMoneyDetailFragment extends Fragment {
     }
 
     Button btnConfirm;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_transfer_money_detail, container, false);
         linkView(view);
+
         addEvents();
 
 
@@ -78,7 +84,8 @@ public class TransferMoneyDetailFragment extends Fragment {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), TransferResultScreen.class));
+                CustomDialogTransferConfirm dialog = new CustomDialogTransferConfirm(requireContext(), R.layout.custom_dialog_transfer_confirm);
+                dialog.show();
             }
         });
 

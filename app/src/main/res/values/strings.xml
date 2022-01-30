@@ -356,6 +356,8 @@
     <string name="promotion">Promotion</string>
     <string name="from_service">From service</string>
     <string name="expense">Expense</string>
+    <string name="enter_your_password_to_complete_the_transaction">Enter your password \n to complete the transaction</string>
+    <string name="enter_your_password">Enter your password</string>
 
     <array name="initial_slider_values">
         <item>0</item>

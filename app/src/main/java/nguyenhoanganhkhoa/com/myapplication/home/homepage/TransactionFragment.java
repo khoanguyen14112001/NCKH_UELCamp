@@ -201,20 +201,31 @@ public class TransactionFragment extends Fragment {
         List<Transaction> listTrans1 = new ArrayList<>();
         List<Transaction> listTrans2 = new ArrayList<>();
         List<Transaction> listTrans3 = new ArrayList<>();
+        List<Transaction> listTrans4 = new ArrayList<>();
 
         listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_TOPUP,"20 Oct, 10:07 ",true,50000));
         listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_PARKING,"20 10 Oct, 16:19  ",false,3000, false));
         listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 Oct, 16:19",false,3000));
 
-        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_THUQUAN,"20 Oct, 10:07 ",true,50000));
-        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_QUANCAFE,"20 10 Oct, 16:19  ",false,3000, false));
+        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_THUQUAN,"20 Sep, 10:07 ",true,50000));
+        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_QUANCAFE,"20 10 Sep, 16:19  ",false,3000, false));
 
-        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 Oct, 16:19",false,5000));
-        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_TOPUP,"10 Oct, 16:19",true,120000));
+        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 Aug, 16:19",false,5000));
+        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_TOPUP,"10 Aug, 16:19",true,120000));
+        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_TOPUP,"10 Aug, 16:19",true,120000));
+        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_TOPUP,"10 Aug, 16:19",true,120000));
+        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_TRANSFER,"10 Aug, 16:19",true,30000));
+
+
+        listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_TRANSFER,"10 July, 16:19",false,45000));
+        listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_TRANSFER,"10 July, 16:19",false,20000));
+        listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 July, 16:19",false,49000));
+        listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_THUQUAN,"10 July, 16:19",false,32000));
 
         listMonth.add(new Month("Oct 2021",addGetCategory(listTrans1), totalIncome(addGetCategory(listTrans1)), totalExpense(addGetCategory(listTrans1))));
         listMonth.add(new Month("Sep 2021",addGetCategory(listTrans2), totalIncome(addGetCategory(listTrans2)), totalExpense(addGetCategory(listTrans2))));
         listMonth.add(new Month("Aug 2021",addGetCategory(listTrans3), totalIncome(addGetCategory(listTrans3)), totalExpense(addGetCategory(listTrans3))));
+        listMonth.add(new Month("July 2021",addGetCategory(listTrans4), totalIncome(addGetCategory(listTrans4)), totalExpense(addGetCategory(listTrans4))));
 
 
         // Nếu tháng nào không có dữ liệu thì xóa

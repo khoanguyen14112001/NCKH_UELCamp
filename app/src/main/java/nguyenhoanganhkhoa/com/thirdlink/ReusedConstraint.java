@@ -96,6 +96,8 @@ public class ReusedConstraint {
         edtCanSua.setTextColor(context.getColorStateList(textColor));
     }
 
+
+
     public void changeColor(TextView text, int numStart, int numEnd, int ColorChange) {
         String textVerifcation = text.getText().toString();
 

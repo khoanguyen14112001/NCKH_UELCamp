@@ -26,14 +26,14 @@ public class TransferResultScreen extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                reusedConstraint.checkNavStatusComeBack(TransferResultScreen.this,TransferMainScreen.class);
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        reusedConstraint.checkNavStatusComeBack(this);
+        reusedConstraint.checkNavStatusComeBack(this,TransferMainScreen.class);
     }
 
     private void linkView() {
