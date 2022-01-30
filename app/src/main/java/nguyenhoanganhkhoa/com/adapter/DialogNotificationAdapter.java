@@ -44,13 +44,26 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
 
     private int screen = 0;
 
+    //Friends
     public static final String NOTIFICATION_FRIEND = "friend";
-    public static final String NOTIFICATION_WALLET = "wallet";
-    public static final String NOTIFICATION_PARKING = "parking";
-
-
     public static final String NOTIFICATION_GENDER_MALE = "male";
     public static final String NOTIFICATION_GENDER_FEMALE = "female";
+
+    //Transaction
+    public static final String NOTIFICATION_WALLET = "wallet";
+    public static final String NOTIFICATION_TRANSFER= "transfer";
+
+    //From services
+    public static final String NOTIFICATION_PARKING = "parking";
+    public static final String NOTIFICATION_QUANCAFE = "quancafe";
+    public static final String NOTIFICATION_THUQUAN = "thuquan";
+    public static final String NOTIFICATION_CANTEEN = "canteen";
+
+    //Promotion
+    public static final String NOTIFICATION_PROMOTION = "promotion";
+
+
+
 
     public DialogNotificationAdapter(Context context, int layoutItem) {
 
@@ -113,10 +126,25 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
                 }
                 break;
             case NOTIFICATION_WALLET:
-                holder.imvThumbNotification.setImageResource(R.drawable.img_nomoney_notice);
+                setNotificationThumb(holder, R.drawable.ic_topup);
+                break;
+            case NOTIFICATION_TRANSFER:
+                setNotificationThumb(holder, R.drawable.ic_transfer);
+                break;
+            case NOTIFICATION_QUANCAFE:
+                setNotificationThumb(holder, R.drawable.ic_quancafe);
+                break;
+            case NOTIFICATION_THUQUAN:
+                setNotificationThumb(holder, R.drawable.ic_thuquan);
+                break;
+            case NOTIFICATION_CANTEEN:
+                setNotificationThumb(holder, R.drawable.ic_canteen);
                 break;
             case NOTIFICATION_PARKING:
-                holder.imvThumbNotification.setImageResource(R.drawable.img_notice);
+                setNotificationThumb(holder, R.drawable.ic_bike);
+                break;
+            case NOTIFICATION_PROMOTION:
+                setNotificationThumb(holder, R.drawable.ic_promotion);
                 break;
         }
         setNotificationStatus(holder,notification);
@@ -135,7 +163,16 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
             holder.txtNotificationContent.setTypeface(typeface);
         }
     }
-
+    private void setNotificationThumb(DialogNotificationAdapter.ViewHolder holder, int thumb){
+        holder.imvThumbNotification.setImageResource(thumb);
+        if(layoutItem == R.layout.item_notification_all_bold){
+            holder.imvThumbNotification.setPadding(25,25,25,25);
+        }
+        else{
+            holder.imvThumbNotification.setPadding(20,20,20,20);
+        }
+        holder.imvThumbNotification.setBackground(context.getDrawable(R.drawable.oval_shape));
+    }
     private void addEvents(DialogNotificationAdapter.ViewHolder holder, Notification notification, int position){
         if(layoutItem==R.layout.item_notification_all_bold)
         {

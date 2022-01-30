@@ -139,26 +139,11 @@ public class AllNoticeFragment extends Fragment {
                 DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
-                "Anh Khoa has accepted your friend request",
-                "13 Jan, 19:04",
-                false,
-                true,
-                DialogNotificationAdapter.NOTIFICATION_GENDER_FEMALE
-        ));
-
         list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
                 "Due to the Christmas holiday, the parking lot will not be open",
-                "13 Jan, 19:04",
+                "23 Dec, 18:35",
                 true
         ));
-
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
-                "You currently do not have enough money to pay, please top up",
-                "13 Jan, 19:04",
-                false
-        ));
-
 
 
         return list;
@@ -166,30 +151,67 @@ public class AllNoticeFragment extends Fragment {
     public static List<Notification> getListBeforeNotification() {
         List<Notification> list = new ArrayList<>();
         list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
-                "Tường Vy has accepted your friend request",
-                "13 Jan, 19:04",
-                true,
+                "Hải Thanh sent you a friend request",
+                "10 Nov, 21:00",
+                false,
                 true,
                 DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
                 ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
-                "Anh Khoa has accepted your friend request",
-                "13 Jan, 19:04",
-                false,
-                false,
-                DialogNotificationAdapter.NOTIFICATION_GENDER_FEMALE
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
+                "You currently do not have enough money to pay, please top up",
+                "03 Nov, 17:05",
+                false
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
-                "Due to the Christmas holiday, the parking lot will not be open",
-                "13 Jan, 19:04",
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_TRANSFER,
+                "You have successfully transfer 50,000 VND",
+                "01 Nov, 18:45",
+                false
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PROMOTION,
+                "You are given a voucher for 20% off when paying for any service",
+                "23 Dec, 18:35",
                 true
         ));
 
         list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
                 "You currently do not have enough money to pay, please top up",
-                "13 Jan, 19:04",
+                "03 Nov, 17:05",
+                false
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_QUANCAFE,
+                "Due to the Christmas holiday, the SLSpace will not be open",
+                "23 Dec, 18:35",
+                true
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_THUQUAN,
+                "Stationery has entered the full uniform, contact Stationery to buy",
+                "03 Nov, 17:05",
+                false
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+                "Hải Yên has accepted your friend request",
+                "03 Nov, 17:05",
+                false,
+                true,
+                DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
+        ));
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_CANTEEN,
+                "Canteen is temporarily closed on 24 Dec",
+                "23 Dec, 18:35",
+                true
+        ));
+
+
+        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
+                "Due to the Christmas holiday, the parking lot will not be open",
+                "01 Nov, 18:45",
                 false
         ));
 

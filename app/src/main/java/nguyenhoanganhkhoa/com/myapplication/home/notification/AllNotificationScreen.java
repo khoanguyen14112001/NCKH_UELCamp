@@ -20,7 +20,7 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class AllNotificationScreen extends AppCompatActivity {
 
     ImageView imvBackNotifications, imvFilterNotification;
-    RadioButton radUnread, radAll, radTransaction, radFromAdmin;
+    RadioButton radUnread, radAll, radTransaction, radFromService, radPromotion;
 
     Fragment fragment = null;
 
@@ -39,7 +39,8 @@ public class AllNotificationScreen extends AppCompatActivity {
 
         radUnread = findViewById(R.id.radNotificationAllUnread);
         radAll = findViewById(R.id.radNotificationAllAll);
-        radFromAdmin = findViewById(R.id.radFromAdmin);
+        radPromotion = findViewById(R.id.radPromotion);
+        radFromService = findViewById(R.id.radFromService);
         radTransaction = findViewById(R.id.radTransaction);
 
         imvFilterNotification = findViewById(R.id.imvFilterNotification);
@@ -168,11 +169,20 @@ public class AllNotificationScreen extends AppCompatActivity {
             }
         });
 
-        radFromAdmin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        radFromService.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
-                    changeFragment(new FromAdminNoticeFragment());
+                    changeFragment(new FromServicesFragment());
+                }
+            }
+        });
+
+        radPromotion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    changeFragment(new PromotionFragment());
                 }
             }
         });

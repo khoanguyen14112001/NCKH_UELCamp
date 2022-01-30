@@ -11,11 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.Date;
 import nguyenhoanganhkhoa.com.models.Month;
+import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class MonthTransAdapter extends RecyclerView.Adapter<MonthTransAdapter.ViewHolder> {
 
@@ -65,8 +69,14 @@ public class MonthTransAdapter extends RecyclerView.Adapter<MonthTransAdapter.Vi
             holder.lnItemMonthTrans.setLayoutParams(params);
         }
 
-
+        holder.txtIncome.setText(reusedConstraint.formatCurrency(month.getMonthIncome()));
+        holder.txtExpense.setText(reusedConstraint.formatCurrency(month.getMonthExpense()));
     }
+
+    ReusedConstraint reusedConstraint = new ReusedConstraint(context);
+
+
+
 
 
     @Override
@@ -81,9 +91,15 @@ public class MonthTransAdapter extends RecyclerView.Adapter<MonthTransAdapter.Vi
         private TextView txtMonthAll;
         private RecyclerView rcvTransactionList;
         private LinearLayout lnItemMonthTrans;
+        private TextView txtIncome, txtExpense;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtMonthAll = itemView.findViewById(R.id.txtMonthAll);
+
+            txtIncome = itemView.findViewById(R.id.txtIncome);
+            txtExpense = itemView.findViewById(R.id.txtExpense);
+
+
             rcvTransactionList = itemView.findViewById(R.id.rcvTransactionList);
             lnItemMonthTrans = itemView.findViewById(R.id.lnItemMonthTrans);
         }

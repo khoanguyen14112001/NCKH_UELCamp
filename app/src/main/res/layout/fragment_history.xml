@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".home.homepage.HistoryFragment">
+    tools:context=".home.homepage.TransactionFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -97,7 +97,7 @@
                 android:layout_height="30dp"
 
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:text="@string/wallet"
+                android:text="@string/top_up"
                 android:textColor="@color/blackUI"
                 android:button="@android:color/transparent"
                 android:gravity="center"
@@ -106,6 +106,22 @@
                 android:fontFamily="@font/be_vietnam_regular"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/radTransAllWallet"
+                />
+
+            <RadioButton
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/transfer"
+                android:textColor="@color/blackUI"
+                android:button="@android:color/transparent"
+                android:gravity="center"
+                android:background="@drawable/custom_rad_filter"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/radTransAllTransfer"
                 />
 
             <RadioButton

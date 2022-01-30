@@ -9,7 +9,7 @@
 
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
 
         android:layout_width="50dp"
         android:layout_height="50dp"

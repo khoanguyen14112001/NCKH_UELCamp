@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogFragmentHome;
 import nguyenhoanganhkhoa.com.myapplication.home.notification.AllNotificationScreen;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -114,7 +115,7 @@ public class HomeFragment extends Fragment {
         imbParkingLot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getContext(), ParkingLotHomeScreen.class));
             }
         });
         imvNoteBell.setOnClickListener(new View.OnClickListener() {

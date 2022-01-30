@@ -22,10 +22,10 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link TransNoticeFragment#newInstance} factory method to
+ * Use the {@link PromotionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TransNoticeFragment extends Fragment {
+public class PromotionFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +36,7 @@ public class TransNoticeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public TransNoticeFragment() {
+    public PromotionFragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +46,11 @@ public class TransNoticeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TransNoticeFragment.
+     * @return A new instance of fragment PromotionFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TransNoticeFragment newInstance(String param1, String param2) {
-        TransNoticeFragment fragment = new TransNoticeFragment();
+    public static PromotionFragment newInstance(String param1, String param2) {
+        PromotionFragment fragment = new PromotionFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,15 +67,16 @@ public class TransNoticeFragment extends Fragment {
         }
     }
     RecyclerView rcvDisplayNotifications;
+    ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
     DialogNotificationAdapter adapter;
     SearchView searchView;
-    ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_from_services_notice, container, false);
+        View view = inflater.inflate(R.layout.fragment_promotion, container, false);
+
         linkView(view);
         initAdapter();
         reusedConstraint.addSearchForNotification(searchView,adapter);
@@ -91,7 +92,6 @@ public class TransNoticeFragment extends Fragment {
     private void initAdapter() {
         try {
             adapter = new DialogNotificationAdapter(getContext(),R.layout.item_notification_all_bold);
-            rcvDisplayNotifications.setAdapter(adapter);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
             rcvDisplayNotifications.setLayoutManager(linearLayoutManager);
@@ -99,9 +99,8 @@ public class TransNoticeFragment extends Fragment {
             adapter.setData(getListNotify());
             rcvDisplayNotifications.setAdapter(adapter);
         }
-
         catch (Exception e) {
-            Log.d("Error", "Fail to set adapter in TransNoticeFragment: " + e);
+            Log.d("Error", "Fail to load adapter in FromAdminNoticeFragment: " + e);
         }
 
     }
@@ -111,13 +110,10 @@ public class TransNoticeFragment extends Fragment {
         List<Notification> listAll = AllAllNoticeFragment.getListAllAllNotification();
         int i;
         for(i = 0; i<listAll.size();i++){
-            if(listAll.get(i).getNotificationType().equals(DialogNotificationAdapter.NOTIFICATION_TRANSFER) ||
-                listAll.get(i).getNotificationType().equals(DialogNotificationAdapter.NOTIFICATION_WALLET)
-            ){
+            if(listAll.get(i).getNotificationType().equals(DialogNotificationAdapter.NOTIFICATION_PROMOTION)){
                 list.add(listAll.get(i));
             }
         }
         return list;
     }
-
 }

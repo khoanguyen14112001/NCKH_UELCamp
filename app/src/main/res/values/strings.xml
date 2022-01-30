@@ -352,6 +352,10 @@
     <string name="sign_out_cap">SIGN OUT</string>
     <string name="this_is_uel_s_student_parking_application">This is UEL\'s student parking application</string>
     <string name="last_history_of_parking">Last history of parking</string>
+    <string name="enter_the_amount_you_want_to_transfer">Enter the amount you want to transfer</string>
+    <string name="promotion">Promotion</string>
+    <string name="from_service">From service</string>
+    <string name="expense">Expense</string>
 
     <array name="initial_slider_values">
         <item>0</item>

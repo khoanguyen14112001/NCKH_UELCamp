@@ -8,7 +8,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.AccountFragment;
-import nguyenhoanganhkhoa.com.myapplication.home.homepage.HistoryFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.homepage.TransactionFragment;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomeFragment;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.WalletFragment;
 
@@ -33,7 +33,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 0:
                 return new HomeFragment();
             case 1:
-                return new HistoryFragment();
+                return new TransactionFragment();
             case 2:
                 return new WalletFragment();
 

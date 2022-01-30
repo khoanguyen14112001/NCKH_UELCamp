@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.MonthTransAdapter;
+import nguyenhoanganhkhoa.com.adapter.TransAllAdapter;
 import nguyenhoanganhkhoa.com.custom.bottomsheetdialog.CustomBottomSheetFilter;
 import nguyenhoanganhkhoa.com.models.Month;
 import nguyenhoanganhkhoa.com.models.Transaction;
@@ -28,7 +29,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
     RecyclerView rcvDisplayTransaction;
     MonthTransAdapter monthTransAdapter;
     ImageView imvAllTransBack, imvFilterTrans;
-    RadioButton radTransAllAll, radTransAllWallet, radTransAllCanteen, radTransAllParking, radTransAlLSLSpace, radTransAllThuQuan;
+    RadioButton radTransAllAll, radTransAllWallet, radTransAllCanteen, radTransAllParking, radTransAlLSLSpace, radTransAllThuQuan, radTransAllTransfer;
 
     CustomBottomSheetFilter bottomSheetDialog = null;
     ImageView imvClose;
@@ -43,6 +44,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         radTransAllParking= findViewById(R.id.radTransAllParking);
         radTransAlLSLSpace= findViewById(R.id.radTransAlLSLSpace);
         radTransAllThuQuan= findViewById(R.id.radTransAllThuQuan);
+        radTransAllTransfer= findViewById(R.id.radTransAllTransfer);
 
         imvClose= findViewById(R.id.imvClose);
         imvFilterTrans= findViewById(R.id.imvFilterTrans);
@@ -95,6 +97,13 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
                 startActivity(new Intent(ShowAllTransactionScreen.this,HomePageScreen.class));
             }
         });
+        radTransAllTransfer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                initAdapter();
+            }
+        });
+
         radTransAllAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -115,6 +124,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
                 initAdapter();
             }
         });
+
 
         radTransAllParking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -162,47 +172,21 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         List<Transaction> listTrans1 = new ArrayList<>();
         List<Transaction> listTrans2 = new ArrayList<>();
         List<Transaction> listTrans3 = new ArrayList<>();
-        List<Transaction> listTrans4 = new ArrayList<>();
-        List<Transaction> listTrans5 = new ArrayList<>();
 
-        listTrans1.add(new Transaction("Top up","20 Oct, 10:07 ","+50.000",R.drawable.ic_topup,R.drawable.ic_tickbutton));
-        listTrans1.add(new Transaction("Parking payment","10 Oct, 16:19 ","-3.000",R.drawable.ic_bike,R.drawable.ic_warning_red));
-        listTrans1.add(new Transaction("Order in Canteen","09 Oct, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans1.add(new Transaction("Order in SLSpace","09 Oct, 16:19 ","-26.000",R.drawable.ic_quancafe,R.drawable.ic_tickbutton));
+        listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_TOPUP,"20 Oct, 10:07 ",true,50000));
+        listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_PARKING,"20 10 Oct, 16:19  ",false,3000, false));
+        listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 Oct, 16:19",false,3000));
 
-        listTrans2.add(new Transaction("Payment at Stationery","20 Sep, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
-        listTrans2.add(new Transaction("Transfer money","10 Sep, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
+        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_THUQUAN,"20 Oct, 10:07 ",true,50000));
+        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_QUANCAFE,"20 10 Oct, 16:19  ",false,3000, false));
 
-        listTrans3.add(new Transaction("Payment at Stationery","20 Aug, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
-        listTrans3.add(new Transaction("Transfer money","10 Aug, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
-        listTrans3.add(new Transaction("Order in Canteen","09 Aug, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans3.add(new Transaction("Order in Canteen","09 Aug, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans3.add(new Transaction("Order in Canteen","09 Aug, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans3.add(new Transaction("Top up","20 Aug, 10:07 ","+50.000",R.drawable.ic_topup,R.drawable.ic_tickbutton));
-        listTrans3.add(new Transaction("Order in SLSpace","09 Aug, 16:19 ","-26.000",R.drawable.ic_quancafe,R.drawable.ic_tickbutton));
+        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 Oct, 16:19",false,5000));
+        listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_TOPUP,"10 Oct, 16:19",true,120000));
 
+        listMonth.add(new Month("Oct 2021",addGetCategory(listTrans1), totalIncome(addGetCategory(listTrans1)), totalExpense(addGetCategory(listTrans1))));
+        listMonth.add(new Month("Sep 2021",addGetCategory(listTrans2), totalIncome(addGetCategory(listTrans2)), totalExpense(addGetCategory(listTrans2))));
+        listMonth.add(new Month("Aug 2021",addGetCategory(listTrans3), totalIncome(addGetCategory(listTrans3)), totalExpense(addGetCategory(listTrans3))));
 
-        listTrans4.add(new Transaction("Payment at Stationery","20 July, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
-        listTrans4.add(new Transaction("Transfer money","10 July, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
-        listTrans4.add(new Transaction("Order in Canteen","09 July, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans4.add(new Transaction("Order in Canteen","09 July, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans4.add(new Transaction("Payment at Stationery","20 July, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
-        listTrans4.add(new Transaction("Transfer money","10 July, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
-        listTrans4.add(new Transaction("Top up","20 July, 10:07 ","+50.000",R.drawable.ic_topup,R.drawable.ic_tickbutton));
-
-        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans5.add(new Transaction("Payment at Stationery","20 Jun, 10:07 ","-30.000",R.drawable.ic_thuquan,R.drawable.ic_tickbutton));
-        listTrans5.add(new Transaction("Transfer money","10 Jun, 16:19 ","-50.000",R.drawable.ic_transfer,R.drawable.ic_tickbutton));
-        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-        listTrans5.add(new Transaction("Order in Canteen","09 Jun, 16:19 ","-43.000",R.drawable.ic_canteen,R.drawable.ic_tickbutton));
-
-
-        listMonth.add(new Month("Oct 2021",addGetCategory(listTrans1)));
-        listMonth.add(new Month("Sep 2021",addGetCategory(listTrans2)));
-        listMonth.add(new Month("Aug 2021",addGetCategory(listTrans3)));
-        listMonth.add(new Month("July 2021",addGetCategory(listTrans4)));
-        listMonth.add(new Month("Jun 2021",addGetCategory(listTrans5)));
 
         // Nếu tháng nào không có dữ liệu thì xóa
 
@@ -221,7 +205,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         {
             for (int i = 0;i<list.size();i++)
             {
-                if(list.get(i).getStatusTrans().equals("Top up")||list.get(i).getStatusTrans().equals("Transfer money"))
+                if(list.get(i).getTypeTrans().equals(TransAllAdapter.TRANSACTION_TOPUP))
                 {
                     listValue.add(list.get(i));
                 }
@@ -232,7 +216,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         {
             for (int i = 0;i<list.size();i++)
             {
-                if(list.get(i).getStatusTrans().equals("Order in Canteen"))
+                if(list.get(i).getTypeTrans().equals(TransAllAdapter.TRANSACTION_CANTEEN))
                 {
                     listValue.add(list.get(i));
                 }
@@ -244,7 +228,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         {
             for (int i = 0;i<list.size();i++)
             {
-                if(list.get(i).getStatusTrans().equals("Parking payment"))
+                if(list.get(i).getTypeTrans().equals(TransAllAdapter.TRANSACTION_PARKING))
                 {
                     listValue.add(list.get(i));
                 }
@@ -256,7 +240,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         {
             for (int i = 0;i<list.size();i++)
             {
-                if(list.get(i).getStatusTrans().equals("Order in SLSpace"))
+                if(list.get(i).getTypeTrans().equals(TransAllAdapter.TRANSACTION_QUANCAFE))
                 {
                     listValue.add(list.get(i));
                 }
@@ -269,7 +253,19 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         {
             for (int i = 0;i<list.size();i++)
             {
-                if(list.get(i).getStatusTrans().equals("Payment at Stationery"))
+                if(list.get(i).getTypeTrans().equals(TransAllAdapter.TRANSACTION_THUQUAN))
+                {
+                    listValue.add(list.get(i));
+                }
+            }
+            return listValue;
+        }
+
+        if(radTransAllTransfer.isChecked())
+        {
+            for (int i = 0;i<list.size();i++)
+            {
+                if(list.get(i).getTypeTrans().equals(TransAllAdapter.TRANSACTION_TRANSFER))
                 {
                     listValue.add(list.get(i));
                 }
@@ -278,8 +274,39 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         }
 
 
+
         return null;
 
+    }
+
+    private double totalIncome(List<Transaction> list){
+        if(!list.isEmpty()){
+            double totalMoney = 0;
+            for (int i = 0; i<list.size();i++){
+                if(list.get(i).isIncome()){
+                    totalMoney += list.get(i).getAmountTrans();
+                }
+            }
+            return totalMoney;
+        }
+        else{
+            return 0;
+        }
+    }
+
+    private double totalExpense(List<Transaction> list){
+        if(!list.isEmpty()){
+            double totalMoney = 0;
+            for (int i = 0; i<list.size();i++){
+                if(!list.get(i).isIncome()){
+                    totalMoney += list.get(i).getAmountTrans();
+                }
+            }
+            return totalMoney;
+        }
+        else{
+            return 0;
+        }
     }
 
 

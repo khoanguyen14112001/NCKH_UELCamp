@@ -3,26 +3,26 @@ package nguyenhoanganhkhoa.com.models;
 import java.io.Serializable;
 
 public class Transaction implements Serializable {
-    private String statusTrans;
+    private String typeTrans;
+    private boolean isSuccess = true;
     private String dateTrans;
-    private String moneyTrans;
-    private int imgStatusTrans;
-    private int imgSuccessTrans;
+    private boolean isIncome;
+    private double amountTrans;
 
-    public int getImgSuccessTrans() {
-        return imgSuccessTrans;
+    public String getTypeTrans() {
+        return typeTrans;
     }
 
-    public void setImgSuccessTrans(int imgSuccessTrans) {
-        this.imgSuccessTrans = imgSuccessTrans;
+    public void setTypeTrans(String typeTrans) {
+        this.typeTrans = typeTrans;
     }
 
-    public String getStatusTrans() {
-        return statusTrans;
+    public boolean isSuccess() {
+        return isSuccess;
     }
 
-    public void setStatusTrans(String statusTrans) {
-        this.statusTrans = statusTrans;
+    public void setSuccess(boolean success) {
+        isSuccess = success;
     }
 
     public String getDateTrans() {
@@ -33,27 +33,35 @@ public class Transaction implements Serializable {
         this.dateTrans = dateTrans;
     }
 
-    public String getMoneyTrans() {
-        return moneyTrans;
+    public boolean isIncome() {
+        return isIncome;
     }
 
-    public void setMoneyTrans(String moneyTrans) {
-        this.moneyTrans = moneyTrans;
+    public void setIncome(boolean income) {
+        isIncome = income;
     }
 
-    public int getImgStatusTrans() {
-        return imgStatusTrans;
+    public double getAmountTrans() {
+        return amountTrans;
     }
 
-    public void setImgStatusTrans(int imgStatusTrans) {
-        this.imgStatusTrans = imgStatusTrans;
+    public void setAmountTrans(double amountTrans) {
+        this.amountTrans = amountTrans;
     }
 
-    public Transaction(String statusTrans, String dateTrans, String moneyTrans, int imgStatusTrans, int imgSuccessTrans) {
-        this.statusTrans = statusTrans;
+    public Transaction(String typeTrans, String dateTrans, boolean isIncome, double amountTrans) {
+        this.typeTrans = typeTrans;
         this.dateTrans = dateTrans;
-        this.moneyTrans = moneyTrans;
-        this.imgStatusTrans = imgStatusTrans;
-        this.imgSuccessTrans = imgSuccessTrans;
+        this.isIncome = isIncome;
+        this.amountTrans = amountTrans;
+    }
+
+    public Transaction(String typeTrans, String dateTrans, boolean isIncome, double amountTrans, boolean isSuccess) {
+        this.typeTrans = typeTrans;
+        this.dateTrans = dateTrans;
+        this.isIncome = isIncome;
+        this.amountTrans = amountTrans;
+        this.isSuccess = isSuccess;
+
     }
 }

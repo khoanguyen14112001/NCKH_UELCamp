@@ -26,14 +26,14 @@
         app:layout_constraintLeft_toLeftOf="@id/viewAround"
         app:layout_constraintRight_toRightOf="@id/viewAround"
         app:layout_constraintTop_toTopOf="@+id/viewAround"
-        android:id="@+id/imvStatusTrans"/>
+        android:id="@+id/imvTypeTrans"/>
 
     <ImageView
         android:layout_width="12dp"
         android:layout_height="12dp"
         app:layout_constraintBottom_toBottomOf="@id/viewAround"
         app:layout_constraintRight_toRightOf="@id/viewAround"
-        android:id="@+id/imvSuccessTrans"
+        android:id="@+id/imvStatusTrans"
         android:src="@drawable/ic_tickbutton"
         android:layout_marginBottom="3dp"/>
 
@@ -51,7 +51,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtStatusTrans"
+            android:id="@+id/txtTypeTrans"
             android:text="@string/top_up"
             android:fontFamily="@font/be_vietnam_semibold"
             android:textSize="15sp"
@@ -59,7 +59,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtDateStatusTrans"
+            android:id="@+id/txtDateTrans"
             android:text="@string/_20_oct_10_07"
             android:textColor="@color/xamChu"
 
@@ -71,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@id/txtMoneyTrans"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtAmountTrans"
         android:text="@string/vnd"
         android:textSize="14sp"
         android:textColor="@color/blackUI"
@@ -79,16 +79,28 @@
         android:id="@+id/txtVND"/>
 
     <TextView
-        android:id="@+id/txtMoneyTrans"
+        android:id="@+id/txtAmountTrans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/big_shoulder_display_bold"
         android:paddingRight="7dp"
-        android:text="@string/_50_000"
+        android:text="@string/_150_000"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/viewAround"
         app:layout_constraintRight_toLeftOf="@id/txtVND"
+        app:layout_constraintTop_toTopOf="@id/viewAround" />
+
+    <TextView
+        android:id="@+id/txtStatusIncomeOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/big_shoulder_display_bold"
+        android:text="+"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/viewAround"
+        app:layout_constraintRight_toLeftOf="@id/txtAmountTrans"
         app:layout_constraintTop_toTopOf="@id/viewAround" />
 
 

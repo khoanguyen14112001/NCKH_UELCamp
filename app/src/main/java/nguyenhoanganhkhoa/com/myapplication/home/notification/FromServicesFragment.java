@@ -22,10 +22,10 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FromAdminNoticeFragment#newInstance} factory method to
+ * Use the {@link FromServicesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FromAdminNoticeFragment extends Fragment {
+public class FromServicesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +36,7 @@ public class FromAdminNoticeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FromAdminNoticeFragment() {
+    public FromServicesFragment() {
         // Required empty public constructor
     }
 
@@ -49,8 +49,8 @@ public class FromAdminNoticeFragment extends Fragment {
      * @return A new instance of fragment FromAdminNoticeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FromAdminNoticeFragment newInstance(String param1, String param2) {
-        FromAdminNoticeFragment fragment = new FromAdminNoticeFragment();
+    public static FromServicesFragment newInstance(String param1, String param2) {
+        FromServicesFragment fragment = new FromServicesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -75,7 +75,7 @@ public class FromAdminNoticeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_from_admin_notice, container, false);
+        View view = inflater.inflate(R.layout.fragment_from_services_notice, container, false);
 
         linkView(view);
         initAdapter();
@@ -111,7 +111,12 @@ public class FromAdminNoticeFragment extends Fragment {
         List<Notification> listAll = AllAllNoticeFragment.getListAllAllNotification();
         int i;
         for(i = 0; i<listAll.size();i++){
-            if(listAll.get(i).getNotificationType().equals(DialogNotificationAdapter.NOTIFICATION_PARKING)){
+            String type = listAll.get(i).getNotificationType();
+            if(type.equals(DialogNotificationAdapter.NOTIFICATION_PARKING) ||
+                    type.equals(DialogNotificationAdapter.NOTIFICATION_CANTEEN) ||
+                    type.equals(DialogNotificationAdapter.NOTIFICATION_THUQUAN) ||
+                    type.equals(DialogNotificationAdapter.NOTIFICATION_QUANCAFE)
+            ){
                 list.add(listAll.get(i));
             }
         }

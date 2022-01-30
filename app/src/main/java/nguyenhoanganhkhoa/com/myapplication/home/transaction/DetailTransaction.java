@@ -11,10 +11,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DetailProTransAdapter;
+import nguyenhoanganhkhoa.com.adapter.TransAllAdapter;
 import nguyenhoanganhkhoa.com.models.DetailProTrans;
 import nguyenhoanganhkhoa.com.models.Transaction;
 import nguyenhoanganhkhoa.com.myapplication.R;
@@ -29,7 +32,7 @@ public class DetailTransaction extends AppCompatActivity {
     ImageView imvBack;
 
     ImageView imvStatus, imvStatusTrans;
-    TextView txtStatusTrans, txtMoneyTrans, txtDateTrans;
+    TextView txtStatusTrans, txtMoneyTrans, txtDateTrans, txtMoneyPlusMinus;
 
     Transaction transaction;
 
@@ -45,6 +48,8 @@ public class DetailTransaction extends AppCompatActivity {
         txtMoneyTrans = findViewById(R.id.txtMoneyTrans);
         txtDateTrans = findViewById(R.id.txtDateTrans);
         imvStatusTrans = findViewById(R.id.imvStatusTrans);
+        txtMoneyPlusMinus = findViewById(R.id.txtMoneyPlusMinus);
+
     }
 
     @Override
@@ -67,17 +72,67 @@ public class DetailTransaction extends AppCompatActivity {
             Bundle bundle = intent.getBundleExtra(AppUtil.MY_BUNDLE);
             if(bundle!=null){
                 transaction = (Transaction) bundle.getSerializable(AppUtil.SELECTED_ITEM);
-                imvStatus.setImageResource(transaction.getImgStatusTrans());
-                imvStatusTrans.setImageResource(transaction.getImgSuccessTrans());
+                switch (transaction.getTypeTrans()){
+                    case TransAllAdapter.TRANSACTION_TOPUP:
+                        setNameAndImage(R.drawable.ic_topup,"Top up");
+                        break;
+                    case TransAllAdapter.TRANSACTION_TRANSFER:
+                        setNameAndImage(R.drawable.ic_transfer,"Transfer");
+                        break;
+                    case TransAllAdapter.TRANSACTION_CANTEEN:
+                        setNameAndImage(R.drawable.ic_canteen,"Canteen");
+                        break;
+                    case TransAllAdapter.TRANSACTION_PARKING:
+                        setNameAndImage(R.drawable.ic_bike,"Parking");
+                        break;
+                    case TransAllAdapter.TRANSACTION_THUQUAN:
+                        setNameAndImage(R.drawable.ic_thuquan,"Stationery");
+                        break;
+                    case TransAllAdapter.TRANSACTION_QUANCAFE:
+                        setNameAndImage(R.drawable.ic_quancafe,"SLSpace");
+                        break;
+                }
+
+                if(transaction.isSuccess()){
+                    imvStatusTrans.setImageResource(R.drawable.ic_tickbutton);
+                }
+                else{
+                    imvStatusTrans.setImageResource(R.drawable.ic_warning_red);
+                }
+
+                if(transaction.isIncome()){
+                    txtMoneyPlusMinus.setText("+");
+                }
+                else{
+                    txtMoneyPlusMinus.setText("-");
+                }
                 txtDateTrans.setText(transaction.getDateTrans());
-                txtMoneyTrans.setText(transaction.getMoneyTrans());
-                txtStatusTrans.setText(transaction.getStatusTrans());
+                formatMoney(transaction);
             }
         }
         catch (Exception e){
             Log.d("Error", "Cannot get data from transaction adapter: " + e);
         }
 
+    }
+
+    private void formatMoney(Transaction transaction) {
+        double money = transaction.getAmountTrans();
+
+        DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
+        decimalFormatSymbols.setDecimalSeparator(',');
+        decimalFormatSymbols.setGroupingSeparator('.');
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0", decimalFormatSymbols);
+
+        String moneyAft = decimalFormat.format(money);
+        txtMoneyTrans.setText(moneyAft);
+
+    }
+
+
+    private void setNameAndImage(int thumb, String name){
+        imvStatus.setImageResource(thumb);
+        txtStatusTrans.setText(name);
     }
 
 

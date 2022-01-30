@@ -129,6 +129,20 @@
                     android:layout_marginLeft="10dp"
                     android:id="@+id/radNotificationAllUnread"
                     />
+
+                <RadioButton
+                    android:layout_width="95dp"
+                    android:layout_height="30dp"
+                    android:text="@string/promotion"
+                    android:textColor="@color/blackUI"
+                    android:button="@android:color/transparent"
+                    android:gravity="center"
+                    android:background="@drawable/custom_rad_filter"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/be_vietnam_regular"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/radPromotion"
+                    />
                 <RadioButton
                     android:layout_width="98dp"
                     android:layout_height="30dp"
@@ -142,11 +156,10 @@
                     android:layout_marginLeft="10dp"
                     android:id="@+id/radTransaction"
                     />
-
                 <RadioButton
                     android:layout_width="95dp"
                     android:layout_height="30dp"
-                    android:text="@string/from_admin"
+                    android:text="@string/from_service"
                     android:textColor="@color/blackUI"
                     android:button="@android:color/transparent"
                     android:gravity="center"
@@ -154,7 +167,7 @@
                     android:textAllCaps="false"
                     android:fontFamily="@font/be_vietnam_regular"
                     android:layout_marginLeft="10dp"
-                    android:id="@+id/radFromAdmin"
+                    android:id="@+id/radFromService"
                     />
 
 
