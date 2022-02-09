@@ -51,7 +51,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cons1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginHorizontal="20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -63,6 +63,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:src="@drawable/ic_location"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -70,6 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/imvLocation"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -92,6 +94,8 @@
                     <ImageView
                         android:id="@+id/imvCart"
                         android:layout_width="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
                         android:layout_height="32dp"
                         android:src="@drawable/ic_cart"
                         app:layout_constraintRight_toRightOf="parent"
@@ -102,9 +106,10 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layoutInCartQuantity"
                     android:layout_width="16dp"
+
                     android:layout_height="16dp"
                     android:layout_marginRight="-6dp"
-                    android:layout_marginBottom="-12dp"
+                    android:layout_marginBottom="-20dp"
                     app:layout_constraintBottom_toTopOf="@id/cons1"
                     app:layout_constraintRight_toRightOf="@+id/cons1">
 
@@ -167,16 +172,261 @@
                     app:layout_constraintTop_toBottomOf="@id/svOrder"
                     android:id="@+id/imvThumbHome"
                     android:background="@color/xamNen"/>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/imvThumbHome"
-                    android:id="@+id/rcvOrderCate"
-                    android:paddingHorizontal="10dp"
-                    android:layout_marginTop="15dp"/>
+
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    app:layout_constraintTop_toBottomOf="@id/rcvOrderCate"
+                    android:id="@+id/cons3"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/imvThumbHome"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnCoffee"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_coffee" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="Coffee"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnCoffee" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnTea"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_tea" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="Tea"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnTea" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout3"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toStartOf="@+id/constraintLayout4"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnSoda"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_soda" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="Soda"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnSoda" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout4"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnJuice"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_juice" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="Juice"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnJuice" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/cons4"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/cons3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout6"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toStartOf="@+id/constraintLayout5"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnYogurt"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_yogurt" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="@string/yogurt"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnYogurt" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout5"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toStartOf="@+id/constraintLayout7"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout6"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnMachiato"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_machiato" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="@string/machiato"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnMachiato" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout7"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toStartOf="@+id/constraintLayout8"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnFrappuchino"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_frappuchino" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="@string/frappuchino"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnFrappuchino" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout8"
+                        style="@style/TypeDrink_LayoutContainer"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <LinearLayout
+                            android:id="@+id/lnDiscount"
+                            style="@style/TypeDrink_LayoutIns"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                style="@style/TypeDrink_Thumb"
+                                android:src="@drawable/ic_order_discount" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TypeDrink_Text"
+                            android:text="@string/discount"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lnDiscount" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--//new-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/cons4"
                     android:paddingHorizontal="20dp"
                     android:id="@+id/cons2"
                     android:layout_height="wrap_content">

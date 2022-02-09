@@ -311,6 +311,36 @@
 
 
 
+    <style name="TypeDrink_LayoutContainer">
+        <item name="android:layout_width">86dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingVertical">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="TypeDrink_LayoutIns">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/custom_rad_drink_type</item>
+    </style>
+
+
+
+    <style name="TypeDrink_Thumb">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="TypeDrink_Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/be_vietnam_semibold</item>
+    </style>
+
 
 
 </resources>

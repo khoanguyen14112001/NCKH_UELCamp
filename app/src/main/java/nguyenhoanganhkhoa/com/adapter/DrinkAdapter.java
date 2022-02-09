@@ -63,6 +63,9 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
             holder.imvFavoriteDrink.setImageResource(R.drawable.ic_love_yellow);
         }
         holder.imvThumbDrink.setImageResource(drink.getThumbDrink());
+        holder.txtNameDrink.setText(drink.getDrinkName());
+        holder.txtTypeDrink.setText(drink.getDrinkType());
+
         double discount = drink.getDrinkDiscount();
         double prePrice = drink.getDrinkPrePrice();
         double aftPrice = prePrice - prePrice*discount;

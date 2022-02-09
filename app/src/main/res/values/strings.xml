@@ -362,6 +362,10 @@
     <string name="delivery_location">Delivery location</string>
     <string name="choose_your_address">Choose your address...</string>
     <string name="maybe_you_like">Maybe you like</string>
+    <string name="frappuchino">Frappuchino</string>
+    <string name="machiato">Machiato</string>
+    <string name="yogurt">Yogurt</string>
+    <string name="discount">Discount</string>
 
     <array name="initial_slider_values">
         <item>0</item>
