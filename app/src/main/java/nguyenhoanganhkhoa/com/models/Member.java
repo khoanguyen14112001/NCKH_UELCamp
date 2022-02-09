@@ -1,45 +1,28 @@
 package nguyenhoanganhkhoa.com.models;
 
 public class Member {
-    int memberThumb;
-    String memberCareer;
+
+
     String memberName;
-    String memberRole;
-    String memberGender;
+    boolean isMaleMember;
+    String memberCareer;
     String memberDateOfBirth;
+    boolean isRoleMember = true;
 
+    public String getMemberName() {
+        return memberName;
+    }
 
-    public Member(int memberThumb, String memberCareer, String memberName, String memberRole, String memberGender, String memberDateOfBirth) {
-        this.memberThumb = memberThumb;
-        this.memberCareer = memberCareer;
+    public void setMemberName(String memberName) {
         this.memberName = memberName;
-        this.memberRole = memberRole;
-        this.memberGender = memberGender;
-        this.memberDateOfBirth = memberDateOfBirth;
     }
 
-    public String getMemberGender() {
-        return memberGender;
+    public boolean isMaleMember() {
+        return isMaleMember;
     }
 
-    public void setMemberSex(String memberSex) {
-        this.memberGender = memberSex;
-    }
-
-    public String getMemberDateOfBirth() {
-        return memberDateOfBirth;
-    }
-
-    public void setMemberDateOfBirth(String memberDateOfBirth) {
-        this.memberDateOfBirth = memberDateOfBirth;
-    }
-
-    public int getMemberThumb() {
-        return memberThumb;
-    }
-
-    public void setMemberThumb(int memberThumb) {
-        this.memberThumb = memberThumb;
+    public void setMaleMember(boolean maleMember) {
+        isMaleMember = maleMember;
     }
 
     public String getMemberCareer() {
@@ -50,21 +33,34 @@ public class Member {
         this.memberCareer = memberCareer;
     }
 
-    public String getMemberName() {
-        return memberName;
+    public String getMemberDateOfBirth() {
+        return memberDateOfBirth;
     }
 
-    public void setMemberName(String memberName) {
+    public void setMemberDateOfBirth(String memberDateOfBirth) {
+        this.memberDateOfBirth = memberDateOfBirth;
+    }
+
+    public boolean isRoleMember() {
+        return isRoleMember;
+    }
+
+    public void setRoleMember(boolean roleMember) {
+        isRoleMember = roleMember;
+    }
+
+    public Member(String memberName, boolean isMaleMember, String memberCareer, String memberDateOfBirth) {
         this.memberName = memberName;
+        this.isMaleMember = isMaleMember;
+        this.memberCareer = memberCareer;
+        this.memberDateOfBirth = memberDateOfBirth;
     }
 
-    public String getMemberRole() {
-        return memberRole;
+    public Member(String memberName, boolean isMaleMember, String memberCareer, String memberDateOfBirth, boolean isRoleMember) {
+        this.memberName = memberName;
+        this.isMaleMember = isMaleMember;
+        this.memberCareer = memberCareer;
+        this.memberDateOfBirth = memberDateOfBirth;
+        this.isRoleMember = isRoleMember;
     }
-
-    public void setMemberRole(String memberRole) {
-        this.memberRole = memberRole;
-    }
-
-
 }

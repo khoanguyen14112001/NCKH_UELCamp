@@ -16,32 +16,40 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
+            android:name=".home.quancafe.HomeSLSpaceScreen"
+            android:exported="true" />
+        <activity
+            android:name=".home.thuquan.StationeryMainScreen"
+            android:exported="true"
+            android:noHistory="true"/>
+        <activity
+            android:name=".home.quancafe.SLSpaceSplashScreen"
+            android:exported="false" />
+        <activity
             android:name=".home.parkinglot.ShowAllParkingLotScreen"
             android:exported="false" />
         <activity
             android:name=".home.parkinglot.ParkingLotHomeScreen"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".home.transfer.TransferResultScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".home.transfer.TransferMain2Screen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".home.transfer.AddNewFriendScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".home.transfer.AllFriendScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".home.transfer.TransferMainScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".home.setting.EnterNewPasswordScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.setting.SetNewPasswordScreen"
             android:exported="true"
@@ -49,43 +57,43 @@
         <activity
             android:name=".home.setting.LoginSettingScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.helpcenter.ContactSupportScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.helpcenter.HelpCenterDetailScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.transaction.DetailTransaction"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.topup.TopUpMainScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.SecurityCenterScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.setting.SettingScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.helpcenter.HelpCenterScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.NewsScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.aboutus.OurTeamScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.aboutus.AboutUsScreen"
             android:exported="true"
@@ -93,19 +101,19 @@
         <activity
             android:name=".home.EditInfomationScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.notification.AllNotificationScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.transaction.ShowAllTransactionScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.QRCodeScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.homepage.HomePageScreen"
             android:exported="true"
@@ -150,9 +158,9 @@
         <activity
             android:name=".login.LoginScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".login.SplashScreen"
+            android:name=".login.OnBoardingScreen"
             android:exported="true" />
         <activity
             android:name="nguyenhoanganhkhoa.com.test.MainActivity"

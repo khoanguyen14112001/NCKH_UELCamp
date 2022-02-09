@@ -9,13 +9,13 @@ import android.widget.Button;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 
-public class SplashScreen extends AppCompatActivity {
+public class OnBoardingScreen extends AppCompatActivity {
     Button btnGetStarted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_on_boarding_screen);
         linkView();
         addEvents();
     }
@@ -28,7 +28,7 @@ public class SplashScreen extends AppCompatActivity {
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SplashScreen.this, LoginScreen.class));
+                startActivity(new Intent(OnBoardingScreen.this, LoginScreen.class));
             }
         });
     }

@@ -39,10 +39,29 @@ public class DetailMemberAdapter extends RecyclerView.Adapter<DetailMemberAdapte
         {
             return;
         }
-        holder.imvAvatarMemberDetail.setImageResource(member.getMemberThumb());
+        if(member.isMaleMember()){
+            holder.imvAvatarMemberDetail.setImageResource(R.drawable.img_avatar_male);
+        }
+        else{
+            holder.imvAvatarMemberDetail.setImageResource(R.drawable.img_avatar_female);
+        }
+
+        if(member.isRoleMember()){
+            holder.txtRoleMemberDetail.setText("Member");
+        }
+        else {
+            holder.txtRoleMemberDetail.setText("Leader");
+        }
+
+        if(member.isMaleMember()){
+            holder.txtGenderMemberDetail.setText("Male");
+        }
+        else{
+            holder.txtGenderMemberDetail.setText("Female");
+        }
+
         holder.txtCareerMemberDetail.setText(member.getMemberCareer());
-        holder.txtRoleMemberDetail.setText(member.getMemberRole());
-        holder.txtGenderMemberDetail.setText(member.getMemberGender());
+
         holder.txtDateOfBirthMemberDetail.setText(member.getMemberDateOfBirth());
         holder.txtNameMemberDetail.setText(member.getMemberName());
     }

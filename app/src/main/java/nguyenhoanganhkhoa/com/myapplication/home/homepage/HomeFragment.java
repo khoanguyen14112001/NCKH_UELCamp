@@ -23,6 +23,7 @@ import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogFragmentHome;
 import nguyenhoanganhkhoa.com.myapplication.home.notification.AllNotificationScreen;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.quancafe.SLSpaceSplashScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment {
     TextView txtNameDisplayUser, txtMoneyDisplay;
     ImageView imvInsideAvatar;
 
-    ImageButton imbParkingLot;
+    ImageButton imbParkingLot, imbQuanCafe;
 
 
 
@@ -108,7 +109,9 @@ public class HomeFragment extends Fragment {
         imvInsideAvatar = view.findViewById(R.id.imvInsideAvatar);
 
         txtMoneyDisplay = view.findViewById(R.id.txtMoneyDisplay);
+
         imbParkingLot = view.findViewById(R.id.imbParkingLot);
+        imbQuanCafe = view.findViewById(R.id.imbQuanCafe);
     }
 
     private void addEvents() {
@@ -116,6 +119,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), ParkingLotHomeScreen.class));
+            }
+        });
+        imbQuanCafe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), SLSpaceSplashScreen.class));
+
             }
         });
         imvNoteBell.setOnClickListener(new View.OnClickListener() {

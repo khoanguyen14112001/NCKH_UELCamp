@@ -63,16 +63,22 @@ public class AboutUsScreen extends AppCompatActivity {
 
     public static List<Member> getMemberList() {
         List<Member> list = new ArrayList<>();
-        list.add(new Member(R.drawable.img_avatar_male,"Developer","Nguyen Hoang Anh Khoa","Leader",
-                "Male","November 14, 2001"));
-        list.add(new Member(R.drawable.img_avatar_male,"Developer","Tran Hoang Gia Bao","Member",
-                "Male","July 06, 2001"));
-        list.add(new Member(R.drawable.img_avatar_female,"Business Analyst","Vo Thi Tuyet Trinh","Member",
-                "Female","July 06, 2001"));
-        list.add(new Member(R.drawable.img_avatar_female,"Designer","Truong Hoang Y","Member",
-                "Female","July 06, 2001"));
-        list.add(new Member(R.drawable.img_avatar_male,"Designer","Trinh Chan Khoa","Member",
-                "Male","July 06, 2001"));
+        list.add(new Member("Vo Thi Tuyet Trinh", false,"Business Analyst",
+                "July 06, 2001",false));
+
+        list.add(new Member("Nguyen Hoang Anh Khoa", true,"Developer",
+                "November 14, 2001"));
+
+        list.add(new Member("Truong Hoang y", false,"Designer",
+                "July 06, 2001"));
+
+
+        list.add(new Member("Tran Hoang Gia Bao", true,"Developer",
+                "July 06, 2001"));
+
+        list.add(new Member("Vo Thi Tuyet Trinh", true,"Designer",
+                "July 06, 2001"));
+
 
 
 

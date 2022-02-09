@@ -7,20 +7,18 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.quancafe.SLSpaceSplashScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
@@ -72,7 +70,7 @@ public class LeftNavFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    LinearLayout lnOpenHome, lnOpenParkingLot , lnOpenTopUp, lnOpenTransfer, lnOpenQRCode, lnOpenSetting, lnSignoutNav;
+    LinearLayout lnOpenHome, lnOpenParkingLot , lnOpenTopUp, lnOpenTransfer, lnOpenQRCode, lnOpenSetting, lnSignoutNav, lnOpenQuanCafe;
     TextView txtTransfer, txtParkingLot, txtTopUp, txtQuanCafe, txtThuQuan, txtSetting, txtQRCode;
     DrawerLayout drawerLayout;
 
@@ -116,6 +114,13 @@ public class LeftNavFragment extends Fragment {
             @Override
             public void onClick(View view) {
                openScreen(txtParkingLot,ParkingLotHomeScreen.class);
+            }
+        });
+
+        lnOpenQuanCafe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openScreen(txtQuanCafe, SLSpaceSplashScreen.class);
             }
         });
 
@@ -191,5 +196,9 @@ public class LeftNavFragment extends Fragment {
         txtSetting = view.findViewById(R.id.txtSetting);
 
         lnSignoutNav = view.findViewById(R.id.lnSignoutNav);
+
+        lnOpenQuanCafe=view.findViewById(R.id.lnOpenQuanCafe);
+        txtQuanCafe=view.findViewById(R.id.txtQuanCafe);
+
     }
 }

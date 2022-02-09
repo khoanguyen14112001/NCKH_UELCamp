@@ -49,9 +49,19 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
             return;
         }
 
-        holder.imvAvatarMember.setImageResource(member.getMemberThumb());
+        if(member.isMaleMember()){
+            holder.imvAvatarMember.setImageResource(R.drawable.img_avatar_male);
+        }
+        else{
+            holder.imvAvatarMember.setImageResource(R.drawable.img_avatar_female);
+        }
         holder.txtCareerMember.setText(member.getMemberCareer());
-        holder.txtRoleMember.setText(member.getMemberRole());
+        if(member.isRoleMember()){
+            holder.txtRoleMember.setText("Member");
+        }
+        else {
+            holder.txtRoleMember.setText("Leader");
+        }
         holder.txtNameMember.setText(member.getMemberName());
         holder.layout_member.setOnClickListener(new View.OnClickListener() {
             @Override

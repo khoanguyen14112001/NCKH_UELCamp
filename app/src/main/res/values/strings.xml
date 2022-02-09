@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">myParking</string>
+    <string name="app_name">UEL Camp</string>
     <string name="sign_up"> <u>Sign up</u> </string>
     <string name="login_failed">Login failed</string>
     <string name="warning_wrong_password_try_again">Your username or password is\n incorrect. Please try again</string>
@@ -358,6 +358,10 @@
     <string name="expense">Expense</string>
     <string name="enter_your_password_to_complete_the_transaction">Enter your password \n to complete the transaction</string>
     <string name="enter_your_password">Enter your password</string>
+    <string name="this_is_sls_s_ordering_application">This is SLS\'s ordering application</string>
+    <string name="delivery_location">Delivery location</string>
+    <string name="choose_your_address">Choose your address...</string>
+    <string name="maybe_you_like">Maybe you like</string>
 
     <array name="initial_slider_values">
         <item>0</item>

@@ -166,6 +166,7 @@
             </LinearLayout>
             <LinearLayout
                 style="@style/LeftNavStyleLayout"
+                android:id="@+id/lnOpenQuanCafe"
                 >
                 <TextView
                     android:text="@string/startup_amp_language_space_cap"

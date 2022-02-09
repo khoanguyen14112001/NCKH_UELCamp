@@ -81,7 +81,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
 
 
     private static int TYPE_FRIEND_REQUEST = 1;
-    private static int TYPE_NOMAL = 2;
+    private static int TYPE_NORMAL = 2;
     @Override
     public int getItemViewType(int position) {
         Notification notification = mNotification.get(position);
@@ -89,7 +89,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
             return TYPE_FRIEND_REQUEST;
         }
         else{
-            return TYPE_NOMAL;
+            return TYPE_NORMAL;
         }
     }
 

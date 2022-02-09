@@ -92,12 +92,21 @@
         <item name="backgroundTint">@color/white</item>
     </style>
 
+    <style name="imageViewComback.white">
+        <item name="android:src">@drawable/ic_arror_left_white</item>
+    </style>
+
     <style name="imageViewOpenNav">
         <item name="android:src">@drawable/ic_open_nav</item>
         <item name="android:layout_width">35dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_margin">16sp</item>
         <item name="backgroundTint">@color/white</item>
+    </style>
+
+
+    <style name="imageViewOpenNav.white">
+        <item name="android:src">@drawable/ic_open_nav_white</item>
     </style>
 
     <!--    text Style Login-->
