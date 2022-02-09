@@ -1,6 +1,7 @@
 package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,7 +10,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +21,16 @@ import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class HomeSLSpaceScreen extends AppCompatActivity {
     RecyclerView rcvOrderMayLike;
     LinearLayout lnCoffee, lnTea, lnSoda, lnJuice, lnYogurt, lnMachiato, lnFrappuchino, lnDiscount;
+    TextView txtShowType, txtMaybeLike,txtSeeAll;
+
+    ImageView imvBack;
+
+    ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
     private void linkView() {
         rcvOrderMayLike = findViewById(R.id.rcvOrderMayLike);
@@ -34,6 +43,13 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnMachiato = findViewById(R.id.lnMachiato);
         lnFrappuchino = findViewById(R.id.lnFrappuchino);
         lnDiscount = findViewById(R.id.lnDiscount);
+
+
+        txtMaybeLike = findViewById(R.id.txtMaybeLike);
+        txtShowType = findViewById(R.id.txtShowType);
+        txtSeeAll = findViewById(R.id.txtSeeAll);
+
+        imvBack = findViewById(R.id.imvBack);
     }
     public static final String ORDER_COFFEE = "Coffee";
     public static final String ORDER_TEA = "Tea";
@@ -51,6 +67,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         linkView();
         initAdapterDrink(getListDrink());
+        reusedConstraint.openNav(this);
         addEvents();
     }
 
@@ -98,14 +115,29 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         if(layout.getTag() == "off"){
             initAdapterDrink(getListDrink());
+            txtShowType.setVisibility(View.GONE);
+            txtMaybeLike.setVisibility(View.VISIBLE);
+            txtSeeAll.setVisibility(View.VISIBLE);
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(HomeSLSpaceScreen.this);
+    }
+
     private void addEvents() {
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reusedConstraint.checkNavStatusComeBack(HomeSLSpaceScreen.this);
+            }
+        });
         lnCoffee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_COFFEE));
+                setTextType(ORDER_COFFEE);
                 changeColorButton(lnCoffee);
             }
         });
@@ -113,6 +145,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_TEA));
+                setTextType(ORDER_TEA);
                 changeColorButton(lnTea);
             }
         });
@@ -121,6 +154,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_SODA));
+                setTextType(ORDER_SODA);
                 changeColorButton(lnSoda);
             }
         });
@@ -129,6 +163,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_JUICE));
+                setTextType(ORDER_JUICE);
                 changeColorButton(lnJuice);
             }
         });
@@ -137,6 +172,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_YOGURT));
+                setTextType(ORDER_YOGURT);
                 changeColorButton(lnYogurt);
             }
         });
@@ -145,6 +181,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_MACHIATO));
+                setTextType(ORDER_MACHIATO);
                 changeColorButton(lnMachiato);
             }
         });
@@ -153,6 +190,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_FRAPPUCHINO));
+                setTextType(ORDER_FRAPPUCHINO);
                 changeColorButton(lnFrappuchino);
             }
         });
@@ -161,13 +199,17 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 initAdapterDrink(getListByType(ORDER_DISCOUNT));
+                setTextType(ORDER_DISCOUNT);
                 changeColorButton(lnDiscount);
             }
         });
     }
 
-    private void changeTypeDrink(String type){
-
+    private void setTextType(String type){
+        txtShowType.setVisibility(View.VISIBLE);
+        txtShowType.setText(type);
+        txtMaybeLike.setVisibility(View.GONE);
+        txtSeeAll.setVisibility(View.GONE);
     }
 
    private List<Drink> getListByType(String type){

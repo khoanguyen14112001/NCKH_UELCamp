@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
+    tools:openDrawer="end"
     tools:context=".home.quancafe.HomeSLSpaceScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,11 +13,13 @@
         android:layout_height="match_parent">
         <ImageView
             style="@style/imageViewComback"
+            android:id="@+id/imvBack"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             style="@style/imageViewOpenNav"
+            android:id="@+id/imvOpenNav"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,39 +60,52 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                    >
-
-                    <ImageView
-                        android:id="@+id/imvLocation"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_location"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/imvLocation"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/imvLocation"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_location"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/be_vietnam_regular"
-                            android:text="@string/delivery_location"
-                            android:textColor="@color/black"
-                            android:textSize="10sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/choose_your_address"
-                            android:textSize="13sp" />
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/imvLocation"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                    </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/be_vietnam_regular"
+                                android:text="@string/delivery_location"
+                                android:textColor="@color/black"
+                                android:focusable="true"
+                                android:focusedByDefault="true"
+                                android:focusableInTouchMode="true"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/choose_your_address"
+                                android:fontFamily="@font/be_vietnam_medium"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                     <ImageView
                         android:id="@+id/imvCart"
@@ -139,13 +155,18 @@
 
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/svOrder"
-                    style="@style/SearchViewStyle"
                     android:layout_width="0dp"
+                    android:focusableInTouchMode="false"
 
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="20dp"
+                    app:defaultQueryHint="What do you want to order?"
                     android:background="@drawable/searchview_custom"
+                    app:iconifiedByDefault="false"
+                    android:focusable="false"
+                    app:theme="@style/SearchViewStyle"
+                    app:queryBackground="@android:color/transparent"
                     app:layout_constraintEnd_toStartOf="@+id/imageView4"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
@@ -428,7 +449,7 @@
                     android:layout_width="match_parent"
                     app:layout_constraintTop_toBottomOf="@id/cons4"
                     android:paddingHorizontal="20dp"
-                    android:id="@+id/cons2"
+                    android:id="@+id/layout_item_request"
                     android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
@@ -436,6 +457,7 @@
                         style="@style/in_SmallHeaderText"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/txtMaybeLike"
                         android:text="@string/maybe_you_like"/>
 
                     <TextView
@@ -445,13 +467,34 @@
                         android:textColor="@color/primary_yellow"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/txtSeeAll"
                         android:text="@string/see_all"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:paddingHorizontal="20dp"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/in_SmallHeaderText"
+                            android:textAllCaps="true"
+                            android:id="@+id/txtShowType"
+                            android:visibility="gone"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:text="@string/frappuchino"/>
+
+
+                    </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:nestedScrollingEnabled="false"
-                    app:layout_constraintTop_toBottomOf="@id/cons2"
+                    app:layout_constraintTop_toBottomOf="@id/layout_item_request"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
                     android:paddingBottom="10dp"

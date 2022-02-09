@@ -81,6 +81,20 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
 
         changeColorTitle(holder,drink,discount);
 
+        holder.imvFavoriteDrink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(drink.isFavoriteDrink()){
+                    holder.imvFavoriteDrink.setImageResource(R.drawable.ic_love_yellow);
+                    drink.setFavoriteDrink(false);
+                }
+                else{
+                    holder.imvFavoriteDrink.setImageResource(R.drawable.ic_love_active_yellow);
+                    drink.setFavoriteDrink(true);
+                }
+            }
+        });
+
 
     }
 
