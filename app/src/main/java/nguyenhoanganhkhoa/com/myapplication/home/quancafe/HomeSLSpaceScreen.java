@@ -1,6 +1,8 @@
 package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.myapplication.R;
@@ -30,7 +33,12 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
     ImageView imvBack;
 
+    SearchView svOrder;
+
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
+    DrinkAdapter adapter = new DrinkAdapter(this);
+
+    ConstraintLayout layout_hide_filter;
 
     private void linkView() {
         rcvOrderMayLike = findViewById(R.id.rcvOrderMayLike);
@@ -50,6 +58,9 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         txtSeeAll = findViewById(R.id.txtSeeAll);
 
         imvBack = findViewById(R.id.imvBack);
+        svOrder = findViewById(R.id.svOrder);
+
+        layout_hide_filter = findViewById(R.id.layout_hide_filter);
     }
     public static final String ORDER_COFFEE = "Coffee";
     public static final String ORDER_TEA = "Tea";
@@ -66,18 +77,117 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_slspace_screen);
 
         linkView();
-        initAdapterDrink(getListDrink());
+        initAdapterDrink();
+        setCallBackAdapter();
         reusedConstraint.openNav(this);
+        addSearchFunction();
         addEvents();
     }
+    DrinkAdapter adapter2 = new DrinkAdapter(this);
+    public void addSearchFunction() {
+        adapter2.setData(getListDrink());
+        svOrder.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                try {
+                    adapter2.getFilter().filter(query);
+                    rcvOrderMayLike.setAdapter(adapter2);
+                }
+                catch (Exception e){
+                    Log.d("Error", "onQueryTextSubmit: " + e);
+                }
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                try {
+                    adapter2.getFilter().filter(newText);
+                    rcvOrderMayLike.setAdapter(adapter2);
 
+                }
+                catch (Exception e){
+                    Log.d("Error", "onQueryTextSubmit: " + e);
+                }
+                return false;
+            }
+        });
+    }
 
-    private void initAdapterDrink(List<Drink> list) {
-        DrinkAdapter adapter = new DrinkAdapter(this);
-        adapter.setData(list);
+    private void initAdapterDrink(LinearLayout layout) {
+
+        if(layout.equals(lnCoffee)){
+            adapter.setData(getListByType(ORDER_COFFEE));
+        }
+        else if(layout.equals(lnDiscount)){
+            adapter.setData(getListByType(ORDER_DISCOUNT));
+        }
+
+        else if(layout.equals(lnFrappuchino)){
+            adapter.setData(getListByType(ORDER_FRAPPUCHINO));
+        }
+
+        else if(layout.equals(lnJuice)){
+            adapter.setData(getListByType(ORDER_JUICE));
+        }
+
+        else if(layout.equals(lnMachiato)){
+            adapter.setData(getListByType(ORDER_MACHIATO));
+        }
+
+        else if(layout.equals(lnTea)){
+            adapter.setData(getListByType(ORDER_TEA));
+        }
+
+        else if(layout.equals(lnSoda)){
+            adapter.setData(getListByType(ORDER_SODA));
+        }
+
+        else if(layout.equals(lnYogurt)){
+            adapter.setData(getListByType(ORDER_YOGURT));
+        }
+
         rcvOrderMayLike.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvOrderMayLike.setAdapter(adapter);
+
+    }
+    private void initAdapterDrink() {
+
+        adapter.setData(getListDrink());
+        rcvOrderMayLike.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        rcvOrderMayLike.setAdapter(adapter);
+
+    }
+
+    private void setCallBackAdapter(){
+
+        adapter2.setCallBack(new DrinkAdapter.MyCallBack() {
+            @Override
+            public void hideFilter() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        layout_hide_filter.setVisibility(View.GONE);
+                    }
+                });
+
+            }
+
+            @Override
+            public void showFilter() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        layout_hide_filter.setVisibility(View.VISIBLE);
+                    }
+                });
+            }
+            @Override
+            public void showListAgain() {
+                checkAndSetListAgain();
+            }
+
+        });
     }
 
     private List<Drink> getListDrink() {
@@ -85,6 +195,8 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         drinks.add(new Drink("","RASPBERRY FRAPPUCHINO - size M","Frappuchino",R.drawable.img_news1,0,30000));
         drinks.add(new Drink("","PEACH & LYCHEE FRAPPUCHINO - size M","Coffee",R.drawable.img_news2,0.1,30000, true));
+        drinks.add(new Drink("","MILK TEA - size M","Tea",R.drawable.img_news3,0.1,25000));
+        drinks.add(new Drink("","FRESH MILK - size M","Yogurt",R.drawable.img_news4,0,22000, true));
         return drinks;
     }
 
@@ -114,11 +226,23 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         }
 
         if(layout.getTag() == "off"){
-            initAdapterDrink(getListDrink());
+            initAdapterDrink();
             txtShowType.setVisibility(View.GONE);
             txtMaybeLike.setVisibility(View.VISIBLE);
             txtSeeAll.setVisibility(View.VISIBLE);
         }
+    }
+    private void checkAndSetListAgain(){
+        LinearLayout[] arrLn = {lnCoffee, lnTea, lnSoda, lnJuice, lnYogurt, lnMachiato, lnFrappuchino, lnDiscount};
+        int i;
+        for(i=0;i<arrLn.length;i++){
+            arrLn[i].setBackground(getDrawable(R.drawable.view_custom_corner_small_blackstroke_thin));
+            arrLn[i].setTag("off");
+            txtShowType.setVisibility(View.GONE);
+            txtMaybeLike.setVisibility(View.VISIBLE);
+            txtSeeAll.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -136,7 +260,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnCoffee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_COFFEE));
+                initAdapterDrink(lnCoffee);
                 setTextType(ORDER_COFFEE);
                 changeColorButton(lnCoffee);
             }
@@ -144,7 +268,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnTea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_TEA));
+                initAdapterDrink(lnTea);
                 setTextType(ORDER_TEA);
                 changeColorButton(lnTea);
             }
@@ -153,7 +277,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnSoda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_SODA));
+                initAdapterDrink(lnSoda);
                 setTextType(ORDER_SODA);
                 changeColorButton(lnSoda);
             }
@@ -162,7 +286,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnJuice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_JUICE));
+                initAdapterDrink(lnJuice);
                 setTextType(ORDER_JUICE);
                 changeColorButton(lnJuice);
             }
@@ -171,7 +295,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnYogurt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_YOGURT));
+                initAdapterDrink(lnYogurt);
                 setTextType(ORDER_YOGURT);
                 changeColorButton(lnYogurt);
             }
@@ -180,7 +304,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnMachiato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_MACHIATO));
+                initAdapterDrink(lnMachiato);
                 setTextType(ORDER_MACHIATO);
                 changeColorButton(lnMachiato);
             }
@@ -189,7 +313,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnFrappuchino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_FRAPPUCHINO));
+                initAdapterDrink(lnFrappuchino);
                 setTextType(ORDER_FRAPPUCHINO);
                 changeColorButton(lnFrappuchino);
             }
@@ -198,7 +322,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         lnDiscount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(getListByType(ORDER_DISCOUNT));
+                initAdapterDrink(lnDiscount);
                 setTextType(ORDER_DISCOUNT);
                 changeColorButton(lnDiscount);
             }

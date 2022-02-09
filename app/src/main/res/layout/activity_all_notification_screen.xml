@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary_yellow"
     tools:context=".home.notification.AllNotificationScreen"
-    tools:openDrawer="end"
     android:id="@+id/drawerLayout"
     android:backgroundTint="@color/white">
 

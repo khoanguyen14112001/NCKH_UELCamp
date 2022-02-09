@@ -1,10 +1,14 @@
 package nguyenhoanganhkhoa.com.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,15 +17,19 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.Drink;
+import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.quancafe.HomeSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> {
+public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> implements Filterable {
     private Context context;
     private List<Drink> mDrink;
+    private List<Drink> mDrinkOld;
 
     public DrinkAdapter(Context context) {
         this.context = context;
@@ -31,6 +39,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
 
     public void setData(List<Drink> list){
         this.mDrink = list;
+        this.mDrinkOld = list;
         notifyDataSetChanged();
     }
 
@@ -113,12 +122,67 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
         }
     }
 
+
     @Override
     public int getItemCount() {
         if(mDrink !=null)
             return mDrink.size();
         else
             return 0;
+    }
+
+
+    MyCallBack callBack;
+    public interface MyCallBack {
+        void hideFilter();
+        void showFilter();
+        void showListAgain();
+    }
+    public void setCallBack(MyCallBack callBack) {
+        this.callBack = callBack;
+    }
+
+    @Override
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String textSearch = charSequence.toString();
+                if(textSearch.isEmpty()){
+                    mDrink = mDrinkOld;
+                    if(callBack!=null){
+                        callBack.showFilter();
+                        callBack.showListAgain();
+                    }
+                    Log.d("TAG", "performFiltering: " + mDrink);
+                }
+                else{
+                    List<Drink> list = new ArrayList<>();
+                    for(Drink drink: mDrinkOld){
+                        if(drink.getDrinkName().toLowerCase()
+                                .contains(textSearch.toLowerCase().trim())){
+                            list.add(drink);
+                        }
+                    }
+                    if(callBack!=null){
+                        callBack.hideFilter();
+                    }
+                    mDrink = list;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = mDrink;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                mDrink = (List<Drink>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+        return filter;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
