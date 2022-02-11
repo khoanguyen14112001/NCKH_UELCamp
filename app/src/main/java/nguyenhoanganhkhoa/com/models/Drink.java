@@ -1,6 +1,10 @@
 package nguyenhoanganhkhoa.com.models;
 
-public class Drink {
+import java.io.Serializable;
+
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
+
+public class Drink implements Serializable {
     private String drinkTitle;
     private String drinkName;
     private String drinkType;
@@ -8,6 +12,7 @@ public class Drink {
     private double drinkDiscount;
     private double drinkPrePrice;
     private boolean isFavoriteDrink = false;
+
 
     public String getDrinkTitle() {
         return drinkTitle;
@@ -65,6 +70,13 @@ public class Drink {
         isFavoriteDrink = favoriteDrink;
     }
 
+    public Drink(String drinkName, int thumbDrink, double drinkDiscount, double drinkPrePrice) {
+        this.drinkName = drinkName;
+        this.thumbDrink = thumbDrink;
+        this.drinkDiscount = drinkDiscount;
+        this.drinkPrePrice = drinkPrePrice;
+    }
+
     public Drink(String drinkTitle, String drinkName, String drinkType, int thumbDrink, double drinkDiscount, double drinkPrePrice) {
         this.drinkTitle = drinkTitle;
         this.drinkName = drinkName;
@@ -84,6 +96,8 @@ public class Drink {
         this.isFavoriteDrink = isFavoriteDrink;
     }
 
-
+    public double getPriceAfterDiscount(){
+        return drinkPrePrice - drinkPrePrice * drinkDiscount;
+    }
 
 }

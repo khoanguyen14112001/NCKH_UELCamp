@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="30dp"
+    android:paddingHorizontal="30dp"
+    android:orientation="vertical"
+    android:background="@drawable/bottomsheet_dialog_custom">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:adjustViewBounds="true"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="20dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/img_news2"
+            android:scaleType="centerCrop"
+            android:id="@+id/imvThumbDrink"
+
+            />
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="85dp"
+        android:gravity="center_vertical"
+        android:id="@+id/lnContent"
+        android:layout_marginTop="18dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTitleDrink"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="@font/be_vietnam_semibold"
+            android:text="ICED/HOT COFFEE - size M"
+            android:id="@+id/txtNameDrink"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/xamChu"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:text="Coffee"
+            android:textSize="18sp"
+            android:id="@+id/txtTypeDrink"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/layout_preprice"
+                android:paddingRight="5dp"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtPrepriceDrink"
+                    android:text="25.000"
+                    android:paddingHorizontal="3dp"
+                    android:background="@drawable/strike_text"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/fjalla_one_regular"
+                    android:textColor="@color/xamChu"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VND"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/be_vietnam_light"
+                    android:textColor="@color/xamChu"
+                    android:layout_marginLeft="3dp"
+                    android:id="@+id/txtVND1"
+                    app:layout_constraintLeft_toRightOf="@id/txtPrepriceDrink"
+                    app:layout_constraintBaseline_toBaselineOf="@id/txtPrepriceDrink" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/layout_aftprice"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/layout_preprice"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtAftpriceDrink"
+                    android:text="25.000"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/fjalla_one_regular"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VND"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/be_vietnam_light"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="3dp"
+                    app:layout_constraintLeft_toRightOf="@id/txtAftpriceDrink"
+                    app:layout_constraintBaseline_toBaselineOf="@id/txtAftpriceDrink" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/buttonYellow"
+        android:text="@string/add_to_cart"
+        android:id="@+id/btnAddToCart"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"/>
+
+</LinearLayout>

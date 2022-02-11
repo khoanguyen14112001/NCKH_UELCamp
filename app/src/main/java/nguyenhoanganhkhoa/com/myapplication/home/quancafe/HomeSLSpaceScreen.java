@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
+import nguyenhoanganhkhoa.com.custom.bottomsheetdialog.CustomBottomSheetDrink;
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
@@ -31,7 +33,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     LinearLayout lnCoffee, lnTea, lnSoda, lnJuice, lnYogurt, lnMachiato, lnFrappuchino, lnDiscount;
     TextView txtShowType, txtMaybeLike,txtSeeAll;
 
-    ImageView imvBack;
+    ImageView imvBack, imvCart;
 
     SearchView svOrder;
 
@@ -39,6 +41,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     DrinkAdapter adapter = new DrinkAdapter(this);
 
     ConstraintLayout layout_hide_filter;
+
 
     private void linkView() {
         rcvOrderMayLike = findViewById(R.id.rcvOrderMayLike);
@@ -59,6 +62,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         imvBack = findViewById(R.id.imvBack);
         svOrder = findViewById(R.id.svOrder);
+        imvCart = findViewById(R.id.imvCart);
 
         layout_hide_filter = findViewById(R.id.layout_hide_filter);
     }
@@ -190,13 +194,13 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         });
     }
 
-    private List<Drink> getListDrink() {
+    public static List<Drink> getListDrink() {
         List<Drink> drinks = new ArrayList<>();
 
-        drinks.add(new Drink("","RASPBERRY FRAPPUCHINO - size M","Frappuchino",R.drawable.img_news1,0,30000));
-        drinks.add(new Drink("","PEACH & LYCHEE FRAPPUCHINO - size M","Coffee",R.drawable.img_news2,0.1,30000, true));
-        drinks.add(new Drink("","MILK TEA - size M","Tea",R.drawable.img_news3,0.1,25000));
-        drinks.add(new Drink("","FRESH MILK - size M","Yogurt",R.drawable.img_news4,0,22000, true));
+        drinks.add(new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"RASPBERRY FRAPPUCHINO","Frappuchino",R.drawable.img_news1,0,30000));
+        drinks.add(new Drink("","PEACH & LYCHEE FRAPPUCHINO","Coffee",R.drawable.img_news2,0.1,30000, true));
+        drinks.add(new Drink("","MILK TEA","Tea",R.drawable.img_news3,0.1,25000));
+        drinks.add(new Drink("","FRESH MILK","Yogurt",R.drawable.img_news4,0,22000, true));
         return drinks;
     }
 
@@ -251,6 +255,18 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
+        imvCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeSLSpaceScreen.this, CartSLSpaceScreen.class));
+            }
+        });
+        txtSeeAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeSLSpaceScreen.this,MenuSLSpaceScreen.class));
+            }
+        });
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        style="@style/in_SmallHeaderText"
+        android:text="Ice level"
+        android:id="@+id/txtDrinkOptionBigCate"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/required"
+        android:textColor="@color/red"
+        android:textSize="10sp"
+        android:layout_marginTop="-5dp"
+        android:fontFamily="@font/be_vietnam_regular"
+        android:layout_marginLeft="20dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rcvOptionDrink"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+
+
+
+</LinearLayout>

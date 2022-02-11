@@ -16,12 +16,33 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
-            android:name=".home.quancafe.HomeSLSpaceScreen"
+            android:name=".home.quancafe.OrderDetailSLSpaceScreen"
             android:exported="true" />
+        <activity
+            android:name=".home.quancafe.CartSLSpaceScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".home.quancafe.AddToCartScreen"
+            android:exported="true"
+            android:noHistory="true" />
+        <activity
+            android:name=".home.quancafe.MenuSLSpaceScreen"
+            android:exported="true" />
+        <activity
+            android:name=".home.quancafe.HomeSLSpaceScreen"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".home.thuquan.StationeryMainScreen"
             android:exported="true"
-            android:noHistory="true"/>
+            android:noHistory="true" />
         <activity
             android:name=".home.quancafe.SLSpaceSplashScreen"
             android:exported="false" />
@@ -97,7 +118,7 @@
         <activity
             android:name=".home.aboutus.AboutUsScreen"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".home.EditInfomationScreen"
             android:exported="true"
@@ -117,13 +138,7 @@
         <activity
             android:name=".home.homepage.HomePageScreen"
             android:exported="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".signup.PersonalInformationSetScreen"
             android:exported="true"

@@ -342,5 +342,23 @@
     </style>
 
 
+    <style name="PriceStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/fjalla_one_regular</item>
+    </style>
+
+    <style name="VNDStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/be_vietnam_light</item>
+        <item name="android:text">VND</item>
+    </style>
+
+
 
 </resources>

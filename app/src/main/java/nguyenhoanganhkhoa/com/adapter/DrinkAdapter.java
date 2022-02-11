@@ -1,8 +1,8 @@
 package nguyenhoanganhkhoa.com.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Paint;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import nguyenhoanganhkhoa.com.custom.bottomsheetdialog.CustomBottomSheetDrink;
 import nguyenhoanganhkhoa.com.models.Drink;
-import nguyenhoanganhkhoa.com.models.Notification;
+import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.HomeSLSpaceScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.quancafe.AddToCartScreen;
+import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> implements Filterable {
@@ -49,7 +50,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     @Override
     public DrinkAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_requested_order,parent,false);
+        View view = inflater.inflate(R.layout.item_drink,parent,false);
         // Chỗ view này nó còn đại diện kiểu hiển thị nữa nha, có ăn parent ko thì nó trong đây nè
 
         // cái view hiện tại đại diện cho recyleview
@@ -77,16 +78,17 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
 
         double discount = drink.getDrinkDiscount();
         double prePrice = drink.getDrinkPrePrice();
-        double aftPrice = prePrice - prePrice*discount;
         if(discount == 0){
             holder.layout_preprice.setVisibility(View.GONE);
-            holder.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(aftPrice));
+            holder.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(drink.getPriceAfterDiscount()));
         }
         else{
             holder.layout_preprice.setVisibility(View.VISIBLE);
-            holder.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(aftPrice));
+            holder.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(drink.getPriceAfterDiscount()));
             holder.txtPrepriceDrink.setText(reusedConstraint.formatCurrency(prePrice));
         }
+
+        holder.txtTitleDrink.setText(drink.getDrinkTitle());
 
         changeColorTitle(holder,drink,discount);
 
@@ -104,7 +106,70 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
             }
         });
 
+        holder.layout_drink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDrinkDetail(holder, drink);
+            }
+        });
 
+    }
+
+    CustomBottomSheetDrink dialog = null;
+
+    private void showDrinkDetail(DrinkAdapter.ViewHolder holder, Drink drink){
+        if(dialog==null){
+            dialog = new CustomBottomSheetDrink(context,R.style.BottomSheetDialogTheme);
+        }
+
+        dialog.imvThumbDrink.setImageResource(drink.getThumbDrink());
+
+        double discount = drink.getDrinkDiscount();
+        double prePrice = drink.getDrinkPrePrice();
+        double aftPrice = prePrice - prePrice*discount;
+        if(discount == 0){
+            dialog.layout_preprice.setVisibility(View.GONE);
+            dialog.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(aftPrice));
+        }
+        else{
+            dialog.layout_preprice.setVisibility(View.VISIBLE);
+            dialog.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(aftPrice));
+            dialog.txtPrepriceDrink.setText(reusedConstraint.formatCurrency(prePrice));
+        }
+
+        dialog.txtNameDrink.setText(drink.getDrinkName());
+        dialog.txtTypeDrink.setText(drink.getDrinkType());
+
+        String text = holder.txtTitleDrink.getText().toString();
+        dialog.txtTitleDrink.setText(text);
+        dialog.txtTitleDrink.setVisibility(View.VISIBLE);
+        if(text.contains("off")){
+            dialog.txtTitleDrink.setTextColor(context.getColor(R.color.green));
+        }
+        if(text.equals(DRINK_TITLE_BEST_SELLER)){
+            dialog.txtTitleDrink.setTextColor(context.getColor(R.color.red));
+        }
+        if(text.isEmpty()){
+            dialog.txtTitleDrink.setVisibility(View.GONE);
+        }
+
+        dialog.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AddToCartScreen.class);
+                pushData(intent, drink);
+                context.startActivity(intent);
+            }
+        });
+
+        dialog.show();
+
+    }
+
+    private void pushData(Intent intent, Drink drink) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(AppUtil.SELECTED_ITEM_TRANS,drink);
+        intent.putExtra(AppUtil.MY_BUNDLE_TRANS, bundle);
     }
 
     private void changeColorTitle(DrinkAdapter.ViewHolder holder, Drink drink, double discount){
@@ -188,7 +253,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtTitleDrink, txtNameDrink, txtTypeDrink, txtPrepriceDrink, txtAftpriceDrink ;
         ImageView imvThumbDrink, imvFavoriteDrink;
-        ConstraintLayout layout_preprice, layout_aftprice;
+        ConstraintLayout layout_preprice, layout_aftprice, layout_drink;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -201,6 +266,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
             layout_aftprice =itemView.findViewById(R.id.layout_aftprice);
             txtPrepriceDrink =itemView.findViewById(R.id.txtPrepriceDrink);
             txtAftpriceDrink =itemView.findViewById(R.id.txtAftpriceDrink);
+            layout_drink =itemView.findViewById(R.id.layout_drink);
         }
     }
 }

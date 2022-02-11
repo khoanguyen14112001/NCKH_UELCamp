@@ -366,6 +366,19 @@
     <string name="machiato">Machiato</string>
     <string name="yogurt">Yogurt</string>
     <string name="discount">Discount</string>
+    <string name="menu">Menu</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="total_payment">Total payment</string>
+    <string name="item_quantity">Item quantity</string>
+    <string name="example_one_more_straw_please">Example: one more straw, please...</string>
+    <string name="required">Required</string>
+    <string name="cart">Cart</string>
+    <string name="select_all">Select all</string>
+    <string name="go_to_payment">Go to payment</string>
+    <string name="ice_level">Ice level:</string>
+    <string name="sugar_level">Sugar level:</string>
+    <string name="size">Size:</string>
+    <string name="there_is_no_product_in_your_cart">There is no product in your cart</string>
 
     <array name="initial_slider_values">
         <item>0</item>

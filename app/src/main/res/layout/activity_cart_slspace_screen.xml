@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:context=".home.quancafe.CartSLSpaceScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            style="@style/imageViewComback"
+            android:id="@+id/imvBack"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            style="@style/imageViewOpenNav"
+            android:id="@+id/imvOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txtHeader"
+            style="@style/in_BigHeaderText"
+            android:text="@string/cart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_rad_yellow_unchecked"
+            app:layout_constraintTop_toBottomOf="@id/txtHeader"
+            android:layout_marginLeft="20dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/imvRadSelectAll"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/imvRadSelectAll"
+            android:text="@string/select_all"
+            style="@style/in_SmallHeaderText"
+            app:layout_constraintBottom_toBottomOf="@id/imvRadSelectAll"
+            app:layout_constraintTop_toTopOf="@id/imvRadSelectAll"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/be_vietnam_light"
+            app:layout_constraintTop_toBottomOf="@id/imvRadSelectAll"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/txtNotifyNoProduct"
+            app:layout_constraintBottom_toTopOf="@id/layout_bottom"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:text="@string/there_is_no_product_in_your_cart"/>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/imvRadSelectAll"
+            app:layout_constraintBottom_toTopOf="@+id/layout_bottom"
+            android:layout_height="0dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/rcvCart"
+                android:layout_height="match_parent"/>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardElevation="70dp"
+            android:id="@+id/layout_bottom"
+
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="15dp"
+                android:layout_height="120dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_payment"
+                        style="@style/in_SmallHeaderText"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/txtTotal"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(3 items)"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="17sp"
+                        app:layout_constraintBaseline_toBaselineOf="@id/txtTotal"
+                        android:fontFamily="@font/be_vietnam_regular"
+                        app:layout_constraintLeft_toRightOf="@id/txtTotal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/txtItemQuantity"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30.000"
+                        style="@style/PriceStyle"
+                        app:layout_constraintRight_toLeftOf="@id/txtVND"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginEnd="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/txtTotalPayment"
+                        app:layout_constraintBaseline_toBaselineOf="@id/txtTotal" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:id="@+id/txtVND"
+                        app:layout_constraintBaseline_toBaselineOf="@id/txtTotal"
+                        style="@style/VNDStyle"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    style="@style/buttonYellow"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/go_to_payment"
+                    android:id="@+id/btnGoToPayment"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>
