@@ -5,8 +5,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,12 +17,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class CartSLSpaceScreen extends AppCompatActivity {
@@ -31,6 +35,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     DrawerLayout drawerLayout;
     TextView txtNotifyNoProduct, txtItemQuantity;
+    Button btnGoToPayment;
 
     ImageView imvRadSelectAll, imvBack;
 
@@ -46,6 +51,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         txtItemQuantity = findViewById(R.id.txtItemQuantity);
         imvRadSelectAll = findViewById(R.id.imvRadSelectAll);
         imvBack = findViewById(R.id.imvBack);
+        btnGoToPayment = findViewById(R.id.btnGoToPayment);
     }
 
     @Override
@@ -110,7 +116,33 @@ public class CartSLSpaceScreen extends AppCompatActivity {
 
         return list;
     }
+    private void pushData(List<DrinkInCart> listDrink) {
+        List<DrinkInCart> list = new ArrayList<>();
+        for(int i = 0; i<listDrink.size();i++){
+            if(listDrink.get(i).isSelected()){
+                list.add(listDrink.get(i));
+            }
+        }
+
+        if(!list.isEmpty()){
+            Intent intent = new Intent(CartSLSpaceScreen.this, OrderDetailSLSpaceScreen.class);
+            intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) list);
+            startActivity(intent);
+        }
+        else{
+            Snackbar snackbar = Snackbar.make(drawerLayout, "Please choose items to purchase!", Snackbar.LENGTH_SHORT);
+            snackbar.show();
+        }
+    }
+
+
     private void addEvents() {
+        btnGoToPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushData(adapter.getmDrinks());
+            }
+        });
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -2,7 +2,7 @@ package nguyenhoanganhkhoa.com.models;
 
 import java.io.Serializable;
 
-public class DrinkInCart extends Drink implements Serializable  {
+public class DrinkInCart extends Drink implements Serializable {
 
     private int iceLevel;
     private int sugarLevel;

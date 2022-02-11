@@ -379,6 +379,14 @@
     <string name="sugar_level">Sugar level:</string>
     <string name="size">Size:</string>
     <string name="there_is_no_product_in_your_cart">There is no product in your cart</string>
+    <string name="order">Order</string>
+    <string name="need_anything_else">Need anything else?</string>
+    <string name="add_other_dishes_if_you_want">Add other dishes, if you want.</string>
+    <string name="add_more">Add more</string>
+    <string name="payment_summary">Payment summary</string>
+    <string name="discounts">Discounts</string>
+    <string name="delivery_fee">Delivery fee</string>
+    <string name="payment_method">Payment method</string>
 
     <array name="initial_slider_values">
         <item>0</item>

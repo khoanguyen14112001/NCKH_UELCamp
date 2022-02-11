@@ -46,6 +46,13 @@
         <item name="fontFamily">@font/be_vietnam_medium</item>
         <item name="android:background">@drawable/custom_button</item>
     </style>
+    <style name="buttonYellow.Small">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
     <style name="buttonLongYellow">
         <item name="android:layout_width">360dp</item>
         <item name="android:layout_height">38dp</item>
@@ -347,7 +354,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/black</item>
-        <item name="fontFamily">@font/fjalla_one_regular</item>
+        <item name="fontFamily">@font/big_shoulder_display_bold</item>
     </style>
 
     <style name="VNDStyle">

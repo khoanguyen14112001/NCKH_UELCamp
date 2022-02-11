@@ -249,9 +249,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="65dp"
-            android:layout_height="25dp"
-            style="@style/buttonYellow"
+            style="@style/buttonYellow.Small"
             android:id="@+id/btnEditDrink"
             android:text="Edit"
             app:layout_constraintLeft_toRightOf="@id/txtVND"

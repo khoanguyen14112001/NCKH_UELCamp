@@ -32,6 +32,7 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
 
     private Context context;
     private List<DrinkInCart> mDrinks;
+    private int numScreen = 0;
     private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(context);
@@ -45,6 +46,10 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         notifyDataSetChanged();
     }
 
+    public void setNumScreen(int numScreen) {
+        this.numScreen = numScreen;
+    }
+
     public List<DrinkInCart> getmDrinks() {
         return mDrinks;
     }
@@ -53,8 +58,14 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
     @Override
     public DrinkIncartAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.item_drink_in_cart,parent,false);
+        View view;
+        if(numScreen!=0){
+            view = inflater.inflate(R.layout.item_drink_order,parent,false);
+        }
+        else {
+             view = inflater.inflate(R.layout.item_drink_in_cart,parent,false);
 
+        }
         return new ViewHolder(view);
     }
 
@@ -114,36 +125,26 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
             }
         });
 
-        setSelectedStatus(holder,drink);
-
-        holder.imvSelectedItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(drink.isSelected()){
-                    drink.setSelected(false);
+        if(numScreen==0){
+            setSelectedStatus(holder,drink);
+            holder.imvSelectedItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(drink.isSelected()){
+                        drink.setSelected(false);
+                    }
+                    else{
+                        drink.setSelected(true);
+                    }
+                    setSelectedStatus(holder,drink);
                 }
-                else{
-                    drink.setSelected(true);
-                }
-                setSelectedStatus(holder,drink);
-            }
-        });
+            });
+        }
 
-        holder.btnEditDrink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context.getApplicationContext(), OrderDetailSLSpaceScreen.class);
-                pushData(intent,drink);
-                context.startActivity(intent);
-            }
-        });
+
+
     }
 
-    private void pushData(Intent intent, DrinkInCart drink) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(AppUtil.SELECTED_ITEM_TRANS,drink);
-        intent.putExtra(AppUtil.MY_BUNDLE_TRANS, bundle);
-    }
 
 
     private void deleteItem(DrinkIncartAdapter.ViewHolder holder, DrinkInCart drink){

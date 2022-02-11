@@ -243,4 +243,16 @@ public class ReusedConstraint {
         }
     }
 
+    public void setActionComeBack(Activity activity){
+        ImageView imvBack = activity.findViewById(R.id.imvBack);
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkNavStatusComeBack(activity);
+            }
+        });
+    }
+
+
+
 }
