@@ -23,7 +23,9 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
+import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.quancafe.AddToCartScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.quancafe.OrderDetailSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -141,8 +143,24 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
             });
         }
 
+        holder.btnEditDrink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushData(drink);
+            }
+        });
+    }
 
 
+
+    private void pushData(DrinkInCart drink) {
+        Intent intent = new Intent(context, AddToCartScreen.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(AppUtil.SELECTED_ITEM_TRANS,drink);
+        intent.putExtra(AppUtil.MY_BUNDLE_TRANS, bundle);
+
+        context.startActivity(intent);
     }
 
 

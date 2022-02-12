@@ -246,6 +246,10 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_thuquan.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_tickbutton.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_warning_red.xml" value="0.14020270270270271" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/img_voucher_thumb_black.xml" value="0.21614583333333334" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/img_voucher_thumb_darkgrey.xml" value="0.21614583333333334" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/img_voucher_thumb_grey.xml" value="0.21614583333333334" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/img_voucher_thumb_yellow.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/layout_custom_stroke_black_top_bottom.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/nest_scrollview_custom.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/oval_shape.xml" value="0.21614583333333334" />
@@ -257,6 +261,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/view_custom_corner_small_blackstroke.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/view_custom_corner_small_blackstroke_thin.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/view_custom_corner_small_blackstroke_thin_yellow.xml" value="0.18981481481481483" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/view_custom_corner_small_yellowstroke.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout-large/item_drink_in_cart.xml" value="0.48" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout-normal/item_drink_in_cart.xml" value="0.4466666666666667" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_about_us_screen.xml" value="0.25040650406504067" />
@@ -306,6 +311,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_transfer_result_screen.xml" value="0.19641943734015346" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_verification_screen.xml" value="0.2" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_verification_signup_screen.xml" value="0.2" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_voucher_slspace_screen.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_bottomdialog_drink.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_bottomdialog_filter.xml" value="0.2" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_bottomsheet_drink.xml" value="0.2" />
@@ -347,6 +353,8 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_requested_order.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_transaction_all.xml" value="0.4466666666666667" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_transaction_month.xml" value="0.3333333333333333" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_voucher.xml" value="0.4466666666666667" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_voucher_demo.xml" value="0.5" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/left_nav.xml" value="0.13333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/menu/menu_bottom_nav.xml" value="0.5" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/menu/menu_left_nav.xml" value="0.22" />

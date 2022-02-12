@@ -1,22 +1,16 @@
 package nguyenhoanganhkhoa.com.myapplication.home.transfer;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-
-import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTransferConfirm;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 /**
  * A simple {@link Fragment} subclass.

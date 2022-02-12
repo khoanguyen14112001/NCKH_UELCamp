@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +27,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
+import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
+import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferResultScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
@@ -37,9 +42,15 @@ public class CustomDialogTransferConfirm extends Dialog {
     public EditText edtCurrentPassword;
     public ImageView imgToggleClose1, imvCloseDialog;
 
-    Activity activity;
+    private int screen = 0;
 
+    Activity activity;
     ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
+
+
+    public void setScreen(int screen) {
+        this.screen = screen;
+    }
 
     public CustomDialogTransferConfirm(@NonNull Context context, int dialogLayout) {
         super(context);
@@ -123,6 +134,15 @@ public class CustomDialogTransferConfirm extends Dialog {
 
     }
 
+    CustomDialogTransferConfirm.MyCallBack callBack;
+    public interface MyCallBack {
+        void hideLayoutOrder();
+    }
+    public void setCallBack(CustomDialogTransferConfirm.MyCallBack callBack) {
+        this.callBack = callBack;
+    }
+
+
     public void linkView() {
         btnConfirm = findViewById(R.id.btnOK);
         txtTextShow = findViewById(R.id.txtTextShow);
@@ -145,7 +165,12 @@ public class CustomDialogTransferConfirm extends Dialog {
                         String pass = snapshot.child(AppUtil.FB_PASSWORD).getValue(String.class);
                         if(password.equals(pass)||password.equals("1234")){
                             setCorrectPass();
-                            getContext().startActivity(new Intent(getContext(), TransferResultScreen.class));
+                            if(screen==1){
+                                callBack.hideLayoutOrder();
+                            }
+                            else{
+                                getContext().startActivity(new Intent(getContext(), TransferResultScreen.class));
+                            }
                         }
                         else{
                             txtErrorCurrentPassword.setText(R.string.wrong_password_please_try_again);

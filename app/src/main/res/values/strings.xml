@@ -387,6 +387,18 @@
     <string name="discounts">Discounts</string>
     <string name="delivery_fee">Delivery fee</string>
     <string name="payment_method">Payment method</string>
+    <string name="voucher">Voucher</string>
+    <string name="discount_applied">Discount applied</string>
+    <string name="no_discount_is_currently_applied">No discount is currently applied</string>
+    <string name="check_out_the_available_discounts_below">Check out the available discounts below.</string>
+    <string name="available_discounts">Available discounts</string>
+    <string name="free_n_ship">FREE\nSHIP</string>
+    <string name="all_forms_of_payment">All forms of payment</string>
+    <string name="minimum_order_100k">Minimum order 100k</string>
+    <string name="expiry_date">Expiry date:</string>
+    <string name="condition"><u>Condition</u></string>
+    <string name="our_staff_is_preparing_your_order_please_wait_a_second">Our staff is preparing your order. \nPlease wait a second.</string>
+    <string name="back_to_home">Back to home</string>
 
     <array name="initial_slider_values">
         <item>0</item>
