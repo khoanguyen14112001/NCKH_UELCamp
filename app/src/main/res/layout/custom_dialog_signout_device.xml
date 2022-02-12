@@ -1,59 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/dialog_login"
-    android:layout_margin="55dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <TextView
-        style="@style/dialog_header"
-        android:text="@string/sign_out_this_device" />
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.12"
+        android:id="@+id/gLeft"
+        />
 
-
-    <TextView
-        style="@style/dialog_text"
-        android:text="@string/you_are_signing_out_this_device_are_you_sure"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.88"
+        android:id="@+id/gRight"
+        />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        >
-        <androidx.appcompat.widget.AppCompatButton
-            android:text="@string/yes"
-            android:id="@+id/btnOK"
-            android:layout_width="90dp"
-            android:background="@drawable/custom_button_dialog"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:fontFamily="@font/be_vietnam_medium"
-            android:layout_height="40dp"
-            android:textAllCaps="false"
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/dialog_login"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft"
+        app:layout_constraintRight_toRightOf="@id/gRight"
 
-            />
-        <androidx.appcompat.widget.AppCompatButton
-            android:text="@string/cancel"
-            android:id="@+id/btnCancel"
-            android:layout_width="90dp"
-            android:background="@drawable/custom_button_dialog_black"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:layout_height="40dp"
-            android:textAllCaps="false"
-            android:fontFamily="@font/be_vietnam_medium"
-            android:layout_marginLeft="30dp"
-            />
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/dialog_header"
+            android:text="@string/sign_out_this_device" />
+
+
+        <TextView
+            style="@style/dialog_text"
+            android:text="@string/you_are_signing_out_this_device_are_you_sure"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="@string/yes"
+                android:id="@+id/btnOK"
+                android:layout_width="90dp"
+                android:background="@drawable/custom_button_dialog"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:fontFamily="@font/be_vietnam_medium"
+                android:layout_height="40dp"
+                android:textAllCaps="false"
+
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="@string/cancel"
+                android:id="@+id/btnCancel"
+                android:layout_width="90dp"
+                android:background="@drawable/custom_button_dialog_black"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:layout_height="40dp"
+                android:textAllCaps="false"
+                android:fontFamily="@font/be_vietnam_medium"
+                android:layout_marginLeft="30dp"
+                />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
-
-
-
-
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

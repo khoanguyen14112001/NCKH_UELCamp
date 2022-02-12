@@ -39,6 +39,8 @@ public class ReusedConstraint {
     public ReusedConstraint(Context context) {
         this.context = context;
     }
+    public ReusedConstraint() {
+    }
 
     public void prepareDots(Context context, int lengthList, LinearLayout layout, TextView dots[],
                                    int size) {
@@ -216,7 +218,7 @@ public class ReusedConstraint {
             }
         });
 
-        ((FragmentActivity)context).getSupportFragmentManager()
+        ((FragmentActivity)activity).getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.layoutFragmentLeftNav, new LeftNavFragment())
                 .commit();

@@ -75,6 +75,18 @@
         <item name="android:textColor">@color/xamChu</item>
     </style>
 
+
+    <style name="inputStyleDiff">
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/custom_edt</item>
+        <item name="fontFamily">@font/be_vietnam_light</item>
+        <item name="android:textColorHint">@color/xamChu</item>
+        <item name="android:drawableTint">@color/blackUI</item>
+        <item name="android:paddingVertical">15dp</item>
+        <item name="android:paddingLeft">50dp</item>
+        <item name="android:textColor">@color/xamChu</item>
+    </style>
+
     <style name="inputStylePhone">
         <item name="android:textSize">15sp</item>
         <item name="android:background">@drawable/custom_edt</item>

@@ -3,7 +3,7 @@
     <solid
         android:color="#FFD428"/>
     <corners
-        android:radius="100px" />
+        android:radius="85px" />
 
     <padding
         android:left="20dp"

@@ -399,6 +399,13 @@
     <string name="condition"><u>Condition</u></string>
     <string name="our_staff_is_preparing_your_order_please_wait_a_second">Our staff is preparing your order. \nPlease wait a second.</string>
     <string name="back_to_home">Back to home</string>
+    <string name="enter_voucher_code">Enter voucher code</string>
+    <string name="enter_voucher_code_n_to_save_more_on_your_order">Enter voucher code \n to save more on your order</string>
+    <string name="automatically_applied_to_your_order">Automatically applied to your order</string>
+    <string name="favorite">Favourite</string>
+    <string name="delete_all">Delete all</string>
+    <string name="there_are_currently_no_favourite_foods">There are currently no favourite foods.</string>
+    <string name="delete_all_content">You are deleting all favourite foods. \nAre you sure?</string>
 
     <array name="initial_slider_values">
         <item>0</item>

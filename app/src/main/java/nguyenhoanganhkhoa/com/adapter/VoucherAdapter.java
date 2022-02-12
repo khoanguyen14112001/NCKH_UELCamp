@@ -21,6 +21,11 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.ViewHolder> {
     private Context context;
     private List<Voucher> mVoucher;
+    private int sizeList = 0;
+
+    public void setSizeList(int sizeList) {
+        this.sizeList = sizeList;
+    }
 
     public VoucherAdapter(Context context) {
         this.context = context;
@@ -115,8 +120,11 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        if(mVoucher !=null)
+        if(mVoucher !=null && sizeList == 0)
             return mVoucher.size();
+        if(sizeList!= 0){
+            return sizeList;
+        }
         else
             return 0;
     }

@@ -51,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="20dp"
+                    android:id="@+id/layout_no_discount_apply"
                     android:background="@color/xamNen"
                     >
                     <TextView
@@ -96,6 +97,38 @@
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:id="@+id/layout_apply_discount_success"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/automatically_applied_to_your_order"
+                        android:paddingHorizontal="20dp"
+                        android:fontFamily="@font/be_vietnam_regular"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="@string/discount_applied"
+                        style="@style/in_SmallHeaderText"
+                        android:paddingHorizontal="20dp"
+                        android:layout_marginTop="-8dp"
+                        android:fontFamily="@font/be_vietnam_regular"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:paddingBottom="20dp"
+                        android:nestedScrollingEnabled="false"
+                        android:id="@+id/rcvVoucherApply"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,6 +149,7 @@
                         android:layout_height="0dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_voucher"
+                        android:id="@+id/imvAddVoucher"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>

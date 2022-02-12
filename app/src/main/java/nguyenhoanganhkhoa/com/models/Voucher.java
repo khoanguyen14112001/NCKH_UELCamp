@@ -1,6 +1,9 @@
 package nguyenhoanganhkhoa.com.models;
 
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
+
 public class Voucher {
+    ReusedConstraint reusedConstraint = new ReusedConstraint();
     private String voucherName;
     private String voucherContent;
     private String voucherContent2;
@@ -26,7 +29,7 @@ public class Voucher {
     }
 
     public String getVoucherUpTo_String(){
-        return "Up to " + getVoucherUpTo() + " k discount";
+        return "Up to " + reusedConstraint.formatCurrency(getVoucherUpTo()) + "k discount";
     }
 
     public String getVoucherName() {

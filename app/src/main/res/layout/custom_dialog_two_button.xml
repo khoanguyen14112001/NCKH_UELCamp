@@ -32,14 +32,15 @@
         android:layout_height="wrap_content">
         <TextView
             style="@style/dialog_header"
-            android:text="@string/sign_out"
-
-            />
+            android:id="@+id/txtHeaderDialog"
+            android:text="@string/unsaved_changes" />
 
 
         <TextView
             style="@style/dialog_text"
-            android:text="@string/you_are_signing_out_nare_you_sure"/>
+            android:id="@+id/txtContentDialog"
+
+            android:text="@string/all_your_changes_will_not_be_saved_n_are_you_sure_want_to_leave"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -49,7 +50,7 @@
             android:layout_gravity="center"
             >
             <androidx.appcompat.widget.AppCompatButton
-                android:text="@string/yes"
+                android:text="@string/ok"
                 android:id="@+id/btnOK"
                 android:layout_width="90dp"
                 android:background="@drawable/custom_button_dialog"
@@ -58,23 +59,23 @@
                 android:fontFamily="@font/be_vietnam_medium"
                 android:layout_height="40dp"
                 android:textAllCaps="false"
-                android:layout_marginTop="0dp"
+
                 />
             <androidx.appcompat.widget.AppCompatButton
                 android:text="@string/cancel"
                 android:id="@+id/btnCancel"
-                android:layout_marginLeft="30dp"
                 android:layout_width="90dp"
-                android:fontFamily="@font/be_vietnam_medium"
                 android:background="@drawable/custom_button_dialog_black"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
                 android:layout_height="40dp"
                 android:textAllCaps="false"
-
+                android:fontFamily="@font/be_vietnam_medium"
+                android:layout_marginLeft="30dp"
                 />
 
         </LinearLayout>
+
 
 
     </LinearLayout>

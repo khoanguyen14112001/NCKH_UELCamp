@@ -33,7 +33,9 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     LinearLayout lnCoffee, lnTea, lnSoda, lnJuice, lnYogurt, lnMachiato, lnFrappuchino, lnDiscount;
     TextView txtShowType, txtMaybeLike,txtSeeAll;
 
-    ImageView imvBack, imvCart;
+    ConstraintLayout layout_choose_address;
+
+    ImageView imvBack, imvCart, imvFavorite;
 
     SearchView svOrder;
 
@@ -64,7 +66,10 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         svOrder = findViewById(R.id.svOrder);
         imvCart = findViewById(R.id.imvCart);
 
+        imvFavorite = findViewById(R.id.imvFavorite);
+
         layout_hide_filter = findViewById(R.id.layout_hide_filter);
+        layout_choose_address = findViewById(R.id.layout_choose_address);
     }
     public static final String ORDER_COFFEE = "Coffee";
     public static final String ORDER_TEA = "Tea";
@@ -255,6 +260,18 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
+        layout_choose_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeSLSpaceScreen.this,ChooseAddressScreen.class));
+            }
+        });
+        imvFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeSLSpaceScreen.this,FavoriteDrinksScreen.class));
+            }
+        });
         imvCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

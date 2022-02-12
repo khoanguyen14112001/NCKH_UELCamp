@@ -17,7 +17,7 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class MenuSLSpaceScreen extends AppCompatActivity {
 
     RecyclerView rcvMenu;
-    ImageView imvBack, imvCart;
+    ImageView imvBack, imvCart, imvLove;
     DrinkAdapter adapter = new DrinkAdapter(this);
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
@@ -41,6 +41,12 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
+        imvLove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuSLSpaceScreen.this, FavoriteDrinksScreen.class));
+            }
+        });
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

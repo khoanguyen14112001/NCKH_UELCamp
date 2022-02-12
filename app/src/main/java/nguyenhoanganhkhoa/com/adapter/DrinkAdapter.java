@@ -32,6 +32,18 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     private List<Drink> mDrink;
     private List<Drink> mDrinkOld;
 
+    private int screen = 0;
+
+
+    public void setScreen(int screen) {
+        this.screen = screen;
+    }
+
+    public int getScreen() {
+        return screen;
+    }
+
+
     public DrinkAdapter(Context context) {
         this.context = context;
     }
@@ -92,6 +104,10 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
 
         changeColorTitle(holder,drink,discount);
 
+        if(getScreen() ==1){
+            callBackForFavorite.changeLoveIconStatus();
+        }
+
         holder.imvFavoriteDrink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +119,20 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
                     holder.imvFavoriteDrink.setImageResource(R.drawable.ic_love_active_yellow);
                     drink.setFavoriteDrink(true);
                 }
+
+                if(getScreen() ==1){
+                    drink.setFavoriteDrink(false);
+                    mDrink.remove(holder.getAdapterPosition());
+                    notifyItemRemoved(holder.getAdapterPosition());
+
+                    if(mDrink.isEmpty()){
+                        callBackForFavorite.showNotifyNoItem();
+                        callBackForFavorite.changeLoveIconStatus();
+                    }
+
+
+                }
+
             }
         });
 
@@ -192,12 +222,14 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     public int getItemCount() {
         if(mDrink !=null)
             return mDrink.size();
-        else
+        else{
             return 0;
+        }
     }
 
 
     MyCallBack callBack;
+    MyCallBackForFavorite callBackForFavorite;
     public interface MyCallBack {
         void hideFilter();
         void showFilter();
@@ -206,6 +238,17 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     public void setCallBack(MyCallBack callBack) {
         this.callBack = callBack;
     }
+
+    public interface MyCallBackForFavorite {
+        void showNotifyNoItem();
+        void changeLoveIconStatus();
+    }
+
+    public void setCallBackFavorite(MyCallBackForFavorite callBackForFavorite) {
+        this.callBackForFavorite = callBackForFavorite;
+    }
+
+
 
     @Override
     public Filter getFilter() {

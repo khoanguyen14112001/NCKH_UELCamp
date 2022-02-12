@@ -60,6 +60,7 @@
                    >
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
+                        android:id="@+id/layout_choose_address"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -165,14 +166,14 @@
                     android:focusable="false"
                     app:theme="@style/SearchViewStyle"
                     app:queryBackground="@android:color/transparent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                    app:layout_constraintEnd_toStartOf="@+id/imvFavorite"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cons1"
                     app:queryHint="What do you want to order?" />
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imvFavorite"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginRight="20dp"
@@ -500,7 +501,6 @@
                     android:layout_height="match_parent"
                     android:nestedScrollingEnabled="false"
                     app:layout_constraintTop_toBottomOf="@id/layout_hide_filter"
-                    android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
                     android:paddingBottom="10dp"
                     android:id="@+id/rcvOrderMayLike"

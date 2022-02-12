@@ -146,7 +146,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="15dp"
             android:id="@+id/rcvMenu"
-            android:paddingHorizontal="20dp"
             app:layout_constraintRight_toRightOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
