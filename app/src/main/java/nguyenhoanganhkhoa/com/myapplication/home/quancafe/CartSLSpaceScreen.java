@@ -107,12 +107,16 @@ public class CartSLSpaceScreen extends AppCompatActivity {
 
     private List<DrinkInCart> getListDrinkInCart() {
         List<DrinkInCart> list = new ArrayList<>();
-        addItemToList(list,"ICED/HOT COFFEE - size M", R.drawable.img_news1,0,30000,
+        addItemToList(list,"ICED/HOT COFFEE - size M", R.drawable.img_drink_1,0,30000,
                 70,50,"Size L", 1);
-        addItemToList(list,"MATCHA FRAPPUCHINO - size M", R.drawable.img_news2,0.2,25000,
+        addItemToList(list,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_2,0.2,25000,
                 70,50,"Size L", 2);
-        addItemToList(list,"SEA SODA - size M", R.drawable.img_news3,0,30000,
+        addItemToList(list,"SEA SODA - size M", R.drawable.img_drink_3,0,30000,
                 70,50,"Size L", 3);
+        addItemToList(list,"COOKIE FRAPPUCHINO - size M", R.drawable.img_drink_4,0.3,25000,
+                70,50,"Size M", 1);
+        addItemToList(list,"MATCHA FRAPPUCHINO", R.drawable.img_drink_5,0,27000,
+                70,50,"Size L", 2);
 
         return list;
     }

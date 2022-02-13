@@ -202,10 +202,12 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     public static List<Drink> getListDrink() {
         List<Drink> drinks = new ArrayList<>();
 
-        drinks.add(new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"RASPBERRY FRAPPUCHINO","Frappuchino",R.drawable.img_news1,0,30000));
-        drinks.add(new Drink("","PEACH & LYCHEE FRAPPUCHINO","Coffee",R.drawable.img_news2,0.1,30000, true));
-        drinks.add(new Drink("","MILK TEA","Tea",R.drawable.img_news3,0.1,25000));
-        drinks.add(new Drink("","FRESH MILK","Yogurt",R.drawable.img_news4,0,22000, true));
+        drinks.add(new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"MATCHA FRAPPUCHINO","Frappuchino",R.drawable.img_drink_1,0,35000));
+        drinks.add(new Drink("","ORANGE JUICE","Juice",R.drawable.img_drink_2,0,29000, true));
+        drinks.add(new Drink("","ICED/HOT COFFEE","Coffee",R.drawable.img_drink_3,0,25000));
+        drinks.add(new Drink("","SEA SODA","Soda",R.drawable.img_drink_4,0.1,25000, true));
+        drinks.add(new Drink("","LEMON YOGURT","Yogurt",R.drawable.img_drink_5,0.3,25000));
+        drinks.add(new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"PEACH TEA","Soda",R.drawable.img_drink_6,0,25000));
         return drinks;
     }
 

@@ -82,6 +82,7 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
         imvBack = findViewById(R.id.imvBack);
         imvCart = findViewById(R.id.imvCart);
         layout_choose_address = findViewById(R.id.layout_choose_address);
+        imvLove = findViewById(R.id.imvLove);
 
     }
 }
