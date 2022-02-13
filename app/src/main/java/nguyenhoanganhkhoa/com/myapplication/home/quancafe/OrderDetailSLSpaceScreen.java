@@ -38,7 +38,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
     TextView txtTotalPayment, txtTotalNoDiscount, txtDeliveryFee, txtDiscount, txtPaymentSummary, txtPaymentMethod;
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     ConstraintLayout layout_voucher, layout_container_show_order, layout_complete_order;
-    Button btnOrder, btnBackToHome;
+    Button btnOrder, btnBackToHome, btnChangeAddress;
 
     private void linkView() {
         rcvItemOrder = findViewById(R.id.rcvItemOrder);
@@ -56,6 +56,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         btnBackToHome = findViewById(R.id.btnBackToHome);
         layout_container_show_order = findViewById(R.id.layout_container_show_order);
         layout_complete_order = findViewById(R.id.layout_complete_order);
+        btnChangeAddress = findViewById(R.id.btnChangeAddress);
     }
 
     @Override
@@ -121,6 +122,13 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
     private void addEvents() {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
+        btnChangeAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OrderDetailSLSpaceScreen.this,ChooseAddressScreen.class));
+
+            }
+        });
         layout_voucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

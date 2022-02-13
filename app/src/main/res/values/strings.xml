@@ -406,6 +406,19 @@
     <string name="delete_all">Delete all</string>
     <string name="there_are_currently_no_favourite_foods">There are currently no favourite foods.</string>
     <string name="delete_all_content">You are deleting all favourite foods. \nAre you sure?</string>
+    <string name="at_store">AT STORE</string>
+    <string name="take_away">Take away</string>
+    <string name="take_away_address">Take away address</string>
+    <string name="choose_address">Choose address</string>
+    <string name="add_new_address">Add new address</string>
+    <string name="default_address">Default address</string>
+    <string name="address">Address:</string>
+    <string name="contact_information">Contact information</string>
+    <string name="address_no_2cham">Address</string>
+    <string name="place_in_uel">Place in UEL...*</string>
+    <string name="university_of_economics_and_law">University of Economics and Law</string>
+    <string name="set_as_default_address">Set as default address</string>
+    <string name="this_input_can_not_be_empty">This input can not be empty</string>
 
     <array name="initial_slider_values">
         <item>0</item>

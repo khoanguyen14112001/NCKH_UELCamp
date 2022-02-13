@@ -16,17 +16,17 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
-            android:name=".home.quancafe.ChooseAddressScreen"
+            android:name=".home.quancafe.AddNewAddressScreen"
             android:exported="false" />
         <activity
+            android:name=".home.quancafe.TakeAwayAddressScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.quancafe.ChooseAddressScreen"
+            android:exported="true" />
+        <activity
             android:name=".home.quancafe.FavoriteDrinksScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".home.quancafe.VoucherSLSpaceScreen"
             android:exported="true" />
@@ -35,7 +35,7 @@
             android:exported="true" />
         <activity
             android:name=".home.quancafe.CartSLSpaceScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".home.quancafe.AddToCartScreen"
             android:exported="true"
@@ -45,7 +45,13 @@
             android:exported="true" />
         <activity
             android:name=".home.quancafe.HomeSLSpaceScreen"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".home.thuquan.StationeryMainScreen"
             android:exported="true"

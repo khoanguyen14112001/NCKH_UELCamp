@@ -83,7 +83,7 @@
         <item name="android:textColorHint">@color/xamChu</item>
         <item name="android:drawableTint">@color/blackUI</item>
         <item name="android:paddingVertical">15dp</item>
-        <item name="android:paddingLeft">50dp</item>
+        <item name="android:paddingLeft">55dp</item>
         <item name="android:textColor">@color/xamChu</item>
     </style>
 
@@ -99,6 +99,13 @@
 
     <style name="errorInputStyle">
         <item name="android:textSize">0sp</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="fontFamily">@font/be_vietnam_medium</item>
+    </style>
+
+    <style name="errorInputStyleNew">
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_marginLeft">7dp</item>
         <item name="android:textColor">@color/red</item>
         <item name="fontFamily">@font/be_vietnam_medium</item>
     </style>

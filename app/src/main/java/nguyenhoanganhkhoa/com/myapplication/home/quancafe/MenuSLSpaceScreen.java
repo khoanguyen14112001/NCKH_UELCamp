@@ -1,6 +1,7 @@
 package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
     RecyclerView rcvMenu;
     ImageView imvBack, imvCart, imvLove;
     DrinkAdapter adapter = new DrinkAdapter(this);
+    ConstraintLayout layout_choose_address;
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
@@ -30,7 +32,6 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
 
         linkView();
         initAdapter();
-        reusedConstraint.openNav(this);
         addEvents();
     }
 
@@ -41,6 +42,14 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
+        reusedConstraint.openNav(this);
+        layout_choose_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuSLSpaceScreen.this, ChooseAddressScreen.class));
+
+            }
+        });
         imvLove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +81,7 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
         rcvMenu = findViewById(R.id.rcvMenu);
         imvBack = findViewById(R.id.imvBack);
         imvCart = findViewById(R.id.imvCart);
+        layout_choose_address = findViewById(R.id.layout_choose_address);
 
     }
 }
