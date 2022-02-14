@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_voucher_code"
             app:layout_constraintTop_toTopOf="parent"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:layout_marginHorizontal="30dp"
             android:id="@+id/edtVoucherInput"
             style="@style/inputStyleDiff"/>

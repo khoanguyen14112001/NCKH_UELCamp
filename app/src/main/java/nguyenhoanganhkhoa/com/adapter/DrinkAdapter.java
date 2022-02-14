@@ -1,20 +1,25 @@
 package nguyenhoanganhkhoa.com.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -144,15 +149,39 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
         });
 
     }
+    private int getWindowHeight() {
+        // Calculate window height for fullscreen use
+        Activity activity = (Activity)context;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.heightPixels;
+    }
+
 
     CustomBottomSheetDrink dialog = null;
 
+
+
     private void showDrinkDetail(DrinkAdapter.ViewHolder holder, Drink drink){
-        if(dialog==null){
+        if(dialog ==null){
             dialog = new CustomBottomSheetDrink(context,R.style.BottomSheetDialogTheme);
+
         }
 
+        FrameLayout bottomSheet = dialog.findViewById(R.id.design_bottom_sheet);
+        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
+        ViewGroup.LayoutParams layoutParams = bottomSheet.getLayoutParams();
+
+        int px = 0;
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        Activity activity = (Activity)context;
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        float logicalDensity = metrics.density;
+
+
         dialog.imvThumbDrink.setImageResource(drink.getThumbDrink());
+
 
         double discount = drink.getDrinkDiscount();
         double prePrice = drink.getDrinkPrePrice();
@@ -173,15 +202,22 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
         String text = holder.txtTitleDrink.getText().toString();
         dialog.txtTitleDrink.setText(text);
         dialog.txtTitleDrink.setVisibility(View.VISIBLE);
+
+
         if(text.contains("off")){
             dialog.txtTitleDrink.setTextColor(context.getColor(R.color.green));
+            px = (int) Math.ceil(500 * logicalDensity);
         }
         if(text.equals(DRINK_TITLE_BEST_SELLER)){
             dialog.txtTitleDrink.setTextColor(context.getColor(R.color.red));
+            px = (int) Math.ceil(500 * logicalDensity);
         }
         if(text.isEmpty()){
             dialog.txtTitleDrink.setVisibility(View.GONE);
+            px = (int) Math.ceil(480 * logicalDensity);
         }
+
+
 
         dialog.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,8 +225,13 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
                 Intent intent = new Intent(context, AddToCartScreen.class);
                 pushData(intent, drink);
                 context.startActivity(intent);
+                dialog.dismiss();
             }
         });
+
+        layoutParams.height = px;
+        bottomSheet.setLayoutParams(layoutParams);
+        behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
         dialog.show();
 

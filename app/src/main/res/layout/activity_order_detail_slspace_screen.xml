@@ -155,6 +155,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             style="@style/buttonYellow.Small"
+                            android:id="@+id/btnAddMore"
                             android:text="@string/add_more"
                             />
 

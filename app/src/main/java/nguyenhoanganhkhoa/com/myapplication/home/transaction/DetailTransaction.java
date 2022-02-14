@@ -168,7 +168,7 @@ public class DetailTransaction extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reusedConstraint.checkNavStatusComeBack(DetailTransaction.this,HomePageScreen.class);
+                reusedConstraint.checkNavStatusComeBack(DetailTransaction.this);
             }
         });
 

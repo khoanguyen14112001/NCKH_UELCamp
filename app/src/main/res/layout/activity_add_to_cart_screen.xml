@@ -8,6 +8,7 @@
     tools:context=".home.quancafe.AddToCartScreen">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:focusableInTouchMode="true"
         android:layout_height="match_parent">
         <TextView
             android:layout_width="wrap_content"

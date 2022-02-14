@@ -38,7 +38,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
     TextView txtTotalPayment, txtTotalNoDiscount, txtDeliveryFee, txtDiscount, txtPaymentSummary, txtPaymentMethod;
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     ConstraintLayout layout_voucher, layout_container_show_order, layout_complete_order;
-    Button btnOrder, btnBackToHome, btnChangeAddress;
+    Button btnOrder, btnBackToHome, btnChangeAddress, btnAddMore;
 
     private void linkView() {
         rcvItemOrder = findViewById(R.id.rcvItemOrder);
@@ -57,6 +57,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         layout_container_show_order = findViewById(R.id.layout_container_show_order);
         layout_complete_order = findViewById(R.id.layout_complete_order);
         btnChangeAddress = findViewById(R.id.btnChangeAddress);
+        btnAddMore = findViewById(R.id.btnAddMore);
     }
 
     @Override
@@ -76,7 +77,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
 
     private void setFee() {
         txtDeliveryFee.setText( "+" + reusedConstraint.formatCurrency(deliveryFee));
-        txtDiscount.setText(reusedConstraint.formatCurrency(discount));
+        txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
     }
 
     private void setCallBackAdapter(){
@@ -122,6 +123,14 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
     private void addEvents() {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
+
+        btnAddMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OrderDetailSLSpaceScreen.this,MenuSLSpaceScreen.class));
+
+            }
+        });
         btnChangeAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

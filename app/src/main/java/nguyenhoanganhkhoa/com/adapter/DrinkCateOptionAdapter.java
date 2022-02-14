@@ -135,7 +135,6 @@ public class DrinkCateOptionAdapter extends RecyclerView.Adapter<DrinkCateOption
             layout_drink_cate_option = itemView.findViewById(R.id.layout_drink_cate_option);
 
 
-
         }
     }
 }

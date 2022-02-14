@@ -41,7 +41,7 @@ public class AddToCartScreen extends AppCompatActivity {
 
     Button btnAddToCart;
 
-    public static TextView txtTotalPayment;
+    TextView txtTotalPayment;
 
     int quantity = 1;
 
@@ -164,7 +164,7 @@ public class AddToCartScreen extends AppCompatActivity {
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddToCartScreen.this, MenuSLSpaceScreen.class));
+                startActivity(new Intent(AddToCartScreen.this, CartSLSpaceScreen.class));
             }
         });
         imvBack.setOnClickListener(new View.OnClickListener() {

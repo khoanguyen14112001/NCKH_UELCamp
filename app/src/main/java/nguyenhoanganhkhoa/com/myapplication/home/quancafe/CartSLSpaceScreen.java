@@ -64,6 +64,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         initAdapter(getListDrinkInCart());
         setCallBackAdapter();
         getTotalPayment(getListDrinkInCart());
+        getItemQuantity(getListDrinkInCart().size());
         reusedConstraint.openNav(this);
         addEvents();
     }
@@ -97,12 +98,16 @@ public class CartSLSpaceScreen extends AppCompatActivity {
 
             @Override
             public void getListSizeRemain(int size) {
-                txtItemQuantity.setText("(" + size +" item)");
-                if(size == 0){
-                    txtNotifyNoProduct.setVisibility(View.VISIBLE);
-                }
+                getItemQuantity(size);
             }
         });
+    }
+
+    private void getItemQuantity(int size){
+        txtItemQuantity.setText("(" + size +" item)");
+        if(size == 0){
+            txtNotifyNoProduct.setVisibility(View.GONE);
+        }
     }
 
     private List<DrinkInCart> getListDrinkInCart() {
@@ -159,6 +164,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
                 if(isSelectAllActive){
                     imvRadSelectAll.setImageResource(R.drawable.ic_rad_yellow_unchecked);
                     isSelectAllActive = false;
+                    setListAllUnchecked();
                 }
                 else{
                     imvRadSelectAll.setImageResource(R.drawable.ic_rad_yellow_checked);
@@ -174,6 +180,14 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         List<DrinkInCart> listDrinkNew =  adapter.getmDrinks();
         for(int i = 0; i< listDrinkNew.size();i++){
             listDrinkNew.get(i).setSelected(true);
+        }
+        initAdapter(listDrinkNew);
+    }
+
+    private void setListAllUnchecked(){
+        List<DrinkInCart> listDrinkNew =  adapter.getmDrinks();
+        for(int i = 0; i< listDrinkNew.size();i++){
+            listDrinkNew.get(i).setSelected(false);
         }
         initAdapter(listDrinkNew);
     }

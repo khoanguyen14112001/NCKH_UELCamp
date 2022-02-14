@@ -3,6 +3,8 @@ package nguyenhoanganhkhoa.com.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,7 +117,7 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
                     // Có thể dùng notifyDataSetChanged
                 }
                 if(drink.getQuantityDrink() == 0){
-                    deleteItem(holder,drink);
+                    deleteItem(holder);
                 }
             }
         });
@@ -123,7 +125,7 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteItem(holder,drink);
+                deleteItem(holder);
             }
         });
 
@@ -163,15 +165,18 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         context.startActivity(intent);
     }
 
+    private long mLastClickTime = 0;
 
-
-    private void deleteItem(DrinkIncartAdapter.ViewHolder holder, DrinkInCart drink){
-        String itemName = drink.getDrinkName();
-        mDrinks.remove(holder.getAdapterPosition());
-        notifyItemRemoved(holder.getAdapterPosition());
-        callBack.showSnackBar(itemName);
-        callBack.getListSizeRemain(mDrinks.size());
-        callBack.setTextPriceTotal(mDrinks);
+    private void deleteItem(DrinkIncartAdapter.ViewHolder holder){
+        if (SystemClock.elapsedRealtime() - mLastClickTime > 500){
+            mLastClickTime = SystemClock.elapsedRealtime();
+            String itemName = mDrinks.get(holder.getAdapterPosition()).getDrinkName();
+            mDrinks.remove(holder.getAdapterPosition());
+            notifyItemRemoved(holder.getAdapterPosition());
+            callBack.showSnackBar(itemName);
+            callBack.getListSizeRemain(mDrinks.size());
+            callBack.setTextPriceTotal(mDrinks);
+        }
     }
 
 
