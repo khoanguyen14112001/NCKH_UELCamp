@@ -80,7 +80,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(ShowAllTransactionScreen.this, HomePageScreen.class));
+        reusedConstraint.checkNavStatusComeBack(ShowAllTransactionScreen.this);
     }
 
     private void addEvents() {
@@ -94,7 +94,7 @@ public class ShowAllTransactionScreen extends AppCompatActivity {
         imvAllTransBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ShowAllTransactionScreen.this,HomePageScreen.class));
+                reusedConstraint.checkNavStatusComeBack(ShowAllTransactionScreen.this);
             }
         });
         radTransAllTransfer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

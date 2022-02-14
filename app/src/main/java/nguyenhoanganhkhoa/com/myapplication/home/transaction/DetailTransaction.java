@@ -176,6 +176,6 @@ public class DetailTransaction extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        reusedConstraint.checkNavStatusComeBack(this,HomePageScreen.class);
+        reusedConstraint.checkNavStatusComeBack(this);
     }
 }
