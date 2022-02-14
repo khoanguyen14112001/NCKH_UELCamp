@@ -143,11 +143,7 @@
             android:name=".home.notification.AllNotificationScreen"
             android:exported="true"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".home.transaction.ShowAllTransactionScreen"
@@ -161,7 +157,11 @@
             android:name=".home.homepage.HomePageScreen"
             android:exported="true"
             android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".signup.PersonalInformationSetScreen"
