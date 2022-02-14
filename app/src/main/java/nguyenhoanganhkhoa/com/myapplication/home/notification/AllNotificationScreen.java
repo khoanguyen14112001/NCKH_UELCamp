@@ -60,7 +60,7 @@ public class AllNotificationScreen extends AppCompatActivity {
         linkView();
 
         inflateFragment();
-        addSearchMethod();
+//        addSearchMethod();
         addEvents();
         reusedConstraint.openNav(this);
 
@@ -68,38 +68,6 @@ public class AllNotificationScreen extends AppCompatActivity {
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
-    private void addSearchMethod() {
-        if(radAll.isChecked()){
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                @Override
-                public boolean onQueryTextSubmit(String query) {
-                    if(query.isEmpty()){
-                        changeFragment(new AllNoticeFragment());
-                        Log.d("TAG", "onQueryTextSubmit: empty" );
-                    }
-                    else{
-                        changeFragment(new AllAllNoticeFragment());
-                        Log.d("TAG", "onQueryTextSubmit: not empty" );
-                    }
-                    return false;
-                }
-
-                @Override
-                public boolean onQueryTextChange(String newText) {
-                    if(newText.isEmpty()){
-                        changeFragment(new AllNoticeFragment());
-                        Log.d("TAG", "onQueryTextSubmit: empty" );
-                    }
-                    else{
-                        changeFragment(new AllAllNoticeFragment());
-                        Log.d("TAG", "onQueryTextSubmit: not empty" );
-
-                    }
-                    return false;
-                }
-            });
-        }
-    }
 
     private void inflateFragment(){
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -147,7 +115,6 @@ public class AllNotificationScreen extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
                     changeFragment(new AllNoticeFragment());
-                    addSearchMethod();
                 }
             }
         });

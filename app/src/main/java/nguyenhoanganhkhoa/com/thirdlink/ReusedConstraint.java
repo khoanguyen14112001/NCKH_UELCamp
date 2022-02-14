@@ -24,6 +24,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -32,6 +33,7 @@ import java.text.NumberFormat;
 import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.custom.rightnav.LeftNavFragment;
+import nguyenhoanganhkhoa.com.myapplication.home.notification.AllNoticeFragment;
 
 public class ReusedConstraint {
     Context context;
@@ -139,6 +141,8 @@ public class ReusedConstraint {
         }.start();
 
     }
+
+
 
     public void addSearchForNotification(SearchView searchView, DialogNotificationAdapter adapter) {
         searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {

@@ -273,6 +273,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
                     String textSearch = charSequence.toString();
                     if(textSearch.isEmpty()){
                         mNotification = mNotificationOld;
+                        callBack.changeFragment();
                     }
                     else{
                         List<Notification> list = new ArrayList<>();
@@ -283,7 +284,11 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
                             }
                         }
                         mNotification = list;
+                        if(mNotification.size()==0){
+                            callBack.changeToNoResultFragment();
+                        }
                     }
+
 
                     FilterResults filterResults = new FilterResults();
                     filterResults.values = mNotification;
@@ -301,6 +306,16 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
                 }
             }
         };
+    }
+
+    DialogNotificationAdapter.MyCallBack callBack;
+    public interface MyCallBack {
+        void changeFragment();
+        void changeToNoResultFragment();
+
+    }
+    public void setCallBack(DialogNotificationAdapter.MyCallBack callBack) {
+        this.callBack = callBack;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

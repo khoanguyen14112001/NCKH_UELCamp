@@ -106,7 +106,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
     private void getItemQuantity(int size){
         txtItemQuantity.setText("(" + size +" item)");
         if(size == 0){
-            txtNotifyNoProduct.setVisibility(View.GONE);
+            txtNotifyNoProduct.setVisibility(View.VISIBLE);
         }
     }
 

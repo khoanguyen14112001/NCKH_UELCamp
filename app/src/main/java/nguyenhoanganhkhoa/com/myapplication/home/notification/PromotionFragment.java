@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -98,6 +99,22 @@ public class PromotionFragment extends Fragment {
 
             adapter.setData(getListNotify());
             rcvDisplayNotifications.setAdapter(adapter);
+
+            adapter.setCallBack(new DialogNotificationAdapter.MyCallBack() {
+                @Override
+                public void changeFragment() {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.layout_notification,new PromotionFragment());
+                    fragmentTransaction.addToBackStack(null).commit();
+                }
+
+                @Override
+                public void changeToNoResultFragment() {
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.layout_notification,new NoResultNotificationFragment());
+                    fragmentTransaction.addToBackStack(null).commit();
+                }
+            });
         }
         catch (Exception e) {
             Log.d("Error", "Fail to load adapter in FromAdminNoticeFragment: " + e);

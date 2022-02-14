@@ -2,7 +2,9 @@ package nguyenhoanganhkhoa.com.myapplication.home.notification;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -67,6 +69,7 @@ public class AllNoticeFragment extends Fragment {
     }
 
     RecyclerView rcvRecentNotice, rcvBeforeNotice;
+    SearchView searchView;
     ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
 
     @Override
@@ -79,10 +82,32 @@ public class AllNoticeFragment extends Fragment {
 
         initAdapterRecent();
         initAdapterBefore();
+        addEvents();
+
 
 
 
         return view;
+    }
+
+    private void addEvents() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.layout_notification,new AllAllNoticeFragment());
+                fragmentTransaction.addToBackStack(null).commit();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.layout_notification,new AllAllNoticeFragment());
+                fragmentTransaction.addToBackStack(null).commit();
+                return false;
+            }
+        });
     }
 
     private void initAdapterBefore(){
@@ -112,6 +137,7 @@ public class AllNoticeFragment extends Fragment {
 
             adapterRecent.setData(getListRecentNotification());
             rcvRecentNotice.setAdapter(adapterRecent);
+
         }
         catch (Exception e){
             Log.d("Error", "Fail to load AdapterRecent in AllNoticeFragment " + e);
@@ -124,8 +150,11 @@ public class AllNoticeFragment extends Fragment {
     private void linkView(View view) {
         rcvRecentNotice = view.findViewById(R.id.rcvRecentNotice);
         rcvBeforeNotice = view.findViewById(R.id.rcvBeforeNotice);
+        searchView = requireActivity().findViewById(R.id.svNotification);
 
     }
+
+
 
 
 
