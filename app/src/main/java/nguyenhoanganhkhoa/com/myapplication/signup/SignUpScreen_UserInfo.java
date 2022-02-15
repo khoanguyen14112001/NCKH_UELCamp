@@ -261,7 +261,36 @@ public class SignUpScreen_UserInfo extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        String name = edtFullname.getText().toString().trim();
+        String phone = edtPhoneSignUp.getText().toString().trim();
+        String username = edtUsernameSignUp.getText().toString().trim();
+        String password = edtPassSignUp.getText().toString().trim();
+        String confirm = edtConfirmPassSignup.getText().toString().trim();
+        if(!name.isEmpty()|!phone.isEmpty()|!username.isEmpty()|!password.isEmpty()|!confirm.isEmpty())
+        {
+            CustomDialogTwoButton customDialogTwoButton = new CustomDialogTwoButton
+                    (SignUpScreen_UserInfo.this,R.layout.custom_dialog_unsaved_changes);
+            customDialogTwoButton.btnOK.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    customDialogTwoButton.dismiss();
+                    finish();
+                }
+            });
 
+            customDialogTwoButton.btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    customDialogTwoButton.dismiss();
+                }
+            });
+            customDialogTwoButton.show();
+        }
+        else
+            finish();
+    }
 
     private void addEvents() {
 

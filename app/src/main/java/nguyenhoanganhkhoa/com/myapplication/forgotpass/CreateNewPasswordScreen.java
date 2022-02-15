@@ -15,6 +15,7 @@ import android.widget.TextView;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialog;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
+import nguyenhoanganhkhoa.com.myapplication.signup.EmailScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -173,6 +174,7 @@ public class CreateNewPasswordScreen extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(CreateNewPasswordScreen.this, ResetPasswordScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -182,6 +184,7 @@ public class CreateNewPasswordScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CreateNewPasswordScreen.this, ResetPasswordScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

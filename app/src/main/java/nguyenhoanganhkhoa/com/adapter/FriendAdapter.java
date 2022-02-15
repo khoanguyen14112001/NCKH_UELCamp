@@ -1,10 +1,7 @@
 package nguyenhoanganhkhoa.com.adapter;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,26 +12,24 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.Friends;
-import nguyenhoanganhkhoa.com.models.KidTerm;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMain2Screen;
 import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMoneyDetailFragment;
 import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMoneyFragment;
 
 public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder> {
     private Context context;
     private  int layout_item;
     private  int screen = 0;
+
+    public FriendAdapter(Context context) {
+        this.context = context;
+    }
 
     public FriendAdapter(Context context, int layout_item) {
         this.context = context;
@@ -124,18 +119,12 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
                 holder.consAllFriend.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context.getApplicationContext(), TransferMain2Screen.class));
-
+                    context.startActivity(new Intent(context, TransferMainScreen.class));
+                    screenToChangeFragment = toFrag2;
                 }
             });
             }
-
-
-
-
-
         }
-
         if(layout_item == R.layout.item_friends_add){
             setFriend(holder,friends);
             holder.btnAddFriendItem.setOnClickListener(new View.OnClickListener() {
@@ -150,11 +139,11 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
                 }
             });
         }
-
-
-
-
     }
+
+    public static int screenToChangeFragment;
+    public static int toFrag2 = 2;
+    public static int toFrag1 = 1;
 
 
 

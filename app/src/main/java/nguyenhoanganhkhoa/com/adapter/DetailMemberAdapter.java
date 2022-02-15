@@ -71,6 +71,7 @@ public class DetailMemberAdapter extends RecyclerView.Adapter<DetailMemberAdapte
         return mListDetailMember.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imvAvatarMemberDetail;
         TextView txtCareerMemberDetail, txtNameMemberDetail, txtRoleMemberDetail, txtGenderMemberDetail,

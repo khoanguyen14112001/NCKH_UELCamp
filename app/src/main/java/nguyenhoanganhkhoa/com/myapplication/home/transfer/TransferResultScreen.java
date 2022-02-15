@@ -2,6 +2,7 @@ package nguyenhoanganhkhoa.com.myapplication.home.transfer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,14 +27,18 @@ public class TransferResultScreen extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reusedConstraint.checkNavStatusComeBack(TransferResultScreen.this,TransferMainScreen.class);
+                Intent intent = new Intent(TransferResultScreen.this,TransferMainScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        reusedConstraint.checkNavStatusComeBack(this,TransferMainScreen.class);
+        Intent intent = new Intent(this,TransferMainScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     private void linkView() {

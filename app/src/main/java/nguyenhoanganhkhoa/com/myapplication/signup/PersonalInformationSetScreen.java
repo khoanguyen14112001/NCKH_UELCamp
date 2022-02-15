@@ -58,7 +58,6 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import nguyenhoanganhkhoa.com.adapter.FacultyAdapter;
-import nguyenhoanganhkhoa.com.adapter.FacultyAdapterError;
 import nguyenhoanganhkhoa.com.adapter.MajorAdapter;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialog;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
@@ -68,6 +67,8 @@ import nguyenhoanganhkhoa.com.models.Major;
 import nguyenhoanganhkhoa.com.models.Student;
 import nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferResultScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -124,10 +125,16 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
 
         linkView();
         addResultLauncher();
+        setAdapter();
         initAdapterFaculty();
         initAdapterMajor();
 
         addEvents();
+    }
+
+    private void setAdapter() {
+        facultyAdapter = new FacultyAdapter(this,R.layout.item_faculty_selected,getListFaculty());
+        facultyAdapter.setScreen(FacultyAdapter.SET_PERSONAL_INFO_SCREEN);
     }
 
 
@@ -201,8 +208,7 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
 
         if (selectedItem.equals("Faculty*")){
             try {
-                facultyAdapterError = new FacultyAdapterError(this,R.layout.item_faculty_selected,getListFaculty());
-                spnFaculty.setAdapter(facultyAdapterError);
+                initAdapterFacultyError();
             }
             catch (Exception e){
                 Log.d("Error", "validateFaculty: " + e);
@@ -239,17 +245,24 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
 
     //Nạp adapter và dữ liệu cho các List
     FacultyAdapter facultyAdapter;
-    FacultyAdapterError facultyAdapterError;
     private void initAdapterFaculty() {
         try {
-            facultyAdapter = new FacultyAdapter(this,R.layout.item_faculty_selected,getListFaculty());
+            facultyAdapter.setStatusAdapter(FacultyAdapter.NORMAL_STATUS);
             spnFaculty.setAdapter(facultyAdapter);
         }
         catch (Exception e){
             Log.d("Error", "initAdapterFaculty: " + e);
         }
+    }
 
-
+    private void initAdapterFacultyError() {
+        try {
+            facultyAdapter.setStatusAdapter(FacultyAdapter.ERROR_STATUS);
+            spnFaculty.setAdapter(facultyAdapter);
+        }
+        catch (Exception e){
+            Log.d("Error", "initAdapterFaculty: " + e);
+        }
     }
     private List<Faculty> getListFaculty() {
         List<Faculty> list =new ArrayList<>();
@@ -261,7 +274,6 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
         return list;
 
     }
-    public static int selectedFaculty = 0;
 
     MajorAdapter majorAdapter;
     private void initAdapterMajor() {
@@ -486,7 +498,10 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
         customDialogTwoButton.btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                Intent intent = new Intent(PersonalInformationSetScreen.this, EmailScreen.class);
+//                startActivity(intent);
                 Intent intent = new Intent(PersonalInformationSetScreen.this, EmailScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
@@ -545,6 +560,7 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(PersonalInformationSetScreen.this, EmailScreen.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
                 });
@@ -569,7 +585,7 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
                     imvFaculty.setImageDrawable(getResources().getDrawable(R.drawable.ic_faculty));
                     imvDropdown.setImageDrawable(getResources().getDrawable(R.drawable.ic_arrow_down_spinner));
                     txtErrorFaculty.setTextSize(0);
-                    selectedFaculty = i;
+                    facultyAdapter.setCurrentPosition(i);
                 }
 
             }
@@ -716,7 +732,7 @@ public class PersonalInformationSetScreen extends AppCompatActivity implements C
         }
 
         ID = edtIdStudent.getText().toString().trim();
-        faculty = getListFaculty().get(selectedFaculty).getNameFaculty().trim();
+        faculty = getListFaculty().get(facultyAdapter.getCurrentPosition()).getNameFaculty().trim();
         major = adtMajor.getText().toString().trim();
         dateOfBirth = edtDateofbirth.getText().toString().trim();
 

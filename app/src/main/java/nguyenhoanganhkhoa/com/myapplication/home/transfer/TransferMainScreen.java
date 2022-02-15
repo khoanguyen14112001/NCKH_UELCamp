@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import nguyenhoanganhkhoa.com.adapter.FriendAdapter;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -24,7 +25,6 @@ public class TransferMainScreen extends AppCompatActivity {
         linkView();
         addFragment();
         addEvents();
-        reusedConstraint.openNav(this);
 
     }
 
@@ -48,6 +48,7 @@ public class TransferMainScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
+        reusedConstraint.openNav(this);
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,16 +63,37 @@ public class TransferMainScreen extends AppCompatActivity {
     private void addFragment() {
         FragmentManager fragmentManager;
         fragmentManager = getSupportFragmentManager();
-        try {
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if(FriendAdapter.screenToChangeFragment == FriendAdapter.toFrag2){
+            try {
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-            TransferHomeFragment transferHomeFragment = new TransferHomeFragment();
+                TransferMoneyFragment fragment = new TransferMoneyFragment();
 
-            fragmentTransaction.add(R.id.lnFragmentReplaceTransfer, transferHomeFragment);
-            fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.lnFragmentReplaceTransfer, fragment);
+                fragmentTransaction.commit();
+
+            }
+            catch (Exception e) {
+                Log.d("Error", "Fail to addFragment in TopUpScreen: " + e);
+            }
         }
-        catch (Exception e) {
-            Log.d("Error", "Fail to addFragment in TopUpScreen: " + e);
+        else{
+            try {
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                TransferHomeFragment transferHomeFragment = new TransferHomeFragment();
+
+                fragmentTransaction.replace(R.id.lnFragmentReplaceTransfer, transferHomeFragment);
+                fragmentTransaction.commit();
+            }
+            catch (Exception e) {
+                Log.d("Error", "Fail to addFragment in TopUpScreen: " + e);
+            }
         }
+
+
+
     }
+
+
 }

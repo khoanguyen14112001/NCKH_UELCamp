@@ -148,7 +148,6 @@ public class LoginScreen extends AppCompatActivity {
 
         linkView();
         addEvents();
-        PersonalInformationSetScreen.selectedFaculty = 0;
         AppUtil.USERNAME_AFTER_LOGGIN = "";
 
     }

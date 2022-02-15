@@ -109,18 +109,6 @@
         <item>Department of Foreign Languages</item>
     </string-array>
 
-    <string-array name="facultyEditInfo">
-        <item>Faculty of Economics</item>
-        <item>Faculty of International Economic Relations</item>
-        <item>Faculty of Finance - Banking</item>
-        <item>Faculty of Accounting - Auditing</item>
-        <item>Faculty of Information Systems</item>
-        <item>Faculty of Business Administration</item>
-        <item>Faculty of Economic Mathematics</item>
-        <item>Faculty of Law</item>
-        <item>Faculty of Economic Law</item>
-        <item>Department of Foreign Languages</item>
-    </string-array>
 
     <string-array name="major">
         <item>International Business</item>

@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
+import nguyenhoanganhkhoa.com.adapter.NotificationAdapter;
 import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -68,7 +68,7 @@ public class TransNoticeFragment extends Fragment {
         }
     }
     RecyclerView rcvDisplayNotifications;
-    DialogNotificationAdapter adapter;
+    NotificationAdapter adapter;
     SearchView searchView;
     ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
 
@@ -91,7 +91,7 @@ public class TransNoticeFragment extends Fragment {
 
     private void initAdapter() {
         try {
-            adapter = new DialogNotificationAdapter(getContext(),R.layout.item_notification_all_bold);
+            adapter = new NotificationAdapter(getContext(),R.layout.item_notification_all_bold);
             rcvDisplayNotifications.setAdapter(adapter);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
@@ -100,7 +100,7 @@ public class TransNoticeFragment extends Fragment {
             adapter.setData(getListNotify());
             rcvDisplayNotifications.setAdapter(adapter);
 
-            adapter.setCallBack(new DialogNotificationAdapter.MyCallBack() {
+            adapter.setCallBack(new NotificationAdapter.MyCallBack() {
                 @Override
                 public void changeFragment() {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -128,8 +128,8 @@ public class TransNoticeFragment extends Fragment {
         List<Notification> listAll = AllAllNoticeFragment.getListAllAllNotification();
         int i;
         for(i = 0; i<listAll.size();i++){
-            if(listAll.get(i).getNotificationType().equals(DialogNotificationAdapter.NOTIFICATION_TRANSFER) ||
-                listAll.get(i).getNotificationType().equals(DialogNotificationAdapter.NOTIFICATION_WALLET)
+            if(listAll.get(i).getNotificationType().equals(NotificationAdapter.NOTIFICATION_TRANSFER) ||
+                listAll.get(i).getNotificationType().equals(NotificationAdapter.NOTIFICATION_WALLET)
             ){
                 list.add(listAll.get(i));
             }

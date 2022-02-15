@@ -14,6 +14,7 @@ import com.chaos.view.PinView;
 
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialog;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -136,6 +137,7 @@ public class VerificationSignupScreen extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Intent intent = new Intent(VerificationSignupScreen.this, EmailScreen.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                             }
                         });

@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
+import nguyenhoanganhkhoa.com.adapter.NotificationAdapter;
 import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -112,7 +112,7 @@ public class AllNoticeFragment extends Fragment {
 
     private void initAdapterBefore(){
         try {
-            DialogNotificationAdapter adapterBefore = new DialogNotificationAdapter(getContext(),R.layout.item_notification_all_bold);
+            NotificationAdapter adapterBefore = new NotificationAdapter(getContext(),R.layout.item_notification_all_bold);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
             rcvBeforeNotice.setLayoutManager(linearLayoutManager);
@@ -130,7 +130,7 @@ public class AllNoticeFragment extends Fragment {
 
     private void initAdapterRecent(){
         try {
-            DialogNotificationAdapter adapterRecent = new DialogNotificationAdapter(getContext(),R.layout.item_notification_all_bold);
+            NotificationAdapter adapterRecent = new NotificationAdapter(getContext(),R.layout.item_notification_all_bold);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
             rcvRecentNotice.setLayoutManager(linearLayoutManager);
@@ -160,15 +160,15 @@ public class AllNoticeFragment extends Fragment {
 
     public static List<Notification> getListRecentNotification() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_FRIEND,
                 "Tường Vy has accepted your friend request",
                 "13 Jan, 19:04",
                 true,
                 true,
-                DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
+                NotificationAdapter.NOTIFICATION_GENDER_MALE
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_PARKING,
                 "Due to the Christmas holiday, the parking lot will not be open",
                 "23 Dec, 18:35",
                 true
@@ -179,66 +179,66 @@ public class AllNoticeFragment extends Fragment {
     }
     public static List<Notification> getListBeforeNotification() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_FRIEND,
                 "Hải Thanh sent you a friend request",
                 "10 Nov, 21:00",
                 false,
                 true,
-                DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
+                NotificationAdapter.NOTIFICATION_GENDER_MALE
                 ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_WALLET,
                 "You currently do not have enough money to pay, please top up",
                 "03 Nov, 17:05",
                 false
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_TRANSFER,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_TRANSFER,
                 "You have successfully transfer 50,000 VND",
                 "01 Nov, 18:45",
                 false
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PROMOTION,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_PROMOTION,
                 "You are given a voucher for 20% off when paying for any service",
                 "23 Dec, 18:35",
                 true
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_WALLET,
                 "You currently do not have enough money to pay, please top up",
                 "03 Nov, 17:05",
                 false
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_QUANCAFE,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_QUANCAFE,
                 "Due to the Christmas holiday, the SLSpace will not be open",
                 "23 Dec, 18:35",
                 true
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_THUQUAN,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_THUQUAN,
                 "Stationery has entered the full uniform, contact Stationery to buy",
                 "03 Nov, 17:05",
                 false
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_FRIEND,
                 "Hải Yên has accepted your friend request",
                 "03 Nov, 17:05",
                 false,
                 true,
-                DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
+                NotificationAdapter.NOTIFICATION_GENDER_MALE
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_CANTEEN,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_CANTEEN,
                 "Canteen is temporarily closed on 24 Dec",
                 "23 Dec, 18:35",
                 true
         ));
 
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_PARKING,
                 "Due to the Christmas holiday, the parking lot will not be open",
                 "01 Nov, 18:45",
                 false

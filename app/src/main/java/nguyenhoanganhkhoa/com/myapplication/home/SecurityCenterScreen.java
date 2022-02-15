@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
 import nguyenhoanganhkhoa.com.adapter.TermAdapter;
 import nguyenhoanganhkhoa.com.models.KidTerm;
 import nguyenhoanganhkhoa.com.models.Term;

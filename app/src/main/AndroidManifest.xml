@@ -69,10 +69,7 @@
             android:name=".home.transfer.TransferResultScreen"
             android:exported="true"
             android:noHistory="true"/>
-        <activity
-            android:name=".home.transfer.TransferMain2Screen"
-            android:exported="true"
-            android:noHistory="true"/>
+
         <activity
             android:name=".home.transfer.AddNewFriendScreen"
             android:exported="true" />
@@ -82,7 +79,9 @@
         <activity
             android:name=".home.transfer.TransferMainScreen"
             android:exported="true"
-            android:noHistory="true"/>
+            >
+
+        </activity>
         <activity
             android:name=".home.setting.EnterNewPasswordScreen"
             android:exported="true"
@@ -138,7 +137,9 @@
         <activity
             android:name=".home.aboutus.AboutUsScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".home.EditInfomationScreen"
             android:exported="true"
@@ -172,7 +173,9 @@
         <activity
             android:name=".signup.PersonalInformationSetScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".signup.VerificationSignupScreen"
             android:exported="true"
@@ -182,7 +185,9 @@
         <activity
             android:name=".signup.EmailScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".signup.SignUpScreen_UserInfo"
             android:exported="true"
@@ -207,6 +212,7 @@
         <activity
             android:name=".login.LoginScreen"
             android:exported="true"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait">
 
         </activity>

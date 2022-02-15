@@ -26,6 +26,8 @@ public class OurTeamScreen extends AppCompatActivity {
     ImageView imvBackOurTeam;
     TextView dots[] = new TextView[mList.size()];
 
+    DetailMemberAdapter detailMemberAdapter;
+
     ReusedConstraint reusedConstraint= new ReusedConstraint(OurTeamScreen.this);
 
 
@@ -35,13 +37,19 @@ public class OurTeamScreen extends AppCompatActivity {
         setContentView(R.layout.activity_our_team_screen);
 
         linkView();
+        setAdapter();
         initAdapter();
+
         addEvents();
-        reusedConstraint.openNav(this);
 
     }
 
+    private void setAdapter() {
+        detailMemberAdapter = new DetailMemberAdapter(mList);
+    }
+
     private void addEvents() {
+        reusedConstraint.openNav(this);
         reusedConstraint.prepareDots(this,mList.size(),layout_dots,dots,14);
         imvBackOurTeam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +77,7 @@ public class OurTeamScreen extends AppCompatActivity {
 
     private void initAdapter() {
         try {
-            DetailMemberAdapter detailMemberAdapter = new DetailMemberAdapter(mList);
+
             viewPagerOurTeam.setAdapter(detailMemberAdapter);
         }
         catch (Exception e){

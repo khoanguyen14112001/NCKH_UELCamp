@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
+import nguyenhoanganhkhoa.com.adapter.NotificationAdapter;
 import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -69,7 +69,7 @@ public class FromServicesFragment extends Fragment {
     }
     RecyclerView rcvDisplayNotifications;
     ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
-    DialogNotificationAdapter adapter;
+    NotificationAdapter adapter;
     SearchView searchView;
 
     @Override
@@ -93,7 +93,7 @@ public class FromServicesFragment extends Fragment {
 
     private void initAdapter() {
         try {
-            adapter = new DialogNotificationAdapter(getContext(),R.layout.item_notification_all_bold);
+            adapter = new NotificationAdapter(getContext(),R.layout.item_notification_all_bold);
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL,false);
             rcvDisplayNotifications.setLayoutManager(linearLayoutManager);
@@ -101,7 +101,7 @@ public class FromServicesFragment extends Fragment {
             adapter.setData(getListNotify());
             rcvDisplayNotifications.setAdapter(adapter);
 
-            adapter.setCallBack(new DialogNotificationAdapter.MyCallBack() {
+            adapter.setCallBack(new NotificationAdapter.MyCallBack() {
                 @Override
                 public void changeFragment() {
                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -129,10 +129,10 @@ public class FromServicesFragment extends Fragment {
         int i;
         for(i = 0; i<listAll.size();i++){
             String type = listAll.get(i).getNotificationType();
-            if(type.equals(DialogNotificationAdapter.NOTIFICATION_PARKING) ||
-                    type.equals(DialogNotificationAdapter.NOTIFICATION_CANTEEN) ||
-                    type.equals(DialogNotificationAdapter.NOTIFICATION_THUQUAN) ||
-                    type.equals(DialogNotificationAdapter.NOTIFICATION_QUANCAFE)
+            if(type.equals(NotificationAdapter.NOTIFICATION_PARKING) ||
+                    type.equals(NotificationAdapter.NOTIFICATION_CANTEEN) ||
+                    type.equals(NotificationAdapter.NOTIFICATION_THUQUAN) ||
+                    type.equals(NotificationAdapter.NOTIFICATION_QUANCAFE)
             ){
                 list.add(listAll.get(i));
             }

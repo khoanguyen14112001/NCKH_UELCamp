@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferResultScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -139,27 +141,33 @@ public class EmailScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent openMainActivity = new Intent(EmailScreen.this, LoginScreen.class);
-        openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivityIfNeeded(openMainActivity, 0);
+        Intent intent = new Intent(EmailScreen.this, LoginScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     private void addEvents() {
         imvComebackEmailScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openMainActivity = new Intent(EmailScreen.this, LoginScreen.class);
-                openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivityIfNeeded(openMainActivity, 0);
+//                Intent openMainActivity = new Intent(EmailScreen.this, LoginScreen.class);
+//                openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                startActivityIfNeeded(openMainActivity, 0);
+                Intent intent = new Intent(EmailScreen.this, LoginScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 
         txtLoginHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openMainActivity = new Intent(EmailScreen.this, LoginScreen.class);
-                openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivityIfNeeded(openMainActivity, 0);
+//                Intent openMainActivity = new Intent(EmailScreen.this, LoginScreen.class);
+//                openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+//                startActivityIfNeeded(openMainActivity, 0);
+                Intent intent = new Intent(EmailScreen.this,LoginScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
         edtEmail.addTextChangedListener(new TextWatcher() {

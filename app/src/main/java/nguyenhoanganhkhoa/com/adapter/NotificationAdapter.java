@@ -27,7 +27,7 @@ import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogNotify;
 import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
 
-public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotificationAdapter.ViewHolder> implements Filterable {
+public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.ViewHolder> implements Filterable {
 
     private Context context;
     private List<Notification> mNotification;
@@ -36,7 +36,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
 
     private int layoutItem;
 
-    public DialogNotificationAdapter(Context context, int layoutItem, int screen) {
+    public NotificationAdapter(Context context, int layoutItem, int screen) {
         this.context = context;
         this.layoutItem = layoutItem;
         this.screen = screen;
@@ -65,7 +65,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
 
 
 
-    public DialogNotificationAdapter(Context context, int layoutItem) {
+    public NotificationAdapter(Context context, int layoutItem) {
 
         this.context = context;
         this.layoutItem = layoutItem;
@@ -95,7 +95,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
 
     @NonNull
     @Override
-    public DialogNotificationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public NotificationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view;
         if(viewType == TYPE_FRIEND_REQUEST && screen !=1){
@@ -108,7 +108,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DialogNotificationAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificationAdapter.ViewHolder holder, int position) {
         Notification notification = mNotification.get(position);
         if(notification ==null)
         {
@@ -151,7 +151,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
         addEvents(holder, notification, position);
 
     }
-    private void setNotificationStatus(DialogNotificationAdapter.ViewHolder holder, Notification notification){
+    private void setNotificationStatus(NotificationAdapter.ViewHolder holder, Notification notification){
         if(notification.isNewNotification()){
             holder.viewNewsNotification.setVisibility(View.VISIBLE);
             Typeface typeface = context.getResources().getFont(R.font.be_vietnam_bold);
@@ -163,7 +163,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
             holder.txtNotificationContent.setTypeface(typeface);
         }
     }
-    private void setNotificationThumb(DialogNotificationAdapter.ViewHolder holder, int thumb){
+    private void setNotificationThumb(NotificationAdapter.ViewHolder holder, int thumb){
         holder.imvThumbNotification.setImageResource(thumb);
         if(layoutItem == R.layout.item_notification_all_bold){
             holder.imvThumbNotification.setPadding(25,25,25,25);
@@ -173,7 +173,7 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
         }
         holder.imvThumbNotification.setBackground(context.getDrawable(R.drawable.oval_shape));
     }
-    private void addEvents(DialogNotificationAdapter.ViewHolder holder, Notification notification, int position){
+    private void addEvents(NotificationAdapter.ViewHolder holder, Notification notification, int position){
         if(layoutItem==R.layout.item_notification_all_bold)
         {
             holder.layout_item_notification_all_bold.setOnClickListener(new View.OnClickListener() {
@@ -308,13 +308,13 @@ public class DialogNotificationAdapter extends RecyclerView.Adapter<DialogNotifi
         };
     }
 
-    DialogNotificationAdapter.MyCallBack callBack;
+    NotificationAdapter.MyCallBack callBack;
     public interface MyCallBack {
         void changeFragment();
         void changeToNoResultFragment();
 
     }
-    public void setCallBack(DialogNotificationAdapter.MyCallBack callBack) {
+    public void setCallBack(NotificationAdapter.MyCallBack callBack) {
         this.callBack = callBack;
     }
 

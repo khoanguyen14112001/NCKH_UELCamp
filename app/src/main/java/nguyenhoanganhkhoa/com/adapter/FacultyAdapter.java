@@ -20,6 +20,40 @@ import nguyenhoanganhkhoa.com.myapplication.signup.PersonalInformationSetScreen;
 
 public class FacultyAdapter extends ArrayAdapter<Faculty> {
 
+    public static final int ERROR_STATUS = 0;
+    public static final int NORMAL_STATUS = 1;
+
+    public static final int SET_PERSONAL_INFO_SCREEN = 1;
+    public static final int EDIT_PERSONAL_INFO_SCREEN = 2;
+
+    private int currentPosition;
+    private int statusAdapter;
+    private int screen;
+
+    public int getScreen() {
+        return screen;
+    }
+
+    public void setScreen(int screen) {
+        this.screen = screen;
+    }
+
+    public int getStatusAdapter() {
+        return statusAdapter;
+    }
+
+    public void setStatusAdapter(int statusAdapter) {
+        this.statusAdapter = statusAdapter;
+    }
+
+    public int getCurrentPosition() {
+        return currentPosition;
+    }
+
+    public void setCurrentPosition(int currentPosition) {
+        this.currentPosition = currentPosition;
+    }
+
 
     @NonNull
     @Override
@@ -31,7 +65,15 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
         Faculty faculty = this.getItem(position);
         if (faculty !=null){
             txtFacultySelected.setText(faculty.getNameFaculty());
+        }
 
+        if(getStatusAdapter() == ERROR_STATUS){
+            if(position==0){
+                txtFacultySelected.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.red));
+            }
+        }
+        else{
+            txtFacultySelected.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.xamChu));
         }
         return convertView;
 //        return super.getView(position, convertView, parent);
@@ -45,18 +87,25 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
         Faculty faculty = this.getItem(position);
         if (faculty !=null){
             txtFaculty.setText(faculty.getNameFaculty());
-
-            if(position ==0 && faculty.getNameFaculty().equals("Faculty*"))
-                txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.black));
-            else
-                txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.xamChu));
+        }
+        if(position ==0 && faculty.getNameFaculty().equals("Faculty*")){
+            txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.black));
+        }
+        else{
+            txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.xamChu));
         }
 
-        if(PersonalInformationSetScreen.selectedFaculty==position && PersonalInformationSetScreen.selectedFaculty!=0)
+
+        if(getCurrentPosition()==position){
+            if(getScreen()==SET_PERSONAL_INFO_SCREEN){
+                if(getCurrentPosition()!=0){
+                    txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.primary_yellow));
+                }
+            }
+            else{
                 txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.primary_yellow));
-
-
-
+            }
+        }
         return convertView;
 
     }
@@ -66,15 +115,19 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
 
     public boolean isEnabled(int position){
         Faculty faculty = this.getItem(position);
-
-        if(position == 0 && faculty.getNameFaculty().equals("Faculty*"))
-        {
-            // Disable the first item from Spinner
-            // First item will be use for hint
-            return false;
+        if(getScreen() == SET_PERSONAL_INFO_SCREEN){
+            if(position == 0 && faculty.getNameFaculty().equals("Faculty*"))
+            {
+                // Disable the first item from Spinner
+                // First item will be use for hint
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
-        else
-        {
+        else{
             return true;
         }
     }

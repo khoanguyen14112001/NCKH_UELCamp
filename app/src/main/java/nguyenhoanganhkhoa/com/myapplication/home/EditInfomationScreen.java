@@ -60,7 +60,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import nguyenhoanganhkhoa.com.adapter.FacultyEditAdapter;
+import nguyenhoanganhkhoa.com.adapter.FacultyAdapter;
 import nguyenhoanganhkhoa.com.adapter.MajorAdapter;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialog;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
@@ -127,6 +127,7 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
 
 
         linkView();
+        setAdapter();
         initAdapterFaculty();
         initAderterMarjor();
         addResultLauncher();
@@ -137,6 +138,11 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
 
 
 
+    }
+
+    private void setAdapter() {
+        facultyAdapter = new FacultyAdapter(this,R.layout.item_faculty_selected,getListFaculty());
+        facultyAdapter.setScreen(FacultyAdapter.EDIT_PERSONAL_INFO_SCREEN);
     }
 
     Student student;
@@ -213,6 +219,7 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
         {
             gender = "Male";
             avatar = R.drawable.img_avatar_male;
+            avatar = R.drawable.img_avatar_male;
         }
         if(radFemale.isChecked()){
             gender = "Female";
@@ -261,7 +268,7 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
     }
 
     private boolean facultyIsChanged(){
-        String faculty = getListFaculty().get(selectedFaculty).getNameFaculty();
+        String faculty = getListFaculty().get(facultyAdapter.getCurrentPosition()).getNameFaculty();
         if(faculty.equals(oFaculty)){
             return false;
         }
@@ -269,7 +276,6 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
             if(!isComeback){
                 databaseReference.child(AppUtil.FB_FACULTY).setValue(faculty);
             }
-            Log.d("TAG2", "facultyIsChanged: " + facultyAdapter.getItemAtPostion(getListFaculty()));
             return true;
         }
     }
@@ -362,7 +368,7 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
                 imvFaculty.setImageDrawable(getResources().getDrawable(R.drawable.ic_faculty));
                 imvDropdown.setImageDrawable(getResources().getDrawable(R.drawable.ic_arrow_down_spinner));
                 txtErrorFaculty.setTextSize(0);
-                selectedFaculty = i;
+                facultyAdapter.setCurrentPosition(i);
             }
 
             @Override
@@ -898,20 +904,17 @@ public class EditInfomationScreen extends AppCompatActivity implements CustomSpi
         return list;
     }
 
-    public static int selectedFaculty = 0;
-    FacultyEditAdapter facultyAdapter;
+    FacultyAdapter facultyAdapter;
     private void initAdapterFaculty() {
-        facultyAdapter = new FacultyEditAdapter(this,R.layout.item_faculty_selected,getListFaculty());
+        facultyAdapter.setStatusAdapter(FacultyAdapter.NORMAL_STATUS);
         spnFaculty.setAdapter(facultyAdapter);
-
-
-
     }
+
     private List<Faculty> getListFaculty() {
         List<Faculty> list =new ArrayList<>();
-        String[] facultyArray= getResources().getStringArray(R.array.facultyEditInfo);
+        String[] facultyArray= getResources().getStringArray(R.array.faculty);
 
-        for (int i = 0;i<facultyArray.length;i++)
+        for (int i = 1;i<facultyArray.length;i++)
             list.add(new Faculty(facultyArray[i]));
 
         return list;

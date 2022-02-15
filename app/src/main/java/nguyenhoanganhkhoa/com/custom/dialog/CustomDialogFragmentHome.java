@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.adapter.DialogNotificationAdapter;
+import nguyenhoanganhkhoa.com.adapter.NotificationAdapter;
 import nguyenhoanganhkhoa.com.models.Notification;
 import nguyenhoanganhkhoa.com.myapplication.R;
 
@@ -25,7 +25,7 @@ public class CustomDialogFragmentHome extends Dialog {
     public Button btnSeeAll;
     Activity activity;
     RecyclerView rcvNotification;
-    DialogNotificationAdapter dialogNotificationAdapter;
+    NotificationAdapter dialogNotificationAdapter;
 
     public CustomDialogFragmentHome(@NonNull Activity activity, int dialogLayout) {
 
@@ -72,7 +72,7 @@ public class CustomDialogFragmentHome extends Dialog {
 
     private void initAdapter() {
 
-        dialogNotificationAdapter = new DialogNotificationAdapter(getContext(),R.layout.item_notification,1);
+        dialogNotificationAdapter = new NotificationAdapter(getContext(),R.layout.item_notification,1);
         rcvNotification.setAdapter(dialogNotificationAdapter);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false);
@@ -87,29 +87,29 @@ public class CustomDialogFragmentHome extends Dialog {
 
     private List<Notification> getListNotifications() {
         List<Notification> list = new ArrayList<>();
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_FRIEND,
                 "Tường Vy has accepted your friend request",
                 "13 Jan, 19:04",
                 true,
                 true,
-                DialogNotificationAdapter.NOTIFICATION_GENDER_MALE
+                NotificationAdapter.NOTIFICATION_GENDER_MALE
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_FRIEND,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_FRIEND,
                 "Anh Khoa has accepted your friend request",
                 "13 Jan, 19:04",
                 false,
                 true,
-                DialogNotificationAdapter.NOTIFICATION_GENDER_FEMALE
+                NotificationAdapter.NOTIFICATION_GENDER_FEMALE
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_PARKING,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_PARKING,
                 "Due to the Christmas holiday, the parking lot will not be open",
                 "13 Jan, 19:04",
                 true
         ));
 
-        list.add(new Notification(DialogNotificationAdapter.NOTIFICATION_WALLET,
+        list.add(new Notification(NotificationAdapter.NOTIFICATION_WALLET,
                 "You currently do not have enough money to pay, please top up",
                 "13 Jan, 19:04",
                 false

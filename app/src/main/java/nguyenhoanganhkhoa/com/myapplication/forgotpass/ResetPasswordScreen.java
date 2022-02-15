@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
+import nguyenhoanganhkhoa.com.myapplication.signup.EmailScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class ResetPasswordScreen extends AppCompatActivity {
@@ -172,9 +173,9 @@ public class ResetPasswordScreen extends AppCompatActivity {
                 // Phải startActivity kiểu như vầy thì lúc mở cái màn hình nhập phone, bấm trở về xong
                 // bấm vô lại thì nó mới tiếp tục countdown cái timer mà không bị crash.
 
-                Intent openMainActivity = new Intent(ResetPasswordScreen.this, LoginScreen.class);
-                openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivityIfNeeded(openMainActivity, 0);
+                Intent intent = new Intent(ResetPasswordScreen.this, LoginScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 
@@ -184,9 +185,8 @@ public class ResetPasswordScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
-        Intent openMainActivity = new Intent(ResetPasswordScreen.this, LoginScreen.class);
-        openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivityIfNeeded(openMainActivity, 0);
+        Intent intent = new Intent(ResetPasswordScreen.this, LoginScreen.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

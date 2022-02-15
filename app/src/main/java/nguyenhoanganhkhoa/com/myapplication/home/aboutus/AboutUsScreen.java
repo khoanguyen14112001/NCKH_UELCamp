@@ -76,7 +76,7 @@ public class AboutUsScreen extends AppCompatActivity {
         list.add(new Member("Tran Hoang Gia Bao", true,"Developer",
                 "July 06, 2001"));
 
-        list.add(new Member("Vo Thi Tuyet Trinh", true,"Designer",
+        list.add(new Member("Trinh Chan Khoa", true,"Designer",
                 "July 06, 2001"));
 
 
