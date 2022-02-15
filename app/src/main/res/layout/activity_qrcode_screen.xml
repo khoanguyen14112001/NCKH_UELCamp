@@ -68,14 +68,35 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.35"
+            android:id="@+id/gUpHor"
+
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7"
+            android:id="@+id/gDownHor"
+
+            />
+
         <ImageView
             app:layout_constraintVertical_bias="0.075"
-            android:layout_width="260dp"
-            android:layout_height="260dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
             android:src="@drawable/img_qrcode_showforscan"
             app:layout_constraintTop_toBottomOf="@id/lnInfoQR"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/gDownHor"
             app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="15dp"
             app:layout_constraintRight_toRightOf="parent"
             android:id="@+id/imvQrCodeShowForScan"/>
         <LinearLayout

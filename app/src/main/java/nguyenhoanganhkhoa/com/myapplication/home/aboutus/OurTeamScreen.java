@@ -59,6 +59,7 @@ public class OurTeamScreen extends AppCompatActivity {
         });
 
         viewPagerOurTeam.setCurrentItem(MemberAdapter.memberNumber);
+
     }
 
     @Override

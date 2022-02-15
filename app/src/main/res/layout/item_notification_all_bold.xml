@@ -46,6 +46,7 @@
             android:fontFamily="@font/be_vietnam_semibold"
             android:textSize="15sp"
             android:maxLines="2"
+            android:ellipsize="end"
             android:textColor="@color/blackUI"/>
         <TextView
             android:layout_width="wrap_content"

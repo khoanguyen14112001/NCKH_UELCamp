@@ -110,7 +110,9 @@
         <activity
             android:name=".home.topup.TopUpMainScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".home.SecurityCenterScreen"
             android:exported="true"
@@ -130,7 +132,9 @@
         <activity
             android:name=".home.aboutus.OurTeamScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".home.aboutus.AboutUsScreen"
             android:exported="true"
@@ -152,7 +156,9 @@
         <activity
             android:name=".home.QRCodeScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".home.homepage.HomePageScreen"
             android:exported="true"
@@ -170,7 +176,9 @@
         <activity
             android:name=".signup.VerificationSignupScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".signup.EmailScreen"
             android:exported="true"
@@ -182,7 +190,9 @@
         <activity
             android:name=".forgotpass.CreateNewPasswordScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" >
+
+        </activity>
         <activity
             android:name=".forgotpass.VerificationScreen"
             android:exported="true"
@@ -197,7 +207,9 @@
         <activity
             android:name=".login.LoginScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".login.OnBoardingScreen"
             android:exported="true" />

@@ -146,6 +146,7 @@
                 android:layout_height="wrap_content"
                 android:text="ICED/HOT COFFEE"
                 android:maxLines="1"
+                android:ellipsize="end"
                 android:id="@+id/txtNameDrink"
                 android:textSize="15sp"
                 style="@style/in_SmallHeaderText"

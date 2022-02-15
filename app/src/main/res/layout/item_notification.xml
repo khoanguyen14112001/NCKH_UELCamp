@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtNotificationContent"
+            android:ellipsize="end"
             android:text="@string/the_parking_lot_will_be_under_maintenance_from_14_jan_to_20_jan"
             android:fontFamily="@font/be_vietnam_semibold"
             android:textSize="12sp"
