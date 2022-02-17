@@ -38,7 +38,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
     TextView txtTotalPayment, txtTotalNoDiscount, txtDeliveryFee, txtDiscount, txtPaymentSummary, txtPaymentMethod;
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     ConstraintLayout layout_voucher, layout_container_show_order, layout_complete_order;
-    Button btnOrder, btnBackToHome, btnChangeAddress, btnAddMore;
+    Button btnOrder, btnBackToHome, btnChangeAddress, btnAddMore, btnGoToPurchase;
 
     private void linkView() {
         rcvItemOrder = findViewById(R.id.rcvItemOrder);
@@ -58,6 +58,10 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         layout_complete_order = findViewById(R.id.layout_complete_order);
         btnChangeAddress = findViewById(R.id.btnChangeAddress);
         btnAddMore = findViewById(R.id.btnAddMore);
+        btnGoToPurchase = findViewById(R.id.btnGoToPurchase);
+
+
+
     }
 
     @Override
@@ -124,6 +128,14 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
 
+        btnGoToPurchase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(OrderDetailSLSpaceScreen.this, PurchaseSLSpaceScreen.class));
+
+            }
+        });
+
         btnAddMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,7 +199,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
 
     private void initAdapter() {
         adapter.setData(orderList);
-        adapter.setNumScreen(1);
+        adapter.setNumScreen(DrinkIncartAdapter.ORDER_DETAIL_SCREEN);
         rcvItemOrder.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvItemOrder.setAdapter(adapter);
     }

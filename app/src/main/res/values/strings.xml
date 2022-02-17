@@ -408,6 +408,15 @@
     <string name="set_as_default_address">Set as default address</string>
     <string name="this_input_can_not_be_empty">This input can not be empty</string>
     <string name="no_matching_results_were_found_n_try_again">No matching results were found. \n Try again.</string>
+    <string name="go_to_purchases">Go to Purchases</string>
+    <string name="you_have_order_successfully">You have order successfully</string>
+    <string name="purchase">Purchase</string>
+    <string name="search_purchases">Search purchases</string>
+    <string name="pending">Pending</string>
+    <string name="edit">Edit</string>
+    <string name="detail">Detail</string>
+    <string name="total_cost">Total cost</string>
+    <string name="no_orders_yet">No orders yet</string>
 
     <array name="initial_slider_values">
         <item>0</item>

@@ -37,7 +37,9 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     private List<Drink> mDrink;
     private List<Drink> mDrinkOld;
 
-    private int screen = 0;
+    private int screen = HOME_MENU_SCREEN;
+    public static final int FAVORITE_DRINK_SCREEN = 1;
+    public static final int HOME_MENU_SCREEN = 0;
 
 
     public void setScreen(int screen) {
@@ -76,6 +78,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(context);
 
+
     @Override
     public void onBindViewHolder(@NonNull DrinkAdapter.ViewHolder holder, int position) {
         Drink drink = mDrink.get(position);
@@ -109,7 +112,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
 
         changeColorTitle(holder,drink,discount);
 
-        if(getScreen() ==1){
+        if(getScreen() ==FAVORITE_DRINK_SCREEN){
             callBackForFavorite.changeLoveIconStatus();
         }
 

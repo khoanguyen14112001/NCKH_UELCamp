@@ -56,7 +56,7 @@ public class FavoriteDrinksScreen extends AppCompatActivity {
 
     private void initAdapter(List<Drink> list) {
         adapter.setData(list);
-        adapter.setScreen(1);
+        adapter.setScreen(DrinkAdapter.FAVORITE_DRINK_SCREEN);
         rcvFavoriteDrink.setAdapter(adapter);
         rcvFavoriteDrink.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
     }

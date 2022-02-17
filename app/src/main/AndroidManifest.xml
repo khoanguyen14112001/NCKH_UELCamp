@@ -16,6 +16,15 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
+            android:name=".home.quancafe.PurchaseSLSpaceScreen"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".home.quancafe.AddNewAddressScreen"
             android:exported="false" />
         <activity
@@ -29,17 +38,13 @@
             android:exported="true" />
         <activity
             android:name=".home.quancafe.VoucherSLSpaceScreen"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".home.quancafe.OrderDetailSLSpaceScreen"
             android:exported="true" />
         <activity
             android:name=".home.quancafe.CartSLSpaceScreen"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".home.quancafe.AddToCartScreen"
             android:exported="true"
@@ -68,8 +73,7 @@
         <activity
             android:name=".home.transfer.TransferResultScreen"
             android:exported="true"
-            android:noHistory="true"/>
-
+            android:noHistory="true" />
         <activity
             android:name=".home.transfer.AddNewFriendScreen"
             android:exported="true" />
@@ -78,10 +82,7 @@
             android:exported="true" />
         <activity
             android:name=".home.transfer.TransferMainScreen"
-            android:exported="true"
-            >
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".home.setting.EnterNewPasswordScreen"
             android:exported="true"
@@ -109,9 +110,7 @@
         <activity
             android:name=".home.topup.TopUpMainScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".home.SecurityCenterScreen"
             android:exported="true"
@@ -131,15 +130,11 @@
         <activity
             android:name=".home.aboutus.OurTeamScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".home.aboutus.AboutUsScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".home.EditInfomationScreen"
             android:exported="true"
@@ -147,9 +142,7 @@
         <activity
             android:name=".home.notification.AllNotificationScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".home.transaction.ShowAllTransactionScreen"
             android:exported="true"
@@ -157,37 +150,25 @@
         <activity
             android:name=".home.QRCodeScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".home.homepage.HomePageScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:screenOrientation="portrait">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".signup.PersonalInformationSetScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".signup.VerificationSignupScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".signup.EmailScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".signup.SignUpScreen_UserInfo"
             android:exported="true"
@@ -195,9 +176,7 @@
         <activity
             android:name=".forgotpass.CreateNewPasswordScreen"
             android:exported="true"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".forgotpass.VerificationScreen"
             android:exported="true"
@@ -213,9 +192,7 @@
             android:name=".login.LoginScreen"
             android:exported="true"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".login.OnBoardingScreen"
             android:exported="true" />

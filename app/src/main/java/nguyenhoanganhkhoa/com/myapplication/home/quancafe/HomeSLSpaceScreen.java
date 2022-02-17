@@ -29,7 +29,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
     ConstraintLayout layout_choose_address;
 
-    ImageView imvBack, imvCart, imvFavorite;
+    ImageView imvBack, imvCart, imvFavorite, imvPending;
 
     SearchView svOrder;
 
@@ -64,6 +64,9 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         layout_hide_filter = findViewById(R.id.layout_hide_filter);
         layout_choose_address = findViewById(R.id.layout_choose_address);
+
+        imvPending = findViewById(R.id.imvPending);
+
     }
     public static final String ORDER_COFFEE = "Coffee";
     public static final String ORDER_TEA = "Tea";
@@ -82,7 +85,6 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         linkView();
         initAdapterDrink();
         setCallBackAdapter();
-        reusedConstraint.openNav(this);
         addSearchFunction();
         addEvents();
     }
@@ -256,6 +258,13 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     }
 
     private void addEvents() {
+        reusedConstraint.openNav(this);
+        imvPending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeSLSpaceScreen.this, PurchaseSLSpaceScreen.class));
+            }
+        });
         layout_choose_address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

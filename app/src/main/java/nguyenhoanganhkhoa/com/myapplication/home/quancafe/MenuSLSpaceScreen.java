@@ -11,14 +11,13 @@ import android.view.View;
 import android.widget.ImageView;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
-import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class MenuSLSpaceScreen extends AppCompatActivity {
 
     RecyclerView rcvMenu;
-    ImageView imvBack, imvCart, imvLove;
+    ImageView imvBack, imvCart, imvLove, imvPending;
     DrinkAdapter adapter = new DrinkAdapter(this);
     ConstraintLayout layout_choose_address;
 
@@ -43,6 +42,13 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
 
     private void addEvents() {
         reusedConstraint.openNav(this);
+        imvPending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuSLSpaceScreen.this, PurchaseSLSpaceScreen.class));
+
+            }
+        });
         layout_choose_address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +89,7 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
         imvCart = findViewById(R.id.imvCart);
         layout_choose_address = findViewById(R.id.layout_choose_address);
         imvLove = findViewById(R.id.imvLove);
+        imvPending = findViewById(R.id.imvPending);
 
     }
 }

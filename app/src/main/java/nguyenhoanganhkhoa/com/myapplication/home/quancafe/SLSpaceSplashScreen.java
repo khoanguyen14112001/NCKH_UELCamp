@@ -15,7 +15,6 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class SLSpaceSplashScreen extends AppCompatActivity {
 
     Button btnGo;
-    boolean isClicked = false;
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +25,16 @@ public class SLSpaceSplashScreen extends AppCompatActivity {
         autoMoveNextScreen();
     }
 
+    Handler handler = new Handler();
+
 
     @Override
     public void onBackPressed() {
-        reusedConstraint.checkNavStatusComeBack(SLSpaceSplashScreen.this);
+        handler.removeCallbacksAndMessages(null);
+        finish();
     }
 
     private void autoMoveNextScreen() {
-        Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

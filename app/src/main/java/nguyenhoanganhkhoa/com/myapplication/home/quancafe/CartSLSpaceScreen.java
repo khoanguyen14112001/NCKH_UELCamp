@@ -110,7 +110,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         }
     }
 
-    private List<DrinkInCart> getListDrinkInCart() {
+    public static List<DrinkInCart> getListDrinkInCart() {
         List<DrinkInCart> list = new ArrayList<>();
         addItemToList(list,"ICED/HOT COFFEE - size M", R.drawable.img_drink_1,0,30000,
                 70,50,"Size L", 1);
@@ -191,8 +191,8 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         }
         initAdapter(listDrinkNew);
     }
-    private void addItemToList(List<DrinkInCart> list, String drinkName, int thumbDrink, double drinkDiscount, double drinkPrePrice,
-                               int iceLevel, int sugarLevel, String size, int quantity ){
+    private static void addItemToList(List<DrinkInCart> list, String drinkName, int thumbDrink, double drinkDiscount, double drinkPrePrice,
+                                      int iceLevel, int sugarLevel, String size, int quantity){
         DrinkInCart drink = new DrinkInCart(drinkName,thumbDrink,drinkDiscount,drinkPrePrice);
         drink.setIceLevel(iceLevel);
         drink.setSugarLevel(sugarLevel);

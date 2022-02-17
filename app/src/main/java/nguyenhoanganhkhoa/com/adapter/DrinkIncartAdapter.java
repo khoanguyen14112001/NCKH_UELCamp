@@ -22,6 +22,7 @@ import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
+import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
@@ -36,7 +37,13 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
 
     private Context context;
     private List<DrinkInCart> mDrinks;
-    private int numScreen = 0;
+    private int numScreen = IN_CART_SCREEN;
+
+    public static final int IN_CART_SCREEN = 0;
+    public static final int ORDER_DETAIL_SCREEN = 1;
+    public static final int PURCHASE_SCREEN = 2;
+
+
     private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(context);
@@ -62,15 +69,17 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
     @Override
     public DrinkIncartAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view;
-        if(numScreen!=0){
+        View view = null;
+        if(numScreen==ORDER_DETAIL_SCREEN){
             view = inflater.inflate(R.layout.item_drink_order,parent,false);
         }
-        else {
+        if(numScreen == IN_CART_SCREEN) {
              view = inflater.inflate(R.layout.item_drink_in_cart,parent,false);
-
         }
-        return new ViewHolder(view);
+        if(numScreen == PURCHASE_SCREEN){
+            view = inflater.inflate(R.layout.item_drink_purchase,parent,false);
+        }
+        return new ViewHolder(Objects.requireNonNull(view));
     }
 
     @Override
@@ -81,9 +90,6 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
             return;
         }
 
-
-        viewBinderHelper.bind(holder.swipeRevealLayout,drink.getDrinkName());
-        viewBinderHelper.setOpenOnlyOne(true);
         holder.txtNameDrink.setText(drink.getDrinkName());
         holder.txtIceLevel.setText(drink.toIcePercentString());
         holder.txtSugarLevel.setText(drink.toSugarPercentString());
@@ -92,44 +98,61 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         holder.imvThumbDrink.setImageResource(drink.getThumbDrink());
         holder.txtQuantity.setText(String.valueOf(drink.getQuantityDrink()));
 
-        holder.imbPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drink.setQuantityDrink(drink.getQuantityDrink() + 1);
-                holder.txtQuantity.setText(String.valueOf(drink.getQuantityDrink()));
-                holder.txtPriceDrink.setText(reusedConstraint.formatCurrency(drink.getTotalPrice()));
 
-                callBack.setTextPriceTotal(mDrinks);
+        if(numScreen == ORDER_DETAIL_SCREEN| numScreen == IN_CART_SCREEN){
+            viewBinderHelper.bind(holder.swipeRevealLayout,drink.getDrinkName());
+            viewBinderHelper.setOpenOnlyOne(true);
 
-            }
-        });
-
-        holder.imbMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(drink.getQuantityDrink()>0){
-                    drink.setQuantityDrink(drink.getQuantityDrink() - 1);
+            holder.imbPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    drink.setQuantityDrink(drink.getQuantityDrink() + 1);
                     holder.txtQuantity.setText(String.valueOf(drink.getQuantityDrink()));
                     holder.txtPriceDrink.setText(reusedConstraint.formatCurrency(drink.getTotalPrice()));
 
                     callBack.setTextPriceTotal(mDrinks);
 
-                    // Có thể dùng notifyDataSetChanged
                 }
-                if(drink.getQuantityDrink() == 0){
+            });
+
+            holder.imbMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(drink.getQuantityDrink()>0){
+                        drink.setQuantityDrink(drink.getQuantityDrink() - 1);
+                        holder.txtQuantity.setText(String.valueOf(drink.getQuantityDrink()));
+                        holder.txtPriceDrink.setText(reusedConstraint.formatCurrency(drink.getTotalPrice()));
+
+                        callBack.setTextPriceTotal(mDrinks);
+
+                        // Có thể dùng notifyDataSetChanged
+                    }
+                    if(drink.getQuantityDrink() == 0){
+                        deleteItem(holder);
+                    }
+                }
+            });
+
+            holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
                     deleteItem(holder);
                 }
-            }
-        });
+            });
 
-        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                deleteItem(holder);
-            }
-        });
+            holder.btnEditDrink.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    pushData(drink);
+                }
+            });
 
-        if(numScreen==0){
+        }
+
+
+
+
+        if(numScreen==IN_CART_SCREEN){
             setSelectedStatus(holder,drink);
             holder.imvSelectedItem.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -145,12 +168,7 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
             });
         }
 
-        holder.btnEditDrink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pushData(drink);
-            }
-        });
+
     }
 
 

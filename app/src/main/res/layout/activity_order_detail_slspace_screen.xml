@@ -479,8 +479,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:visibility="gone"
             android:id="@+id/layout_complete_order"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/txtHeader"
             app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
@@ -506,7 +506,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="You have order successfully"
+                    android:text="@string/you_have_order_successfully"
                     android:fontFamily="@font/fjalla_one_regular"
                     android:textColor="@color/black"
                     android:textAllCaps="false"
@@ -522,15 +522,30 @@
                     android:text="@string/our_staff_is_preparing_your_order_please_wait_a_second"
                     />
             </LinearLayout>
+
             <androidx.appcompat.widget.AppCompatButton
                 style="@style/buttonYellow"
                 app:layout_constraintTop_toBottomOf="@id/layout_text"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintVertical_bias="0.4"
                 app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/go_to_purchases"
+                android:id="@+id/btnGoToPurchase"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/buttonYellow"
+                android:backgroundTint="@color/blackUI"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/btnGoToPurchase"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="15dp"
                 android:text="@string/back_to_home"
                 android:id="@+id/btnBackToHome"
                 />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
