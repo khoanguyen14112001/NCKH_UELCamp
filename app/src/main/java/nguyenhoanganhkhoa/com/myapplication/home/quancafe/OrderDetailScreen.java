@@ -119,7 +119,7 @@ public class OrderDetailScreen extends AppCompatActivity {
             public void onClick(View view) {
                 CustomDialogTwoButtonNew dialog = new CustomDialogTwoButtonNew(OrderDetailScreen.this);
                 dialog.txtHeaderDialog.setText("Cancel order");
-                dialog.txtContentDialog.setText("You are cancelling your order.\u2028Are you sure?");
+                dialog.txtContentDialog.setText("You are cancelling your order.\nAre you sure?");
                 dialog.btnCancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
