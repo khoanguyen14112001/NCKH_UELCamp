@@ -3,7 +3,6 @@ package nguyenhoanganhkhoa.com.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,25 +10,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 import java.util.Objects;
 
-import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
-import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.quancafe.AddToCartScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.OrderDetailSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -40,8 +33,9 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
     private int numScreen = IN_CART_SCREEN;
 
     public static final int IN_CART_SCREEN = 0;
-    public static final int ORDER_DETAIL_SCREEN = 1;
+    public static final int ORDER_SCREEN = 1;
     public static final int PURCHASE_SCREEN = 2;
+    public static final int ORDER_DETAIL_SCREEN = 3;
 
 
     private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
@@ -70,7 +64,7 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
     public DrinkIncartAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = null;
-        if(numScreen==ORDER_DETAIL_SCREEN){
+        if(numScreen== ORDER_SCREEN){
             view = inflater.inflate(R.layout.item_drink_order,parent,false);
         }
         if(numScreen == IN_CART_SCREEN) {
@@ -78,6 +72,9 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         }
         if(numScreen == PURCHASE_SCREEN){
             view = inflater.inflate(R.layout.item_drink_purchase,parent,false);
+        }
+        if(numScreen == ORDER_DETAIL_SCREEN){
+            view = inflater.inflate(R.layout.item_drink_purchase_detail,parent,false);
         }
         return new ViewHolder(Objects.requireNonNull(view));
     }
@@ -98,8 +95,18 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         holder.imvThumbDrink.setImageResource(drink.getThumbDrink());
         holder.txtQuantity.setText(String.valueOf(drink.getQuantityDrink()));
 
+        if(numScreen == ORDER_DETAIL_SCREEN){
+            holder.txtNote.setText(drink.getNote());
+            if(holder.getAdapterPosition()==mDrinks.size()-1){
+                holder.viewSeparate.setVisibility(View.GONE);
+            }
+            else{
+                holder.viewSeparate.setVisibility(View.VISIBLE);
+            }
+        }
 
-        if(numScreen == ORDER_DETAIL_SCREEN| numScreen == IN_CART_SCREEN){
+
+        if(numScreen == ORDER_SCREEN | numScreen == IN_CART_SCREEN){
             viewBinderHelper.bind(holder.swipeRevealLayout,drink.getDrinkName());
             viewBinderHelper.setOpenOnlyOne(true);
 
@@ -229,9 +236,10 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imvSelectedItem;
         private ImageView imvThumbDrink, imbMinus, imbPlus;
-        private TextView txtQuantity, txtNameDrink, txtIceLevel, txtSugarLevel, txtSize, txtPriceDrink;
+        private TextView txtQuantity, txtNameDrink, txtIceLevel, txtSugarLevel, txtSize, txtPriceDrink, txtNote;
         private Button btnEditDrink, btnDelete;
         private SwipeRevealLayout swipeRevealLayout;
+        private View viewSeparate;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imvSelectedItem = itemView.findViewById(R.id.imvSelectedItem);
@@ -247,6 +255,8 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
             btnEditDrink = itemView.findViewById(R.id.btnEditDrink);
             swipeRevealLayout = itemView.findViewById(R.id.swipeRevealLayout);
             btnDelete = itemView.findViewById(R.id.btnDelete);
+            txtNote = itemView.findViewById(R.id.txtNote);
+            viewSeparate = itemView.findViewById(R.id.viewSeparate);
         }
     }
 }

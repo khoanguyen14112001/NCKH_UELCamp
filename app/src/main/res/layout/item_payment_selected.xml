@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="90dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtFacultySelectedItem"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:paddingEnd="20dp"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="TextView"
+        android:lines="1"
+        android:fontFamily="@font/be_vietnam_light"
+        android:textColor="@color/xamChu" />
+
+
+
+
+</LinearLayout>

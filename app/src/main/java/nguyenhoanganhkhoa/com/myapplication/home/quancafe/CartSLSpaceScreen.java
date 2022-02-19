@@ -11,11 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
-
-import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -134,7 +131,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         }
 
         if(!list.isEmpty()){
-            Intent intent = new Intent(CartSLSpaceScreen.this, OrderDetailSLSpaceScreen.class);
+            Intent intent = new Intent(CartSLSpaceScreen.this, OrderSLSpaceScreen.class);
             intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) list);
             startActivity(intent);
         }

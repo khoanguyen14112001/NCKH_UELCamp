@@ -1,6 +1,8 @@
 package nguyenhoanganhkhoa.com.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.Date;
+import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.PurchaseStatus;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class PurchaseStatusAdapter extends RecyclerView.Adapter<PurchaseStatusAdapter.ViewHolder> {
 
@@ -91,6 +95,8 @@ public class PurchaseStatusAdapter extends RecyclerView.Adapter<PurchaseStatusAd
 
                 callBack.changeDataInAdapter(purchaseStatus.getNameStatus());
 
+
+                AppUtil.statusOrder = purchaseStatus.getNameStatus();
                 notifyDataSetChanged();
 
 
@@ -98,6 +104,8 @@ public class PurchaseStatusAdapter extends RecyclerView.Adapter<PurchaseStatusAd
         });
 
     }
+
+
 
     PurchaseStatusAdapter.MyCallBack callBack;
     public interface MyCallBack {

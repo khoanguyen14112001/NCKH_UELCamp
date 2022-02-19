@@ -1,10 +1,11 @@
 package nguyenhoanganhkhoa.com.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class PurchaseItem {
+public class PurchaseItem implements Serializable {
 
     String typePurchase;
     int quantityItems;

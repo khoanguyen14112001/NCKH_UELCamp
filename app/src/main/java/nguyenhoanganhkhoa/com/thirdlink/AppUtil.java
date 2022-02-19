@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 public class AppUtil {
     public static String eMessage = "";
     public static String eMessageForSignUp = "";
-    public static int mSelectedIndex = 0;
     public static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
                     "(?=.*[0-9])" +
@@ -78,6 +77,8 @@ public class AppUtil {
     public static String AMOUNT_SEND = "";
     public static int SIGNAL_COMEBACK_FOR_SETTING = 0;
     public static int SIGNAL_TO_HOME = 123;
+
+    public static String statusOrder = null;
 
 
 

@@ -57,6 +57,18 @@
             app:layout_constraintTop_toBottomOf="@id/view"
             android:id="@+id/rcvPurchase"/>
 
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/buttonYellow.Small"
+            android:id="@+id/btnDetail"
+            android:text="@string/detail"
+            android:backgroundTint="@color/blackUI"
+            android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="1"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/rcvPurchase"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -89,7 +101,7 @@
             android:fontFamily="@font/be_vietnam_semibold"
             android:textColor="@color/black"
             app:layout_constraintHorizontal_bias="0.4"
-            android:text="@string/total_cost"/>
+            android:text="@string/total_payment"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

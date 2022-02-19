@@ -8,6 +8,16 @@ public class DrinkInCart extends Drink implements Serializable {
     private int sugarLevel;
     private String size;
     private int quantityDrink;
+    private String note;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     private boolean isSelected = false;
 
     public DrinkInCart(String drinkName, int thumbDrink, double drinkDiscount, double drinkPrePrice) {

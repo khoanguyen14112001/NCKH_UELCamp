@@ -1,6 +1,7 @@
 package nguyenhoanganhkhoa.com.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.models.Faculty;
-import nguyenhoanganhkhoa.com.myapplication.home.EditInfomationScreen;
-import nguyenhoanganhkhoa.com.myapplication.signup.PersonalInformationSetScreen;
 
 public class FacultyAdapter extends ArrayAdapter<Faculty> {
 
@@ -25,6 +25,7 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
 
     public static final int SET_PERSONAL_INFO_SCREEN = 1;
     public static final int EDIT_PERSONAL_INFO_SCREEN = 2;
+    public static final int ORDER_SCREEN = 3;
 
     private int currentPosition;
     private int statusAdapter;
@@ -59,8 +60,21 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
     @Override
 
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_faculty_selected,parent,false);
+        if(getScreen() == ORDER_SCREEN)
+        {
+            convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_payment_selected,parent,false);
+        }
+        else{
+            convertView= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_faculty_selected,parent,false);
+        }
         TextView txtFacultySelected = convertView.findViewById(R.id.txtFacultySelectedItem);
+
+        if(getScreen()==ORDER_SCREEN){
+            Typeface typeface = ResourcesCompat.getFont(getContext(), R.font.big_shoulder_display_bold);
+            txtFacultySelected.setTypeface(typeface);
+            txtFacultySelected.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.black));
+            txtFacultySelected.setTextSize(20);
+        }
 
         Faculty faculty = this.getItem(position);
         if (faculty !=null){
@@ -73,7 +87,9 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
             }
         }
         else{
-            txtFacultySelected.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.xamChu));
+            if(getScreen() != ORDER_SCREEN){
+                txtFacultySelected.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.xamChu));
+            }
         }
         return convertView;
 //        return super.getView(position, convertView, parent);
@@ -85,6 +101,12 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
         TextView txtFaculty = convertView.findViewById(R.id.txtFacultyItem);
 
         Faculty faculty = this.getItem(position);
+        if(getScreen() == ORDER_SCREEN){
+            Typeface typeface = ResourcesCompat.getFont(getContext(), R.font.big_shoulder_display_bold);
+            txtFaculty.setTypeface(typeface);
+            txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.black));
+            txtFaculty.setTextSize(20);
+        }
         if (faculty !=null){
             txtFaculty.setText(faculty.getNameFaculty());
         }
@@ -92,7 +114,9 @@ public class FacultyAdapter extends ArrayAdapter<Faculty> {
             txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.black));
         }
         else{
-            txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.xamChu));
+            if(getScreen()!=ORDER_SCREEN){
+                txtFaculty.setTextColor(ContextCompat.getColorStateList(getContext(),R.color.xamChu));
+            }
         }
 
 

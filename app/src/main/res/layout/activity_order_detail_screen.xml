@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:context=".home.quancafe.OrderDetailScreen">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imvBack"
+            style="@style/imageViewComback"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/imvOpenNav"
+            style="@style/imageViewOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHeader"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/order_details"
+            style="@style/in_BigHeaderText"/>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/txtHeader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="15dp"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingVertical="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/view_custom_corner_small_yellowstroke">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/layout_choose_address"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/imvLocation"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_location"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/imvLocation"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/be_vietnam_regular"
+                            android:text="@string/delivery_location"
+                            android:textColor="@color/black"
+                            android:focusable="true"
+                            android:focusedByDefault="true"
+                            android:focusableInTouchMode="true"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/choose_your_address"
+                            android:fontFamily="@font/be_vietnam_medium"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:nestedScrollingEnabled="false"
+                    android:id="@+id/rcvOrderDetail"
+                    app:layout_constraintTop_toBottomOf="@id/layout_choose_address"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rcvOrderDetail"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:id="@+id/layoutContent"
+                    android:layout_height="wrap_content">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingHorizontal="20dp"
+                        android:background="@color/xamNen"
+                        android:layout_marginHorizontal="1dp"
+                        android:paddingStart="60dp"
+                        android:layout_marginTop="5dp"
+
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/price"
+                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+                        <TextView
+                            style="@style/VNDStyle"
+                            android:id="@+id/txtVND1"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="@id/txtPrice"
+                            />
+
+                        <TextView
+                            style="@style/PriceStyle"
+                            android:id="@+id/txtPrice"
+                            android:text="30.000"
+                            android:textSize="23sp"
+                            android:layout_marginEnd="3dp"
+                            app:layout_constraintRight_toLeftOf="@id/txtVND1"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingHorizontal="20dp"
+                        android:background="@color/xamNen"
+                        android:paddingStart="60dp"
+                        android:layout_marginHorizontal="1dp"
+
+                        android:layout_marginTop="5dp"
+
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delivery_fee"
+                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+                        <TextView
+                            style="@style/VNDStyle"
+                            android:id="@+id/txtVND2"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="@id/txtDeliveryFee"
+                            />
+
+                        <TextView
+                            style="@style/PriceStyle"
+                            android:id="@+id/txtDeliveryFee"
+                            android:text="30.000"
+                            android:textSize="23sp"
+                            android:layout_marginEnd="3dp"
+                            app:layout_constraintRight_toLeftOf="@id/txtVND2"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingHorizontal="20dp"
+                        android:layout_marginHorizontal="1dp"
+
+                        android:background="@color/xamNen"
+                        android:paddingStart="60dp"
+                        android:layout_marginTop="5dp"
+
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/discounts"
+                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+                        <TextView
+                            style="@style/VNDStyle"
+                            android:id="@+id/txtVND3"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="@id/txtDiscount"
+                            />
+
+                        <TextView
+                            style="@style/PriceStyle"
+                            android:id="@+id/txtDiscount"
+                            android:text="30.000"
+                            android:textSize="23sp"
+                            android:layout_marginEnd="3dp"
+                            app:layout_constraintRight_toLeftOf="@id/txtVND3"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingHorizontal="20dp"
+                        android:background="@color/primary_yellow"
+                        android:paddingStart="60dp"
+                        android:layout_marginHorizontal="1dp"
+
+                        android:layout_marginTop="5dp"
+
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_payment"
+                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+                        <TextView
+                            style="@style/VNDStyle"
+                            android:id="@+id/txtVND4"
+                            android:textSize="12sp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBaseline_toBaselineOf="@id/txtTotalPayment"
+                            />
+
+                        <TextView
+                            style="@style/PriceStyle"
+                            android:id="@+id/txtTotalPayment"
+                            android:text="30.000"
+                            android:textSize="23sp"
+                            android:layout_marginEnd="3dp"
+                            app:layout_constraintRight_toLeftOf="@id/txtVND4"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingHorizontal="20dp"
+                        android:background="@color/xamNen"
+                        android:layout_marginHorizontal="1dp"
+
+                        android:paddingStart="60dp"
+                        android:layout_marginTop="5dp"
+
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/payment_method"
+                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+
+                        <TextView
+                            style="@style/PriceStyle"
+                            android:id="@+id/txtPaymentMethod"
+                            android:text="@string/cash"
+                            android:textSize="23sp"
+                            android:layout_marginEnd="3dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:paddingHorizontal="20dp"
+                        android:background="@color/xamNen"
+                        android:paddingStart="60dp"
+                        android:layout_marginHorizontal="1dp"
+
+                        android:layout_marginTop="5dp"
+
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/status"
+                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:textColor="@color/black"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+
+                        <TextView
+                            style="@style/PriceStyle"
+                            android:id="@+id/txtStatus"
+                            android:text="@string/pending"
+                            android:textSize="23sp"
+                            android:textColor="@color/primary_yellow"
+                            android:layout_marginEnd="3dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    style="@style/buttonYellow"
+                    android:id="@+id/btnCancelOrder"
+                    android:backgroundTint="@color/blackUI"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="@string/cancel_order"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutContent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

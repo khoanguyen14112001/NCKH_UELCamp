@@ -1,10 +1,5 @@
 package nguyenhoanganhkhoa.com.models;
 
-import android.content.Intent;
-
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.OrderDetailSLSpaceScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.VoucherSLSpaceScreen;
-
 public class Address {
 
     private String namePeopleAddress;

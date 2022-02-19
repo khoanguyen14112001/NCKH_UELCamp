@@ -10,23 +10,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
+import nguyenhoanganhkhoa.com.adapter.FacultyAdapter;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTransferConfirm;
+import nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
+import nguyenhoanganhkhoa.com.models.Faculty;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomePageScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class OrderDetailSLSpaceScreen extends AppCompatActivity {
+public class OrderSLSpaceScreen extends AppCompatActivity {
 
     private static final double discount = 5000;
     private static final double deliveryFee = 3000;
@@ -35,10 +42,16 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
     List<DrinkInCart> orderList;
     DrinkIncartAdapter adapter = new DrinkIncartAdapter(this);
     DrawerLayout drawerLayout;
-    TextView txtTotalPayment, txtTotalNoDiscount, txtDeliveryFee, txtDiscount, txtPaymentSummary, txtPaymentMethod;
+    TextView txtTotalPayment, txtTotalNoDiscount, txtDeliveryFee, txtDiscount, txtPaymentSummary;
+
+    CustomSpinner spnPaymentMethod;
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     ConstraintLayout layout_voucher, layout_container_show_order, layout_complete_order;
     Button btnOrder, btnBackToHome, btnChangeAddress, btnAddMore, btnGoToPurchase;
+
+    ImageView imvDropdown;
+
+    FacultyAdapter adapterPaymentMethod;
 
     private void linkView() {
         rcvItemOrder = findViewById(R.id.rcvItemOrder);
@@ -49,7 +62,8 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         txtDeliveryFee = findViewById(R.id.txtDeliveryFee);
         txtDiscount = findViewById(R.id.txtDiscount);
         txtPaymentSummary = findViewById(R.id.txtPaymentSummary);
-        txtPaymentMethod = findViewById(R.id.txtPaymentMethod);
+
+        spnPaymentMethod = findViewById(R.id.spnPaymentMethod);
 
         layout_voucher = findViewById(R.id.layout_voucher);
         btnOrder = findViewById(R.id.btnOrder);
@@ -60,14 +74,17 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         btnAddMore = findViewById(R.id.btnAddMore);
         btnGoToPurchase = findViewById(R.id.btnGoToPurchase);
 
+        imvDropdown = findViewById(R.id.imvDropdown);
+
 
 
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_detail_slspace_screen);
+        setContentView(R.layout.activity_order_slspace_screen);
 
         linkView();
         getData();
@@ -75,8 +92,25 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         setCallBackAdapter();
         setFee();
         getTotalPayment(orderList);
+        initAdapterPaymentMethod();
         addEvents();
 
+    }
+
+    private void initAdapterPaymentMethod() {
+        adapterPaymentMethod = new FacultyAdapter(this,R.layout.item_payment_selected,getListPaymentMethod());
+        adapterPaymentMethod.setScreen(FacultyAdapter.ORDER_SCREEN);
+        adapterPaymentMethod.setStatusAdapter(FacultyAdapter.NORMAL_STATUS);
+
+        spnPaymentMethod.setAdapter(adapterPaymentMethod);
+    }
+
+
+    private List<Faculty> getListPaymentMethod() {
+        List<Faculty> list = new ArrayList<>();
+        list.add(new Faculty("UEL CAMP"));
+        list.add(new Faculty("CASH"));
+        return list;
     }
 
     private void setFee() {
@@ -100,7 +134,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
             @Override
             public void getListSizeRemain(int size) {
                 if(size == 0){
-                    Toast.makeText(OrderDetailSLSpaceScreen.this, "There is no products in your order", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OrderSLSpaceScreen.this, "There is no products in your order", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -128,10 +162,34 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
 
+        spnPaymentMethod.setSpinnerEventsListener(new CustomSpinner.OnSpinnerEventsListener() {
+            @Override
+            public void onPopupWindowOpened(Spinner spinner) {
+                imvDropdown.setImageResource(R.drawable.ic_arrrow_dropdown_up_black);
+            }
+
+            @Override
+            public void onPopupWindowClosed(Spinner spinner) {
+                imvDropdown.setImageResource(R.drawable.ic_arror_down_spinner_black);
+            }
+        });
+        spnPaymentMethod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                    imvDropdown.setImageDrawable(getResources().getDrawable(R.drawable.ic_arrow_down_spinner));
+                adapterPaymentMethod.setCurrentPosition(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         btnGoToPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderDetailSLSpaceScreen.this, PurchaseSLSpaceScreen.class));
+                startActivity(new Intent(OrderSLSpaceScreen.this, PurchaseSLSpaceScreen.class));
 
             }
         });
@@ -139,21 +197,21 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         btnAddMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderDetailSLSpaceScreen.this,MenuSLSpaceScreen.class));
+                startActivity(new Intent(OrderSLSpaceScreen.this,MenuSLSpaceScreen.class));
 
             }
         });
         btnChangeAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderDetailSLSpaceScreen.this,ChooseAddressScreen.class));
+                startActivity(new Intent(OrderSLSpaceScreen.this,ChooseAddressScreen.class));
 
             }
         });
         layout_voucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderDetailSLSpaceScreen.this,VoucherSLSpaceScreen.class));
+                startActivity(new Intent(OrderSLSpaceScreen.this,VoucherSLSpaceScreen.class));
             }
         });
         btnOrder.setOnClickListener(new View.OnClickListener() {
@@ -166,7 +224,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
         btnBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderDetailSLSpaceScreen.this, HomePageScreen.class));
+                startActivity(new Intent(OrderSLSpaceScreen.this, HomePageScreen.class));
             }
         });
 
@@ -199,7 +257,7 @@ public class OrderDetailSLSpaceScreen extends AppCompatActivity {
 
     private void initAdapter() {
         adapter.setData(orderList);
-        adapter.setNumScreen(DrinkIncartAdapter.ORDER_DETAIL_SCREEN);
+        adapter.setNumScreen(DrinkIncartAdapter.ORDER_SCREEN);
         rcvItemOrder.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvItemOrder.setAdapter(adapter);
     }

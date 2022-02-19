@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UEL Camp</string>
+    <string name="app_name">UEL CAMP</string>
     <string name="sign_up"> <u>Sign up</u> </string>
     <string name="login_failed">Login failed</string>
     <string name="warning_wrong_password_try_again">Your username or password is\n incorrect. Please try again</string>
@@ -417,6 +417,12 @@
     <string name="detail">Detail</string>
     <string name="total_cost">Total cost</string>
     <string name="no_orders_yet">No orders yet</string>
+    <string name="order_details">Order Details</string>
+    <string name="price">Price</string>
+    <string name="cash">Cash</string>
+    <string name="status">Status</string>
+    <string name="cancel_order">Cancel order</string>
+    <string name="note">Note:</string>
 
     <array name="initial_slider_values">
         <item>0</item>

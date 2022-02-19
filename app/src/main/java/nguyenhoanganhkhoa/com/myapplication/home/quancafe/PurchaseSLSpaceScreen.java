@@ -17,6 +17,7 @@ import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.models.PurchaseStatus;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class PurchaseSLSpaceScreen extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
     PurchaseStatusAdapter adapterStatus = new PurchaseStatusAdapter(this);
     PurchaseAdapter adapterPurchase = new PurchaseAdapter(this);
     LinearLayout layout_no_order_yet;
+    ReusedConstraint reusedConstraint = new ReusedConstraint();
 
     private void linkView() {
         rcvStatusPurchase = findViewById(R.id.rcvStatusPurchase);
@@ -40,11 +42,21 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
         configureRcv();
         initAdapterStatusPurchase();
 
-        setCallBackAdapter();
-        initAdapterBegin();
+        setCallBackAdapterStatus();
+        initAdapterPurchaseBegin();
 
+        addEvents();
     }
 
+    private void addEvents() {
+        reusedConstraint.openNav(this);
+        reusedConstraint.setActionComeBack(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        reusedConstraint.checkNavStatusComeBack(this);
+    }
 
     private void configureRcv() {
         rcvStatusPurchase.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
@@ -79,12 +91,12 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
     }
 
 
-    private void initAdapterBegin() {
+    private void initAdapterPurchaseBegin() {
         adapterPurchase.setData(getListPurchasePending());
         rcvListPurchase.setAdapter(adapterPurchase);
     }
 
-    private void setCallBackAdapter(){
+    private void setCallBackAdapterStatus(){
         adapterStatus.setCallBack(new PurchaseStatusAdapter.MyCallBack() {
             @Override
             public void changeDataInAdapter(String name) {
@@ -133,7 +145,19 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
 
         addItemToList(list1,"ICED/HOT COFFEE - size M", R.drawable.img_drink_3,0,30000,
                 70,50,"Size M", 1);
+
+
+        addItemToList(list2,"ICE/ HOT COFFEE - size M", R.drawable.img_drink_3,0.2,25000,
+                50,30,"Size M", 2);
+
+        addItemToList(list2,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_5,0,35000,
+                70,70,"Size M", 2);
+
+        addItemToList(list2,"SEA SODA - size M", R.drawable.img_drink_2,0.2,25000,
+                70,100,"Size M", 3);
+
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,quantity(list1),totalPayment(list1),list1));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,quantity(list2),totalPayment(list2),list2));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseInProgress() {
