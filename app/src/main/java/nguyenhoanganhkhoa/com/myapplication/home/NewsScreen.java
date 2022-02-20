@@ -84,7 +84,6 @@ public class NewsScreen extends AppCompatActivity {
         loadFireBaseData("news",R.layout.item_news);
 
         addEvents();
-        reusedConstraint.openNav(this);
       //  addAutoEvents();
 
 
@@ -126,6 +125,7 @@ public class NewsScreen extends AppCompatActivity {
 
 
     private void addEvents() {
+        reusedConstraint.openNav(this);
         viewPagerNews.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
@@ -182,15 +182,15 @@ public class NewsScreen extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot data : snapshot.getChildren()){
                     try {
+                        Images images;
                         if(cate.equals("ads")){
-                            Images images = new Images((data.child("link").getValue().toString()),
+                            images = new Images((data.child("link").getValue().toString()),
                                     data.child("url").getValue().toString());
-                            list.add(images);
                         }
                         else{
-                            Images images = new Images((data.child("link").getValue().toString()));
-                            list.add(images);
+                            images = new Images((data.child("link").getValue().toString()));
                         }
+                        list.add(images);
                     }
                     catch (Exception e){
                         if(cate.equals("ads")){

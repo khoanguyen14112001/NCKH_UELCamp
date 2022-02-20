@@ -1,25 +1,36 @@
 package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
+import nguyenhoanganhkhoa.com.adapter.ImagesAdapter;
 import nguyenhoanganhkhoa.com.adapter.PurchaseAdapter;
 import nguyenhoanganhkhoa.com.adapter.PurchaseStatusAdapter;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogOneButtonNew;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButtonNew;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
+import nguyenhoanganhkhoa.com.models.Images;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.NewsScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -27,10 +38,11 @@ public class OrderDetailScreen extends AppCompatActivity {
     RecyclerView rcvOrderDetail;
     DrinkIncartAdapter adapter;
 
-    TextView txtPrice, txtDeliveryFee, txtDiscount, txtTotalPayment, txtPaymentMethod, txtStatus;
+    TextView txtPrice, txtDeliveryFee, txtDiscount, txtTotalPayment, txtPaymentMethod, txtStatus, txtOrderID;
     Button btnCancelOrder;
 
     ReusedConstraint reusedConstraint = new ReusedConstraint();
+
 
     private static final  int deliveryFee = 7000;
     private static final  int discount = 7000;
@@ -44,6 +56,7 @@ public class OrderDetailScreen extends AppCompatActivity {
         txtTotalPayment = findViewById(R.id.txtTotalPayment);
         txtPaymentMethod = findViewById(R.id.txtPaymentMethod);
         txtStatus = findViewById(R.id.txtStatus);
+        txtOrderID = findViewById(R.id.txtOrderID);
 
         btnCancelOrder = findViewById(R.id.btnCancelOrder);
     }
@@ -59,7 +72,14 @@ public class OrderDetailScreen extends AppCompatActivity {
         linkView();
         setValue();
         initAdapter();
+
+
+
         addEvents();
+    }
+
+    private String getPurchaseID(){
+        return getIntent().getStringExtra(AppUtil.MY_BUNDLE);
     }
 
     private List<DrinkInCart> getListDrinkPurchaseDetail(){
@@ -99,6 +119,8 @@ public class OrderDetailScreen extends AppCompatActivity {
         else{
             changeButtonStatus(GREY,false);
         }
+
+        txtOrderID.setText(getPurchaseID());
     }
 
     private void changeButtonStatus(int color, boolean isEnable){
@@ -139,4 +161,7 @@ public class OrderDetailScreen extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

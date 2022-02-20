@@ -8,12 +8,21 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class PurchaseItem implements Serializable {
 
     String typePurchase;
+    String purchaseID;
     int quantityItems;
     double totalPrice;
     List<DrinkInCart> listItems;
 
     public List<DrinkInCart> getListItems() {
         return listItems;
+    }
+
+    public String getPurchaseID() {
+        return purchaseID;
+    }
+
+    public void setPurchaseID(String purchaseID) {
+        this.purchaseID = purchaseID;
     }
 
     public void setListItems(List<DrinkInCart> listItems) {
@@ -59,8 +68,9 @@ public class PurchaseItem implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public PurchaseItem(String typePurchase, int quantityItems, double totalPrice, List<DrinkInCart> listItems) {
+    public PurchaseItem(String typePurchase, String purchaseID, int quantityItems, double totalPrice, List<DrinkInCart> listItems) {
         this.listItems = listItems;
+        this.purchaseID = purchaseID;
         this.typePurchase = typePurchase;
         this.quantityItems = quantityItems;
         this.totalPrice = totalPrice;

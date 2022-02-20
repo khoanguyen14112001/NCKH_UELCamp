@@ -423,6 +423,7 @@
     <string name="status">Status</string>
     <string name="cancel_order">Cancel order</string>
     <string name="note">Note:</string>
+    <string name="order_id">Order ID</string>
 
     <array name="initial_slider_values">
         <item>0</item>

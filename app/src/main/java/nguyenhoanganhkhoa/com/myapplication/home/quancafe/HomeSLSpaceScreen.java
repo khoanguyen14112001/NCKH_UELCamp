@@ -1,24 +1,38 @@
 package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
+import nguyenhoanganhkhoa.com.adapter.ImagesAdapter;
 import nguyenhoanganhkhoa.com.models.Drink;
+import nguyenhoanganhkhoa.com.models.Images;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -37,6 +51,10 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     DrinkAdapter adapter = new DrinkAdapter(this);
 
     ConstraintLayout layout_hide_filter;
+
+    ViewPager2 viewPagerAds;
+    TextView dots[];
+    LinearLayout layout_dots_news;
 
 
     private void linkView() {
@@ -67,6 +85,9 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         imvPending = findViewById(R.id.imvPending);
 
+        viewPagerAds = findViewById(R.id.viewPagerAds);
+        layout_dots_news = findViewById(R.id.layout_dots_news);
+
     }
     public static final String ORDER_COFFEE = "Coffee";
     public static final String ORDER_TEA = "Tea";
@@ -86,8 +107,15 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         initAdapterDrink();
         setCallBackAdapter();
         addSearchFunction();
+
+        loadFireBaseData();
+
+
         addEvents();
     }
+
+
+
     DrinkAdapter adapter2 = new DrinkAdapter(this);
     public void addSearchFunction() {
         adapter2.setData(getListDrink());
@@ -419,4 +447,88 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
             }
         }
     }
+
+    ImagesAdapter adapterAds = new ImagesAdapter(this);
+    int currentPosition = 0;
+    private static final String LINK_ADS = "ads_slspace";
+    Timer timer;
+
+
+    DatabaseReference databaseReferenceAds =  FirebaseDatabase.getInstance().getReference();
+    private void loadFireBaseData() {
+        List<Images> list = new ArrayList<>();
+        databaseReferenceAds.child(LINK_ADS).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot data : snapshot.getChildren()){
+                    try {
+                        Images images;
+                        images = new Images(data.getValue().toString());
+                        list.add(images);
+                    }
+                    catch (Exception e){
+                        Log.d("Error", "Cannot load news image from firebase: " + e);
+                    }
+                }
+                initAdapterAds(list);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(HomeSLSpaceScreen.this, "Fail to load Data", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void initAdapterAds(List<Images> list) {
+        adapterAds.setListImages(list);
+        adapterAds.setLayout(R.layout.item_ads_slspace);
+        viewPagerAds.setAdapter(adapterAds);
+        setAutoViewpager(list.size());
+    }
+
+    private void setAutoViewpager(int size){
+        viewPagerAds.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                reusedConstraint.seletedIndicator(dots, position);
+                currentPosition = position;
+                super.onPageSelected(position);
+            }
+        });
+        createSlideShow(size);
+        addDots(size);
+
+    }
+
+    private void addDots(int size) {
+        dots = new TextView[size];
+        reusedConstraint.prepareDots(this,size,layout_dots_news,dots,12);
+    }
+
+    private void createSlideShow(int size) {
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if(currentPosition == size){
+                    currentPosition = 0;
+                }
+                viewPagerAds.setCurrentItem(currentPosition++,true);
+
+            }
+        };
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(runnable);
+            }
+        }, 150,2500);
+
+    }
+
+
+
+
 }

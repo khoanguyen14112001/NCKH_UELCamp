@@ -35,6 +35,27 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ViewHolder
         this.context = context;
     }
 
+    public ImagesAdapter(Context context) {
+        this.context = context;
+    }
+
+    public List<Images> getListImages() {
+        return mListImages;
+    }
+
+    public void setListImages(List<Images> mListImages) {
+        this.mListImages = mListImages;
+        notifyDataSetChanged();
+    }
+
+    public int getLayout() {
+        return layout;
+    }
+
+    public void setLayout(int layout) {
+        this.layout = layout;
+    }
+
     @NonNull
     @Override
     public ImagesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -49,6 +70,10 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ViewHolder
         String urlUEL = "https://www.uel.edu.vn/";
         if(images ==null){
             return;
+        }
+
+        if(layout==R.layout.item_ads_slspace){
+            Glide.with(context).load(images.getLinkImages()).into(holder.imvAds);
         }
 
         if(layout==R.layout.item_news){
@@ -93,7 +118,12 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return mListImages.size();
+        if(mListImages!=null){
+            return mListImages.size();
+        }
+        else{
+            return 0;
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

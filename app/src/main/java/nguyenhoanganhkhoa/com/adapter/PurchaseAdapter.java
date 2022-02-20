@@ -122,6 +122,7 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
     private void pushData(PurchaseItem purchase) {
         Intent intent = new Intent(context, OrderDetailScreen.class);
         intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) purchase.getListItems());
+        intent.putExtra(AppUtil.MY_BUNDLE, purchase.getPurchaseID());
         context.startActivity(intent);
     }
 
