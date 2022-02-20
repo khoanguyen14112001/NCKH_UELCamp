@@ -23,6 +23,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     private Context context;
     private List<Address> mAddress;
     private int layout;
+    private String PIGY;
 
     // Ý Heothỳ
 
@@ -30,6 +31,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 
     public AddressAdapter(Context context) {
         this.context = context;
+        this.PIGY = PIGY;
 
     }
 
