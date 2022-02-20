@@ -24,6 +24,8 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
     private List<Address> mAddress;
     private int layout;
 
+    // Ý Heothỳ
+
 
 
     public AddressAdapter(Context context) {
