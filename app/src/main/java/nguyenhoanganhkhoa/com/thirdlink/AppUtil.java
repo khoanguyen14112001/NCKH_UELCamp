@@ -78,7 +78,7 @@ public class AppUtil {
     public static int SIGNAL_COMEBACK_FOR_SETTING = 0;
     public static int SIGNAL_TO_HOME = 123;
 
-    public static String statusOrder = null;
+    public static String statusOrder = "";
 
 
 

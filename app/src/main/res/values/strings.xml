@@ -424,6 +424,22 @@
     <string name="cancel_order">Cancel order</string>
     <string name="note">Note:</string>
     <string name="order_id">Order ID</string>
+    <string name="evaluate">Evaluate</string>
+    <string name="good_product_quality">Good product quality</string>
+    <string name="good_seller_service_quality">Good seller service quality</string>
+    <string name="good_delivery_speed">Good delivery speed</string>
+    <string name="good_packaging">Good packaging</string>
+    <string name="good_value">Good value</string>
+    <string name="add_pictures_0_5">Add pictures (0/5)</string>
+    <string name="add_video_0_1">Add video (0/1)</string>
+    <string name="please_describe_your_problem_in_detail">Please describe your problem in detail</string>
+    <string name="describe_the_problem_0_400">Describe the problem 0/400</string>
+    <string name="write_your_evaluate_here">Write your evaluate here.</string>
+    <string name="take_video">Take video</string>
+    <string name="select_video">Select video</string>
+    <string name="select_picture">Select picture</string>
+    <string name="evaluate_successfully">Evaluate successfully</string>
+    <string name="evaluate_successfully_content">You have successfully evaluated.\n Your feedback is very valuable to us.</string>
 
     <array name="initial_slider_values">
         <item>0</item>

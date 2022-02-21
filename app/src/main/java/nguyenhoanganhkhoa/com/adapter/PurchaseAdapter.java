@@ -19,9 +19,8 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.CartSLSpaceScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.quancafe.EvaluateSLSpaceScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.quancafe.OrderDetailScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.OrderSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHolder> {
@@ -73,6 +72,20 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
             return;
         }
 
+        if(AppUtil.statusOrder.equals(TYPE_COMPLETED)){
+            holder.btnEvaluate.setVisibility(View.VISIBLE);
+        }
+        else{
+            holder.btnEvaluate.setVisibility(View.GONE);
+        }
+
+        holder.btnEvaluate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pushData(purchase, EvaluateSLSpaceScreen.class);
+            }
+        });
+
         switch (purchase.getTypePurchase()){
             case TYPE_CANCELLED:
                 setTextAndThumb(holder,TEXT_CANCELLED, IMAGE_CANCELLED);
@@ -98,7 +111,7 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
         holder.btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pushData(purchase);
+                pushData(purchase, OrderDetailScreen.class);
             }
         });
     }
@@ -119,8 +132,8 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
 
     }
 
-    private void pushData(PurchaseItem purchase) {
-        Intent intent = new Intent(context, OrderDetailScreen.class);
+    private void pushData(PurchaseItem purchase, Class screen) {
+        Intent intent = new Intent(context, screen);
         intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) purchase.getListItems());
         intent.putExtra(AppUtil.MY_BUNDLE, purchase.getPurchaseID());
         context.startActivity(intent);
@@ -139,7 +152,7 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
         TextView txtQuantity, txtTotal, txtPurchaseStatus;
         RecyclerView rcvPurchase;
         ImageView imvIconPurchaseStatus;
-        Button btnDetail;
+        Button btnDetail, btnEvaluate;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtQuantity = itemView.findViewById(R.id.txtQuantity);
@@ -148,6 +161,7 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
             rcvPurchase = itemView.findViewById(R.id.rcvPurchase);
             imvIconPurchaseStatus = itemView.findViewById(R.id.imvIconPurchaseStatus);
             btnDetail = itemView.findViewById(R.id.btnDetail);
+            btnEvaluate = itemView.findViewById(R.id.btnEvaluate);
         }
     }
 }

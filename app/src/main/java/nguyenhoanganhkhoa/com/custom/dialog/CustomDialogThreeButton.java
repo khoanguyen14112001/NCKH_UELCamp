@@ -9,13 +9,17 @@ import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import org.w3c.dom.Text;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
 
 public class CustomDialogThreeButton extends Dialog {
     public Button btnTakePhotos, btnChooseFromGallery, btnCancel;
+    public TextView txtHeaderDialog;
     Activity activity;
     public CustomDialogThreeButton(@NonNull Context context, int dialoglayout) {
 
@@ -48,5 +52,6 @@ public class CustomDialogThreeButton extends Dialog {
         btnTakePhotos = findViewById(R.id.btnTakePhotos);
         btnCancel = findViewById(R.id.btnCancel);
         btnChooseFromGallery = findViewById(R.id.btnChooseFromGallery);
+        txtHeaderDialog = findViewById(R.id.txtHeaderDialog);
     }
 }
