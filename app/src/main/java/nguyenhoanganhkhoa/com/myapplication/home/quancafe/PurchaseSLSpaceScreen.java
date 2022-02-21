@@ -188,29 +188,29 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseCompleted() {
-
-        return null;
-    }
-    private List<PurchaseItem> getListPurchaseCancelled() {
         List<PurchaseItem> listPurchase = new ArrayList<>();
         List<DrinkInCart> list1 = new ArrayList<>();
         List<DrinkInCart> list2 = new ArrayList<>();
-        List<DrinkInCart> list3 = new ArrayList<>();
+
+        addItemToList(list1,"ICED/HOT COFFEE - size M", R.drawable.img_drink_3,0,30000,
+                70,50,"Size M", 1);
 
 
-        addItemToList(list1,"ICE/ HOT COFFEE - size M", R.drawable.img_drink_3,0.2,25000,
+        addItemToList(list2,"ICE/ HOT COFFEE - size M", R.drawable.img_drink_3,0.2,25000,
                 50,30,"Size M", 2);
 
         addItemToList(list2,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_5,0,35000,
                 70,70,"Size M", 2);
 
-        addItemToList(list3,"SEA SODA - size M", R.drawable.img_drink_2,0.2,25000,
+        addItemToList(list2,"SEA SODA - size M", R.drawable.img_drink_2,0.2,25000,
                 70,100,"Size M", 3);
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_CANCELLED,"2381FD1232",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_CANCELLED,"2A81F12342",quantity(list2),totalPayment(list2),list2));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_CANCELLED,"24A81F1234",quantity(list3),totalPayment(list3),list3));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"220107FX232",quantity(list1),totalPayment(list1),list1));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"241147FXDFJ",quantity(list2),totalPayment(list2),list2));
         return listPurchase;
+    }
+    private List<PurchaseItem> getListPurchaseCancelled() {
+        return null;
     }
 
 

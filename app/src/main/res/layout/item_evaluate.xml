@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:background="@color/primary_yellow"
+        android:paddingVertical="8dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:elevation="0dp"
+            android:id="@+id/cvThumb"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="50dp"
+                android:src="@drawable/img_news2"
+                android:scaleType="centerCrop"
+                android:id="@+id/imvThumbDrink"
+                android:layout_height="30dp"/>
+
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:maxWidth="160dp"
+            android:textSize="12sp"
+            android:id="@+id/txtNameDrink"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            style="@style/TypeDrink_Text"
+            app:layout_constraintLeft_toRightOf="@id/cvThumb"
+            android:layout_marginLeft="20dp"
+            android:text="ICED/HOT COFFEE - size M"
+
+            />
+
+        <TextView
+            style="@style/VNDStyle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/txtPriceDrink"
+            android:id="@+id/txtVND2"
+            />
+        <TextView
+            style="@style/PriceStyle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/txtVND2"
+            android:text="25.000"
+            android:id="@+id/txtPriceDrink"
+            android:layout_marginRight="5dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="9"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:id="@+id/imvStar0"
+            android:src="@drawable/ic_star"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/imvStar1"
+
+            android:src="@drawable/ic_star"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:id="@+id/imvStar2"
+
+            android:src="@drawable/ic_star"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/imvStar3"
+
+            android:src="@drawable/ic_star"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:id="@+id/imvStar4"
+
+            android:src="@drawable/ic_star"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edt_custom_focus"
+                android:paddingHorizontal="10dp"
+                android:focusable="true"
+                android:paddingVertical="4dp"
+                android:textSize="12sp"
+
+
+                android:fontFamily="@font/be_vietnam_regular"
+                android:textColor="@color/black"
+                android:text="@string/good_product_quality"
+                app:layout_constraintEnd_toStartOf="@+id/textView4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:background="@drawable/edt_custom_focus"
+                android:paddingHorizontal="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:paddingVertical="4dp"
+                android:text="@string/good_seller_service_quality"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:background="@drawable/edt_custom_focus"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="@string/good_delivery_speed"
+
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/textView6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+
+                android:layout_height="wrap_content"
+                android:background="@drawable/edt_custom_focus"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="@string/good_packaging"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView8"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:textSize="12sp"
+
+                android:layout_height="wrap_content"
+                android:background="@drawable/edt_custom_focus"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:text="@string/good_value"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:id="@+id/cons"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            android:id="@+id/gSep"
+
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.075"
+            android:id="@+id/gLeft"
+
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.925"
+            android:id="@+id/gRight"
+
+            />
+
+        <LinearLayout
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintRight_toRightOf="@id/gSep"
+            android:paddingVertical="10dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/layout_open_camera"
+            android:background="@drawable/view_custom_corner_small_yellowstroke"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_camera_yellow"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:textColor="@color/primary_yellow"
+                android:gravity="center_horizontal"
+                android:paddingVertical="3dp"
+                android:id="@+id/txtQuantityImages"
+                android:textSize="12sp"
+                android:text="@string/add_pictures_0_5"/>
+        </LinearLayout>
+
+        <LinearLayout
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="@id/gSep"
+            android:paddingVertical="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/layout_open_video"
+            android:background="@drawable/view_custom_corner_small_yellowstroke"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_video_yellow"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/be_vietnam_regular"
+                android:textColor="@color/primary_yellow"
+                android:gravity="center_horizontal"
+                android:paddingVertical="3dp"
+                android:textSize="12sp"
+                android:id="@+id/txtQuantityVid"
+
+                android:text="@string/add_video_0_1"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rcvImageVidEvaluate"
+        android:paddingHorizontal="20dp"
+        android:layout_marginTop="10dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingHorizontal="20dp"
+        android:layout_height="match_parent">
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/view_custom_corner_small_blackstroke"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:paddingHorizontal="2dp"
+            android:text="0/200"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="@id/view1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:fontFamily="@font/be_vietnam_light"
+            android:gravity="top"
+            android:hint="@string/write_your_evaluate_here"
+            android:inputType="textMultiLine"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/xamChu"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/view1"
+            app:layout_constraintLeft_toLeftOf="@id/view1"
+            app:layout_constraintRight_toRightOf="@id/view1"
+            app:layout_constraintTop_toTopOf="@id/view1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

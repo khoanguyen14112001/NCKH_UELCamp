@@ -54,6 +54,7 @@
             android:nestedScrollingEnabled="false"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="10dp"
+            app:layout_constraintVertical_bias="0"
             app:layout_constraintTop_toBottomOf="@id/view"
             android:id="@+id/rcvPurchase"/>
 
@@ -68,6 +69,17 @@
             android:layout_marginTop="20dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/rcvPurchase"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/buttonYellow.Small"
+            android:id="@+id/btnEvaluate"
+            android:text="@string/evaluate"
+            android:textColor="@color/white"
+            app:layout_constraintHorizontal_bias="1"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDetail"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

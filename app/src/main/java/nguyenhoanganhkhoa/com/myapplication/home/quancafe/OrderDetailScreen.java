@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +31,7 @@ import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogOneButtonNew;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButtonNew;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.models.Images;
+import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.NewsScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
@@ -63,6 +66,7 @@ public class OrderDetailScreen extends AppCompatActivity {
 
     private final int GREY = R.color.xamBlcok;
     private final int BLACK = R.color.black;
+    private final int YELLOW = R.color.primary_yellow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,12 +113,17 @@ public class OrderDetailScreen extends AppCompatActivity {
         txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
         txtDeliveryFee.setText(reusedConstraint.formatCurrency(deliveryFee));
         txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() + deliveryFee - discount));
-        if(AppUtil.statusOrder!=null){
+        if(!AppUtil.statusOrder.isEmpty()){
             txtStatus.setText(AppUtil.statusOrder);
         }
 
         if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_PENDING)){
             changeButtonStatus(BLACK,true);
+        }
+        else if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_COMPLETED)){
+
+            changeButtonStatus(YELLOW,true);
+            btnCancelOrder.setText(R.string.evaluate);
         }
         else{
             changeButtonStatus(GREY,false);
@@ -133,31 +142,43 @@ public class OrderDetailScreen extends AppCompatActivity {
         reusedConstraint.checkNavStatusComeBack(this);
     }
 
+    private void pushData() {
+        Intent intent = new Intent(this, EvaluateSLSpaceScreen.class);
+        intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) getListDrinkPurchaseDetail());
+        startActivity(intent);
+    }
+
+
     private void addEvents() {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
         btnCancelOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomDialogTwoButtonNew dialog = new CustomDialogTwoButtonNew(OrderDetailScreen.this);
-                dialog.txtHeaderDialog.setText("Cancel order");
-                dialog.txtContentDialog.setText("You are cancelling your order.\nAre you sure?");
-                dialog.btnCancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.btnOK.setText(R.string.yes);
-                dialog.btnOK.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(OrderDetailScreen.this, "Your order has been cancelled!", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                        finish();
-                    }
-                });
-                dialog.show();
+                if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_COMPLETED)){
+                    pushData();
+                }
+                else{
+                    CustomDialogTwoButtonNew dialog = new CustomDialogTwoButtonNew(OrderDetailScreen.this);
+                    dialog.txtHeaderDialog.setText("Cancel order");
+                    dialog.txtContentDialog.setText("You are cancelling your order.\nAre you sure?");
+                    dialog.btnCancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.btnOK.setText(R.string.yes);
+                    dialog.btnOK.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(OrderDetailScreen.this, "Your order has been cancelled!", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                            finish();
+                        }
+                    });
+                    dialog.show();
+                }
             }
         });
     }
