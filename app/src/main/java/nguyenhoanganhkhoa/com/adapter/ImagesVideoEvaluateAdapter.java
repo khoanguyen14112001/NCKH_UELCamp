@@ -1,7 +1,10 @@
 package nguyenhoanganhkhoa.com.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,29 @@ public class ImagesVideoEvaluateAdapter extends RecyclerView.Adapter<ImagesVideo
 
     private Context context;
     private List<ImagesVideoEvaluate> mList;
+
+    private int screen = EVALUATE_SCREEN;
+
+    private boolean isExpanded = true;
+
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
+    }
+
+    public int getScreen() {
+        return screen;
+    }
+
+    public void setScreen(int screen) {
+        this.screen = screen;
+    }
+
+    public static final int EVALUATE_SCREEN = 10;
+    public static final int PRODUCT_SCREEN = 20;
 
     private static final int VIEW_IMAGE = 1;
     private static final int VIEW_VIDEO = 2;
@@ -82,8 +108,27 @@ public class ImagesVideoEvaluateAdapter extends RecyclerView.Adapter<ImagesVideo
             }
         });
 
+        Activity activity = (Activity)context;
+        if(getScreen()==PRODUCT_SCREEN){
+            if(getWindowWidth(activity)<850){
+                holder.con1.setMinWidth(changeToPX(activity, 60));
+                holder.con1.setMaxWidth(changeToPX(activity, 60));
+                holder.con1.setMinHeight(changeToPX(activity, 60));
+                holder.con1.setMaxHeight(changeToPX(activity, 60));
+            }
+            Log.d("TAG", "onBindViewHolder: " + getWindowWidth(activity));
+            holder.imvDelete.setVisibility(View.GONE);
+        }
+
+
+
         if(item.isImage()){
-            holder.imvImages.setImageBitmap(item.getBitmap());
+            if(item.getBitmap()==null){
+                holder.imvImages.setImageResource(item.getImageInt());
+            }
+            else{
+                holder.imvImages.setImageBitmap(item.getBitmap());
+            }
         }
         else{
             holder.videoView.setVideoURI(item.getUri());
@@ -92,6 +137,23 @@ public class ImagesVideoEvaluateAdapter extends RecyclerView.Adapter<ImagesVideo
             mediaController.setAnchorView(holder.videoView);
         }
     }
+
+    private int changeToPX(Activity activity, int dp){
+        DisplayMetrics metrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        float logicalDensity = metrics.density;
+        return (int) Math.ceil(dp * logicalDensity);
+    }
+
+    private int getWindowWidth(Activity activity) {
+        // Calculate window height for fullscreen use
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
+    }
+
+
+
 
     ImagesVideoEvaluateAdapter.MyCallBack callBack;
     public interface MyCallBack {
@@ -104,7 +166,12 @@ public class ImagesVideoEvaluateAdapter extends RecyclerView.Adapter<ImagesVideo
     @Override
     public int getItemCount() {
         if(mList !=null){
-            return mList.size();
+            if(isExpanded){
+                return mList.size();
+            }
+            else{
+                return 4;
+            }
         }
         else{
             return 0;
@@ -113,8 +180,9 @@ public class ImagesVideoEvaluateAdapter extends RecyclerView.Adapter<ImagesVideo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvImages, imvDelete;
-        ConstraintLayout layout_image;
+        ConstraintLayout layout_image, con1;
         VideoView videoView;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -122,6 +190,7 @@ public class ImagesVideoEvaluateAdapter extends RecyclerView.Adapter<ImagesVideo
             imvDelete = itemView.findViewById(R.id.imvDelete);
             layout_image = itemView.findViewById(R.id.layout_image);
             videoView = itemView.findViewById(R.id.videoView);
+            con1 = itemView.findViewById(R.id.con1);
         }
     }
 }

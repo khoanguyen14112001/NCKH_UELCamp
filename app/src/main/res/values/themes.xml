@@ -269,7 +269,6 @@
 
 
 
-
     <style name="Theme.App" parent="Theme.MaterialComponents.DayNight">
         ...
         <item name="sliderStyle">@style/Widget.App.Slider</item>
@@ -385,7 +384,12 @@
         <item name="android:text">VND</item>
     </style>
 
-
+<!--    Custom Rating Bar-->
+    <style name="CustomRatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_rating_bar</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
 
 
 

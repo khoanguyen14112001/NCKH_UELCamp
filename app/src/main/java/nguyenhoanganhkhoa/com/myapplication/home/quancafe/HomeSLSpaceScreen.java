@@ -31,8 +31,10 @@ import java.util.TimerTask;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
 import nguyenhoanganhkhoa.com.adapter.ImagesAdapter;
+import nguyenhoanganhkhoa.com.models.Comments;
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.Images;
+import nguyenhoanganhkhoa.com.models.ImagesVideoEvaluate;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -222,18 +224,135 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         });
     }
+    public static String content_drink = "Select the amount of sugar and ice and note your requirements in the ordering section\n" +
+            "\n" +
+            "*Some benefits of drinking coffee:\n" +
+            "Provide energy and improve thinking ability\n" +
+            "Supports fat burning\n" +
+            "Improve physical performance\n" +
+            "Contains many essential nutrients";
+
+    public static String comment_demo = "Delicious drink, not too sweet nor too bitter, fast delivery, cute shipper.";
+
+
+
 
     public static List<Drink> getListDrink() {
         List<Drink> drinks = new ArrayList<>();
+        Drink drink1 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"MATCHA FRAPPUCHINO","Frappuchino",R.drawable.img_drink_1,0,35000);
+        Drink drink2 = new Drink("","ORANGE JUICE","Juice",R.drawable.img_drink_2,0,29000, true);
+        Drink drink3 = new Drink("","ICED/HOT COFFEE","Coffee",R.drawable.img_drink_3,0,25000);
+        Drink drink4 = new Drink("","SEA SODA","Soda",R.drawable.img_drink_4,0.1,25000, true);
+        Drink drink5 = new Drink("","LEMON YOGURT","Yogurt",R.drawable.img_drink_5,0.3,25000);
+        Drink drink6 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"PEACH TEA","Soda",R.drawable.img_drink_6,0,25000);
 
-        drinks.add(new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"MATCHA FRAPPUCHINO","Frappuchino",R.drawable.img_drink_1,0,35000));
-        drinks.add(new Drink("","ORANGE JUICE","Juice",R.drawable.img_drink_2,0,29000, true));
-        drinks.add(new Drink("","ICED/HOT COFFEE","Coffee",R.drawable.img_drink_3,0,25000));
-        drinks.add(new Drink("","SEA SODA","Soda",R.drawable.img_drink_4,0.1,25000, true));
-        drinks.add(new Drink("","LEMON YOGURT","Yogurt",R.drawable.img_drink_5,0.3,25000));
-        drinks.add(new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"PEACH TEA","Soda",R.drawable.img_drink_6,0,25000));
+        drink1.setDrinkDes(content_drink);
+        drink2.setDrinkDes(content_drink);
+        drink3.setDrinkDes(content_drink);
+        drink4.setDrinkDes(content_drink);
+        drink5.setDrinkDes(content_drink);
+        drink6.setDrinkDes(content_drink);
+
+        drink1.setCommentsList(getListComment1());
+        drink2.setCommentsList(getListComment2());
+
+
+        drinks.add(drink1);
+        drinks.add(drink2);
+        drinks.add(drink3);
+        drinks.add(drink4);
+        drinks.add(drink5);
+        drinks.add(drink6);
+
         return drinks;
     }
+
+    private static List<Comments> getListComment2() {
+        List<Comments> list = new ArrayList<>();
+        Comments comment1 = new Comments(R.drawable.img_heo,"Ý Heo",
+                "21 Oct 2022, 10:07",4,
+                comment_demo,null);
+
+
+
+        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Noob",
+                "21 Oct 1999, 10:07",4,
+                comment_demo,null);
+
+
+        list.add(comment1);
+        list.add(comment3);
+        return list;
+    }
+
+
+
+    public static List<Comments> getListComment1(){
+        List<Comments> list = new ArrayList<>();
+        Comments comment1 = new Comments(R.drawable.img_heo,"Ý Heo",
+                "21 Oct 2022, 10:07",4,
+                comment_demo,getListImagesComment1());
+        comment1.setGoodValue(true);
+        comment1.setGoodProduct(true);
+
+        Comments comment2 = new Comments(R.drawable.img_avatar_male,"AKhoa provjp",
+                "21 Oct 2021, 10:07",3,
+                comment_demo,getListImagesComment2());
+        comment2.setGoodProduct(true);
+        comment2.setGoodDelivery(true);
+        comment2.setGoodPackaging(true);
+        comment2.setGoodSeller(true);
+        comment2.setGoodValue(true);
+
+
+        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Noob",
+                "21 Oct 1999, 10:07",1,
+                comment_demo,null);
+        comment3.setGoodSeller(true);
+
+        Comments comment4 =new Comments(R.drawable.img_avatar_male,"Gà",
+                "21 Oct 2133, 10:07",5,
+                comment_demo,getListImagesComment3());
+        comment4.setGoodSeller(true);
+        comment4.setGoodPackaging(true);
+
+        list.add(comment1);
+        list.add(comment2);
+        list.add(comment3);
+        list.add(comment4);
+
+        return list;
+    }
+
+    private static List<ImagesVideoEvaluate> getListImagesComment3() {
+        List<ImagesVideoEvaluate> list = new ArrayList<>();
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_4));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
+        return list;
+    }
+
+    private static List<ImagesVideoEvaluate> getListImagesComment1() {
+        List<ImagesVideoEvaluate> list = new ArrayList<>();
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_4));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
+        return list;
+    }
+
+    private static List<ImagesVideoEvaluate> getListImagesComment2() {
+        List<ImagesVideoEvaluate> list = new ArrayList<>();
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
+        return list;
+    }
+
 
 
     private void changeColorButton(LinearLayout layout){

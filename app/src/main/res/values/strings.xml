@@ -440,6 +440,12 @@
     <string name="select_picture">Select picture</string>
     <string name="evaluate_successfully">Evaluate successfully</string>
     <string name="evaluate_successfully_content">You have successfully evaluated.\n Your feedback is very valuable to us.</string>
+    <string name="product">Product</string>
+    <string name="product_details">Product details</string>
+    <string name="drink_des_demo">Select the amount of sugar and ice and note your requirements in the ordering section *Some benefits of drinking coffee: Provide energy and improve thinking ability Supports fat burning Improve physical performance Contains many essential nutrients</string>
+    <string name="product_ratings">Product ratings</string>
+    <string name="see_less">See Less</string>
+    <string name="comment_demo">Delicious drink, not too sweet nor too bitter, fast delivery, cute shipper.</string>
 
     <array name="initial_slider_values">
         <item>0</item>

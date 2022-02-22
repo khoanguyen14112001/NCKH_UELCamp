@@ -229,6 +229,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_rad_drink_type.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_rad_filter.xml" value="0.18981481481481483" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_radio_drink_type.xml" value="0.18981481481481483" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_rating_bar.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/dialog_login.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/dialog_notification.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/edt_custom_block.xml" value="0.21614583333333334" />
@@ -248,6 +249,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_setting.xml" value="0.14020270270270271" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_setting_black.xml" value="0.14020270270270271" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_signout.xml" value="0.14020270270270271" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_star.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_thuquan.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_tickbutton.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/ic_warning_red.xml" value="0.14020270270270271" />
@@ -306,6 +308,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_our_team_screen.xml" value="0.2" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_parking_lot_home_screen.xml" value="0.22" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_personal_information_set_screen.xml" value="0.48180677540777916" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_product_detail_screen.xml" value="0.22" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_purchase_slspace_screen.xml" value="0.4466666666666667" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_qrcode_screen.xml" value="0.22" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_reset_password_screen.xml" value="0.2" />
@@ -375,6 +378,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_address.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_ads.xml" value="0.2" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_ads_slspace.xml" value="0.22" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_comment.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_detail_member.xml" value="0.22" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_device.xml" value="0.17592592592592593" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/item_drink.xml" value="0.3333333333333333" />
