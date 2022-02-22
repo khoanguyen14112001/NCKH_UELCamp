@@ -19,16 +19,13 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.custom.bottomsheetdialog.CustomBottomSheetDrink;
 import nguyenhoanganhkhoa.com.models.Drink;
-import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.AddToCartScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.quancafe.ProductDetailScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -147,103 +144,19 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
         holder.layout_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDrinkDetail(holder, drink);
+                pushData(holder,drink);
             }
         });
 
     }
-    private int getWindowHeight() {
-        // Calculate window height for fullscreen use
-        Activity activity = (Activity)context;
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        return displayMetrics.heightPixels;
-    }
 
-
-    CustomBottomSheetDrink dialog = null;
-
-
-
-    private void showDrinkDetail(DrinkAdapter.ViewHolder holder, Drink drink){
-        if(dialog ==null){
-            dialog = new CustomBottomSheetDrink(context,R.style.BottomSheetDialogTheme);
-
-        }
-
-        FrameLayout bottomSheet = dialog.findViewById(R.id.design_bottom_sheet);
-        BottomSheetBehavior behavior = BottomSheetBehavior.from(bottomSheet);
-        ViewGroup.LayoutParams layoutParams = bottomSheet.getLayoutParams();
-
-        int px = 0;
-
-        DisplayMetrics metrics = new DisplayMetrics();
-        Activity activity = (Activity)context;
-        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        float logicalDensity = metrics.density;
-
-
-        dialog.imvThumbDrink.setImageResource(drink.getThumbDrink());
-
-
-        double discount = drink.getDrinkDiscount();
-        double prePrice = drink.getDrinkPrePrice();
-        double aftPrice = prePrice - prePrice*discount;
-        if(discount == 0){
-            dialog.layout_preprice.setVisibility(View.GONE);
-            dialog.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(aftPrice));
-        }
-        else{
-            dialog.layout_preprice.setVisibility(View.VISIBLE);
-            dialog.txtAftpriceDrink.setText(reusedConstraint.formatCurrency(aftPrice));
-            dialog.txtPrepriceDrink.setText(reusedConstraint.formatCurrency(prePrice));
-        }
-
-        dialog.txtNameDrink.setText(drink.getDrinkName());
-        dialog.txtTypeDrink.setText(drink.getDrinkType());
-
-        String text = holder.txtTitleDrink.getText().toString();
-        dialog.txtTitleDrink.setText(text);
-        dialog.txtTitleDrink.setVisibility(View.VISIBLE);
-
-
-        if(text.contains("off")){
-            dialog.txtTitleDrink.setTextColor(context.getColor(R.color.green));
-            px = (int) Math.ceil(500 * logicalDensity);
-        }
-        if(text.equals(DRINK_TITLE_BEST_SELLER)){
-            dialog.txtTitleDrink.setTextColor(context.getColor(R.color.red));
-            px = (int) Math.ceil(500 * logicalDensity);
-        }
-        if(text.isEmpty()){
-            dialog.txtTitleDrink.setVisibility(View.GONE);
-            px = (int) Math.ceil(480 * logicalDensity);
-        }
-
-
-
-        dialog.btnAddToCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, AddToCartScreen.class);
-                pushData(intent, drink);
-                context.startActivity(intent);
-                dialog.dismiss();
-            }
-        });
-
-        layoutParams.height = px;
-        bottomSheet.setLayoutParams(layoutParams);
-        behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-
-        dialog.show();
-
-    }
-
-    private void pushData(Intent intent, Drink drink) {
+    private void pushData(ViewHolder holder, Drink drink) {
+        Intent intent = new Intent(context, ProductDetailScreen.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable(AppUtil.SELECTED_ITEM_TRANS,drink);
+        bundle.putString("TitleDrink",holder.txtTitleDrink.getText().toString());
         intent.putExtra(AppUtil.MY_BUNDLE_TRANS, bundle);
+        context.startActivity(intent);
     }
 
     private void changeColorTitle(DrinkAdapter.ViewHolder holder, Drink drink, double discount){

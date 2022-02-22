@@ -1,16 +1,91 @@
 package nguyenhoanganhkhoa.com.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class Drink implements Serializable {
+    ReusedConstraint reusedConstraint = new ReusedConstraint();
     private String drinkTitle;
     private String drinkName;
     private String drinkType;
     private int thumbDrink;
     private double drinkDiscount;
     private double drinkPrePrice;
+    private String drinkDes;
+    private double drinkEvaluateStar;
+    private int drinkSoldQuantity;
+
+    private List<Comments> commentsList;
+
+    public float getAverageRate(){
+        if(getCommentsList()!=null){
+            float totalScore = 0;
+            float averageScore;
+            for(int i =0;i<getCommentsList().size();i++){
+                totalScore += getCommentsList().get(i).getCommentStars();
+            }
+            averageScore = totalScore/getCommentsList().size();
+            return averageScore;
+        }
+        else{
+            return 0;
+        }
+
+    }
+    public String getAverageRate_toString(){
+        return reusedConstraint.formatFloat(getAverageRate());
+    }
+
+    public String commentQuantity(){
+        if(getCommentsList()!=null){
+            if(getCommentsList().size()==1){
+                return "("+getCommentsList().size() +" review)";
+            }
+            else{
+                return "("+getCommentsList().size() +" reviews)";
+            }
+        }
+        else{
+            return "(0 review)";
+        }
+    }
+
+
+
+    public String getDrinkDes() {
+        return drinkDes;
+    }
+
+    public void setDrinkDes(String drinkDes) {
+        this.drinkDes = drinkDes;
+    }
+
+    public double getDrinkEvaluateStar() {
+        return drinkEvaluateStar;
+    }
+
+    public void setDrinkEvaluateStar(double drinkEvaluateStar) {
+        this.drinkEvaluateStar = drinkEvaluateStar;
+    }
+
+    public int getDrinkSoldQuantity() {
+        return drinkSoldQuantity;
+    }
+
+    public void setDrinkSoldQuantity(int drinkSoldQuantity) {
+        this.drinkSoldQuantity = drinkSoldQuantity;
+    }
+
+    public List<Comments> getCommentsList() {
+        return commentsList;
+    }
+
+    public void setCommentsList(List<Comments> commentsList) {
+        this.commentsList = commentsList;
+    }
+
     private boolean isFavoriteDrink = false;
 
 

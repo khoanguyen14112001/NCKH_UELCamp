@@ -25,6 +25,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
@@ -32,7 +33,7 @@ import nguyenhoanganhkhoa.com.adapter.NotificationAdapter;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.custom.rightnav.LeftNavFragment;
 
-public class ReusedConstraint {
+public class ReusedConstraint implements Serializable {
     Context context;
 
     public ReusedConstraint(Context context) {
@@ -175,6 +176,16 @@ public class ReusedConstraint {
                 return false;
             }
         });
+    }
+    public String formatFloat (float number){
+        DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
+        decimalFormatSymbols.setDecimalSeparator('.');
+        decimalFormatSymbols.setGroupingSeparator(',');
+        DecimalFormat decimalFormat = new DecimalFormat("0.0", decimalFormatSymbols);
+
+        String moneyAft = decimalFormat.format(number);
+
+        return moneyAft;
     }
 
 

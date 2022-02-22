@@ -3,10 +3,26 @@ package nguyenhoanganhkhoa.com.models;
 import android.graphics.Bitmap;
 import android.net.Uri;
 
-public class ImagesVideoEvaluate {
+import java.io.Serializable;
+
+public class ImagesVideoEvaluate implements Serializable {
 
     Uri uri;
     Bitmap bitmap;
+    int imageInt;
+
+    public int getImageInt() {
+        return imageInt;
+    }
+
+    public void setImageInt(int imageInt) {
+        this.imageInt = imageInt;
+    }
+
+    public ImagesVideoEvaluate(int imageInt) {
+        this.imageInt = imageInt;
+    }
+
     boolean isImage = true;
 
     public boolean isImage() {
