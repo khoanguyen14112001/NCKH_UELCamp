@@ -20,10 +20,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogFragmentHome;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.CanteenSplashScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.notification.AllNotificationScreen;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.SLSpaceSplashScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.SLSpaceSplashScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -79,7 +80,7 @@ public class HomeFragment extends Fragment {
     TextView txtNameDisplayUser, txtMoneyDisplay;
     ImageView imvInsideAvatar;
 
-    ImageButton imbParkingLot, imbQuanCafe;
+    ImageButton imbParkingLot, imbQuanCafe, imbCanteen;
 
 
 
@@ -112,6 +113,7 @@ public class HomeFragment extends Fragment {
 
         imbParkingLot = view.findViewById(R.id.imbParkingLot);
         imbQuanCafe = view.findViewById(R.id.imbQuanCafe);
+        imbCanteen = view.findViewById(R.id.imbCanteen);
     }
 
     private void addEvents() {
@@ -128,6 +130,15 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+        imbCanteen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), CanteenSplashScreen.class));
+            }
+        });
+
+
         imvNoteBell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

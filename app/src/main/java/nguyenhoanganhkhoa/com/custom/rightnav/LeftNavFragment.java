@@ -16,9 +16,10 @@ import android.widget.TextView;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.CanteenSplashScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.SLSpaceSplashScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.SLSpaceSplashScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
@@ -70,8 +71,8 @@ public class LeftNavFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    LinearLayout lnOpenHome, lnOpenParkingLot , lnOpenTopUp, lnOpenTransfer, lnOpenQRCode, lnOpenSetting, lnSignoutNav, lnOpenQuanCafe;
-    TextView txtTransfer, txtParkingLot, txtTopUp, txtQuanCafe, txtThuQuan, txtSetting, txtQRCode;
+    LinearLayout lnOpenHome, lnOpenParkingLot , lnOpenTopUp, lnOpenTransfer, lnOpenQRCode, lnOpenSetting, lnSignoutNav, lnOpenQuanCafe, lnOpenCanteen;
+    TextView txtTransfer, txtParkingLot, txtTopUp, txtQuanCafe, txtThuQuan, txtSetting, txtQRCode,txtCanteen;
     DrawerLayout drawerLayout;
 
     @Override
@@ -175,6 +176,13 @@ public class LeftNavFragment extends Fragment {
                 dialog.show();
             }
         });
+
+        lnOpenCanteen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openScreen(txtCanteen, CanteenSplashScreen.class);
+            }
+        });
     }
     private void linkView(View view) {
         lnOpenHome = view.findViewById(R.id.lnOpenHome);
@@ -199,6 +207,9 @@ public class LeftNavFragment extends Fragment {
 
         lnOpenQuanCafe=view.findViewById(R.id.lnOpenQuanCafe);
         txtQuanCafe=view.findViewById(R.id.txtQuanCafe);
+
+        lnOpenCanteen = view.findViewById(R.id.lnOpenCanteen);
+        txtCanteen = view.findViewById(R.id.txtCanteen);
 
     }
 }

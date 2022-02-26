@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".home.SLSpace.AddToCartScreen">
+    tools:context=".home.canteen.AddToCartCanteenScreen">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:focusableInTouchMode="true"
@@ -163,12 +163,6 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rcvOptionDrink"
-                    android:nestedScrollingEnabled="false"
-                    />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".home.SLSpace.OrderSLSpaceScreen">
+    tools:context=".home.canteen.OrderCanteenScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/be_vietnam_regular"
-                            android:text="@string/delivery_location"
+                            android:text="@string/location"
                             android:textColor="@color/black"
                             android:focusable="true"
                             android:focusedByDefault="true"
@@ -83,7 +83,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/choose_your_address"
+                            android:text="@string/main_canteen"
                             android:fontFamily="@font/be_vietnam_medium"
                             android:textSize="13sp" />
 
@@ -277,6 +277,43 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="@string/delivery_fee"
+                                    android:fontFamily="@font/be_vietnam_regular"
+                                    android:textColor="@color/black"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    />
+                                <TextView
+                                    style="@style/VNDStyle"
+                                    android:id="@+id/txtVND2"
+                                    android:textSize="11sp"
+                                    app:layout_constraintRight_toRightOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBaseline_toBaselineOf="@id/txtDeliveryFee"
+                                    />
+
+                                <TextView
+                                    style="@style/PriceStyle"
+                                    android:id="@+id/txtDeliveryFee"
+                                    android:text="30.000"
+                                    android:textSize="18sp"
+                                    android:layout_marginEnd="3dp"
+                                    app:layout_constraintRight_toLeftOf="@id/txtVND2"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="15dp"
+                                android:paddingHorizontal="20dp"
+
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:text="@string/discounts"
                                     android:fontFamily="@font/be_vietnam_regular"
                                     android:textColor="@color/black"
@@ -452,7 +489,7 @@
 
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-        
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

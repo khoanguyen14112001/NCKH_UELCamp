@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.SLSpace;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.HomeCanteenScreen;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class MenuSLSpaceScreen extends AppCompatActivity {
@@ -20,6 +22,8 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
     ImageView imvBack, imvCart, imvLove, imvPending;
     DrinkAdapter adapter = new DrinkAdapter(this);
     ConstraintLayout layout_choose_address;
+
+    TextView txtChooseYourAddress, txtTitleDelivery;
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
 
@@ -33,6 +37,8 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
         initAdapter();
         addEvents();
     }
+
+
 
     private void initAdapter() {
         adapter.setData(HomeSLSpaceScreen.getListDrink());
@@ -53,7 +59,6 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuSLSpaceScreen.this, ChooseAddressScreen.class));
-
             }
         });
         imvLove.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +95,9 @@ public class MenuSLSpaceScreen extends AppCompatActivity {
         layout_choose_address = findViewById(R.id.layout_choose_address);
         imvLove = findViewById(R.id.imvLove);
         imvPending = findViewById(R.id.imvPending);
+
+        txtChooseYourAddress = findViewById(R.id.txtChooseYourAddress);
+        txtTitleDelivery = findViewById(R.id.txtTitleDelivery);
 
     }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".home.SLSpace.HomeSLSpaceScreen">
+    tools:context=".home.canteen.HomeCanteenScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:id="@+id/txtHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/startup_amp_language_space_cap"
+            android:text="@string/canteen"
             android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                   >
+                    >
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:id="@+id/layout_choose_address"
@@ -87,7 +87,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/be_vietnam_regular"
-                                android:text="@string/delivery_location"
+                                android:text="@string/location"
                                 android:textColor="@color/black"
                                 android:focusable="true"
                                 android:focusedByDefault="true"
@@ -97,7 +97,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/choose_your_address"
+                                android:text="@string/main_canteen"
                                 android:fontFamily="@font/be_vietnam_medium"
                                 android:textSize="13sp" />
 
@@ -252,12 +252,12 @@
 
                                         <ImageView
                                             style="@style/TypeDrink_Thumb"
-                                            android:src="@drawable/ic_order_coffee" />
+                                            android:src="@drawable/ic_dish_rice_noodle" />
                                     </LinearLayout>
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:text="Coffee"
+                                        android:text="@string/rice_noodles"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/lnCoffee" />
@@ -281,12 +281,12 @@
 
                                         <ImageView
                                             style="@style/TypeDrink_Thumb"
-                                            android:src="@drawable/ic_order_tea" />
+                                            android:src="@drawable/ic_dish_rice" />
                                     </LinearLayout>
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:text="Tea"
+                                        android:text="@string/rice"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/lnTea" />
@@ -310,12 +310,13 @@
 
                                         <ImageView
                                             style="@style/TypeDrink_Thumb"
-                                            android:src="@drawable/ic_order_soda" />
+                                            android:src="@drawable/ic_dish_fried" />
                                     </LinearLayout>
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:text="Soda"
+                                        android:textAlignment="center"
+                                        android:text="@string/stir_fried_noodles"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/lnSoda" />
@@ -339,12 +340,12 @@
 
                                         <ImageView
                                             style="@style/TypeDrink_Thumb"
-                                            android:src="@drawable/ic_order_juice" />
+                                            android:src="@drawable/ic_dish_pho" />
                                     </LinearLayout>
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:text="Juice"
+                                        android:text="@string/pho"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/lnJuice" />
@@ -374,12 +375,14 @@
 
                                         <ImageView
                                             style="@style/TypeDrink_Thumb"
-                                            android:src="@drawable/ic_order_yogurt" />
+                                            android:src="@drawable/ic_dish_promo" />
                                     </LinearLayout>
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:text="@string/yogurt"
+                                        android:textSize="12.5sp"
+                                        android:text="@string/promo_noodles"
+                                        android:textAlignment="center"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/lnYogurt" />
@@ -403,12 +406,12 @@
 
                                         <ImageView
                                             style="@style/TypeDrink_Thumb"
-                                            android:src="@drawable/ic_order_machiato" />
+                                            android:src="@drawable/ic_dish_topping" />
                                     </LinearLayout>
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:text="@string/machiato"
+                                        android:text="@string/topping"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/lnMachiato" />
@@ -432,12 +435,12 @@
 
                                         <ImageView
                                             style="@style/TypeDrink_Thumb"
-                                            android:src="@drawable/ic_order_frappuchino" />
+                                            android:src="@drawable/ic_dish_drink" />
                                     </LinearLayout>
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:text="@string/frappuchino"
+                                        android:text="@string/drink"
                                         app:layout_constraintLeft_toLeftOf="parent"
                                         app:layout_constraintRight_toRightOf="parent"
                                         app:layout_constraintTop_toBottomOf="@id/lnFrappuchino" />
@@ -525,7 +528,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-<!--//new-->
+                <!--//new-->
 
 
                 <androidx.recyclerview.widget.RecyclerView

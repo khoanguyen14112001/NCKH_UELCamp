@@ -1,26 +1,25 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
-
-import androidx.appcompat.app.AppCompatActivity;
+package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.HomeSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class SLSpaceSplashScreen extends AppCompatActivity {
+public class CanteenSplashScreen extends AppCompatActivity {
 
     Button btnGo;
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_slspace_main_screen);
-
+        setContentView(R.layout.activity_canteen_splash_screen);
         linkView();
         autoMoveNextScreen();
     }
@@ -38,7 +37,7 @@ public class SLSpaceSplashScreen extends AppCompatActivity {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SLSpaceSplashScreen.this, HomeSLSpaceScreen.class));
+                startActivity(new Intent(CanteenSplashScreen.this, HomeCanteenScreen.class));
                 finish();
             }
         };
@@ -48,12 +47,10 @@ public class SLSpaceSplashScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 handler.removeCallbacksAndMessages(null);
-                startActivity(new Intent(SLSpaceSplashScreen.this, HomeSLSpaceScreen.class));
+                startActivity(new Intent(CanteenSplashScreen.this, HomeCanteenScreen.class));
                 finish();
             }
         });
-
-
     }
 
     private void linkView() {

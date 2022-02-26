@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import nguyenhoanganhkhoa.com.models.DrinkCateOption;
 import nguyenhoanganhkhoa.com.models.DrinkOption;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.AddToCartScreen;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class DrinkCateOptionAdapter extends RecyclerView.Adapter<DrinkCateOptionAdapter.ViewHolder> {

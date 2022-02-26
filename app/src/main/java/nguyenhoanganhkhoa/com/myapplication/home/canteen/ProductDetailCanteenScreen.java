@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,12 +18,11 @@ import android.widget.TextView;
 import nguyenhoanganhkhoa.com.adapter.CommentsAdapter;
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
 import nguyenhoanganhkhoa.com.models.Drink;
-import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class ProductDetailScreen extends AppCompatActivity {
+public class ProductDetailCanteenScreen extends AppCompatActivity {
 
     ImageView imvThumbDrink;
     TextView txtTitleDrink, txtNameDrink, txtTypeDrink, txtPrepriceDrink, txtAftpriceDrink,txtInfoProduct, txtRating, txtQuantityReviews, txtRating2;
@@ -69,7 +68,7 @@ public class ProductDetailScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_detail_screen);
+        setContentView(R.layout.activity_product_detail_canteen_screen);
 
         linkView();
         getData();
@@ -138,7 +137,7 @@ public class ProductDetailScreen extends AppCompatActivity {
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProductDetailScreen.this, AddToCartScreen.class);
+                Intent intent = new Intent(ProductDetailCanteenScreen.this, AddToCartCanteenScreen.class);
                 pushData(intent,drink);
                 startActivity(intent);
             }

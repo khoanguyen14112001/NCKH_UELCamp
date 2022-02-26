@@ -2,16 +2,13 @@ package nguyenhoanganhkhoa.com.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.MediaController;
-import android.widget.TextView;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +19,6 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.ImagesVideoEvaluate;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.EvaluateSLSpaceScreen;
 
 public class ImagesVideoEvaluateAdapter extends RecyclerView.Adapter<ImagesVideoEvaluateAdapter.ViewHolder> {
 

@@ -235,6 +235,7 @@
             <ImageButton
                 android:layout_width="130dp"
                 android:layout_height="130dp"
+                android:id="@+id/imbCanteen"
                 android:background="@drawable/custom_button"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="@id/btnCanteen"/>

@@ -1,11 +1,13 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.SLSpace;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -22,15 +24,18 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class PurchaseSLSpaceScreen extends AppCompatActivity {
 
     RecyclerView rcvStatusPurchase,rcvListPurchase;
+    ImageView imvCart;
     PurchaseStatusAdapter adapterStatus = new PurchaseStatusAdapter(this);
     PurchaseAdapter adapterPurchase = new PurchaseAdapter(this);
     LinearLayout layout_no_order_yet;
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
+
     private void linkView() {
         rcvStatusPurchase = findViewById(R.id.rcvStatusPurchase);
         rcvListPurchase = findViewById(R.id.rcvListPurchase);
         layout_no_order_yet = findViewById(R.id.layout_no_order_yet);
+        imvCart = findViewById(R.id.imvCart);
     }
 
     @Override
@@ -51,6 +56,12 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
     private void addEvents() {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
+        imvCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PurchaseSLSpaceScreen.this,CartSLSpaceScreen.class));
+            }
+        });
     }
 
     @Override
