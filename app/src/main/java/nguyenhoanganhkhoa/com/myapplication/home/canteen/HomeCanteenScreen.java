@@ -239,11 +239,11 @@ public class HomeCanteenScreen extends AppCompatActivity {
     public static String comment_demo = "Delicious drink, not too sweet nor too bitter, fast delivery, cute shipper.";
     public static List<Drink> getListDishes() {
         List<Drink> drinks = new ArrayList<>();
-        Drink drink1 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"Beef rice noodles",ORDER_RICE_NOODLES,R.drawable.img_drink_1,0,35000);
-        Drink drink2 = new Drink("","Chicken promo noodles",ORDER_PROMO_NOODLES,R.drawable.img_drink_2,0,29000, true);
-        Drink drink3 = new Drink("","Stir-fried spaghetti with beef",ORDER_STIR_FRIED_NOODLES,R.drawable.img_drink_3,0,25000);
-        Drink drink4 = new Drink("","Rib rice",ORDER_RICE,R.drawable.img_drink_4,0.1,25000, true);
-        Drink drink5 = new Drink("","Flushing fat chicken rice",ORDER_RICE,R.drawable.img_drink_5,0.3,25000);
+        Drink drink1 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"BEEF RICE NOODLES",ORDER_RICE_NOODLES,R.drawable.img_dish_1,0,35000);
+        Drink drink2 = new Drink("","CHICKEN PROMO NOODLES",ORDER_PROMO_NOODLES,R.drawable.img_dish_2,0,29000, true);
+        Drink drink3 = new Drink("","STIR-FRIED SPAGHETTI WITH BEEF",ORDER_STIR_FRIED_NOODLES,R.drawable.img_dish_3,0,25000);
+        Drink drink4 = new Drink("","RIB RICE",ORDER_RICE,R.drawable.img_dish_4,0.1,25000, true);
+        Drink drink5 = new Drink("","FLUSHING FAT CHICKEN RICE",ORDER_RICE,R.drawable.img_dish_5,0.3,25000);
 
         drink1.setDrinkDes(content_dish);
         drink2.setDrinkDes(content_dish);
@@ -321,30 +321,27 @@ public class HomeCanteenScreen extends AppCompatActivity {
 
     private static List<ImagesVideoEvaluate> getListImagesComment3() {
         List<ImagesVideoEvaluate> list = new ArrayList<>();
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_1));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_4));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_2));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_3));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_5));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_4));
         return list;
     }
 
     private static List<ImagesVideoEvaluate> getListImagesComment1() {
         List<ImagesVideoEvaluate> list = new ArrayList<>();
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_1));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_4));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_2));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_4));
         return list;
     }
 
     private static List<ImagesVideoEvaluate> getListImagesComment2() {
         List<ImagesVideoEvaluate> list = new ArrayList<>();
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_5));
         return list;
     }
 

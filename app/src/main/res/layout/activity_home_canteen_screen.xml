@@ -380,7 +380,6 @@
 
                                     <TextView
                                         style="@style/TypeDrink_Text"
-                                        android:textSize="12.5sp"
                                         android:text="@string/promo_noodles"
                                         android:textAlignment="center"
                                         app:layout_constraintLeft_toLeftOf="parent"

@@ -110,13 +110,13 @@ public class CartCanteenScreen extends AppCompatActivity {
 
     public static List<DrinkInCart> getListDishesInCart() {
         List<DrinkInCart> list = new ArrayList<>();
-        addItemToList(list,"Beef rice noodles", R.drawable.img_drink_1,0,30000,
+        addItemToList(list,"BEEF RICE NOODLES", R.drawable.img_dish_1,0,30000,
                 1);
-        addItemToList(list,"Chicken promo noodles", R.drawable.img_drink_1,0,15000,
+        addItemToList(list,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
                 2);
-        addItemToList(list,"Stir-fried spaghetti with beef", R.drawable.img_drink_1,0,27000,
+        addItemToList(list,"STIR-FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
                 3);
-        addItemToList(list,"Rib rice", R.drawable.img_drink_1,0,25000,
+        addItemToList(list,"RIB RICE", R.drawable.img_dish_4,0,25000,
                 4);
         return list;
     }

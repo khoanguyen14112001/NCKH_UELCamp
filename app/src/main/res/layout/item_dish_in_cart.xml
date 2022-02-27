@@ -149,6 +149,7 @@
                 android:ellipsize="end"
                 android:id="@+id/txtNameDrink"
                 android:textSize="15sp"
+                android:textAllCaps="true"
                 style="@style/in_SmallHeaderText"
                 />
             <LinearLayout

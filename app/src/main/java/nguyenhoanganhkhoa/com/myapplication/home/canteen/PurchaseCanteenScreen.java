@@ -19,6 +19,7 @@ import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.models.PurchaseStatus;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class PurchaseCanteenScreen extends AppCompatActivity {
@@ -49,6 +50,7 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
 
         setCallBackAdapterStatus();
         initAdapterPurchaseBegin();
+        AppUtil.statusOrder = PurchaseAdapter.TYPE_PENDING;
 
         addEvents();
     }
@@ -155,18 +157,14 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
         List<DrinkInCart> list1 = new ArrayList<>();
         List<DrinkInCart> list2 = new ArrayList<>();
 
-        addItemToList(list1,"ICED/HOT COFFEE - size M", R.drawable.img_drink_3,0,30000,
-                70,50,"Size M", 1);
-
-
-        addItemToList(list2,"ICE/ HOT COFFEE - size M", R.drawable.img_drink_3,0.2,25000,
-                50,30,"Size M", 2);
-
-        addItemToList(list2,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_5,0,35000,
-                70,70,"Size M", 2);
-
-        addItemToList(list2,"SEA SODA - size M", R.drawable.img_drink_2,0.2,25000,
-                70,100,"Size M", 3);
+        addItemToList(list1,"BEEF RICE NOODLES", R.drawable.img_dish_1,0,30000,
+                1);
+        addItemToList(list1,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
+                2);
+        addItemToList(list2,"STIR-FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
+                3);
+        addItemToList(list2,"RIB RICE", R.drawable.img_dish_4,0,25000,
+                4);
 
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FX9R2",quantity(list1),totalPayment(list1),list1));
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FXDFJ",quantity(list2),totalPayment(list2),list2));
@@ -178,11 +176,10 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
         List<DrinkInCart> list2 = new ArrayList<>();
 
 
-        addItemToList(list1,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_5,0,35000,
-                70,70,"Size M", 3);
-
-        addItemToList(list2,"ICED/HOT COFFEE - size M", R.drawable.img_drink_3,0,30000,
-                70,50,"Size L", 1);
+        addItemToList(list1,"BEEF RICE NOODLES", R.drawable.img_dish_1,0,30000,
+                1);
+        addItemToList(list1,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
+                2);
 
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"22010DSFHU",quantity(list1),totalPayment(list1),list1));
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"2381FDDHOA",quantity(list2),totalPayment(list2),list2));
@@ -193,8 +190,9 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
         List<DrinkInCart> list1 = new ArrayList<>();
 
 
-        addItemToList(list1,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_5,0,35000,
-                70,70,"Size M", 2);
+        addItemToList(list1,"BEEF RICE NOODLES", R.drawable.img_dish_1,0,30000,
+                1);
+
 
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_DELIVERING,"2381FDDASF",quantity(list1),totalPayment(list1),list1));
         return listPurchase;
@@ -204,18 +202,15 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
         List<DrinkInCart> list1 = new ArrayList<>();
         List<DrinkInCart> list2 = new ArrayList<>();
 
-        addItemToList(list1,"ICED/HOT COFFEE - size M", R.drawable.img_drink_3,0,30000,
-                70,50,"Size M", 1);
+        addItemToList(list1,"BEEF RICE NOODLES", R.drawable.img_dish_1,0,30000,
+                1);
+        addItemToList(list1,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
+                2);
+        addItemToList(list2,"STIR-FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
+                3);
+        addItemToList(list2,"RIB RICE", R.drawable.img_dish_4,0,25000,
+                4);
 
-
-        addItemToList(list2,"ICE/ HOT COFFEE - size M", R.drawable.img_drink_3,0.2,25000,
-                50,30,"Size M", 2);
-
-        addItemToList(list2,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_5,0,35000,
-                70,70,"Size M", 2);
-
-        addItemToList(list2,"SEA SODA - size M", R.drawable.img_drink_2,0.2,25000,
-                70,100,"Size M", 3);
 
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"220107FX232",quantity(list1),totalPayment(list1),list1));
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"241147FXDFJ",quantity(list2),totalPayment(list2),list2));
@@ -228,11 +223,9 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
 
 
     private void addItemToList(List<DrinkInCart> list, String drinkName, int thumbDrink, double drinkDiscount, double drinkPrePrice,
-                               int iceLevel, int sugarLevel, String size, int quantity){
+                               int quantity){
         DrinkInCart drink = new DrinkInCart(drinkName,thumbDrink,drinkDiscount,drinkPrePrice);
-        drink.setIceLevel(iceLevel);
-        drink.setSugarLevel(sugarLevel);
-        drink.setSize(size);
+        drink.setNote("no chili, no onions...");
         drink.setQuantityDrink(quantity);
 
         list.add(drink);

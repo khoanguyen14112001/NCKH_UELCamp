@@ -16,6 +16,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
+            android:name=".home.canteen.OrderDetailCanteenScreen"
+            android:exported="false" />
+        <activity
             android:name=".home.canteen.OrderCanteenScreen"
             android:exported="false" />
         <activity

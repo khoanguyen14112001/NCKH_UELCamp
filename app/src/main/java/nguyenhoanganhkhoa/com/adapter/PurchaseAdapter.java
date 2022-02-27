@@ -20,6 +20,7 @@ import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.EvaluateSLSpaceScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.OrderDetailScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.OrderDetailCanteenScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.canteen.PurchaseCanteenScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
@@ -124,7 +125,14 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
         holder.btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pushData(purchase, OrderDetailScreen.class);
+                if(getScreen() == PURCHASE_CANTEEN_SCREEN){
+                    pushData(purchase, OrderDetailCanteenScreen.class);
+
+                }
+                else{
+                    pushData(purchase, OrderDetailScreen.class);
+
+                }
             }
         });
     }

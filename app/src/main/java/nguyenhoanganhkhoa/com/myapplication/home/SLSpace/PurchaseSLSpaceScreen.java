@@ -19,6 +19,7 @@ import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.models.PurchaseStatus;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 public class PurchaseSLSpaceScreen extends AppCompatActivity {
@@ -48,6 +49,7 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
         initAdapterStatusPurchase();
 
         setCallBackAdapterStatus();
+        AppUtil.statusOrder = PurchaseAdapter.TYPE_PENDING;
         initAdapterPurchaseBegin();
 
         addEvents();
