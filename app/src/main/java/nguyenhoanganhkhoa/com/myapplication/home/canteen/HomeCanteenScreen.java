@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,11 +36,15 @@ import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.Images;
 import nguyenhoanganhkhoa.com.models.ImagesVideoEvaluate;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.CartSLSpaceScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.FavoriteDrinksScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.MenuSLSpaceScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.PurchaseSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class HomeSLSpaceScreen extends AppCompatActivity {
+public class HomeCanteenScreen extends AppCompatActivity {
     RecyclerView rcvOrderMayLike;
-    LinearLayout lnCoffee, lnTea, lnSoda, lnJuice, lnYogurt, lnMachiato, lnFrappuchino, lnDiscount;
+    LinearLayout lnRiceNoodle, lnRice, lnStirFriedNoodle, lnPho, lnPromoNoodle, lnTopping, lnDrink, lnDiscount;
     TextView txtShowType, txtMaybeLike,txtSeeAll;
 
     ConstraintLayout layout_choose_address;
@@ -59,16 +63,45 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
     LinearLayout layout_dots_news;
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_canteen_screen);
+
+        linkView();
+        initAdapterDishes();
+        setCallBackAdapter();
+        addSearchFunction();
+
+        loadFireBaseData();
+
+        addEvents();
+    }
+
+
+    DrinkAdapter adapter2 = new DrinkAdapter(this);
+
+    public static final String ORDER_RICE_NOODLES = "Rice noodles";
+    public static final String ORDER_RICE = "Rice";
+    public static final String ORDER_STIR_FRIED_NOODLES = "Stir-fried noodles";
+    public static final String ORDER_PHO = "Pho";
+    public static final String ORDER_PROMO_NOODLES = "Promo noodles";
+    public static final String ORDER_TOPPING = "Topping";
+    public static final String ORDER_DRINK = "Drink";
+
+    public static final String ORDER_DISCOUNT = "Discount";
+
+
     private void linkView() {
         rcvOrderMayLike = findViewById(R.id.rcvOrderMayLike);
 
-        lnCoffee = findViewById(R.id.lnCoffee);
-        lnTea = findViewById(R.id.lnTea);
-        lnSoda = findViewById(R.id.lnSoda);
-        lnJuice = findViewById(R.id.lnJuice);
-        lnYogurt = findViewById(R.id.lnYogurt);
-        lnMachiato = findViewById(R.id.lnMachiato);
-        lnFrappuchino = findViewById(R.id.lnFrappuchino);
+        lnRiceNoodle = findViewById(R.id.lnCoffee);
+        lnRice = findViewById(R.id.lnTea);
+        lnStirFriedNoodle = findViewById(R.id.lnSoda);
+        lnPho = findViewById(R.id.lnJuice);
+        lnPromoNoodle = findViewById(R.id.lnYogurt);
+        lnTopping = findViewById(R.id.lnMachiato);
+        lnDrink = findViewById(R.id.lnFrappuchino);
         lnDiscount = findViewById(R.id.lnDiscount);
 
 
@@ -89,38 +122,11 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         viewPagerAds = findViewById(R.id.viewPagerAds);
         layout_dots_news = findViewById(R.id.layout_dots_news);
-
-    }
-    public static final String ORDER_COFFEE = "Coffee";
-    public static final String ORDER_TEA = "Tea";
-    public static final String ORDER_SODA = "Soda";
-    public static final String ORDER_JUICE = "Juice";
-    public static final String ORDER_YOGURT = "Yogurt";
-    public static final String ORDER_MACHIATO = "Machiato";
-    public static final String ORDER_FRAPPUCHINO = "Frappuchino";
-    public static final String ORDER_DISCOUNT = "Discount";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_slspace_screen);
-
-        linkView();
-        initAdapterDrink();
-        setCallBackAdapter();
-        addSearchFunction();
-
-        loadFireBaseData();
-
-
-        addEvents();
     }
 
 
-
-    DrinkAdapter adapter2 = new DrinkAdapter(this);
-    public void addSearchFunction() {
-        adapter2.setData(getListDrink());
+    private void addSearchFunction() {
+        adapter2.setData(getListDishes());
         svOrder.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -149,46 +155,45 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         });
     }
 
-    private void initAdapterDrink(LinearLayout layout) {
-
-        if(layout.equals(lnCoffee)){
-            adapter.setData(getListByType(ORDER_COFFEE));
+    private void initAdapterDishes(LinearLayout layout) {
+        if(layout.equals(lnRiceNoodle)){
+            adapter.setData(getListByType(ORDER_RICE_NOODLES));
         }
         else if(layout.equals(lnDiscount)){
             adapter.setData(getListByType(ORDER_DISCOUNT));
         }
 
-        else if(layout.equals(lnFrappuchino)){
-            adapter.setData(getListByType(ORDER_FRAPPUCHINO));
+        else if(layout.equals(lnStirFriedNoodle)){
+            adapter.setData(getListByType(ORDER_STIR_FRIED_NOODLES));
         }
 
-        else if(layout.equals(lnJuice)){
-            adapter.setData(getListByType(ORDER_JUICE));
+        else if(layout.equals(lnPho)){
+            adapter.setData(getListByType(ORDER_PHO));
         }
 
-        else if(layout.equals(lnMachiato)){
-            adapter.setData(getListByType(ORDER_MACHIATO));
+        else if(layout.equals(lnPromoNoodle)){
+            adapter.setData(getListByType(ORDER_PROMO_NOODLES));
         }
 
-        else if(layout.equals(lnTea)){
-            adapter.setData(getListByType(ORDER_TEA));
+        else if(layout.equals(lnTopping)){
+            adapter.setData(getListByType(ORDER_TOPPING));
         }
 
-        else if(layout.equals(lnSoda)){
-            adapter.setData(getListByType(ORDER_SODA));
+        else if(layout.equals(lnDrink)){
+            adapter.setData(getListByType(ORDER_DRINK));
         }
 
-        else if(layout.equals(lnYogurt)){
-            adapter.setData(getListByType(ORDER_YOGURT));
+        else if(layout.equals(lnRice)){
+            adapter.setData(getListByType(ORDER_RICE));
         }
 
         rcvOrderMayLike.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvOrderMayLike.setAdapter(adapter);
-
     }
-    private void initAdapterDrink() {
 
-        adapter.setData(getListDrink());
+    private void initAdapterDishes() {
+        adapter.setData(getListDishes());
+        adapter.setScreen(DrinkAdapter.HOME_MENU_CANTEEN_SCREEN);
         rcvOrderMayLike.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvOrderMayLike.setAdapter(adapter);
 
@@ -224,34 +229,27 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
         });
     }
-    public static String content_drink = "Select the amount of sugar and ice and note your requirements in the ordering section\n" +
-            "\n" +
-            "*Some benefits of drinking coffee:\n" +
-            "Provide energy and improve thinking ability\n" +
-            "Supports fat burning\n" +
-            "Improve physical performance\n" +
-            "Contains many essential nutrients";
+
+    public static String content_dish = "Hue people's characteristic is that they " +
+            "like to eat spicy food, so each bowl of vermicelli comes with a l" +
+            "ittle bit of satay chili, which adds color to the dish and stimulates the " +
+            "taste buds. Diners can put some raw vegetables in the bowl and then use chopsticks " +
+            "to mix the vermicelli bowl. Each strand of vermicelli blends in the sweetness.";
 
     public static String comment_demo = "Delicious drink, not too sweet nor too bitter, fast delivery, cute shipper.";
-
-
-
-
-    public static List<Drink> getListDrink() {
+    public static List<Drink> getListDishes() {
         List<Drink> drinks = new ArrayList<>();
-        Drink drink1 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"MATCHA FRAPPUCHINO","Frappuchino",R.drawable.img_drink_1,0,35000);
-        Drink drink2 = new Drink("","ORANGE JUICE","Juice",R.drawable.img_drink_2,0,29000, true);
-        Drink drink3 = new Drink("","ICED/HOT COFFEE","Coffee",R.drawable.img_drink_3,0,25000);
-        Drink drink4 = new Drink("","SEA SODA","Soda",R.drawable.img_drink_4,0.1,25000, true);
-        Drink drink5 = new Drink("","LEMON YOGURT","Yogurt",R.drawable.img_drink_5,0.3,25000);
-        Drink drink6 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"PEACH TEA","Soda",R.drawable.img_drink_6,0,25000);
+        Drink drink1 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"BEEF RICE NOODLES",ORDER_RICE_NOODLES,R.drawable.img_dish_1,0,35000);
+        Drink drink2 = new Drink("","CHICKEN PROMO NOODLES",ORDER_PROMO_NOODLES,R.drawable.img_dish_2,0,29000, true);
+        Drink drink3 = new Drink("","STIR-FRIED SPAGHETTI WITH BEEF",ORDER_STIR_FRIED_NOODLES,R.drawable.img_dish_3,0,25000);
+        Drink drink4 = new Drink("","RIB RICE",ORDER_RICE,R.drawable.img_dish_4,0.1,25000, true);
+        Drink drink5 = new Drink("","FLUSHING FAT CHICKEN RICE",ORDER_RICE,R.drawable.img_dish_5,0.3,25000);
 
-        drink1.setDrinkDes(content_drink);
-        drink2.setDrinkDes(content_drink);
-        drink3.setDrinkDes(content_drink);
-        drink4.setDrinkDes(content_drink);
-        drink5.setDrinkDes(content_drink);
-        drink6.setDrinkDes(content_drink);
+        drink1.setDrinkDes(content_dish);
+        drink2.setDrinkDes(content_dish);
+        drink3.setDrinkDes(content_dish);
+        drink4.setDrinkDes(content_dish);
+        drink5.setDrinkDes(content_dish);
 
         drink1.setCommentsList(getListComment1());
         drink2.setCommentsList(getListComment2());
@@ -262,30 +260,9 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         drinks.add(drink3);
         drinks.add(drink4);
         drinks.add(drink5);
-        drinks.add(drink6);
 
         return drinks;
     }
-
-    private static List<Comments> getListComment2() {
-        List<Comments> list = new ArrayList<>();
-        Comments comment1 = new Comments(R.drawable.img_heo,"Ý Heo",
-                "21 Oct 2022, 10:07",4,
-                comment_demo,null);
-
-
-
-        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Noob",
-                "21 Oct 1999, 10:07",4,
-                comment_demo,null);
-
-
-        list.add(comment1);
-        list.add(comment3);
-        return list;
-    }
-
-
 
     public static List<Comments> getListComment1(){
         List<Comments> list = new ArrayList<>();
@@ -324,39 +301,52 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         return list;
     }
 
+    private static List<Comments> getListComment2() {
+        List<Comments> list = new ArrayList<>();
+        Comments comment1 = new Comments(R.drawable.img_heo,"Ý Heo",
+                "21 Oct 2022, 10:07",4,
+                comment_demo,null);
+
+
+
+        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Noob",
+                "21 Oct 1999, 10:07",4,
+                comment_demo,null);
+
+
+        list.add(comment1);
+        list.add(comment3);
+        return list;
+    }
+
     private static List<ImagesVideoEvaluate> getListImagesComment3() {
         List<ImagesVideoEvaluate> list = new ArrayList<>();
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_1));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_4));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_2));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_3));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_5));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_4));
         return list;
     }
 
     private static List<ImagesVideoEvaluate> getListImagesComment1() {
         List<ImagesVideoEvaluate> list = new ArrayList<>();
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_1));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_4));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_2));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_1));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_4));
         return list;
     }
 
     private static List<ImagesVideoEvaluate> getListImagesComment2() {
         List<ImagesVideoEvaluate> list = new ArrayList<>();
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_2));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_3));
-        list.add(new ImagesVideoEvaluate(R.drawable.img_drink_5));
+        list.add(new ImagesVideoEvaluate(R.drawable.img_dish_5));
         return list;
     }
 
-
-
     private void changeColorButton(LinearLayout layout){
-        LinearLayout[] arrLn = {lnCoffee, lnTea, lnSoda, lnJuice, lnYogurt, lnMachiato, lnFrappuchino, lnDiscount};
+        LinearLayout[] arrLn = {lnRice, lnRiceNoodle, lnPromoNoodle, lnTopping, lnDrink, lnPho, lnStirFriedNoodle, lnDiscount};
         if (layout.getTag()==null| layout.getTag() == "off")
         {
             layout.setBackground(getDrawable(R.drawable.view_custom_corner_small_blackstroke_thin_yellow));
@@ -380,14 +370,15 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         }
 
         if(layout.getTag() == "off"){
-            initAdapterDrink();
+            initAdapterDishes();
             txtShowType.setVisibility(View.GONE);
             txtMaybeLike.setVisibility(View.VISIBLE);
             txtSeeAll.setVisibility(View.VISIBLE);
         }
     }
+
     private void checkAndSetListAgain(){
-        LinearLayout[] arrLn = {lnCoffee, lnTea, lnSoda, lnJuice, lnYogurt, lnMachiato, lnFrappuchino, lnDiscount};
+        LinearLayout[] arrLn = {lnRice, lnRiceNoodle, lnPromoNoodle, lnTopping, lnDrink, lnPho, lnStirFriedNoodle, lnDiscount};
         int i;
         for(i=0;i<arrLn.length;i++){
             arrLn[i].setBackground(getDrawable(R.drawable.view_custom_corner_small_blackstroke_thin));
@@ -401,7 +392,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        reusedConstraint.checkNavStatusComeBack(HomeSLSpaceScreen.this);
+        reusedConstraint.checkNavStatusComeBack(HomeCanteenScreen.this);
     }
 
     private void addEvents() {
@@ -409,105 +400,100 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         imvPending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeSLSpaceScreen.this, PurchaseSLSpaceScreen.class));
+                startActivity(new Intent(HomeCanteenScreen.this, PurchaseCanteenScreen.class));
             }
         });
-        layout_choose_address.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeSLSpaceScreen.this,ChooseAddressScreen.class));
-            }
-        });
+
         imvFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeSLSpaceScreen.this,FavoriteDrinksScreen.class));
+                startActivity(new Intent(HomeCanteenScreen.this, FavoriteDishesScreen.class));
             }
         });
         imvCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeSLSpaceScreen.this, CartSLSpaceScreen.class));
+                startActivity(new Intent(HomeCanteenScreen.this, CartCanteenScreen.class));
             }
         });
         txtSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(HomeSLSpaceScreen.this,MenuSLSpaceScreen.class));
+                startActivity(new Intent(HomeCanteenScreen.this, MenuCanteenScreen.class));
             }
         });
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reusedConstraint.checkNavStatusComeBack(HomeSLSpaceScreen.this);
+                reusedConstraint.checkNavStatusComeBack(HomeCanteenScreen.this);
             }
         });
-        lnCoffee.setOnClickListener(new View.OnClickListener() {
+        lnStirFriedNoodle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(lnCoffee);
-                setTextType(ORDER_COFFEE);
-                changeColorButton(lnCoffee);
+                initAdapterDishes(lnStirFriedNoodle);
+                setTextType(ORDER_STIR_FRIED_NOODLES);
+                changeColorButton(lnStirFriedNoodle);
             }
         });
-        lnTea.setOnClickListener(new View.OnClickListener() {
+        lnPho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(lnTea);
-                setTextType(ORDER_TEA);
-                changeColorButton(lnTea);
-            }
-        });
-
-        lnSoda.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                initAdapterDrink(lnSoda);
-                setTextType(ORDER_SODA);
-                changeColorButton(lnSoda);
+                initAdapterDishes(lnPho);
+                setTextType(ORDER_PHO);
+                changeColorButton(lnPho);
             }
         });
 
-        lnJuice.setOnClickListener(new View.OnClickListener() {
+        lnDrink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(lnJuice);
-                setTextType(ORDER_JUICE);
-                changeColorButton(lnJuice);
+                initAdapterDishes(lnDrink);
+                setTextType(ORDER_DRINK);
+                changeColorButton(lnDrink);
             }
         });
 
-        lnYogurt.setOnClickListener(new View.OnClickListener() {
+        lnTopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(lnYogurt);
-                setTextType(ORDER_YOGURT);
-                changeColorButton(lnYogurt);
+                initAdapterDishes(lnTopping);
+                setTextType(ORDER_TOPPING);
+                changeColorButton(lnTopping);
             }
         });
 
-        lnMachiato.setOnClickListener(new View.OnClickListener() {
+        lnPromoNoodle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(lnMachiato);
-                setTextType(ORDER_MACHIATO);
-                changeColorButton(lnMachiato);
+                initAdapterDishes(lnPromoNoodle);
+                setTextType(ORDER_PROMO_NOODLES);
+                changeColorButton(lnPromoNoodle);
             }
         });
 
-        lnFrappuchino.setOnClickListener(new View.OnClickListener() {
+        lnRiceNoodle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(lnFrappuchino);
-                setTextType(ORDER_FRAPPUCHINO);
-                changeColorButton(lnFrappuchino);
+                initAdapterDishes(lnRiceNoodle);
+                setTextType(ORDER_RICE_NOODLES);
+                changeColorButton(lnRiceNoodle);
+            }
+        });
+
+        lnRice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initAdapterDishes(lnRice);
+                setTextType(ORDER_RICE);
+                changeColorButton(lnRice);
             }
         });
 
         lnDiscount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                initAdapterDrink(lnDiscount);
+                initAdapterDishes(lnDiscount);
                 setTextType(ORDER_DISCOUNT);
                 changeColorButton(lnDiscount);
             }
@@ -521,52 +507,51 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         txtSeeAll.setVisibility(View.GONE);
     }
 
-   private List<Drink> getListByType(String type){
-       List<Drink> list = new ArrayList<>();
-       switch (type){
-           case ORDER_COFFEE:
-               filterList(list,ORDER_COFFEE);
-               return list;
-           case ORDER_TEA:
-               filterList(list,ORDER_TEA);
-               return list;
-           case ORDER_SODA:
-               filterList(list,ORDER_SODA);
-               return list;
-           case ORDER_JUICE:
-               filterList(list,ORDER_JUICE);
-               return list;
+    private List<Drink> getListByType(String type){
+        List<Drink> list = new ArrayList<>();
+        switch (type){
+            case ORDER_DRINK:
+                filterList(list,ORDER_DRINK);
+                return list;
+            case ORDER_PHO:
+                filterList(list,ORDER_PHO);
+                return list;
+            case ORDER_RICE:
+                filterList(list,ORDER_RICE);
+                return list;
+            case ORDER_PROMO_NOODLES:
+                filterList(list,ORDER_PROMO_NOODLES);
+                return list;
 
-           case ORDER_YOGURT:
-               filterList(list,ORDER_YOGURT);
-               return list;
-           case ORDER_MACHIATO:
-               filterList(list,ORDER_MACHIATO);
-               return list;
-           case ORDER_FRAPPUCHINO:
-               filterList(list,ORDER_FRAPPUCHINO);
-               return list;
-           case ORDER_DISCOUNT:
-               int i ;
-               for(i=0;i<getListDrink().size();i++){
-                   if(getListDrink().get(i).getDrinkDiscount()!=0){
-                       list.add(getListDrink().get(i));
-                   }
-               }
-               return list;
-       }
-       return null;
-   }
+            case ORDER_RICE_NOODLES:
+                filterList(list,ORDER_RICE_NOODLES);
+                return list;
+            case ORDER_STIR_FRIED_NOODLES:
+                filterList(list,ORDER_STIR_FRIED_NOODLES);
+                return list;
+            case ORDER_TOPPING:
+                filterList(list,ORDER_TOPPING);
+                return list;
+            case ORDER_DISCOUNT:
+                int i ;
+                for(i=0;i<getListDishes().size();i++){
+                    if(getListDishes().get(i).getDrinkDiscount()!=0){
+                        list.add(getListDishes().get(i));
+                    }
+                }
+                return list;
+        }
+        return null;
+    }
 
-   private void filterList(List<Drink> list, String type){
+    private void filterList(List<Drink> list, String type){
         int i ;
-        for(i=0;i<getListDrink().size();i++){
-            if(getListDrink().get(i).getDrinkType().equals(type)){
-                list.add(getListDrink().get(i));
+        for(i=0;i<getListDishes().size();i++){
+            if(getListDishes().get(i).getDrinkType().equals(type)){
+                list.add(getListDishes().get(i));
             }
         }
     }
-
     ImagesAdapter adapterAds = new ImagesAdapter(this);
     int currentPosition = 0;
     private static final String LINK_ADS = "ads_slspace";
@@ -574,6 +559,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
 
     DatabaseReference databaseReferenceAds =  FirebaseDatabase.getInstance().getReference();
+
     private void loadFireBaseData() {
         List<Images> list = new ArrayList<>();
         databaseReferenceAds.child(LINK_ADS).addValueEventListener(new ValueEventListener() {
@@ -594,7 +580,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(HomeSLSpaceScreen.this, "Fail to load Data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeCanteenScreen.this, "Fail to load Data", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -646,8 +632,5 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         }, 150,2500);
 
     }
-
-
-
 
 }

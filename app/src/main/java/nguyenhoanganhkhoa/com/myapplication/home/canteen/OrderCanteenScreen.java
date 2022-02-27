@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -29,14 +29,14 @@ import nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.models.Faculty;
 import nguyenhoanganhkhoa.com.myapplication.R;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.VoucherSLSpaceScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomePageScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class OrderSLSpaceScreen extends AppCompatActivity {
+public class OrderCanteenScreen extends AppCompatActivity {
 
     private static final double discount = 5000;
-    private static final double deliveryFee = 3000;
 
     RecyclerView rcvItemOrder;
     List<DrinkInCart> orderList;
@@ -114,7 +114,6 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
     }
 
     private void setFee() {
-        txtDeliveryFee.setText( "+" + reusedConstraint.formatCurrency(deliveryFee));
         txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
     }
 
@@ -134,7 +133,7 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
             @Override
             public void getListSizeRemain(int size) {
                 if(size == 0){
-                    Toast.makeText(OrderSLSpaceScreen.this, "There is no products in your order", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(OrderCanteenScreen.this, "There is no products in your order", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -149,8 +148,6 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
                 totalPay = totalPay + list.get(i).getTotalPrice();
             }
             txtTotalNoDiscount.setText(reusedConstraint.formatCurrency(totalPay));
-            txtTotalPayment.setText(reusedConstraint.formatCurrency(totalPay - discount + deliveryFee));
-            txtPaymentSummary.setText(reusedConstraint.formatCurrency(totalPay - discount + deliveryFee));
         }
         catch (Exception e){
             Log.d("TAG", "getTotalPayment: " + e);
@@ -189,7 +186,7 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
         btnGoToPurchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderSLSpaceScreen.this, PurchaseSLSpaceScreen.class));
+                startActivity(new Intent(OrderCanteenScreen.this, PurchaseCanteenScreen.class));
 
             }
         });
@@ -197,21 +194,15 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
         btnAddMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderSLSpaceScreen.this,MenuSLSpaceScreen.class));
+                startActivity(new Intent(OrderCanteenScreen.this, MenuCanteenScreen.class));
 
             }
         });
-        btnChangeAddress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(OrderSLSpaceScreen.this,ChooseAddressScreen.class));
 
-            }
-        });
         layout_voucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderSLSpaceScreen.this,VoucherSLSpaceScreen.class));
+                startActivity(new Intent(OrderCanteenScreen.this, VoucherSLSpaceScreen.class));
             }
         });
         btnOrder.setOnClickListener(new View.OnClickListener() {
@@ -224,7 +215,7 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
         btnBackToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OrderSLSpaceScreen.this, HomePageScreen.class));
+                startActivity(new Intent(OrderCanteenScreen.this, HomePageScreen.class));
             }
         });
 
@@ -257,7 +248,7 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
 
     private void initAdapter() {
         adapter.setData(orderList);
-        adapter.setNumScreen(DrinkIncartAdapter.ORDER_SCREEN);
+        adapter.setNumScreen(DrinkIncartAdapter.ORDER_CANTEEN_SCREEN);
         rcvItemOrder.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvItemOrder.setAdapter(adapter);
     }

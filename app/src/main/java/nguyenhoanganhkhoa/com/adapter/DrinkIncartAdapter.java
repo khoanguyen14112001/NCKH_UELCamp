@@ -22,7 +22,8 @@ import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.AddToCartScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.AddToCartScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.AddToCartCanteenScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -36,6 +37,13 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
     public static final int ORDER_SCREEN = 1;
     public static final int PURCHASE_SCREEN = 2;
     public static final int ORDER_DETAIL_SCREEN = 3;
+
+    public static final int IN_CART_CANTEEN_SCREEN = 4;
+    public static final int ORDER_CANTEEN_SCREEN = 5;
+    public static final int PURCHASE_CANTEEN_SCREEN = 6;
+    public static final int ORDER_DETAIL_CANTEEN_SCREEN = 7;
+
+
 
 
     private ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
@@ -76,6 +84,19 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         if(numScreen == ORDER_DETAIL_SCREEN){
             view = inflater.inflate(R.layout.item_drink_purchase_detail,parent,false);
         }
+
+        if(numScreen == IN_CART_CANTEEN_SCREEN){
+            view = inflater.inflate(R.layout.item_dish_in_cart,parent,false);
+        }
+        if(numScreen == ORDER_CANTEEN_SCREEN){
+            view = inflater.inflate(R.layout.item_dish_order,parent,false);
+        }
+        if(numScreen == PURCHASE_CANTEEN_SCREEN){
+            view = inflater.inflate(R.layout.item_dish_purchase,parent,false);
+        }
+        if(numScreen == ORDER_DETAIL_CANTEEN_SCREEN){
+            view = inflater.inflate(R.layout.item_dish_purchase_detail,parent,false);
+        }
         return new ViewHolder(Objects.requireNonNull(view));
     }
 
@@ -87,13 +108,22 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
             return;
         }
 
-        holder.txtNameDrink.setText(drink.getDrinkName());
-        holder.txtIceLevel.setText(drink.toIcePercentString());
-        holder.txtSugarLevel.setText(drink.toSugarPercentString());
-        holder.txtSize.setText(drink.getSize());
+
+
+        if(numScreen != IN_CART_CANTEEN_SCREEN && numScreen != ORDER_CANTEEN_SCREEN && numScreen != PURCHASE_CANTEEN_SCREEN
+        && numScreen!= ORDER_DETAIL_CANTEEN_SCREEN){
+            holder.txtIceLevel.setText(drink.toIcePercentString());
+            holder.txtSugarLevel.setText(drink.toSugarPercentString());
+            holder.txtSize.setText(drink.getSize());
+        }
         holder.txtPriceDrink.setText(reusedConstraint.formatCurrency(drink.getTotalPrice()));
         holder.imvThumbDrink.setImageResource(drink.getThumbDrink());
         holder.txtQuantity.setText(String.valueOf(drink.getQuantityDrink()));
+        holder.txtNameDrink.setText(drink.getDrinkName());
+
+        if(numScreen==IN_CART_CANTEEN_SCREEN | numScreen ==ORDER_CANTEEN_SCREEN | numScreen == PURCHASE_CANTEEN_SCREEN| numScreen == ORDER_DETAIL_CANTEEN_SCREEN){
+            holder.txtNote.setText(String.valueOf(drink.getNote()));
+        }
 
         if(numScreen == ORDER_DETAIL_SCREEN){
             holder.txtNote.setText(drink.getNote());
@@ -106,7 +136,7 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
         }
 
 
-        if(numScreen == ORDER_SCREEN | numScreen == IN_CART_SCREEN){
+        if(numScreen == ORDER_SCREEN | numScreen == ORDER_CANTEEN_SCREEN | numScreen == IN_CART_SCREEN | numScreen == IN_CART_CANTEEN_SCREEN ){
             viewBinderHelper.bind(holder.swipeRevealLayout,drink.getDrinkName());
             viewBinderHelper.setOpenOnlyOne(true);
 
@@ -159,7 +189,7 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
 
 
 
-        if(numScreen==IN_CART_SCREEN){
+        if(numScreen==IN_CART_SCREEN|| numScreen == IN_CART_CANTEEN_SCREEN){
             setSelectedStatus(holder,drink);
             holder.imvSelectedItem.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -181,8 +211,13 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
 
 
     private void pushData(DrinkInCart drink) {
-        Intent intent = new Intent(context, AddToCartScreen.class);
-
+        Intent intent;
+        if(numScreen == IN_CART_CANTEEN_SCREEN | numScreen == ORDER_CANTEEN_SCREEN){
+            intent = new Intent(context, AddToCartCanteenScreen.class);
+        }
+        else{
+            intent = new Intent(context, AddToCartScreen.class);
+        }
         Bundle bundle = new Bundle();
         bundle.putSerializable(AppUtil.SELECTED_ITEM_TRANS,drink);
         intent.putExtra(AppUtil.MY_BUNDLE_TRANS, bundle);

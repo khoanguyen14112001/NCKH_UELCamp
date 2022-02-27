@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -24,7 +24,7 @@ import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class CartSLSpaceScreen extends AppCompatActivity {
+public class CartCanteenScreen extends AppCompatActivity {
 
     RecyclerView rcvCart;
     DrinkIncartAdapter adapter = new DrinkIncartAdapter(this); ;
@@ -58,15 +58,16 @@ public class CartSLSpaceScreen extends AppCompatActivity {
 
         linkView();
         configureRecyclerView();
-        initAdapter(getListDrinkInCart());
+        initAdapter(getListDishesInCart());
         setCallBackAdapter();
-        getTotalPayment(getListDrinkInCart());
-        getItemQuantity(getListDrinkInCart().size());
+        getTotalPayment(getListDishesInCart());
+        getItemQuantity(getListDishesInCart().size());
         reusedConstraint.openNav(this);
         addEvents();
     }
 
     private void configureRecyclerView(){
+        adapter.setNumScreen(DrinkIncartAdapter.IN_CART_CANTEEN_SCREEN);
         rcvCart.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
     }
 
@@ -107,19 +108,16 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         }
     }
 
-    public static List<DrinkInCart> getListDrinkInCart() {
+    public static List<DrinkInCart> getListDishesInCart() {
         List<DrinkInCart> list = new ArrayList<>();
-        addItemToList(list,"ICED/HOT COFFEE - size M", R.drawable.img_drink_1,0,30000,
-                70,50,"Size L", 1);
-        addItemToList(list,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_2,0.2,25000,
-                70,50,"Size L", 2);
-        addItemToList(list,"SEA SODA - size M", R.drawable.img_drink_3,0,30000,
-                70,50,"Size L", 3);
-        addItemToList(list,"COOKIE FRAPPUCHINO - size M", R.drawable.img_drink_4,0.3,25000,
-                70,50,"Size M", 1);
-        addItemToList(list,"MATCHA FRAPPUCHINO", R.drawable.img_drink_5,0,27000,
-                70,50,"Size L", 2);
-
+        addItemToList(list,"BEEF RICE NOODLES", R.drawable.img_dish_1,0,30000,
+                1);
+        addItemToList(list,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
+                2);
+        addItemToList(list,"STIR-FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
+                3);
+        addItemToList(list,"RIB RICE", R.drawable.img_dish_4,0,25000,
+                4);
         return list;
     }
     private void pushData(List<DrinkInCart> listDrink) {
@@ -131,7 +129,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         }
 
         if(!list.isEmpty()){
-            Intent intent = new Intent(CartSLSpaceScreen.this, OrderSLSpaceScreen.class);
+            Intent intent = new Intent(CartCanteenScreen.this, OrderCanteenScreen.class);
             intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) list);
             startActivity(intent);
         }
@@ -152,7 +150,7 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reusedConstraint.checkNavStatusComeBack(CartSLSpaceScreen.this);
+                reusedConstraint.checkNavStatusComeBack(CartCanteenScreen.this);
             }
         });
         imvRadSelectAll.setOnClickListener(new View.OnClickListener() {
@@ -189,13 +187,10 @@ public class CartSLSpaceScreen extends AppCompatActivity {
         initAdapter(listDrinkNew);
     }
     private static void addItemToList(List<DrinkInCart> list, String drinkName, int thumbDrink, double drinkDiscount, double drinkPrePrice,
-                                      int iceLevel, int sugarLevel, String size, int quantity){
+                                      int quantity){
         DrinkInCart drink = new DrinkInCart(drinkName,thumbDrink,drinkDiscount,drinkPrePrice);
-        drink.setIceLevel(iceLevel);
-        drink.setSugarLevel(sugarLevel);
-        drink.setSize(size);
         drink.setQuantityDrink(quantity);
-
+        drink.setNote("no chili, no onions...");
         list.add(drink);
     }
 

@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.SLSpace;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 

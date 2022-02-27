@@ -1,17 +1,14 @@
 package nguyenhoanganhkhoa.com.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,7 +22,8 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.ProductDetailScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.ProductDetailScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.ProductDetailCanteenScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
@@ -34,9 +32,12 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     private List<Drink> mDrink;
     private List<Drink> mDrinkOld;
 
-    private int screen = HOME_MENU_SCREEN;
+    private int screen = HOME_MENU_SLSPACE_SCREEN;
     public static final int FAVORITE_DRINK_SCREEN = 1;
-    public static final int HOME_MENU_SCREEN = 0;
+    public static final int HOME_MENU_SLSPACE_SCREEN = 0;
+
+    public static final int HOME_MENU_CANTEEN_SCREEN = 2;
+    public static final int FAVORITE_DISH_SCREEN = 3;
 
 
     public void setScreen(int screen) {
@@ -109,7 +110,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
 
         changeColorTitle(holder,drink,discount);
 
-        if(getScreen() ==FAVORITE_DRINK_SCREEN){
+        if(getScreen() ==FAVORITE_DRINK_SCREEN || getScreen() == FAVORITE_DISH_SCREEN){
             callBackForFavorite.changeLoveIconStatus();
         }
 
@@ -125,7 +126,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
                     drink.setFavoriteDrink(true);
                 }
 
-                if(getScreen() ==1){
+                if(getScreen() ==FAVORITE_DRINK_SCREEN || getScreen() == FAVORITE_DISH_SCREEN){
                     drink.setFavoriteDrink(false);
                     mDrink.remove(holder.getAdapterPosition());
                     notifyItemRemoved(holder.getAdapterPosition());
@@ -151,7 +152,13 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.ViewHolder> 
     }
 
     private void pushData(ViewHolder holder, Drink drink) {
-        Intent intent = new Intent(context, ProductDetailScreen.class);
+        Intent intent;
+        if(getScreen()==HOME_MENU_CANTEEN_SCREEN | getScreen() == FAVORITE_DISH_SCREEN){
+            intent = new Intent(context, ProductDetailCanteenScreen.class);
+        }
+        else{
+            intent = new Intent(context, ProductDetailScreen.class);
+        }
         Bundle bundle = new Bundle();
         bundle.putSerializable(AppUtil.SELECTED_ITEM_TRANS,drink);
         bundle.putString("TitleDrink",holder.txtTitleDrink.getText().toString());

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,14 +18,29 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.EvaluateSLSpaceScreen;
-import nguyenhoanganhkhoa.com.myapplication.home.quancafe.OrderDetailScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.EvaluateSLSpaceScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.OrderDetailScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.OrderDetailCanteenScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.canteen.PurchaseCanteenScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 
 public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHolder> {
 
     private Context context;
     private List<PurchaseItem> mPurchase;
+
+    public static final int PURCHASE_SLSPACE_SCREEN = 1;
+    public static final int PURCHASE_CANTEEN_SCREEN = 2;
+
+    private int screen = PURCHASE_SLSPACE_SCREEN;
+
+    public int getScreen() {
+        return screen;
+    }
+
+    public void setScreen(int screen) {
+        this.screen = screen;
+    }
 
     public static final String TYPE_PENDING = "Pending";
     public static final String TYPE_DELIVERING = "Delivering";
@@ -111,7 +125,14 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
         holder.btnDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pushData(purchase, OrderDetailScreen.class);
+                if(getScreen() == PURCHASE_CANTEEN_SCREEN){
+                    pushData(purchase, OrderDetailCanteenScreen.class);
+
+                }
+                else{
+                    pushData(purchase, OrderDetailScreen.class);
+
+                }
             }
         });
     }
@@ -125,7 +146,12 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
     private void initAdapter(ViewHolder holder, PurchaseItem purchase) {
         DrinkIncartAdapter adapter = new DrinkIncartAdapter(context);
         adapter.setData(purchase.getListItems());
-        adapter.setNumScreen(DrinkIncartAdapter.PURCHASE_SCREEN);
+        if(getScreen() == PURCHASE_CANTEEN_SCREEN){
+            adapter.setNumScreen(DrinkIncartAdapter.PURCHASE_CANTEEN_SCREEN);
+        }
+        else{
+            adapter.setNumScreen(DrinkIncartAdapter.PURCHASE_SCREEN);
+        }
         holder.rcvPurchase.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         holder.rcvPurchase.setAdapter(adapter);
 

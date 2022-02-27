@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:context=".home.canteen.PurchaseCanteenScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imvBack"
+            style="@style/imageViewComback"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/imvOpenNav"
+            style="@style/imageViewOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHeader"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/purchase"
+            style="@style/in_BigHeaderText"/>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svPurchase"
+            android:layout_width="0dp"
+            android:focusableInTouchMode="false"
+
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            app:defaultQueryHint="What do you want to order?"
+            android:background="@drawable/searchview_custom"
+            app:iconifiedByDefault="false"
+            android:focusable="false"
+            app:theme="@style/SearchViewStyle"
+            app:queryBackground="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@+id/imvCart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtHeader"
+            app:queryHint="@string/search_purchases" />
+
+        <ImageView
+            android:id="@+id/imvCart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_cart"
+            app:layout_constraintBottom_toBottomOf="@id/svPurchase"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/svPurchase"
+            app:layout_constraintTop_toTopOf="@id/svPurchase" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutInCartQuantity"
+            android:layout_width="16dp"
+
+            android:layout_height="16dp"
+            android:layout_marginEnd="-6dp"
+            android:layout_marginBottom="-12dp"
+            app:layout_constraintBottom_toTopOf="@id/imvCart"
+            app:layout_constraintRight_toRightOf="@id/imvCart">
+
+            <View
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/oval_shape_circle_indicator3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/be_vietnam_semibold"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/rcvStatusPurchase"
+            app:layout_constraintTop_toBottomOf="@id/svPurchase"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rcvStatusPurchase"
+            android:id="@+id/rcvListPurchase" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rcvStatusPurchase"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/layout_no_order_yet"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/img_no_order_yet"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_orders_yet"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/be_vietnam_light"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

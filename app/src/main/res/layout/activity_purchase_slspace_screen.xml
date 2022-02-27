@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".home.quancafe.PurchaseSLSpaceScreen">
+    tools:context=".home.SLSpace.PurchaseSLSpaceScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

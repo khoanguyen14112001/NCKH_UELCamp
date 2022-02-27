@@ -154,6 +154,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/lnOpenCanteen"
                 style="@style/LeftNavStyleLayout"
                 >
                 <TextView

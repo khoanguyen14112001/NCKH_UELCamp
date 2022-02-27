@@ -446,6 +446,17 @@
     <string name="product_ratings">Product ratings</string>
     <string name="see_less">See Less</string>
     <string name="comment_demo">Delicious drink, not too sweet nor too bitter, fast delivery, cute shipper.</string>
+    <string name="canteen_uel">Canteen UEL</string>
+    <string name="this_is_canteen_s_ordering_application">This is Canteen\'s ordering application</string>
+    <string name="location">Location</string>
+    <string name="main_canteen">Main canteen</string>
+    <string name="rice_noodles">Rice noodles</string>
+    <string name="rice">Rice</string>
+    <string name="stir_fried_noodles">Stir-fried noodles</string>
+    <string name="pho">Pho</string>
+    <string name="promo_noodles">Promo noodles</string>
+    <string name="topping">Topping</string>
+    <string name="drink">Drink</string>
 
     <array name="initial_slider_values">
         <item>0</item>

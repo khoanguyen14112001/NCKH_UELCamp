@@ -16,62 +16,87 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
-            android:name=".home.quancafe.ProductDetailScreen"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".home.quancafe.EvaluateSLSpaceScreen"
+            android:name=".home.canteen.OrderDetailCanteenScreen"
             android:exported="false" />
         <activity
-            android:name=".home.quancafe.OrderDetailScreen"
+            android:name=".home.canteen.OrderCanteenScreen"
             android:exported="false" />
         <activity
-            android:name=".home.quancafe.PurchaseSLSpaceScreen"
-            android:exported="true" />
-        <activity
-            android:name=".home.quancafe.AddNewAddressScreen"
+            android:name=".home.canteen.MenuSLSpaceScreen"
             android:exported="false" />
         <activity
-            android:name=".home.quancafe.TakeAwayAddressScreen"
+            android:name=".home.canteen.CartCanteenScreen"
             android:exported="false" />
         <activity
-            android:name=".home.quancafe.ChooseAddressScreen"
+            android:name=".home.canteen.FavoriteDishesScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.canteen.PurchaseCanteenScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.canteen.AddToCartCanteenScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.canteen.ProductDetailCanteenScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.canteen.MenuCanteenScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.canteen.HomeCanteenScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.canteen.CanteenSplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.SLSpace.ProductDetailScreen"
             android:exported="true" />
         <activity
-            android:name=".home.quancafe.FavoriteDrinksScreen"
+            android:name=".home.SLSpace.EvaluateSLSpaceScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.SLSpace.OrderDetailScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.SLSpace.PurchaseSLSpaceScreen"
             android:exported="true" />
         <activity
-            android:name=".home.quancafe.VoucherSLSpaceScreen"
+            android:name=".home.SLSpace.AddNewAddressScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.SLSpace.TakeAwayAddressScreen"
+            android:exported="false" />
+        <activity
+            android:name=".home.SLSpace.ChooseAddressScreen"
             android:exported="true" />
         <activity
-            android:name=".home.quancafe.OrderSLSpaceScreen"
+            android:name=".home.SLSpace.FavoriteDrinksScreen"
             android:exported="true" />
         <activity
-            android:name=".home.quancafe.CartSLSpaceScreen"
+            android:name=".home.SLSpace.VoucherSLSpaceScreen"
             android:exported="true" />
         <activity
-            android:name=".home.quancafe.AddToCartScreen"
+            android:name=".home.SLSpace.OrderSLSpaceScreen"
+            android:exported="true" />
+        <activity
+            android:name=".home.SLSpace.CartSLSpaceScreen"
+            android:exported="true" />
+        <activity
+            android:name=".home.SLSpace.AddToCartScreen"
             android:exported="true"
             android:noHistory="true" />
         <activity
-            android:name=".home.quancafe.MenuSLSpaceScreen"
+            android:name=".home.SLSpace.MenuSLSpaceScreen"
             android:exported="true" />
         <activity
-            android:name=".home.quancafe.HomeSLSpaceScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".home.SLSpace.HomeSLSpaceScreen"
+            android:exported="true" />
         <activity
             android:name=".home.thuquan.StationeryMainScreen"
             android:exported="true"
             android:noHistory="true" />
         <activity
-            android:name=".home.quancafe.SLSpaceSplashScreen"
+            android:name=".home.SLSpace.SLSpaceSplashScreen"
             android:exported="false" />
         <activity
             android:name=".home.parkinglot.ShowAllParkingLotScreen"
@@ -163,7 +188,13 @@
         <activity
             android:name=".home.homepage.HomePageScreen"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".signup.PersonalInformationSetScreen"
             android:exported="true"

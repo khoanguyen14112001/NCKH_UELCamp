@@ -1,4 +1,4 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,12 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,20 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkCateAdapter;
-import nguyenhoanganhkhoa.com.adapter.DrinkCateOptionAdapter;
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.DrinkCateOption;
 import nguyenhoanganhkhoa.com.models.DrinkOption;
-import nguyenhoanganhkhoa.com.models.History;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class AddToCartScreen extends AppCompatActivity {
+public class AddToCartCanteenScreen extends AppCompatActivity {
 
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
-    RecyclerView rcvOptionDrink;
-    DrinkCateAdapter adapter;
     ImageView imvBack, imbPlus, imbMinus;
     TextView edtQuantity;
 
@@ -46,7 +39,6 @@ public class AddToCartScreen extends AppCompatActivity {
     int quantity = 1;
 
     private void linkView() {
-        rcvOptionDrink = findViewById(R.id.rcvOptionDrink);
         imvBack = findViewById(R.id.imvBack);
         imbPlus = findViewById(R.id.imbPlus);
         imbMinus = findViewById(R.id.imbMinus);
@@ -64,73 +56,14 @@ public class AddToCartScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_to_cart_screen);
+        setContentView(R.layout.activity_add_to_cart_canteen_screen);
 
         linkView();
-        initAdapter();
         setData();
-        passData();
         reusedConstraint.openNav(this);
         addEvents();
     }
 
-
-
-
-    private void initAdapter() {
-        adapter = new DrinkCateAdapter(this);
-        adapter.setData(getListCateOption());
-        rcvOptionDrink.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        rcvOptionDrink.setAdapter(adapter);
-    }
-
-    private void passData(){
-        adapter.setCallBack(new DrinkCateAdapter.MyCallBack() {
-            @Override
-            public void passDataToCart(List<DrinkCateOption> mCates) {
-                double totalPay;
-                for(int i =0; i<mCates.size();i++){
-                    List<DrinkOption> drinkOption1 = mCates.get(i).getListOption();
-                    for(int k = 0; k<drinkOption1.size();k++){
-                        if(drinkOption1.get(k).isChosen()){
-                            totalPay = drink.getPriceAfterDiscount() * quantity + drinkOption1.get(k).getOptionAdditionPrice();
-                            txtTotalPayment.setText(reusedConstraint.formatCurrency(totalPay));
-                            txtTotalPayment.setHint(String.valueOf(totalPay));
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    private List<DrinkCateOption> getListCateOption() {
-        List<DrinkCateOption> mCate = new ArrayList<>();
-
-        List<DrinkOption> mOptionIce = new ArrayList<>();
-        List<DrinkOption> mOptionSugar = new ArrayList<>();
-        List<DrinkOption> mOptionSize = new ArrayList<>();
-
-        mOptionIce.add(new DrinkOption("0% ice"));
-        mOptionIce.add(new DrinkOption("30% ice"));
-        mOptionIce.add(new DrinkOption("50% ice"));
-        mOptionIce.add(new DrinkOption("70% ice"));
-        mOptionIce.add(new DrinkOption("100% ice"));
-
-        mOptionSugar.add(new DrinkOption("0% sugar"));
-        mOptionSugar.add(new DrinkOption("30% sugar"));
-        mOptionSugar.add(new DrinkOption("50% sugar"));
-        mOptionSugar.add(new DrinkOption("70% sugar"));
-        mOptionSugar.add(new DrinkOption("100% sugar"));
-
-        mOptionSize.add(new DrinkOption("Size M"));
-        mOptionSize.add(new DrinkOption("Size L", false,5000));
-
-        mCate.add(new DrinkCateOption("Ice level", mOptionIce));
-        mCate.add(new DrinkCateOption("Sugar level", mOptionSugar));
-        mCate.add(new DrinkCateOption("Choose size", mOptionSize));
-
-        return mCate;
-    }
     Drink drink;
 
     private void getData(){
@@ -164,13 +97,13 @@ public class AddToCartScreen extends AppCompatActivity {
         btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddToCartScreen.this, CartSLSpaceScreen.class));
+                startActivity(new Intent(AddToCartCanteenScreen.this, CartCanteenScreen.class));
             }
         });
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                reusedConstraint.checkNavStatusComeBack(AddToCartScreen.this);
+                reusedConstraint.checkNavStatusComeBack(AddToCartCanteenScreen.this);
             }
         });
 
@@ -206,6 +139,6 @@ public class AddToCartScreen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        reusedConstraint.checkNavStatusComeBack(AddToCartScreen.this);
+        reusedConstraint.checkNavStatusComeBack(AddToCartCanteenScreen.this);
     }
 }

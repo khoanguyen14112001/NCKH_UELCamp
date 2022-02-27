@@ -1,14 +1,12 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.SLSpace;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -17,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.VoucherAdapter;
-import nguyenhoanganhkhoa.com.custom.dialog.CustomDialog;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogInputVoucher;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogOneButtonNew;
 import nguyenhoanganhkhoa.com.models.Voucher;

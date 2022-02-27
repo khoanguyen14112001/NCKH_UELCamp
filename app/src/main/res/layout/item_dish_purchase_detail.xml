@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="5dp"
+    android:id="@+id/layout_item_in_cart"
+
+    android:paddingHorizontal="20dp">
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.38"
+        android:id="@+id/gRight"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.42"
+        android:id="@+id/gRight2"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"
+        android:id="@+id/gHor"
+        />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/layout_content"
+        app:layout_constraintBottom_toBottomOf="@id/gHor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintRight_toRightOf="@id/gRight"
+        android:id="@+id/consThumb">
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/cvThumb"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="0dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/img_quancafe_thumb"
+                android:id="@+id/imvThumbDrink"
+                android:scaleType="centerCrop"
+                />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        app:layout_constraintRight_toRightOf="@id/consThumb"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginBottom="-6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/consThumb"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:orientation="vertical"
+            android:background="@drawable/oval_shape_circle_indicator3"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/lnYoohoo"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:fontFamily="@font/be_vietnam_regular"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+
+            android:id="@+id/txtQuantity"
+            android:layout_marginBottom="3dp"
+            app:layout_constraintLeft_toLeftOf="@id/lnYoohoo"
+            app:layout_constraintRight_toRightOf="@id/lnYoohoo"
+            app:layout_constraintBottom_toBottomOf="@id/lnYoohoo"
+            app:layout_constraintTop_toTopOf="@id/lnYoohoo"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        app:layout_constraintLeft_toRightOf="@id/gRight2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:id="@+id/layout_content"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ICED/HOT COFFEE"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:id="@+id/txtNameDrink"
+            android:textSize="15sp"
+            style="@style/in_SmallHeaderText"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/note"
+                android:textSize="12sp"
+
+                android:textColor="@color/black"
+                android:fontFamily="@font/be_vietnam_semibold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="Size L"
+                android:textSize="12sp"
+
+                android:id="@+id/txtNote"
+                android:textColor="@color/xamChu"
+                android:fontFamily="@font/be_vietnam_light"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PriceStyle"
+        android:text="30.000"
+        app:layout_constraintTop_toBottomOf="@+id/layout_content"
+        app:layout_constraintLeft_toLeftOf="@id/layout_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/txtPriceDrink"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/VNDStyle"
+        android:text="VND"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtPriceDrink"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/txtPriceDrink"
+        android:layout_marginLeft="3dp"
+        android:id="@+id/txtVND"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/txtVND"
+        android:layout_marginTop="10dp"
+        android:id="@+id/viewSeparate"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/xamChu"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+

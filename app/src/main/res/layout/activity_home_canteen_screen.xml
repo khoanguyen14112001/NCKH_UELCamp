@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:context=".home.canteen.HomeCanteenScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            style="@style/imageViewComback"
+            android:id="@+id/imvBack"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            style="@style/imageViewOpenNav"
+            android:id="@+id/imvOpenNav"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/canteen"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtNotHeader"
+            style="@style/in_BigHeaderText"
+            android:text="@string/home"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/txtNotHeader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cons1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:id="@+id/layout_choose_address"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/imvLocation"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_location"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/imvLocation"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/be_vietnam_regular"
+                                android:text="@string/location"
+                                android:textColor="@color/black"
+                                android:focusable="true"
+                                android:focusedByDefault="true"
+                                android:focusableInTouchMode="true"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_canteen"
+                                android:fontFamily="@font/be_vietnam_medium"
+                                android:textSize="13sp" />
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/imvPending"
+                        android:layout_width="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_pending"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintRight_toLeftOf="@id/imvCart"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imvCart"
+                        android:layout_width="32dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_cart"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutInCartQuantity"
+                    android:layout_width="16dp"
+
+                    android:layout_height="16dp"
+                    android:layout_marginRight="-6dp"
+                    android:layout_marginBottom="-20dp"
+                    app:layout_constraintBottom_toTopOf="@id/cons1"
+                    app:layout_constraintRight_toRightOf="@+id/cons1">
+
+                    <View
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:background="@drawable/oval_shape_circle_indicator3"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:fontFamily="@font/be_vietnam_semibold"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/svOrder"
+                    android:layout_width="0dp"
+                    android:focusableInTouchMode="false"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    app:defaultQueryHint="What do you want to order?"
+                    android:background="@drawable/searchview_custom"
+                    app:iconifiedByDefault="false"
+                    android:focusable="false"
+                    app:theme="@style/SearchViewStyle"
+                    app:queryBackground="@android:color/transparent"
+                    app:layout_constraintEnd_toStartOf="@+id/imvFavorite"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cons1"
+                    app:queryHint="What do you want to order?" />
+
+                <ImageView
+                    android:id="@+id/imvFavorite"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_love_active_yellow"
+                    app:layout_constraintBottom_toBottomOf="@id/svOrder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/svOrder"
+                    app:layout_constraintTop_toTopOf="@id/svOrder" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/svOrder"
+                    android:id="@+id/layout_hide_filter">
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginHorizontal="17dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/viewPagerAds" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/viewPagerAds"
+                        android:id="@+id/layout_dots_news"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        />
+
+                    <HorizontalScrollView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/layout_dots_news"
+                        android:id="@+id/scrollView">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_height="match_parent">
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:id="@+id/cons3"
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="20dp"
+                                android:layout_height="wrap_content">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout2"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnCoffee"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_dish_rice_noodle" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:text="@string/rice_noodles"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnCoffee" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnTea"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_dish_rice" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:text="@string/rice"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnTea" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout3"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout4"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnSoda"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_dish_fried" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:textAlignment="center"
+                                        android:text="@string/stir_fried_noodles"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnSoda" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout4"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnJuice"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_dish_pho" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:text="@string/pho"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnJuice" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:id="@+id/cons4"
+                                android:paddingHorizontal="20dp"
+                                android:layout_height="wrap_content">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout6"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout5"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnYogurt"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_dish_promo" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:text="@string/promo_noodles"
+                                        android:textAlignment="center"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnYogurt" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout5"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout7"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/constraintLayout6"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnMachiato"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_dish_topping" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:text="@string/topping"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnMachiato" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout7"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toStartOf="@+id/constraintLayout8"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/constraintLayout5"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnFrappuchino"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_dish_drink" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:text="@string/drink"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnFrappuchino" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout8"
+                                    style="@style/TypeDrink_LayoutContainer"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.5"
+                                    app:layout_constraintStart_toEndOf="@+id/constraintLayout7"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <LinearLayout
+                                        android:id="@+id/lnDiscount"
+                                        style="@style/TypeDrink_LayoutIns"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent">
+
+                                        <ImageView
+                                            style="@style/TypeDrink_Thumb"
+                                            android:src="@drawable/ic_order_discount" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        style="@style/TypeDrink_Text"
+                                        android:text="@string/discount"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/lnDiscount" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        app:layout_constraintTop_toBottomOf="@id/scrollView"
+                        android:paddingHorizontal="20dp"
+                        android:id="@+id/layout_item_request"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/in_SmallHeaderText"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:id="@+id/txtMaybeLike"
+                            android:text="@string/maybe_you_like"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/in_SmallHeaderText"
+                            android:textColor="@color/primary_yellow"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:id="@+id/txtSeeAll"
+                            android:text="@string/see_all"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:paddingHorizontal="20dp"
+                            android:gravity="center_horizontal"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/in_SmallHeaderText"
+                                android:textAllCaps="true"
+                                android:id="@+id/txtShowType"
+                                android:visibility="gone"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@string/frappuchino"/>
+
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--//new-->
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@id/layout_hide_filter"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:id="@+id/rcvOrderMayLike"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:id="@+id/navLeftView"
+        app:itemTextAppearance="@style/FontLeftNavViewStyle"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/layoutFragmentLeftNav"/>
+
+        </ScrollView>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

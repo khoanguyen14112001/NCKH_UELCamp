@@ -1,43 +1,29 @@
-package nguyenhoanganhkhoa.com.myapplication.home.quancafe;
+package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
-import nguyenhoanganhkhoa.com.adapter.ImagesAdapter;
 import nguyenhoanganhkhoa.com.adapter.PurchaseAdapter;
-import nguyenhoanganhkhoa.com.adapter.PurchaseStatusAdapter;
-import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogOneButtonNew;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButtonNew;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
-import nguyenhoanganhkhoa.com.models.Images;
-import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
-import nguyenhoanganhkhoa.com.myapplication.home.NewsScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.EvaluateSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
-public class OrderDetailScreen extends AppCompatActivity {
+public class OrderDetailCanteenScreen extends AppCompatActivity {
     RecyclerView rcvOrderDetail;
     DrinkIncartAdapter adapter;
 
@@ -47,7 +33,6 @@ public class OrderDetailScreen extends AppCompatActivity {
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
 
-    private static final  int deliveryFee = 7000;
     private static final  int discount = 7000;
 
     private void linkView() {
@@ -71,7 +56,7 @@ public class OrderDetailScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_detail_screen);
+        setContentView(R.layout.activity_order_detail_canteen_screen);
 
         linkView();
         setValue();
@@ -92,7 +77,7 @@ public class OrderDetailScreen extends AppCompatActivity {
 
     private void initAdapter() {
         adapter = new DrinkIncartAdapter(this);
-        adapter.setNumScreen(DrinkIncartAdapter.ORDER_DETAIL_SCREEN);
+        adapter.setNumScreen(DrinkIncartAdapter.ORDER_DETAIL_CANTEEN_SCREEN);
         adapter.setData(getListDrinkPurchaseDetail());
         rcvOrderDetail.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rcvOrderDetail.setAdapter(adapter);
@@ -111,8 +96,7 @@ public class OrderDetailScreen extends AppCompatActivity {
     private void setValue(){
         txtPrice.setText(reusedConstraint.formatCurrency(getPrice()));
         txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
-        txtDeliveryFee.setText(reusedConstraint.formatCurrency(deliveryFee));
-        txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() + deliveryFee - discount));
+        txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() - discount));
         if(!AppUtil.statusOrder.isEmpty()){
             txtStatus.setText(AppUtil.statusOrder);
         }
@@ -159,7 +143,7 @@ public class OrderDetailScreen extends AppCompatActivity {
                     pushData();
                 }
                 else{
-                    CustomDialogTwoButtonNew dialog = new CustomDialogTwoButtonNew(OrderDetailScreen.this);
+                    CustomDialogTwoButtonNew dialog = new CustomDialogTwoButtonNew(OrderDetailCanteenScreen.this);
                     dialog.txtHeaderDialog.setText("Cancel order");
                     dialog.txtContentDialog.setText("You are cancelling your order.\nAre you sure?");
                     dialog.btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -172,7 +156,7 @@ public class OrderDetailScreen extends AppCompatActivity {
                     dialog.btnOK.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(OrderDetailScreen.this, "Your order has been cancelled!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(OrderDetailCanteenScreen.this, "Your order has been cancelled!", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                             finish();
                         }
