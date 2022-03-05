@@ -346,7 +346,7 @@
     <string name="expense">Expense</string>
     <string name="enter_your_password_to_complete_the_transaction">Enter your password \n to complete the transaction</string>
     <string name="enter_your_password">Enter your password</string>
-    <string name="this_is_sls_s_ordering_application">This is SLS\'s ordering application</string>
+    <string name="this_is_sls_s_ordering_application">This is UEL SLS\'s ordering application</string>
     <string name="delivery_location">Delivery location</string>
     <string name="choose_your_address">Choose your address...</string>
     <string name="maybe_you_like">Maybe you like</string>
@@ -447,7 +447,7 @@
     <string name="see_less">See Less</string>
     <string name="comment_demo">Delicious drink, not too sweet nor too bitter, fast delivery, cute shipper.</string>
     <string name="canteen_uel">Canteen UEL</string>
-    <string name="this_is_canteen_s_ordering_application">This is Canteen\'s ordering application</string>
+    <string name="this_is_canteen_s_ordering_application">This is UEL Canteen\'s ordering application</string>
     <string name="location">Location</string>
     <string name="main_canteen">Main canteen</string>
     <string name="rice_noodles">Rice noodles</string>
@@ -457,6 +457,13 @@
     <string name="promo_noodles">Promo noodles</string>
     <string name="topping">Topping</string>
     <string name="drink">Drink</string>
+    <string name="uel_startup_language_space">UEL Startup &amp; \nLanguage Space</string>
+    <string name="uel_startup_language_space_2">UEL Startup &amp; Language Space</string>
+    <string name="uel_parking_system">UEL Parking System</string>
+    <string name="uel_canteen">UEL Canteen</string>
+    <string name="homepage">Homepage</string>
+    <string name="linkInsta">https://www.instagram.com/uelcamp</string>
+    <string name="this_is_uel_parking_s_ordering_application">This is UEL Parking\'s ordering application</string>
 
     <array name="initial_slider_values">
         <item>0</item>

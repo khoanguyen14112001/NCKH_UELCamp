@@ -217,11 +217,6 @@ public class AllNoticeFragment extends Fragment {
                 true
         ));
 
-        list.add(new Notification(NotificationAdapter.NOTIFICATION_THUQUAN,
-                "Stationery has entered the full uniform, contact Stationery to buy",
-                "03 Nov, 17:05",
-                false
-        ));
 
         list.add(new Notification(NotificationAdapter.NOTIFICATION_FRIEND,
                 "Hải Yên has accepted your friend request",

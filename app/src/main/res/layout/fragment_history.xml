@@ -171,20 +171,6 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 />
 
-            <RadioButton
-                android:id="@+id/radTransAllThuQuan"
-                android:layout_width="80dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/custom_rad_filter"
-                android:button="@android:color/transparent"
-                android:fontFamily="@font/be_vietnam_regular"
-                android:gravity="center"
-                android:text="@string/stationery"
-                android:textAllCaps="false"
-                android:textColor="@color/blackUI"
-                app:layout_constraintLeft_toLeftOf="parent"
-                />
 
 
         </RadioGroup>

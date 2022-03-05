@@ -1,17 +1,22 @@
 package nguyenhoanganhkhoa.com.custom.rightnav;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
@@ -20,6 +25,7 @@ import nguyenhoanganhkhoa.com.myapplication.home.canteen.CanteenSplashScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.SLSpaceSplashScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingSplashScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
@@ -71,9 +77,12 @@ public class LeftNavFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-    LinearLayout lnOpenHome, lnOpenParkingLot , lnOpenTopUp, lnOpenTransfer, lnOpenQRCode, lnOpenSetting, lnSignoutNav, lnOpenQuanCafe, lnOpenCanteen;
-    TextView txtTransfer, txtParkingLot, txtTopUp, txtQuanCafe, txtThuQuan, txtSetting, txtQRCode,txtCanteen;
+    LinearLayout lnOpenTopUp, lnOpenTransfer, lnOpenQRCode, lnOpenSetting, lnSignoutNav;
+    ConstraintLayout lnOpenQuanCafe, lnOpenCanteen, lnOpenParkingLot, lnOpenHome;
+    TextView txtTransfer, txtParkingLot, txtTopUp, txtQuanCafe, txtSetting, txtQRCode,txtCanteen;
     DrawerLayout drawerLayout;
+
+    TextView txtRealTextQuanCafe;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,6 +90,7 @@ public class LeftNavFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_left_nav, container, false);
         linkView(view);
+        setText();
         addEvents();
         return view;
     }
@@ -114,7 +124,7 @@ public class LeftNavFragment extends Fragment {
         lnOpenParkingLot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               openScreen(txtParkingLot,ParkingLotHomeScreen.class);
+               openScreen(txtParkingLot, ParkingSplashScreen.class);
             }
         });
 
@@ -184,6 +194,20 @@ public class LeftNavFragment extends Fragment {
             }
         });
     }
+
+    private int getWindowWidth(Activity activity) {
+        // Calculate window height for fullscreen use
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.widthPixels;
+    }
+
+    private void setText(){
+        if(getWindowWidth(requireActivity())<850){
+            txtRealTextQuanCafe.setText(R.string.uel_startup_language_space);
+        }
+    }
+
     private void linkView(View view) {
         lnOpenHome = view.findViewById(R.id.lnOpenHome);
         drawerLayout = requireActivity().findViewById(R.id.drawerLayout);
@@ -210,6 +234,8 @@ public class LeftNavFragment extends Fragment {
 
         lnOpenCanteen = view.findViewById(R.id.lnOpenCanteen);
         txtCanteen = view.findViewById(R.id.txtCanteen);
+
+        txtRealTextQuanCafe = view.findViewById(R.id.txtRealTextQuanCafe);
 
     }
 }

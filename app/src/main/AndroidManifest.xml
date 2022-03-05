@@ -16,13 +16,14 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
+            android:name=".home.parkinglot.ParkingSplashScreen"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
             android:name=".home.canteen.OrderDetailCanteenScreen"
             android:exported="false" />
         <activity
             android:name=".home.canteen.OrderCanteenScreen"
-            android:exported="false" />
-        <activity
-            android:name=".home.canteen.MenuSLSpaceScreen"
             android:exported="false" />
         <activity
             android:name=".home.canteen.CartCanteenScreen"
@@ -47,6 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".home.canteen.CanteenSplashScreen"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".home.SLSpace.ProductDetailScreen"
@@ -91,10 +93,7 @@
         <activity
             android:name=".home.SLSpace.HomeSLSpaceScreen"
             android:exported="true" />
-        <activity
-            android:name=".home.thuquan.StationeryMainScreen"
-            android:exported="true"
-            android:noHistory="true" />
+
         <activity
             android:name=".home.SLSpace.SLSpaceSplashScreen"
             android:exported="false" />

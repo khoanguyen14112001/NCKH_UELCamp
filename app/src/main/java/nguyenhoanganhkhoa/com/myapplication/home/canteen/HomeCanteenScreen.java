@@ -554,7 +554,7 @@ public class HomeCanteenScreen extends AppCompatActivity {
     }
     ImagesAdapter adapterAds = new ImagesAdapter(this);
     int currentPosition = 0;
-    private static final String LINK_ADS = "ads_slspace";
+    private static final String LINK_ADS = "ads_canteen";
     Timer timer;
 
 

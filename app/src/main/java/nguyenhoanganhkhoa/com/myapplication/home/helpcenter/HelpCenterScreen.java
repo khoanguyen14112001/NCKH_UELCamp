@@ -132,8 +132,7 @@ public class HelpCenterScreen extends AppCompatActivity {
                 R.drawable.ic_canteen,11));
         list.add(new QuestionsCategories("SLSPace",
                 R.drawable.ic_quancafe,9));
-        list.add(new QuestionsCategories("Stationery",
-                R.drawable.ic_thuquan,4));
+
 
         return list;
     }
@@ -152,8 +151,6 @@ public class HelpCenterScreen extends AppCompatActivity {
                 R.drawable.ic_quancafe));
         list.add(new QuestionsCategories("How to top up my wallet?",
                 R.drawable.ic_topup));
-        list.add(new QuestionsCategories("I did not see my latest transaction in Stationery",
-                R.drawable.ic_thuquan));
         list.add(new QuestionsCategories("How to add friend into list friends",
                 R.drawable.ic_topup));
         list.add(new QuestionsCategories("How to transfer money to friend",
