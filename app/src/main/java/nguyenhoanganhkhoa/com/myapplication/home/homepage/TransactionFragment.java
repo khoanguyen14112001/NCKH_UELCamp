@@ -73,7 +73,7 @@ public class TransactionFragment extends Fragment {
     RecyclerView rcvDisplayTransaction;
     MonthTransAdapter monthTransAdapter;
     ImageView imvFilterTrans;
-    RadioButton radTransAllAll, radTransAllWallet, radTransAllCanteen, radTransAllParking, radTransAlLSLSpace, radTransAllThuQuan, radTransAllTransfer;
+    RadioButton radTransAllAll, radTransAllWallet, radTransAllCanteen, radTransAllParking, radTransAlLSLSpace, radTransAllTransfer;
 
     CustomBottomSheetFilter bottomSheetDialog = null;
     ImageView imvClose;
@@ -102,7 +102,6 @@ public class TransactionFragment extends Fragment {
         radTransAllCanteen= view.findViewById(R.id.radTransAllCanteen);
         radTransAllParking= view.findViewById(R.id.radTransAllParking);
         radTransAlLSLSpace= view.findViewById(R.id.radTransAlLSLSpace);
-        radTransAllThuQuan= view.findViewById(R.id.radTransAllThuQuan);
 
         imvClose= view.findViewById(R.id.imvClose);
         imvFilterTrans= view.findViewById(R.id.imvFilterTrans);
@@ -162,12 +161,6 @@ public class TransactionFragment extends Fragment {
             }
         });
 
-        radTransAllThuQuan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                initAdapter();
-            }
-        });
 
         radTransAlLSLSpace.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -207,7 +200,7 @@ public class TransactionFragment extends Fragment {
         listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_PARKING,"20 10 Oct, 16:19  ",false,3000, false));
         listTrans1.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 Oct, 16:19",false,3000));
 
-        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_THUQUAN,"20 Sep, 10:07 ",true,50000));
+        listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_QUANCAFE,"20 Sep, 10:07 ",true,50000));
         listTrans2.add(new Transaction(TransAllAdapter.TRANSACTION_QUANCAFE,"20 10 Sep, 16:19  ",false,3000, false));
 
         listTrans3.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 Aug, 16:19",false,5000));
@@ -220,7 +213,6 @@ public class TransactionFragment extends Fragment {
         listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_TRANSFER,"10 July, 16:19",false,45000));
         listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_TRANSFER,"10 July, 16:19",false,20000));
         listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_CANTEEN,"10 July, 16:19",false,49000));
-        listTrans4.add(new Transaction(TransAllAdapter.TRANSACTION_THUQUAN,"10 July, 16:19",false,32000));
 
         listMonth.add(new Month("Oct 2021",addGetCategory(listTrans1), totalIncome(addGetCategory(listTrans1)), totalExpense(addGetCategory(listTrans1))));
         listMonth.add(new Month("Sep 2021",addGetCategory(listTrans2), totalIncome(addGetCategory(listTrans2)), totalExpense(addGetCategory(listTrans2))));
@@ -289,17 +281,7 @@ public class TransactionFragment extends Fragment {
         }
 
 
-        if(radTransAllThuQuan.isChecked())
-        {
-            for (int i = 0;i<list.size();i++)
-            {
-                if(list.get(i).getTypeTrans().equals(TransAllAdapter.TRANSACTION_THUQUAN))
-                {
-                    listValue.add(list.get(i));
-                }
-            }
-            return listValue;
-        }
+
 
         if(radTransAllTransfer.isChecked())
         {
