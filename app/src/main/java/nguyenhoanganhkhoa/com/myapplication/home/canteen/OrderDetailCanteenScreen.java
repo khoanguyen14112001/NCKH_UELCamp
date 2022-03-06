@@ -101,7 +101,7 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
             txtStatus.setText(AppUtil.statusOrder);
         }
 
-        if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_PENDING)){
+        if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_ORDER)){
             changeButtonStatus(BLACK,true);
         }
         else if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_COMPLETED)){

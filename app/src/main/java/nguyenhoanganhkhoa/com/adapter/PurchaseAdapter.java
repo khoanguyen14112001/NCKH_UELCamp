@@ -42,11 +42,15 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
         this.screen = screen;
     }
 
+
     public static final String TYPE_PENDING = "Pending";
     public static final String TYPE_DELIVERING = "Delivering";
     public static final String TYPE_IN_PROGRESS = "In Progress";
     public static final String TYPE_COMPLETED = "Completed";
     public static final String TYPE_CANCELLED = "Cancelled";
+
+    public static final String TYPE_ORDER = "Order";
+    public static final String TYPE_NOT_COMPLETED = "Not completed";
 
     public static final String TEXT_PENDING = "The order is pending confirmation";
     public static final String TEXT_DELIVERING = "The order is being delivered to you";

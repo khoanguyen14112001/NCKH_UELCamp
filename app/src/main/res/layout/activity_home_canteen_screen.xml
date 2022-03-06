@@ -98,6 +98,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/main_canteen"
+                                android:id="@+id/txtLocation"
                                 android:fontFamily="@font/be_vietnam_medium"
                                 android:textSize="13sp" />
 

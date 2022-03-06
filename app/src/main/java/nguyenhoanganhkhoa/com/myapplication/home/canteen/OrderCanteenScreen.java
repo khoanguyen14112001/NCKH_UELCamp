@@ -24,6 +24,7 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
 import nguyenhoanganhkhoa.com.adapter.FacultyAdapter;
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTransferConfirm;
 import nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
@@ -42,16 +43,14 @@ public class OrderCanteenScreen extends AppCompatActivity {
     List<DrinkInCart> orderList;
     DrinkIncartAdapter adapter = new DrinkIncartAdapter(this);
     DrawerLayout drawerLayout;
-    TextView txtTotalPayment, txtTotalNoDiscount, txtDeliveryFee, txtDiscount, txtPaymentSummary;
+    TextView txtTotalPayment, txtTotalNoDiscount, txtDeliveryFee, txtDiscount, txtPaymentSummary, txtChooseYourAddress;
 
-    CustomSpinner spnPaymentMethod;
     ReusedConstraint reusedConstraint = new ReusedConstraint(this);
-    ConstraintLayout layout_voucher, layout_container_show_order, layout_complete_order;
+    ConstraintLayout layout_voucher, layout_container_show_order, layout_complete_order, layout_choose_address;
     Button btnOrder, btnBackToHome, btnChangeAddress, btnAddMore, btnGoToPurchase;
 
     ImageView imvDropdown;
 
-    FacultyAdapter adapterPaymentMethod;
 
     private void linkView() {
         rcvItemOrder = findViewById(R.id.rcvItemOrder);
@@ -62,8 +61,8 @@ public class OrderCanteenScreen extends AppCompatActivity {
         txtDeliveryFee = findViewById(R.id.txtDeliveryFee);
         txtDiscount = findViewById(R.id.txtDiscount);
         txtPaymentSummary = findViewById(R.id.txtPaymentSummary);
+        layout_choose_address = findViewById(R.id.layout_choose_address);
 
-        spnPaymentMethod = findViewById(R.id.spnPaymentMethod);
 
         layout_voucher = findViewById(R.id.layout_voucher);
         btnOrder = findViewById(R.id.btnOrder);
@@ -75,6 +74,7 @@ public class OrderCanteenScreen extends AppCompatActivity {
         btnGoToPurchase = findViewById(R.id.btnGoToPurchase);
 
         imvDropdown = findViewById(R.id.imvDropdown);
+        txtChooseYourAddress = findViewById(R.id.txtChooseYourAddress);
 
 
 
@@ -92,26 +92,14 @@ public class OrderCanteenScreen extends AppCompatActivity {
         setCallBackAdapter();
         setFee();
         getTotalPayment(orderList);
-        initAdapterPaymentMethod();
         addEvents();
 
     }
 
-    private void initAdapterPaymentMethod() {
-        adapterPaymentMethod = new FacultyAdapter(this,R.layout.item_payment_selected,getListPaymentMethod());
-        adapterPaymentMethod.setScreen(FacultyAdapter.ORDER_SCREEN);
-        adapterPaymentMethod.setStatusAdapter(FacultyAdapter.NORMAL_STATUS);
-
-        spnPaymentMethod.setAdapter(adapterPaymentMethod);
-    }
 
 
-    private List<Faculty> getListPaymentMethod() {
-        List<Faculty> list = new ArrayList<>();
-        list.add(new Faculty("UEL CAMP"));
-        list.add(new Faculty("CASH"));
-        return list;
-    }
+
+
 
     private void setFee() {
         txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
@@ -159,29 +147,38 @@ public class OrderCanteenScreen extends AppCompatActivity {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
 
-        spnPaymentMethod.setSpinnerEventsListener(new CustomSpinner.OnSpinnerEventsListener() {
+        btnChangeAddress.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPopupWindowOpened(Spinner spinner) {
-                imvDropdown.setImageResource(R.drawable.ic_arrrow_dropdown_up_black);
-            }
+            public void onClick(View view) {
+                CustomDialogThreeButton dialog = new CustomDialogThreeButton(OrderCanteenScreen.this, R.layout.custom_dialog_chooss_image);
+                dialog.txtHeaderDialog.setText("Choose other location");
+                dialog.btnTakePhotos.setText("Canteen 1");
+                dialog.btnChooseFromGallery.setText("Canteen 2");
+                dialog.btnTakePhotos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtChooseYourAddress.setText("Canteen 1");
+                        dialog.dismiss();
+                    }
+                });
+                dialog.btnChooseFromGallery.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtChooseYourAddress.setText("Canteen 2");
+                        dialog.dismiss();
+                    }
+                });
 
-            @Override
-            public void onPopupWindowClosed(Spinner spinner) {
-                imvDropdown.setImageResource(R.drawable.ic_arror_down_spinner_black);
+                dialog.btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
         });
-        spnPaymentMethod.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                    imvDropdown.setImageDrawable(getResources().getDrawable(R.drawable.ic_arrow_down_spinner));
-                adapterPaymentMethod.setCurrentPosition(i);
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
 
         btnGoToPurchase.setOnClickListener(new View.OnClickListener() {
             @Override

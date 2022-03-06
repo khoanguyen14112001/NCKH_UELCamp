@@ -42,7 +42,7 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_purchase_slspace_screen);
+        setContentView(R.layout.activity_purchase_canteen_screen);
 
         linkView();
         configureRcv();
@@ -50,7 +50,7 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
 
         setCallBackAdapterStatus();
         initAdapterPurchaseBegin();
-        AppUtil.statusOrder = PurchaseAdapter.TYPE_PENDING;
+        AppUtil.statusOrder = PurchaseAdapter.TYPE_ORDER;
 
         addEvents();
     }
@@ -84,11 +84,9 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
     private List<PurchaseStatus> getListPurchaseStatus() {
         List<PurchaseStatus> list = new ArrayList<>();
 
-        addListPurchaseStatus(list,PurchaseAdapter.TYPE_PENDING,getListPurchasePending());
-        addListPurchaseStatus(list,PurchaseAdapter.TYPE_IN_PROGRESS,getListPurchaseInProgress());
-        addListPurchaseStatus(list,PurchaseAdapter.TYPE_DELIVERING,getListPurchaseDelivery());
+        addListPurchaseStatus(list,PurchaseAdapter.TYPE_ORDER,getListPurchaseOrder());
         addListPurchaseStatus(list,PurchaseAdapter.TYPE_COMPLETED,getListPurchaseCompleted());
-        addListPurchaseStatus(list,PurchaseAdapter.TYPE_CANCELLED,getListPurchaseCancelled());
+        addListPurchaseStatus(list,PurchaseAdapter.TYPE_NOT_COMPLETED,getListPurchaseNotCompleted());
 
         return list;
 
@@ -106,7 +104,7 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
 
     private void initAdapterPurchaseBegin() {
         adapterPurchase.setScreen(PurchaseAdapter.PURCHASE_CANTEEN_SCREEN);
-        adapterPurchase.setData(getListPurchasePending());
+        adapterPurchase.setData(getListPurchaseOrder());
         rcvListPurchase.setAdapter(adapterPurchase);
     }
 
@@ -115,21 +113,16 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
             @Override
             public void changeDataInAdapter(String name) {
                 switch (name){
-                    case PurchaseAdapter.TYPE_PENDING:
-                        initAdapterPurchase(getListPurchasePending());
-                        break;
-                    case PurchaseAdapter.TYPE_IN_PROGRESS:
-                        initAdapterPurchase(getListPurchaseInProgress());
-                        break;
-                    case PurchaseAdapter.TYPE_CANCELLED:
-                        initAdapterPurchase(getListPurchaseCancelled());
+                    case PurchaseAdapter.TYPE_ORDER:
+                        initAdapterPurchase(getListPurchaseOrder());
                         break;
                     case PurchaseAdapter.TYPE_COMPLETED:
                         initAdapterPurchase(getListPurchaseCompleted());
                         break;
-                    case PurchaseAdapter.TYPE_DELIVERING:
-                        initAdapterPurchase(getListPurchaseDelivery());
+                    case PurchaseAdapter.TYPE_NOT_COMPLETED:
+                        initAdapterPurchase(getListPurchaseNotCompleted());
                         break;
+
                 }
             }
         });
@@ -152,7 +145,7 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
     }
 
 
-    private List<PurchaseItem> getListPurchasePending() {
+    private List<PurchaseItem> getListPurchaseOrder() {
         List<PurchaseItem> listPurchase = new ArrayList<>();
         List<DrinkInCart> list1 = new ArrayList<>();
         List<DrinkInCart> list2 = new ArrayList<>();
@@ -166,26 +159,11 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
         addItemToList(list2,"RIB RICE", R.drawable.img_dish_4,0,25000,
                 4);
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FX9R2",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FXDFJ",quantity(list2),totalPayment(list2),list2));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_ORDER,"220107FX9R2",quantity(list1),totalPayment(list1),list1));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_ORDER,"220107FXDFJ",quantity(list2),totalPayment(list2),list2));
         return listPurchase;
     }
-    private List<PurchaseItem> getListPurchaseInProgress() {
-        List<PurchaseItem> listPurchase = new ArrayList<>();
-        List<DrinkInCart> list1 = new ArrayList<>();
-        List<DrinkInCart> list2 = new ArrayList<>();
-
-
-        addItemToList(list1,"BEEF RICE NOODLES", R.drawable.img_dish_1,0,30000,
-                1);
-        addItemToList(list1,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
-                2);
-
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"22010DSFHU",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"2381FDDHOA",quantity(list2),totalPayment(list2),list2));
-        return listPurchase;
-    }
-    private List<PurchaseItem> getListPurchaseDelivery() {
+    private List<PurchaseItem> getListPurchaseNotCompleted() {
         List<PurchaseItem> listPurchase = new ArrayList<>();
         List<DrinkInCart> list1 = new ArrayList<>();
 
@@ -194,7 +172,7 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
                 1);
 
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_DELIVERING,"2381FDDASF",quantity(list1),totalPayment(list1),list1));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_NOT_COMPLETED,"2381FDDASF",quantity(list1),totalPayment(list1),list1));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseCompleted() {
@@ -215,9 +193,6 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"220107FX232",quantity(list1),totalPayment(list1),list1));
         listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"241147FXDFJ",quantity(list2),totalPayment(list2),list2));
         return listPurchase;
-    }
-    private List<PurchaseItem> getListPurchaseCancelled() {
-        return null;
     }
 
 

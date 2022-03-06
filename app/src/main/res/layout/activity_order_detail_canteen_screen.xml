@@ -75,7 +75,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/be_vietnam_regular"
-                            android:text="@string/delivery_location"
+                            android:text="@string/location"
                             android:textColor="@color/black"
                             android:focusable="true"
                             android:focusedByDefault="true"
@@ -85,7 +85,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/choose_your_address"
+                            android:text="@string/main_canteen"
                             android:fontFamily="@font/be_vietnam_medium"
                             android:textSize="13sp" />
 
@@ -255,7 +255,7 @@
                         <TextView
                             style="@style/PriceStyle"
                             android:id="@+id/txtPaymentMethod"
-                            android:text="@string/cash"
+                            android:text="@string/uel_camp"
                             android:textSize="23sp"
                             android:layout_marginEnd="3dp"
                             app:layout_constraintRight_toRightOf="parent"
