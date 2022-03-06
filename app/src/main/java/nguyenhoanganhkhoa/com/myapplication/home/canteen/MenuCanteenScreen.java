@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.canteen.HomeCanteenScreen;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -49,6 +50,38 @@ public class MenuCanteenScreen extends AppCompatActivity {
 
     private void addEvents() {
         reusedConstraint.openNav(this);
+        layout_choose_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CustomDialogThreeButton dialog = new CustomDialogThreeButton(MenuCanteenScreen.this, R.layout.custom_dialog_chooss_image);
+                dialog.txtHeaderDialog.setText("Choose other location");
+                dialog.btnTakePhotos.setText("Canteen 1");
+                dialog.btnChooseFromGallery.setText("Canteen 2");
+                dialog.btnTakePhotos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtChooseYourAddress.setText("Canteen 1");
+                        dialog.dismiss();
+                    }
+                });
+                dialog.btnChooseFromGallery.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtChooseYourAddress.setText("Canteen 2");
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
         imvPending.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

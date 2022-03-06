@@ -31,6 +31,7 @@ import java.util.TimerTask;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
 import nguyenhoanganhkhoa.com.adapter.ImagesAdapter;
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
 import nguyenhoanganhkhoa.com.models.Comments;
 import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.Images;
@@ -45,7 +46,7 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class HomeCanteenScreen extends AppCompatActivity {
     RecyclerView rcvOrderMayLike;
     LinearLayout lnRiceNoodle, lnRice, lnStirFriedNoodle, lnPho, lnPromoNoodle, lnTopping, lnDrink, lnDiscount;
-    TextView txtShowType, txtMaybeLike,txtSeeAll;
+    TextView txtShowType, txtMaybeLike,txtSeeAll, txtLocation;
 
     ConstraintLayout layout_choose_address;
 
@@ -83,7 +84,7 @@ public class HomeCanteenScreen extends AppCompatActivity {
 
     public static final String ORDER_RICE_NOODLES = "Rice noodles";
     public static final String ORDER_RICE = "Rice";
-    public static final String ORDER_STIR_FRIED_NOODLES = "Stir-fried noodles";
+    public static final String ORDER_STIR_FRIED_NOODLES = "Fried noodles";
     public static final String ORDER_PHO = "Pho";
     public static final String ORDER_PROMO_NOODLES = "Promo noodles";
     public static final String ORDER_TOPPING = "Topping";
@@ -122,6 +123,8 @@ public class HomeCanteenScreen extends AppCompatActivity {
 
         viewPagerAds = findViewById(R.id.viewPagerAds);
         layout_dots_news = findViewById(R.id.layout_dots_news);
+
+        txtLocation = findViewById(R.id.txtLocation);
     }
 
 
@@ -496,6 +499,37 @@ public class HomeCanteenScreen extends AppCompatActivity {
                 initAdapterDishes(lnDiscount);
                 setTextType(ORDER_DISCOUNT);
                 changeColorButton(lnDiscount);
+            }
+        });
+        layout_choose_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CustomDialogThreeButton dialog = new CustomDialogThreeButton(HomeCanteenScreen.this, R.layout.custom_dialog_chooss_image);
+                dialog.txtHeaderDialog.setText("Choose other location");
+                dialog.btnTakePhotos.setText("Canteen 1");
+                dialog.btnChooseFromGallery.setText("Canteen 2");
+                dialog.btnTakePhotos.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtLocation.setText("Canteen 1");
+                        dialog.dismiss();
+                    }
+                });
+                dialog.btnChooseFromGallery.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtLocation.setText("Canteen 2");
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
         });
     }
