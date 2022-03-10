@@ -244,7 +244,7 @@ public class HomeCanteenScreen extends AppCompatActivity {
         List<Drink> drinks = new ArrayList<>();
         Drink drink1 = new Drink(DrinkAdapter.DRINK_TITLE_BEST_SELLER,"BEEF RICE NOODLES",ORDER_RICE_NOODLES,R.drawable.img_dish_1,0,35000);
         Drink drink2 = new Drink("","CHICKEN PROMO NOODLES",ORDER_PROMO_NOODLES,R.drawable.img_dish_2,0,29000, true);
-        Drink drink3 = new Drink("","STIR-FRIED SPAGHETTI WITH BEEF",ORDER_STIR_FRIED_NOODLES,R.drawable.img_dish_3,0,25000);
+        Drink drink3 = new Drink("","FRIED SPAGHETTI WITH BEEF",ORDER_STIR_FRIED_NOODLES,R.drawable.img_dish_3,0,25000);
         Drink drink4 = new Drink("","RIB RICE",ORDER_RICE,R.drawable.img_dish_4,0.1,25000, true);
         Drink drink5 = new Drink("","FLUSHING FAT CHICKEN RICE",ORDER_RICE,R.drawable.img_dish_5,0.3,25000);
 
