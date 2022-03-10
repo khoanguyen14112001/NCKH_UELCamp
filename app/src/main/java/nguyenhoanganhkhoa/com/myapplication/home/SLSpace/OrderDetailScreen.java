@@ -1,13 +1,22 @@
 package nguyenhoanganhkhoa.com.myapplication.home.SLSpace;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,14 +35,21 @@ public class OrderDetailScreen extends AppCompatActivity {
     RecyclerView rcvOrderDetail;
     DrinkIncartAdapter adapter;
 
-    TextView txtPrice, txtDeliveryFee, txtDiscount, txtTotalPayment, txtPaymentMethod, txtStatus, txtOrderID;
+    ImageView imvArrow;
+    LinearLayout layoutViewMorePrice;
+
+    TextView txtPrice, txtDeliveryFee, txtDiscount, txtTotalPayment, txtPaymentMethod, txtStatus, txtOrderID, txtDiscountDelivery;
+    TextView txtTextPayment;
     Button btnCancelOrder;
+
+    ConstraintLayout layoutExpanded;
 
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
 
     private static final  int deliveryFee = 7000;
     private static final  int discount = 7000;
+    private static final  int discountDelivery = 3000;
 
     private void linkView() {
         rcvOrderDetail = findViewById(R.id.rcvOrderDetail);
@@ -47,6 +63,11 @@ public class OrderDetailScreen extends AppCompatActivity {
         txtOrderID = findViewById(R.id.txtOrderID);
 
         btnCancelOrder = findViewById(R.id.btnCancelOrder);
+        txtDiscountDelivery = findViewById(R.id.txtDiscountDelivery);
+        txtTextPayment = findViewById(R.id.txtTextPayment);
+        imvArrow = findViewById(R.id.imvArrow);
+        layoutViewMorePrice = findViewById(R.id.layoutViewMorePrice);
+        layoutExpanded = findViewById(R.id.layoutExpanded);
     }
 
     private final int GREY = R.color.xamBlcok;
@@ -92,12 +113,24 @@ public class OrderDetailScreen extends AppCompatActivity {
         }
         return totalPrice;
     }
+    private void changeColor() {
+        txtTextPayment.setText("Please pay " + txtTotalPayment.getText().toString() + " VND upon delivery");
+        reusedConstraint.changeColor(txtTextPayment,10,10 + txtTotalPayment.getText().toString().length() + 5,R.color.primary_yellow,this);
+
+        txtPaymentMethod.setText("Payment by UEL Camp");
+        reusedConstraint.changeColor(txtPaymentMethod,10,txtPaymentMethod.length(),R.color.primary_yellow,this);
+
+    }
 
     private void setValue(){
+        txtDiscountDelivery.setText(reusedConstraint.formatCurrency(discountDelivery));
         txtPrice.setText(reusedConstraint.formatCurrency(getPrice()));
-        txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
+        txtDiscount.setText(reusedConstraint.formatCurrency(discount));
         txtDeliveryFee.setText(reusedConstraint.formatCurrency(deliveryFee));
-        txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() + deliveryFee - discount));
+        txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() + deliveryFee - discount - discountDelivery));
+
+        changeColor();
+
         if(!AppUtil.statusOrder.isEmpty()){
             txtStatus.setText(AppUtil.statusOrder);
         }
@@ -133,10 +166,25 @@ public class OrderDetailScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    boolean isExpanded = false;
     private void addEvents() {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
+        layoutExpanded.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isExpanded){
+                    layoutViewMorePrice.setVisibility(View.VISIBLE);
+                    imvArrow.setImageResource(R.drawable.ic_arrrow_dropdown_up_black);
+                    isExpanded = true;
+                }
+                else{
+                    layoutViewMorePrice.setVisibility(View.GONE);
+                    imvArrow.setImageResource(R.drawable.ic_arror_down_spinner_black);
+                    isExpanded = false;
+                }
+            }
+        });
         btnCancelOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -26,7 +26,7 @@ public class ProductDetailScreen extends AppCompatActivity {
 
     ImageView imvThumbDrink;
     TextView txtTitleDrink, txtNameDrink, txtTypeDrink, txtPrepriceDrink, txtAftpriceDrink,txtInfoProduct, txtRating, txtQuantityReviews, txtRating2;
-    Button btnAddToCart;
+    Button btnAddToCart, btnBuyNow;
     ConstraintLayout layout_preprice;
     LinearLayout layout_drink_detail;
     TextView txtSeeAll;
@@ -62,6 +62,7 @@ public class ProductDetailScreen extends AppCompatActivity {
         txtRating = findViewById(R.id.txtRating);
         txtRating2 = findViewById(R.id.txtRating2);
         txtQuantityReviews = findViewById(R.id.txtQuantityReviews);
+        btnBuyNow = findViewById(R.id.btnBuyNow);
 
     }
 
@@ -112,6 +113,14 @@ public class ProductDetailScreen extends AppCompatActivity {
     private void addEvents() {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
+        btnBuyNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductDetailScreen.this, BuyNowSLSpaceScreen.class);
+                pushData(intent,drink);
+                startActivity(intent);
+            }
+        });
         imvLove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

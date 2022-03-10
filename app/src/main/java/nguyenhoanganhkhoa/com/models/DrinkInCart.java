@@ -10,6 +10,16 @@ public class DrinkInCart extends Drink implements Serializable {
     private int quantityDrink;
     private String note;
 
+    private double priceAftAdd;
+
+    public double getPriceAftAdd() {
+        return priceAftAdd;
+    }
+
+    public void setPriceAftAdd(double priceAftAdd) {
+        this.priceAftAdd = priceAftAdd;
+    }
+
     public String getNote() {
         return note;
     }
@@ -20,8 +30,19 @@ public class DrinkInCart extends Drink implements Serializable {
 
     private boolean isSelected = false;
 
+    public DrinkInCart() {
+    }
+
     public DrinkInCart(String drinkName, int thumbDrink, double drinkDiscount, double drinkPrePrice) {
         super(drinkName, thumbDrink, drinkDiscount, drinkPrePrice);
+    }
+
+    public DrinkInCart(String drinkTitle, String drinkName, String drinkType, int thumbDrink, double drinkDiscount, double drinkPrePrice) {
+        super(drinkTitle, drinkName, drinkType, thumbDrink, drinkDiscount, drinkPrePrice);
+    }
+
+    public DrinkInCart(String drinkTitle, String drinkName, String drinkType, int thumbDrink, double drinkDiscount, double drinkPrePrice, boolean isFavoriteDrink) {
+        super(drinkTitle, drinkName, drinkType, thumbDrink, drinkDiscount, drinkPrePrice, isFavoriteDrink);
     }
 
     public int getIceLevel() {
@@ -74,6 +95,19 @@ public class DrinkInCart extends Drink implements Serializable {
 
     public double getTotalPrice(){
         return getPriceAfterDiscount()*quantityDrink;
+    }
+
+    @Override
+    public String toString() {
+        return "DrinkInCart{" +
+                "iceLevel=" + iceLevel +
+                ", sugarLevel=" + sugarLevel +
+                ", size='" + size + '\'' +
+                ", quantityDrink=" + quantityDrink +
+                ", note='" + note + '\'' +
+                ", priceAftAdd=" + priceAftAdd +
+                ", isSelected=" + isSelected +
+                '}';
     }
 }
 

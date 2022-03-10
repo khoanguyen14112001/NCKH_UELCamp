@@ -80,6 +80,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/txtChooseYourAddress"
                         android:text="@string/main_canteen"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/be_vietnam_medium"
                         android:textSize="13sp" />
 

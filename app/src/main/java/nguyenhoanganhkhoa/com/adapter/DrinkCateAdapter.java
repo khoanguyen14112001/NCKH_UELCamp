@@ -51,7 +51,6 @@ public class DrinkCateAdapter extends RecyclerView.Adapter<DrinkCateAdapter.View
         {
             return;
         }
-
         holder.txtDrinkOptionBigCate.setText(cate.getOptionBigCate());
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context,RecyclerView.VERTICAL,false);
@@ -59,6 +58,7 @@ public class DrinkCateAdapter extends RecyclerView.Adapter<DrinkCateAdapter.View
         DrinkCateOptionAdapter adapter = new DrinkCateOptionAdapter(context);
         adapter.setData(cate.getListOption());
         holder.rcvOptionDrink.setAdapter(adapter);
+
 
         adapter.setCallBack(new DrinkCateOptionAdapter.MyCallBack() {
             @Override

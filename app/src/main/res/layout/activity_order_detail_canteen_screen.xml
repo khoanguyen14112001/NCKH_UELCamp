@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    tools:context=".home.canteen.OrderDetailCanteenScreen">
+    tools:context=".home.SLSpace.OrderDetailScreen">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -34,17 +34,19 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/txtHeader"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="15dp"
             >
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:background="@drawable/view_custom_corner_small_yellowstroke">
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/xamChu"/>
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
@@ -53,6 +55,8 @@
                     android:layout_marginTop="10dp"
                     android:id="@+id/layout_choose_address"
                     android:layout_height="wrap_content">
+
+
                     <ImageView
                         android:id="@+id/imvLocation"
                         android:layout_width="32dp"
@@ -75,7 +79,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/be_vietnam_regular"
-                            android:text="@string/location"
+                            android:text="@string/delivery_location"
                             android:textColor="@color/black"
                             android:focusable="true"
                             android:focusedByDefault="true"
@@ -85,41 +89,45 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/main_canteen"
+                            android:textColor="@color/black"
+                            android:text="@string/room_a_707_court_a"
                             android:fontFamily="@font/be_vietnam_medium"
                             android:textSize="13sp" />
 
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/xamNen"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:nestedScrollingEnabled="false"
                     android:id="@+id/rcvOrderDetail"
-                    app:layout_constraintBottom_toTopOf="@id/layoutContent"
-                    app:layout_constraintTop_toBottomOf="@id/layout_choose_address"
                     android:layout_height="wrap_content"/>
+
                 <LinearLayout
+                    android:id="@+id/layoutViewMorePrice"
                     android:layout_width="match_parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rcvOrderDetail"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical"
-                    android:id="@+id/layoutContent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="vertical">
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:paddingHorizontal="20dp"
-                        android:background="@color/xamNen"
-                        android:layout_marginHorizontal="1dp"
-                        android:paddingStart="60dp"
-                        android:layout_marginTop="5dp"
-
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginHorizontal="20dp"
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/price"
-                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:fontFamily="@font/be_vietnam_regular"
                             android:textColor="@color/black"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -128,17 +136,15 @@
                         <TextView
                             style="@style/VNDStyle"
                             android:id="@+id/txtVND1"
-                            android:textSize="12sp"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBaseline_toBaselineOf="@id/txtPrice"
                             />
 
                         <TextView
-                            style="@style/PriceStyle"
+                            style="@style/VNDStyle"
                             android:id="@+id/txtPrice"
                             android:text="30.000"
-                            android:textSize="23sp"
                             android:layout_marginEnd="3dp"
                             app:layout_constraintRight_toLeftOf="@id/txtVND1"
                             app:layout_constraintTop_toTopOf="parent"
@@ -146,22 +152,18 @@
                             />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:paddingHorizontal="20dp"
-                        android:layout_marginHorizontal="1dp"
-
-                        android:background="@color/xamNen"
-                        android:paddingStart="60dp"
-                        android:layout_marginTop="5dp"
-
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginHorizontal="20dp"
                         android:layout_height="wrap_content">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/discounts"
-                            android:fontFamily="@font/be_vietnam_semibold"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/be_vietnam_regular"
                             android:textColor="@color/black"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
@@ -169,166 +171,18 @@
                             />
                         <TextView
                             style="@style/VNDStyle"
-                            android:id="@+id/txtVND3"
-                            android:textSize="12sp"
+                            android:id="@+id/txtVND2"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBaseline_toBaselineOf="@id/txtDiscount"
                             />
 
                         <TextView
-                            style="@style/PriceStyle"
+                            style="@style/VNDStyle"
                             android:id="@+id/txtDiscount"
                             android:text="30.000"
-                            android:textSize="23sp"
                             android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toLeftOf="@id/txtVND3"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:paddingHorizontal="20dp"
-                        android:background="@color/primary_yellow"
-                        android:paddingStart="60dp"
-                        android:layout_marginHorizontal="1dp"
-
-                        android:layout_marginTop="5dp"
-
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/total_payment"
-                            android:fontFamily="@font/be_vietnam_semibold"
-                            android:textColor="@color/black"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-                        <TextView
-                            style="@style/VNDStyle"
-                            android:id="@+id/txtVND4"
-                            android:textSize="12sp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBaseline_toBaselineOf="@id/txtTotalPayment"
-                            />
-
-                        <TextView
-                            style="@style/PriceStyle"
-                            android:id="@+id/txtTotalPayment"
-                            android:text="30.000"
-                            android:textSize="23sp"
-                            android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toLeftOf="@id/txtVND4"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:paddingHorizontal="20dp"
-                        android:background="@color/xamNen"
-                        android:layout_marginHorizontal="1dp"
-
-                        android:paddingStart="60dp"
-                        android:layout_marginTop="5dp"
-
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/payment_method"
-                            android:fontFamily="@font/be_vietnam_semibold"
-                            android:textColor="@color/black"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-
-
-                        <TextView
-                            style="@style/PriceStyle"
-                            android:id="@+id/txtPaymentMethod"
-                            android:text="@string/uel_camp"
-                            android:textSize="23sp"
-                            android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:paddingHorizontal="20dp"
-                        android:background="@color/xamNen"
-                        android:paddingStart="60dp"
-                        android:layout_marginHorizontal="1dp"
-
-                        android:layout_marginTop="5dp"
-
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/status"
-                            android:fontFamily="@font/be_vietnam_semibold"
-                            android:textColor="@color/black"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-
-
-                        <TextView
-                            style="@style/PriceStyle"
-                            android:id="@+id/txtStatus"
-                            android:text="@string/pending"
-                            android:textSize="23sp"
-                            android:textColor="@color/primary_yellow"
-                            android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:paddingHorizontal="20dp"
-                        android:background="@color/xamNen"
-                        android:paddingStart="60dp"
-                        android:layout_marginHorizontal="1dp"
-
-                        android:layout_marginTop="5dp"
-
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/order_id"
-                            android:fontFamily="@font/be_vietnam_semibold"
-                            android:textColor="@color/black"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            />
-
-
-                        <TextView
-                            style="@style/PriceStyle"
-                            android:id="@+id/txtOrderID"
-                            android:text="@string/pending"
-                            android:textSize="23sp"
-                            android:textColor="@color/black"
-                            android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintRight_toLeftOf="@id/txtVND2"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
@@ -337,21 +191,236 @@
 
                 </LinearLayout>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/in_SmallHeaderText"
+                        android:textSize="15sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="@string/total_payment"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:id="@+id/layoutExpanded"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            style="@style/VNDStyle"
+                            android:id="@+id/txtVND5"
+                            app:layout_constraintRight_toLeftOf="@+id/imvArrow"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginEnd="8dp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/txtTotalPayment"
+                            />
+
+                        <TextView
+                            style="@style/PriceStyle"
+                            android:id="@+id/txtTotalPayment"
+                            android:text="30.000"
+                            android:textSize="25sp"
+                            android:layout_marginEnd="3dp"
+                            app:layout_constraintRight_toLeftOf="@id/txtVND5"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            />
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:id="@+id/imvArrow"
+                            android:layout_marginBottom="3dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arror_down_spinner_black"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@id/txtVND5"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:fontFamily="@font/be_vietnam_light"
+                    android:textColor="@color/black"
+                    android:id="@+id/txtTextPayment"
+                    android:layout_marginTop="4dp"
+                    android:text="Please pay 55.000 VND upon delivery"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/xamNen"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/in_SmallHeaderText"
+                    android:textSize="15sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@string/total_payment"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:fontFamily="@font/be_vietnam_light"
+                    android:textColor="@color/black"
+                    android:id="@+id/txtPaymentMethod"
+                    android:layout_marginTop="4dp"
+                    android:text="Payment by cash on delivery"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/xamNen"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/in_SmallHeaderText"
+                        android:textSize="15sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="@string/order_id"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/in_SmallHeaderText"
+                        android:textSize="15sp"
+                        android:id="@+id/txtOrderID"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="210821F378VC"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/order_time"
+                        android:fontFamily="@font/be_vietnam_regular"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    <TextView
+                        style="@style/VNDStyle"
+                        android:id="@+id/txtDateOrder"
+                        android:text="21 Oct 2021, 10:07"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_time"
+                        android:fontFamily="@font/be_vietnam_regular"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    <TextView
+                        style="@style/VNDStyle"
+                        android:id="@+id/txtPaymentTime"
+                        android:text="21 Oct 2021, 10:07"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status"
+                        android:fontFamily="@font/be_vietnam_regular"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+                    <TextView
+                        style="@style/VNDStyle"
+                        android:id="@+id/txtStatus"
+                        android:text="21 Oct 2021, 10:07"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_mavach"
+                    />
+
                 <androidx.appcompat.widget.AppCompatButton
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     style="@style/buttonYellow"
+                    android:layout_gravity="center"
                     android:id="@+id/btnCancelOrder"
                     android:backgroundTint="@color/blackUI"
                     android:textColor="@color/white"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="30dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="@string/cancel_order"
-                    app:layout_constraintTop_toBottomOf="@+id/layoutContent"/>
+                    android:text="@string/cancel_order"/>
+            </LinearLayout>
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

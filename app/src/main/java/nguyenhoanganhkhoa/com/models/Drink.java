@@ -19,6 +19,9 @@ public class Drink implements Serializable {
 
     private List<Comments> commentsList;
 
+    public Drink() {
+    }
+
     public float getAverageRate(){
         if(getCommentsList()!=null){
             float totalScore = 0;
