@@ -1,6 +1,7 @@
 package nguyenhoanganhkhoa.com.myapplication.home.canteen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +31,13 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
     DrinkIncartAdapter adapter;
 
     TextView txtPrice, txtDeliveryFee, txtDiscount, txtTotalPayment, txtPaymentMethod, txtStatus, txtOrderID;
+    TextView txtTextPayment;
     Button btnCancelOrder;
+
+    ConstraintLayout layoutExpanded;
+    ImageView imvArrow;
+    LinearLayout layoutViewMorePrice;
+
 
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
@@ -45,8 +54,12 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
         txtPaymentMethod = findViewById(R.id.txtPaymentMethod);
         txtStatus = findViewById(R.id.txtStatus);
         txtOrderID = findViewById(R.id.txtOrderID);
+        txtTextPayment = findViewById(R.id.txtTextPayment);
 
         btnCancelOrder = findViewById(R.id.btnCancelOrder);
+        imvArrow = findViewById(R.id.imvArrow);
+        layoutViewMorePrice = findViewById(R.id.layoutViewMorePrice);
+        layoutExpanded = findViewById(R.id.layoutExpanded);
     }
 
     private final int GREY = R.color.xamBlcok;
@@ -92,11 +105,20 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
         }
         return totalPrice;
     }
+    private void changeColor() {
+        txtTextPayment.setText("Please pay " + txtTotalPayment.getText().toString() + " VND upon delivery");
+        reusedConstraint.changeColor(txtTextPayment,10,10 + txtTotalPayment.getText().toString().length() + 5,R.color.primary_yellow,this);
+
+        txtPaymentMethod.setText("Payment by UEL Camp");
+        reusedConstraint.changeColor(txtPaymentMethod,10,txtPaymentMethod.length(),R.color.primary_yellow,this);
+
+    }
 
     private void setValue(){
         txtPrice.setText(reusedConstraint.formatCurrency(getPrice()));
         txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
         txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() - discount));
+        changeColor();
         if(!AppUtil.statusOrder.isEmpty()){
             txtStatus.setText(AppUtil.statusOrder);
         }
@@ -132,10 +154,26 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    boolean isExpanded = false;
 
     private void addEvents() {
         reusedConstraint.openNav(this);
         reusedConstraint.setActionComeBack(this);
+        layoutExpanded.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isExpanded){
+                    layoutViewMorePrice.setVisibility(View.VISIBLE);
+                    imvArrow.setImageResource(R.drawable.ic_arrrow_dropdown_up_black);
+                    isExpanded = true;
+                }
+                else{
+                    layoutViewMorePrice.setVisibility(View.GONE);
+                    imvArrow.setImageResource(R.drawable.ic_arror_down_spinner_black);
+                    isExpanded = false;
+                }
+            }
+        });
         btnCancelOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

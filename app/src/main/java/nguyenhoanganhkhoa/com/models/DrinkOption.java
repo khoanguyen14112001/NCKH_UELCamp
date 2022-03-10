@@ -5,6 +5,22 @@ public class DrinkOption {
     private boolean isFree = true;
     private double optionAdditionPrice = 0;
     private boolean isChosen = false;
+    private int valueLevel;
+
+    public int getValueLevel() {
+        return valueLevel;
+    }
+
+    public void setValueLevel(int valueLevel) {
+        this.valueLevel = valueLevel;
+    }
+
+    public DrinkOption(String optionCate, int valueLevel) {
+        this.optionCate = optionCate;
+        this.valueLevel = valueLevel;
+        this.optionAdditionPrice = optionAdditionPrice;
+        this.isFree = isFree;
+    }
 
     public String getOptionCate() {
         return optionCate;

@@ -16,24 +16,36 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="LockedOrientationActivity">
         <activity
-            android:name=".home.parkinglot.ParkingSplashScreen"
-            android:noHistory="true"
+            android:name=".home.canteen.BuyNowCanteenScreen"
             android:exported="false" />
         <activity
-            android:name=".home.canteen.OrderDetailCanteenScreen"
+            android:name=".home.SLSpace.BuyNowSLSpaceScreen"
             android:exported="false" />
+        <activity
+            android:name=".home.parkinglot.ParkingSplashScreen"
+            android:exported="false"
+            android:noHistory="true" />
+        <activity
+            android:name=".home.canteen.OrderDetailCanteenScreen"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".home.canteen.OrderCanteenScreen"
             android:exported="false" />
         <activity
             android:name=".home.canteen.CartCanteenScreen"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".home.canteen.FavoriteDishesScreen"
             android:exported="false" />
         <activity
             android:name=".home.canteen.PurchaseCanteenScreen"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".home.canteen.AddToCartCanteenScreen"
             android:exported="false" />
@@ -48,8 +60,8 @@
             android:exported="false" />
         <activity
             android:name=".home.canteen.CanteenSplashScreen"
-            android:noHistory="true"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true" />
         <activity
             android:name=".home.SLSpace.ProductDetailScreen"
             android:exported="true" />
@@ -61,7 +73,9 @@
             android:exported="false" />
         <activity
             android:name=".home.SLSpace.PurchaseSLSpaceScreen"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".home.SLSpace.AddNewAddressScreen"
             android:exported="false" />
@@ -93,7 +107,6 @@
         <activity
             android:name=".home.SLSpace.HomeSLSpaceScreen"
             android:exported="true" />
-
         <activity
             android:name=".home.SLSpace.SLSpaceSplashScreen"
             android:exported="false" />
@@ -225,9 +238,7 @@
             android:name=".login.LoginScreen"
             android:exported="true"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
-
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".login.OnBoardingScreen"
             android:exported="true" >

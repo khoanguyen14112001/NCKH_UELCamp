@@ -464,6 +464,14 @@
     <string name="homepage">Homepage</string>
     <string name="linkInsta">https://www.instagram.com/uelcamp</string>
     <string name="this_is_uel_parking_s_ordering_application">This is UEL Parking\'s ordering application</string>
+    <string name="buy_now">Buy now</string>
+    <string name="go_to_order">Go to order</string>
+    <string name="discounts_delivery">Discounts delivery</string>
+    <string name="order_time">Order time</string>
+    <string name="payment_time">Payment time</string>
+    <string name="ship_time">Ship time</string>
+    <string name="room_a_707_court_a">Room A.707 - Court A</string>
+    <string name="add_video">Add video</string>
 
     <array name="initial_slider_values">
         <item>0</item>

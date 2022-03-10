@@ -269,13 +269,13 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
     private static List<Comments> getListComment2() {
         List<Comments> list = new ArrayList<>();
-        Comments comment1 = new Comments(R.drawable.img_heo,"Ý Heo",
+        Comments comment1 = new Comments(R.drawable.img_heo,"Hoàng Ý",
                 "21 Oct 2022, 10:07",4,
                 comment_demo,null);
 
 
 
-        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Noob",
+        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Anh Khoa",
                 "21 Oct 1999, 10:07",4,
                 comment_demo,null);
 
@@ -289,13 +289,13 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
     public static List<Comments> getListComment1(){
         List<Comments> list = new ArrayList<>();
-        Comments comment1 = new Comments(R.drawable.img_heo,"Ý Heo",
+        Comments comment1 = new Comments(R.drawable.img_heo,"Khoa Nguyễn",
                 "21 Oct 2022, 10:07",4,
                 comment_demo,getListImagesComment1());
         comment1.setGoodValue(true);
         comment1.setGoodProduct(true);
 
-        Comments comment2 = new Comments(R.drawable.img_avatar_male,"AKhoa provjp",
+        Comments comment2 = new Comments(R.drawable.img_avatar_male,"Trương Ý",
                 "21 Oct 2021, 10:07",3,
                 comment_demo,getListImagesComment2());
         comment2.setGoodProduct(true);
@@ -305,12 +305,12 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
         comment2.setGoodValue(true);
 
 
-        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Noob",
+        Comments comment3 =new Comments(R.drawable.img_avatar_female,"Võ Trinh",
                 "21 Oct 1999, 10:07",1,
                 comment_demo,null);
         comment3.setGoodSeller(true);
 
-        Comments comment4 =new Comments(R.drawable.img_avatar_male,"Gà",
+        Comments comment4 =new Comments(R.drawable.img_avatar_male,"Tuyết Ý",
                 "21 Oct 2133, 10:07",5,
                 comment_demo,getListImagesComment3());
         comment4.setGoodSeller(true);

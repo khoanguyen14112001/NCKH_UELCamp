@@ -152,7 +152,7 @@ public class EvaluateAdapter extends RecyclerView.Adapter<EvaluateAdapter.ViewHo
         }
         else{
             holder.txtQuantityImages.setText(context.getString(R.string.add_pictures)  + " (" + 0 +"/5)");
-            holder.txtQuantityVid.setText(context.getString(R.string.add_pictures)  + " (" + 0 +"/1)");
+            holder.txtQuantityVid.setText(context.getString(R.string.add_video)  + " (" + 0 +"/1)");
         }
 
 

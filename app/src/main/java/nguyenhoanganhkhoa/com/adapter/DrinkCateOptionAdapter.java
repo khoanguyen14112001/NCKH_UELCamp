@@ -42,7 +42,7 @@ public class DrinkCateOptionAdapter extends RecyclerView.Adapter<DrinkCateOption
         return new ViewHolder(view);
     }
 
-    ReusedConstraint reusedConstraint = new ReusedConstraint(context);
+    ReusedConstraint reusedConstraint = new ReusedConstraint();
     @Override
     public void onBindViewHolder(@NonNull DrinkCateOptionAdapter.ViewHolder holder, int position) {
         DrinkOption option = mOptions.get(position);
@@ -56,6 +56,13 @@ public class DrinkCateOptionAdapter extends RecyclerView.Adapter<DrinkCateOption
         }
         else{
             holder.txtDrinkPriceOption.setText("+" +  reusedConstraint.formatCurrency(option.getOptionAdditionPrice()) + " VND");
+        }
+
+        if(option.getOptionCate().equals("ice")){
+            holder.txtDrinkLevelOption.setText(option.getValueLevel()+"% ice");
+        }
+        if(option.getOptionCate().equals("sugar")){
+            holder.txtDrinkLevelOption.setText(option.getValueLevel()+"% sugar");
         }
 
 

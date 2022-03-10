@@ -84,7 +84,7 @@ public class OrderCanteenScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_slspace_screen);
+        setContentView(R.layout.activity_order_canteen_screen);
 
         linkView();
         getData();

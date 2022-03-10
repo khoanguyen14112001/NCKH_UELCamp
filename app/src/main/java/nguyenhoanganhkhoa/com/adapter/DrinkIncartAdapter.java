@@ -125,15 +125,6 @@ public class DrinkIncartAdapter extends RecyclerView.Adapter<DrinkIncartAdapter.
             holder.txtNote.setText(String.valueOf(drink.getNote()));
         }
 
-        if(numScreen == ORDER_DETAIL_SCREEN){
-            holder.txtNote.setText(drink.getNote());
-            if(holder.getAdapterPosition()==mDrinks.size()-1){
-                holder.viewSeparate.setVisibility(View.GONE);
-            }
-            else{
-                holder.viewSeparate.setVisibility(View.VISIBLE);
-            }
-        }
 
 
         if(numScreen == ORDER_SCREEN | numScreen == ORDER_CANTEEN_SCREEN | numScreen == IN_CART_SCREEN | numScreen == IN_CART_CANTEEN_SCREEN ){
