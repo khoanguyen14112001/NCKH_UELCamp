@@ -24,12 +24,12 @@
         android:paddingVertical="5dp"
         android:id="@+id/layout_item_in_cart"
 
-        android:paddingHorizontal="20dp">
+        android:paddingHorizontal="25dp">
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.38"
+            app:layout_constraintGuide_percent="0.32"
             android:id="@+id/gRight"
             />
 
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="70dp"
                     android:src="@drawable/img_quancafe_thumb"
                     android:id="@+id/imvThumbDrink"
                     android:scaleType="centerCrop"

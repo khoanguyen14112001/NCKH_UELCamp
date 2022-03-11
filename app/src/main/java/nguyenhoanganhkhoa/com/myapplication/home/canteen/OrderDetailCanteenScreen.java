@@ -114,8 +114,8 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
         return totalPrice;
     }
     private void changeColor() {
-        txtTextPayment.setText("You have paid " + txtTotalPayment.getText().toString() + " by UEL Camp");
-        reusedConstraint.changeColor(txtTextPayment,13,10 + txtTotalPayment.getText().toString().length() + 5,R.color.primary_yellow,this);
+        txtTextPayment.setText("You have paid " + txtTotalPayment.getText().toString() + " VND by UEL Camp");
+        reusedConstraint.changeColor(txtTextPayment,13,13 + txtTotalPayment.getText().toString().length() + 5,R.color.primary_yellow,this);
 
         txtPaymentMethod.setText("Payment by UEL Camp");
         reusedConstraint.changeColor(txtPaymentMethod,10,txtPaymentMethod.length(),R.color.primary_yellow,this);

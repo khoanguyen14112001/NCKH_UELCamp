@@ -74,7 +74,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/be_vietnam_regular"
-                            android:text="@string/location"
+                            android:text="@string/delivery_location"
                             android:textColor="@color/black"
                             android:focusable="true"
                             android:focusedByDefault="true"
