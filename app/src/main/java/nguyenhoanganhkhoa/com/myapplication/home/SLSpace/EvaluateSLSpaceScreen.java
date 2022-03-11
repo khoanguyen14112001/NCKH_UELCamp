@@ -31,7 +31,9 @@ import nguyenhoanganhkhoa.com.adapter.EvaluateAdapter;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogOneButtonNew;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
 import nguyenhoanganhkhoa.com.models.Drink;
+import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.models.ImagesVideoEvaluate;
+import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -57,6 +59,7 @@ public class EvaluateSLSpaceScreen extends AppCompatActivity {
         setContentView(R.layout.activity_evaluate_slspace_screen);
 
         linkView();
+        getListDrinkPurchaseDetail();
         initAdapter();
         addResultLauncher();
         addEvents();
@@ -65,10 +68,16 @@ public class EvaluateSLSpaceScreen extends AppCompatActivity {
     }
 
 
+    PurchaseItem purchaseItem;
 
-
-    private List<Drink> getListDrinkPurchaseDetail(){
-        return (List<Drink>) getIntent().getSerializableExtra(AppUtil.MY_BUNDLE_TRANS);
+    private List<DrinkInCart> getListDrinkPurchaseDetail(){
+        // Lấy dữ liệu lúc đầu gán cho purchaseItem nên mới cần phải gọi
+        Intent intent = getIntent();
+        Bundle bundle = intent.getBundleExtra(AppUtil.MY_BUNDLE_TRANS);
+        if(bundle!=null){
+            purchaseItem = (PurchaseItem) bundle.getSerializable(AppUtil.SELECTED_ITEM_TRANS);
+        }
+        return purchaseItem.getListItems();
     }
 
     private void initAdapter() {

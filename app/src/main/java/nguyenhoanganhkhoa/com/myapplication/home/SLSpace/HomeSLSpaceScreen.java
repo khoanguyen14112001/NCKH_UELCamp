@@ -621,7 +621,7 @@ public class HomeSLSpaceScreen extends AppCompatActivity {
 
     private void addDots(int size) {
         dots = new TextView[size];
-        reusedConstraint.prepareDots(this,size,layout_dots_news,dots,12);
+        reusedConstraint.prepareDots(this,size,layout_dots_news,dots,8);
     }
 
     private void createSlideShow(int size) {

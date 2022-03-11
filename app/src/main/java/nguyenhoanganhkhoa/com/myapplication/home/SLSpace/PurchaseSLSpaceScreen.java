@@ -31,6 +31,8 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
     LinearLayout layout_no_order_yet;
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
+    public static final String CASH = "cash";
+    public static final String UELCAMP = "UEL camp";
 
     private void linkView() {
         rcvStatusPurchase = findViewById(R.id.rcvStatusPurchase);
@@ -169,8 +171,8 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
         addItemToList(list2,"SEA SODA - size M", R.drawable.img_drink_2,0.2,25000,
                 70,100,"Size M", 3);
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FX9R2",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FXDFJ",quantity(list2),totalPayment(list2),list2));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FX9R2",quantity(list1),totalPayment(list1),list1, CASH,7000,0,0));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_PENDING,"220107FXDFJ",quantity(list2),totalPayment(list2),list2, UELCAMP,0,3000,0));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseInProgress() {
@@ -185,8 +187,8 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
         addItemToList(list2,"ICED/HOT COFFEE - size M", R.drawable.img_drink_3,0,30000,
                 70,50,"Size L", 1);
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"22010DSFHU",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"2381FDDHOA",quantity(list2),totalPayment(list2),list2));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"22010DSFHU",quantity(list1),totalPayment(list1),list1, CASH, 5000,0,0));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_IN_PROGRESS,"2381FDDHOA",quantity(list2),totalPayment(list2),list2, UELCAMP, 10000,8000,3000));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseDelivery() {
@@ -197,7 +199,7 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
         addItemToList(list1,"MATCHA FRAPPUCHINO - size M", R.drawable.img_drink_5,0,35000,
                 70,70,"Size M", 2);
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_DELIVERING,"2381FDDASF",quantity(list1),totalPayment(list1),list1));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_DELIVERING,"2381FDDASF",quantity(list1),totalPayment(list1),list1, UELCAMP));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseCompleted() {
@@ -218,8 +220,8 @@ public class PurchaseSLSpaceScreen extends AppCompatActivity {
         addItemToList(list2,"SEA SODA - size M", R.drawable.img_drink_2,0.2,25000,
                 70,100,"Size M", 3);
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"220107FX232",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"241147FXDFJ",quantity(list2),totalPayment(list2),list2));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"220107FX232",quantity(list1),totalPayment(list1),list1, CASH, 5000,2000,0));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"241147FXDFJ",quantity(list2),totalPayment(list2),list2, UELCAMP, 0,0,0));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseCancelled() {

@@ -136,6 +136,8 @@ public class OrderCanteenScreen extends AppCompatActivity {
                 totalPay = totalPay + list.get(i).getTotalPrice();
             }
             txtTotalNoDiscount.setText(reusedConstraint.formatCurrency(totalPay));
+            txtPaymentSummary.setText(reusedConstraint.formatCurrency(totalPay - discount));
+            txtTotalPayment.setText(reusedConstraint.formatCurrency(totalPay - discount));
         }
         catch (Exception e){
             Log.d("TAG", "getTotalPayment: " + e);

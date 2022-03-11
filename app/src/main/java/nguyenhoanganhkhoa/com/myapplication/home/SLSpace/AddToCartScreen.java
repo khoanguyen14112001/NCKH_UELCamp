@@ -105,17 +105,17 @@ public class AddToCartScreen extends AppCompatActivity {
         List<DrinkOption> mOptionSugar = new ArrayList<>();
         List<DrinkOption> mOptionSize = new ArrayList<>();
 
-        mOptionIce.add(new DrinkOption("0% ice"));
-        mOptionIce.add(new DrinkOption("30% ice"));
-        mOptionIce.add(new DrinkOption("50% ice"));
-        mOptionIce.add(new DrinkOption("70% ice"));
-        mOptionIce.add(new DrinkOption("100% ice"));
+        mOptionIce.add(new DrinkOption("ice", 0));
+        mOptionIce.add(new DrinkOption("ice", 30));
+        mOptionIce.add(new DrinkOption("ice", 50));
+        mOptionIce.add(new DrinkOption("ice", 70));
+        mOptionIce.add(new DrinkOption("ice", 100));
 
-        mOptionSugar.add(new DrinkOption("0% sugar"));
-        mOptionSugar.add(new DrinkOption("30% sugar"));
-        mOptionSugar.add(new DrinkOption("50% sugar"));
-        mOptionSugar.add(new DrinkOption("70% sugar"));
-        mOptionSugar.add(new DrinkOption("100% sugar"));
+        mOptionSugar.add(new DrinkOption("sugar", 0));
+        mOptionSugar.add(new DrinkOption("sugar", 30));
+        mOptionSugar.add(new DrinkOption("sugar", 50));
+        mOptionSugar.add(new DrinkOption("sugar", 70));
+        mOptionSugar.add(new DrinkOption("sugar", 100));
 
         mOptionSize.add(new DrinkOption("Size M"));
         mOptionSize.add(new DrinkOption("Size L", false,5000));

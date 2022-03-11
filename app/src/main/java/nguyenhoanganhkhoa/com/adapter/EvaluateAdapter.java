@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nguyenhoanganhkhoa.com.models.Drink;
+import nguyenhoanganhkhoa.com.models.DrinkInCart;
 import nguyenhoanganhkhoa.com.models.DrinkOption;
 import nguyenhoanganhkhoa.com.models.ImagesVideoEvaluate;
 import nguyenhoanganhkhoa.com.myapplication.R;
@@ -28,7 +29,7 @@ import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 public class EvaluateAdapter extends RecyclerView.Adapter<EvaluateAdapter.ViewHolder> {
 
     private Context context;
-    private List<Drink> mDrink;
+    private List<DrinkInCart> mDrink;
 
 
     private List<ImagesVideoEvaluate> imagesList = new ArrayList<>();
@@ -51,7 +52,7 @@ public class EvaluateAdapter extends RecyclerView.Adapter<EvaluateAdapter.ViewHo
 
     }
 
-    public void setData(List<Drink> list){
+    public void setData(List<DrinkInCart> list){
         this.mDrink = list;
         notifyDataSetChanged();
     }

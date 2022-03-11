@@ -20,7 +20,9 @@ import java.util.List;
 import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
 import nguyenhoanganhkhoa.com.adapter.PurchaseAdapter;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButtonNew;
+import nguyenhoanganhkhoa.com.models.Drink;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
+import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.SLSpace.EvaluateSLSpaceScreen;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
@@ -42,7 +44,6 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
 
-    private static final  int discount = 7000;
 
     private void linkView() {
         rcvOrderDetail = findViewById(R.id.rcvOrderDetail);
@@ -72,6 +73,7 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
         setContentView(R.layout.activity_order_detail_canteen_screen);
 
         linkView();
+        getListDrinkPurchaseDetail();
         setValue();
         initAdapter();
 
@@ -80,12 +82,18 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
         addEvents();
     }
 
+    PurchaseItem purchaseItem;
     private String getPurchaseID(){
         return getIntent().getStringExtra(AppUtil.MY_BUNDLE);
     }
 
     private List<DrinkInCart> getListDrinkPurchaseDetail(){
-        return (List<DrinkInCart>) getIntent().getSerializableExtra(AppUtil.MY_BUNDLE_TRANS);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getBundleExtra(AppUtil.MY_BUNDLE_TRANS);
+        if(bundle!=null){
+            purchaseItem = (PurchaseItem) bundle.getSerializable(AppUtil.SELECTED_ITEM_TRANS);
+        }
+        return purchaseItem.getListItems();
     }
 
     private void initAdapter() {
@@ -106,8 +114,8 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
         return totalPrice;
     }
     private void changeColor() {
-        txtTextPayment.setText("Please pay " + txtTotalPayment.getText().toString() + " VND upon delivery");
-        reusedConstraint.changeColor(txtTextPayment,10,10 + txtTotalPayment.getText().toString().length() + 5,R.color.primary_yellow,this);
+        txtTextPayment.setText("You have paid " + txtTotalPayment.getText().toString() + " by UEL Camp");
+        reusedConstraint.changeColor(txtTextPayment,13,10 + txtTotalPayment.getText().toString().length() + 5,R.color.primary_yellow,this);
 
         txtPaymentMethod.setText("Payment by UEL Camp");
         reusedConstraint.changeColor(txtPaymentMethod,10,txtPaymentMethod.length(),R.color.primary_yellow,this);
@@ -116,13 +124,13 @@ public class OrderDetailCanteenScreen extends AppCompatActivity {
 
     private void setValue(){
         txtPrice.setText(reusedConstraint.formatCurrency(getPrice()));
-        txtDiscount.setText("-" + reusedConstraint.formatCurrency(discount));
-        txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() - discount));
+        txtDiscount.setText(reusedConstraint.formatCurrency(purchaseItem.getDiscount()));
+        txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() - purchaseItem.getDiscount()));
         changeColor();
-        if(!AppUtil.statusOrder.isEmpty()){
-            txtStatus.setText(AppUtil.statusOrder);
-        }
-
+//        if(!AppUtil.statusOrder.isEmpty()){
+//            txtStatus.setText(AppUtil.statusOrder);
+//        }
+        txtStatus.setText(purchaseItem.getTypePurchase());
         if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_ORDER)){
             changeButtonStatus(BLACK,true);
         }

@@ -90,7 +90,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:text="@string/room_a_707_court_a"
+                            android:text="@string/main_canteen"
                             android:fontFamily="@font/be_vietnam_medium"
                             android:textSize="13sp" />
 

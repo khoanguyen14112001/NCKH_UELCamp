@@ -11,6 +11,35 @@ public class PurchaseItem implements Serializable {
     String purchaseID;
     int quantityItems;
     double totalPrice;
+    String paymentMethod;
+    double deliveryFee;
+    double discount;
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public double getDeliveryFee() {
+        return deliveryFee;
+    }
+
+    public void setDeliveryFee(double deliveryFee) {
+        this.deliveryFee = deliveryFee;
+    }
+
+    public double getDiscountDeliveryFee() {
+        return discountDeliveryFee;
+    }
+
+    public void setDiscountDeliveryFee(double discountDeliveryFee) {
+        this.discountDeliveryFee = discountDeliveryFee;
+    }
+
+    double discountDeliveryFee;
     List<DrinkInCart> listItems;
 
     public List<DrinkInCart> getListItems() {
@@ -74,5 +103,43 @@ public class PurchaseItem implements Serializable {
         this.typePurchase = typePurchase;
         this.quantityItems = quantityItems;
         this.totalPrice = totalPrice;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    public PurchaseItem(String typePurchase, String purchaseID, int quantityItems, double totalPrice, List<DrinkInCart> listItems, String paymentMethod, double discount , double deliveryFee, double discountDeliveryFee) {
+        this.typePurchase = typePurchase;
+        this.purchaseID = purchaseID;
+        this.quantityItems = quantityItems;
+        this.totalPrice = totalPrice;
+        this.paymentMethod = paymentMethod;
+        this.discount = discount;
+        this.deliveryFee = deliveryFee;
+        this.discountDeliveryFee = discountDeliveryFee;
+        this.listItems = listItems;
+    }
+
+    public PurchaseItem(String typePurchase, String purchaseID, int quantityItems, double totalPrice, List<DrinkInCart> listItems, String paymentMethod) {
+        this.typePurchase = typePurchase;
+        this.purchaseID = purchaseID;
+        this.quantityItems = quantityItems;
+        this.totalPrice = totalPrice;
+        this.paymentMethod = paymentMethod;
+        this.listItems = listItems;
+    }
+
+    public PurchaseItem(String typePurchase, String purchaseID, int quantityItems, double totalPrice, List<DrinkInCart> listItems, double discount) {
+        this.typePurchase = typePurchase;
+        this.purchaseID = purchaseID;
+        this.quantityItems = quantityItems;
+        this.totalPrice = totalPrice;
+        this.listItems = listItems;
+        this.discount = discount;
     }
 }

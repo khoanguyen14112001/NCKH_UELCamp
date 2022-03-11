@@ -2,6 +2,7 @@ package nguyenhoanganhkhoa.com.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,6 +59,10 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
     public static final String TEXT_COMPLETED = "Successfully delivered to you";
     public static final String TEXT_CANCELLED = "Cancelled by you";
 
+    public static final String TEXT_ORDER = "Your order has been successfully placed";
+    public static final String TEXT_DISH_COMPLETED = "You have successfully purchased the goods";
+    public static final String TEXT_NOT_COMPLETED = "You have received the goods unsuccessfully";
+
     public static final int IMAGE_PENDING = R.drawable.ic_purchase_pending;
     public static final int IMAGE_DELIVERING = R.drawable.ic_purchase_delivery;
     public static final int IMAGE_IN_PROGRESS = R.drawable.ic_purchase_in_progress;
@@ -109,7 +114,12 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
                 setTextAndThumb(holder,TEXT_CANCELLED, IMAGE_CANCELLED);
                 break;
             case TYPE_COMPLETED:
-                setTextAndThumb(holder,TEXT_COMPLETED,IMAGE_COMPLETED);
+                if(getScreen()==PURCHASE_SLSPACE_SCREEN){
+                    setTextAndThumb(holder,TEXT_COMPLETED,IMAGE_COMPLETED);
+                }
+                else{
+                    setTextAndThumb(holder,TEXT_DISH_COMPLETED,IMAGE_COMPLETED);
+                }
                 break;
             case TYPE_DELIVERING:
                 setTextAndThumb(holder,TEXT_DELIVERING,IMAGE_DELIVERING);
@@ -119,6 +129,12 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
                 break;
             case TYPE_IN_PROGRESS:
                 setTextAndThumb(holder,TEXT_IN_PROGRESS,IMAGE_IN_PROGRESS);
+                break;
+            case TYPE_ORDER:
+                setTextAndThumb(holder,TEXT_ORDER,IMAGE_PENDING);
+                break;
+            case TYPE_NOT_COMPLETED:
+                setTextAndThumb(holder,TEXT_NOT_COMPLETED,IMAGE_CANCELLED);
                 break;
         }
         initAdapter(holder, purchase);
@@ -162,10 +178,18 @@ public class PurchaseAdapter extends RecyclerView.Adapter<PurchaseAdapter.ViewHo
 
     }
 
+//    private void pushData(PurchaseItem purchase, Class screen) {
+//        Intent intent = new Intent(context, screen);
+//        intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) purchase.getListItems());
+//        intent.putExtra(AppUtil.MY_BUNDLE, purchase.getPurchaseID());
+//        context.startActivity(intent);
+//    }
+
     private void pushData(PurchaseItem purchase, Class screen) {
         Intent intent = new Intent(context, screen);
-        intent.putExtra(AppUtil.MY_BUNDLE_TRANS, (Serializable) purchase.getListItems());
-        intent.putExtra(AppUtil.MY_BUNDLE, purchase.getPurchaseID());
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(AppUtil.SELECTED_ITEM_TRANS,purchase);
+        intent.putExtra(AppUtil.MY_BUNDLE_TRANS, bundle);
         context.startActivity(intent);
     }
 

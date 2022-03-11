@@ -114,7 +114,7 @@ public class CartCanteenScreen extends AppCompatActivity {
                 1);
         addItemToList(list,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
                 2);
-        addItemToList(list,"STIR-FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
+        addItemToList(list,"FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
                 3);
         addItemToList(list,"RIB RICE", R.drawable.img_dish_4,0,25000,
                 4);

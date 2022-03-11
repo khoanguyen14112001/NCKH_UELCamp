@@ -32,6 +32,8 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
 
+
+
     private void linkView() {
         rcvStatusPurchase = findViewById(R.id.rcvStatusPurchase);
         rcvListPurchase = findViewById(R.id.rcvListPurchase);
@@ -154,13 +156,13 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
                 1);
         addItemToList(list1,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
                 2);
-        addItemToList(list2,"STIR-FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
+        addItemToList(list2,"FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
                 3);
         addItemToList(list2,"RIB RICE", R.drawable.img_dish_4,0,25000,
                 4);
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_ORDER,"220107FX9R2",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_ORDER,"220107FXDFJ",quantity(list2),totalPayment(list2),list2));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_ORDER,"220107FX9R2",quantity(list1),totalPayment(list1),list1,5000));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_ORDER,"220107FXDFJ",quantity(list2),totalPayment(list2),list2, 3000));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseNotCompleted() {
@@ -172,7 +174,7 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
                 1);
 
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_NOT_COMPLETED,"2381FDDASF",quantity(list1),totalPayment(list1),list1));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_NOT_COMPLETED,"2381FDDASF",quantity(list1),totalPayment(list1),list1, 0));
         return listPurchase;
     }
     private List<PurchaseItem> getListPurchaseCompleted() {
@@ -184,14 +186,14 @@ public class PurchaseCanteenScreen extends AppCompatActivity {
                 1);
         addItemToList(list1,"CHICKEN PROMO NOODLES", R.drawable.img_dish_2,0,15000,
                 2);
-        addItemToList(list2,"STIR-FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
+        addItemToList(list2,"FRIED SPAGHETTI WITH BEEF", R.drawable.img_dish_3,0,27000,
                 3);
         addItemToList(list2,"RIB RICE", R.drawable.img_dish_4,0,25000,
                 4);
 
 
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"220107FX232",quantity(list1),totalPayment(list1),list1));
-        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"241147FXDFJ",quantity(list2),totalPayment(list2),list2));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"220107FX232",quantity(list1),totalPayment(list1),list1, 9000));
+        listPurchase.add(new PurchaseItem(PurchaseAdapter.TYPE_COMPLETED,"241147FXDFJ",quantity(list2),totalPayment(list2),list2, 2000));
         return listPurchase;
     }
 

@@ -57,7 +57,9 @@
             android:exported="false" />
         <activity
             android:name=".home.canteen.HomeCanteenScreen"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".home.canteen.CanteenSplashScreen"
             android:exported="false"
@@ -84,7 +86,9 @@
             android:exported="false" />
         <activity
             android:name=".home.SLSpace.ChooseAddressScreen"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".home.SLSpace.FavoriteDrinksScreen"
             android:exported="true" />
@@ -106,7 +110,9 @@
             android:exported="true" />
         <activity
             android:name=".home.SLSpace.HomeSLSpaceScreen"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".home.SLSpace.SLSpaceSplashScreen"
             android:exported="false" />

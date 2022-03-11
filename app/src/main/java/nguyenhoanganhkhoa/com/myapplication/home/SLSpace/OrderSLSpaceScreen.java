@@ -108,8 +108,8 @@ public class OrderSLSpaceScreen extends AppCompatActivity {
 
     private List<Faculty> getListPaymentMethod() {
         List<Faculty> list = new ArrayList<>();
-        list.add(new Faculty("UEL CAMP"));
-        list.add(new Faculty("CASH"));
+        list.add(new Faculty("UEL Camp"));
+        list.add(new Faculty("Cash"));
         return list;
     }
 
