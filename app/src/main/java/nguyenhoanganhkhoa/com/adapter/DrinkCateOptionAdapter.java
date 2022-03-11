@@ -70,9 +70,18 @@ public class DrinkCateOptionAdapter extends RecyclerView.Adapter<DrinkCateOption
             setChosenDrink(holder,option);
         }
         else{
-            if(holder.getAdapterPosition() == 0){
-                option.setChosen(true);
-                setChosenDrink(holder,option);
+            if(option.getOptionCate().toLowerCase().contains("ice")|option.getOptionCate().toLowerCase().contains("sugar") ){
+                if(holder.getAdapterPosition() == mOptions.size()-1){
+                    option.setChosen(true);
+                    setChosenDrink(holder,option);
+                    lastCheckedPosition = mOptions.size() - 1;
+                }
+            }
+            else{
+                if(holder.getAdapterPosition() == 0){
+                    option.setChosen(true);
+                    setChosenDrink(holder,option);
+                }
             }
 
         }

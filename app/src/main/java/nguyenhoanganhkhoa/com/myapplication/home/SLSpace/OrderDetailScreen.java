@@ -27,6 +27,7 @@ import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
 import nguyenhoanganhkhoa.com.adapter.PurchaseAdapter;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButtonNew;
 import nguyenhoanganhkhoa.com.models.DrinkInCart;
+import nguyenhoanganhkhoa.com.models.PurchaseItem;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
 import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
@@ -47,9 +48,6 @@ public class OrderDetailScreen extends AppCompatActivity {
     ReusedConstraint reusedConstraint = new ReusedConstraint();
 
 
-    private static final  int deliveryFee = 7000;
-    private static final  int discount = 7000;
-    private static final  int discountDelivery = 3000;
 
     private void linkView() {
         rcvOrderDetail = findViewById(R.id.rcvOrderDetail);
@@ -80,6 +78,7 @@ public class OrderDetailScreen extends AppCompatActivity {
         setContentView(R.layout.activity_order_detail_screen);
 
         linkView();
+        getListDrinkPurchaseDetail();
         setValue();
         initAdapter();
 
@@ -88,12 +87,20 @@ public class OrderDetailScreen extends AppCompatActivity {
         addEvents();
     }
 
+    PurchaseItem purchaseItem;
+
     private String getPurchaseID(){
         return getIntent().getStringExtra(AppUtil.MY_BUNDLE);
     }
 
     private List<DrinkInCart> getListDrinkPurchaseDetail(){
-        return (List<DrinkInCart>) getIntent().getSerializableExtra(AppUtil.MY_BUNDLE_TRANS);
+        // Lấy dữ liệu lúc đầu gán cho purchaseItem nên mới cần phải gọi
+        Intent intent = getIntent();
+        Bundle bundle = intent.getBundleExtra(AppUtil.MY_BUNDLE_TRANS);
+        if(bundle!=null){
+            purchaseItem = (PurchaseItem) bundle.getSerializable(AppUtil.SELECTED_ITEM_TRANS);
+        }
+        return purchaseItem.getListItems();
     }
 
     private void initAdapter() {
@@ -114,27 +121,73 @@ public class OrderDetailScreen extends AppCompatActivity {
         return totalPrice;
     }
     private void changeColor() {
-        txtTextPayment.setText("Please pay " + txtTotalPayment.getText().toString() + " VND upon delivery");
-        reusedConstraint.changeColor(txtTextPayment,10,10 + txtTotalPayment.getText().toString().length() + 5,R.color.primary_yellow,this);
+        String typePurchase = purchaseItem.getTypePurchase();
+        String paymentMethod = purchaseItem.getPaymentMethod();
+        String totalPayment = txtTotalPayment.getText().toString();
+        String text1 = "";
+        String text2 = "";
 
-        txtPaymentMethod.setText("Payment by UEL Camp");
-        reusedConstraint.changeColor(txtPaymentMethod,10,txtPaymentMethod.length(),R.color.primary_yellow,this);
+
+        if(paymentMethod.equals(PurchaseSLSpaceScreen.CASH)){
+            text1 = "Please pay ";
+            text2 = " VND upon delivery";
+
+            txtPaymentMethod.setText("Payment by cash");
+            reusedConstraint.changeColor(txtPaymentMethod,10,txtPaymentMethod.length(),R.color.primary_yellow,this);
+        }
+        if(paymentMethod.equals(PurchaseSLSpaceScreen.UELCAMP)){
+            text1 = "You have paid ";
+            text2 = " VND by UEL Camp";
+
+            txtPaymentMethod.setText("Payment by UEL Camp");
+            reusedConstraint.changeColor(txtPaymentMethod,10,txtPaymentMethod.length(),R.color.primary_yellow,this);
+        }
+
+
+        txtTextPayment.setText(text1 + txtTotalPayment.getText().toString() + text2);
+        reusedConstraint.changeColor(txtTextPayment,text1.length(),text1.length() + totalPayment.length() + 4,R.color.primary_yellow,this);
+
 
     }
 
     private void setValue(){
-        txtDiscountDelivery.setText(reusedConstraint.formatCurrency(discountDelivery));
-        txtPrice.setText(reusedConstraint.formatCurrency(getPrice()));
-        txtDiscount.setText(reusedConstraint.formatCurrency(discount));
-        txtDeliveryFee.setText(reusedConstraint.formatCurrency(deliveryFee));
+
+        double deliveryFee = purchaseItem.getDeliveryFee();
+        double discount = purchaseItem.getDiscount();
+        double discountDelivery = purchaseItem.getDiscountDeliveryFee();
+
+        if(discountDelivery == 0){
+            txtDiscountDelivery.setText("-");
+        }
+        else{
+            txtDiscountDelivery.setText(reusedConstraint.formatCurrency(discountDelivery) + " VND");
+        }
+
+        if(discount == 0){
+            txtDiscount.setText("-");
+        }
+        else{
+            txtDiscount.setText(reusedConstraint.formatCurrency(discount) + " VND");
+
+        }
+
+        if(deliveryFee == 0){
+            txtDeliveryFee.setText("-");
+        }
+        else{
+            txtDeliveryFee.setText(reusedConstraint.formatCurrency(deliveryFee) + " VND");
+        }
+
+        txtPrice.setText(reusedConstraint.formatCurrency(getPrice()) + " VND");
         txtTotalPayment.setText(reusedConstraint.formatCurrency(getPrice() + deliveryFee - discount - discountDelivery));
 
         changeColor();
 
-        if(!AppUtil.statusOrder.isEmpty()){
-            txtStatus.setText(AppUtil.statusOrder);
-        }
+//        if(!AppUtil.statusOrder.isEmpty()){
+//            txtStatus.setText(AppUtil.statusOrder);
+//        }
 
+        txtStatus.setText(purchaseItem.getTypePurchase());
         if(txtStatus.getText().toString().equals(PurchaseAdapter.TYPE_PENDING)){
             changeButtonStatus(BLACK,true);
         }

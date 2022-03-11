@@ -16,6 +16,7 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.models.Address;
+import nguyenhoanganhkhoa.com.models.DrinkOption;
 import nguyenhoanganhkhoa.com.myapplication.R;
 
 public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHolder> {
@@ -52,23 +53,51 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
         {
             return;
         }
-
-        if(holder.getAdapterPosition() ==0){
-            address.setDefaultAddress(true);
+        if(holder.getAdapterPosition()==0){
+            holder.layout_default_address.setVisibility(View.VISIBLE);
         }
 
-        if(address.isDefaultAddress()){
-            holder.layout_default_address.setVisibility(View.VISIBLE);
-            holder.layout_item_address.setBackgroundColor(context.getColor(R.color.primary_yellow));
+        if(isNewRadioChecked){
+            setDefaultAddress(holder,address);
+        }
+        else{
+            if(holder.getAdapterPosition() ==0){
+                address.setDefaultAddress(true);
+                setDefaultAddress(holder,address);
+            }
+
         }
 
         holder.txtLocationAddress.setText(address.getLocationAddress());
         holder.txtNameAddress.setText(address.getNamePeopleAddress());
         holder.txtPhoneAddress.setText(address.getPhoneAddress());
 
+        holder.layout_item_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                isNewRadioChecked = true;
+                mAddress.get(lastCheckedPosition).setDefaultAddress(false);
+                address.setDefaultAddress(true);
+                lastCheckedPosition = holder.getAdapterPosition();
+
+                notifyDataSetChanged();
+            }
+        });
+
 
     }
 
+    private int lastCheckedPosition = 0;
+    private boolean isNewRadioChecked = false;
+    private void setDefaultAddress(ViewHolder holder, Address address){
+        if(address.isDefaultAddress()){
+            holder.layout_item_address.setBackgroundColor(context.getColor(R.color.primary_yellow));
+        }
+        else{
+            holder.layout_item_address.setBackgroundColor(context.getColor(R.color.xamNen));
+        }
+
+    }
     @Override
     public int getItemCount() {
         if(mAddress !=null){

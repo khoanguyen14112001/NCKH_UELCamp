@@ -290,7 +290,7 @@
     <string name="confirm_new_password">Confirm new password</string>
     <string name="updated_successful">Updated successful</string>
     <string name="your_new_password_has_been_updated">Your new password has been updated.</string>
-    <string name="uel_camp">UEL CAMP</string>
+    <string name="uel_camp">UEL Camp</string>
     <string name="this_is_a_payment_application_only_for_uel_s_student">This is a payment application only for UEL\'s student.</string>
     <string name="get_started">Get Started</string>
     <string name="welcome_to_n_my_uel_services_app">Welcome to \n my UEL services app!</string>
@@ -472,6 +472,7 @@
     <string name="ship_time">Ship time</string>
     <string name="room_a_707_court_a">Room A.707 - Court A</string>
     <string name="add_video">Add video</string>
+    <string name="example_no_chili_no_onions">Example: no chili, no onions...</string>
 
     <array name="initial_slider_values">
         <item>0</item>

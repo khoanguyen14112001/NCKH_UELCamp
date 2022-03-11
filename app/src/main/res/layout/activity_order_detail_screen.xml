@@ -111,10 +111,10 @@
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/layoutViewMorePrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:layout_marginVertical="10dp"
                     android:orientation="vertical">
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -133,20 +133,13 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
-                        <TextView
-                            style="@style/VNDStyle"
-                            android:id="@+id/txtVND1"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBaseline_toBaselineOf="@id/txtPrice"
-                            />
 
                         <TextView
                             style="@style/VNDStyle"
                             android:id="@+id/txtPrice"
                             android:text="30.000"
                             android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toLeftOf="@id/txtVND1"
+                            app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
@@ -169,20 +162,14 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
-                        <TextView
-                            style="@style/VNDStyle"
-                            android:id="@+id/txtVND2"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBaseline_toBaselineOf="@id/txtDiscount"
-                            />
+
 
                         <TextView
                             style="@style/VNDStyle"
                             android:id="@+id/txtDiscount"
                             android:text="30.000"
                             android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toLeftOf="@id/txtVND2"
+                            app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
@@ -206,20 +193,14 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
-                        <TextView
-                            style="@style/VNDStyle"
-                            android:id="@+id/txtVND3"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBaseline_toBaselineOf="@id/txtDeliveryFee"
-                            />
+
 
                         <TextView
                             style="@style/VNDStyle"
                             android:id="@+id/txtDeliveryFee"
                             android:text="30.000"
                             android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toLeftOf="@id/txtVND3"
+                            app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
@@ -242,20 +223,14 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
-                        <TextView
-                            style="@style/VNDStyle"
-                            android:id="@+id/txtVND4"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBaseline_toBaselineOf="@id/txtDiscountDelivery"
-                            />
+
 
                         <TextView
                             style="@style/VNDStyle"
                             android:id="@+id/txtDiscountDelivery"
                             android:text="30.000"
                             android:layout_marginEnd="3dp"
-                            app:layout_constraintRight_toLeftOf="@id/txtVND4"
+                            app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
                             />
