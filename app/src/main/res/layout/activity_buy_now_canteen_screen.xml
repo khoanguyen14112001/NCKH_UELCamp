@@ -230,7 +230,7 @@
                             android:ems="10"
                             android:fontFamily="@font/be_vietnam_light"
                             android:gravity="top"
-                            android:hint="@string/example_one_more_straw_please"
+                            android:hint="@string/example_no_chili_no_onions"
                             android:inputType="textMultiLine"
                             android:paddingHorizontal="20dp"
                             android:paddingVertical="10dp"
