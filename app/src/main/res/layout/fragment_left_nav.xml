@@ -28,6 +28,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/ic_logo"
+                android:id="@+id/imvOpenInfo"
                 android:layout_marginHorizontal="20dp"
                 />
             <de.hdodenhof.circleimageview.CircleImageView

@@ -4,23 +4,32 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
 
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTwoButton;
 import nguyenhoanganhkhoa.com.myapplication.R;
 import nguyenhoanganhkhoa.com.myapplication.home.QRCodeScreen;
+import nguyenhoanganhkhoa.com.myapplication.home.aboutus.AboutUsScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.canteen.CanteenSplashScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.homepage.HomePageScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.parkinglot.ParkingLotHomeScreen;
@@ -30,6 +39,8 @@ import nguyenhoanganhkhoa.com.myapplication.home.setting.SettingScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.topup.TopUpMainScreen;
 import nguyenhoanganhkhoa.com.myapplication.home.transfer.TransferMainScreen;
 import nguyenhoanganhkhoa.com.myapplication.login.LoginScreen;
+import nguyenhoanganhkhoa.com.thirdlink.AppUtil;
+import nguyenhoanganhkhoa.com.thirdlink.ReusedConstraint;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,7 +93,8 @@ public class LeftNavFragment extends Fragment {
     TextView txtTransfer, txtParkingLot, txtTopUp, txtQuanCafe, txtSetting, txtQRCode,txtCanteen;
     DrawerLayout drawerLayout;
 
-    TextView txtRealTextQuanCafe;
+    TextView txtRealTextQuanCafe, txtName;
+    ImageView imvAvatar, imvOpenInfo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +103,7 @@ public class LeftNavFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_left_nav, container, false);
         linkView(view);
         setText();
+        getDataFromFirebase();
         addEvents();
         return view;
     }
@@ -112,6 +125,15 @@ public class LeftNavFragment extends Fragment {
     }
 
     private void addEvents() {
+        imvOpenInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AboutUsScreen.class);
+                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.END);
+            }
+        });
+
         lnOpenHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -194,6 +216,42 @@ public class LeftNavFragment extends Fragment {
             }
         });
     }
+    ReusedConstraint reusedConstraint = new ReusedConstraint(getContext());
+    private void getDataFromFirebase(){
+        AppUtil.databaseReference.child(AppUtil.DATA_OBJECT).child(AppUtil.USERNAME_AFTER_LOGGIN)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        try {
+                            String fullname = snapshot.child(AppUtil.FB_FULLNAME).getValue(String.class);
+                            String uri = snapshot.child(AppUtil.FB_IMAGES_BITMAP).getValue(String.class);
+                            long balance = snapshot.child(AppUtil.FB_BALANCE).getValue(Long.class);
+                            double balanceDisplay = Double.parseDouble(String.valueOf(balance));
+
+                            if(uri.isEmpty()|uri.equals("Null")){
+                                long avatar = snapshot.child(AppUtil.FB_AVATAR).getValue(Long.class);
+                                int idAva = Integer.parseInt(String.valueOf(avatar));
+                                imvAvatar.setImageResource(idAva);
+                            }
+                            else{
+                                if(getContext()!=null){
+                                    Glide.with(getContext()).load(uri).into(imvAvatar);
+                                }
+                            }
+                            txtName.setText(fullname);
+                        }
+                        catch (Exception e){
+                            Log.d("Error", "Cannot parse value in HomeFragment: " + e);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.d("Error", "Fail to load info in Home fragment" + error.toString());
+                    }
+                });
+    }
+
 
     private int getWindowWidth(Activity activity) {
         // Calculate window height for fullscreen use
@@ -236,6 +294,10 @@ public class LeftNavFragment extends Fragment {
         txtCanteen = view.findViewById(R.id.txtCanteen);
 
         txtRealTextQuanCafe = view.findViewById(R.id.txtRealTextQuanCafe);
+
+        imvAvatar = view.findViewById(R.id.imvAvatar);
+        txtName = view.findViewById(R.id.txtName);
+        imvOpenInfo = view.findViewById(R.id.imvOpenInfo);
 
     }
 }
