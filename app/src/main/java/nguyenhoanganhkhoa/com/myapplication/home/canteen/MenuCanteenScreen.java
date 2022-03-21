@@ -31,6 +31,7 @@ import java.util.TimerTask;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkAdapter;
 import nguyenhoanganhkhoa.com.adapter.ImagesAdapter;
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogFourButton;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
 import nguyenhoanganhkhoa.com.models.Comments;
 import nguyenhoanganhkhoa.com.models.Drink;
@@ -381,10 +382,19 @@ public class MenuCanteenScreen extends AppCompatActivity {
         layout_choose_address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomDialogThreeButton dialog = new CustomDialogThreeButton(MenuCanteenScreen.this, R.layout.custom_dialog_chooss_image);
+                CustomDialogFourButton dialog = new CustomDialogFourButton(MenuCanteenScreen.this, R.layout.custom_dialog_four_button);
                 dialog.txtHeaderDialog.setText("Choose other location");
                 dialog.btnTakePhotos.setText("Canteen 1");
                 dialog.btnChooseFromGallery.setText("Canteen 2");
+                dialog.btnMainCanteen.setText("Main canteen");
+
+                dialog.btnMainCanteen.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtLocation.setText("Main Canteen");
+                        dialog.dismiss();
+                    }
+                });
                 dialog.btnTakePhotos.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -408,6 +418,7 @@ public class MenuCanteenScreen extends AppCompatActivity {
                 });
                 dialog.show();
             }
+
         });
     }
 

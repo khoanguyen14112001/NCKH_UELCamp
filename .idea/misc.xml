@@ -226,6 +226,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_button_dialog.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_button_homepage.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_button_shadow.xml" value="0.21614583333333334" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_dialog_four_button.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_rad_drink_type.xml" value="0.21614583333333334" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_rad_filter.xml" value="0.18981481481481483" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/drawable/custom_radio_drink_type.xml" value="0.18981481481481483" />
@@ -286,7 +287,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_buy_now_screen.xml" value="0.1859375" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_buy_now_slpace_screen.xml" value="0.4466666666666667" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_canteen_main_screen.xml" value="0.1859375" />
-        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_canteen_splash_screen.xml" value="0.2" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_canteen_splash_screen.xml" value="0.22" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_cart_canteen_screen.xml" value="0.19692307692307692" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_cart_slspace_screen.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_choose_address_screen.xml" value="0.22" />
@@ -320,7 +321,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_order_slspace_screen.xml" value="0.3528468323977546" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_our_team_screen.xml" value="0.2" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_parking_lot_home_screen.xml" value="0.16666666666666666" />
-        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_parking_splash_screen.xml" value="0.2" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_parking_splash_screen.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_personal_information_set_screen.xml" value="0.48180677540777916" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_product_detail_canteen_screen.xml" value="0.1859375" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_product_detail_screen.xml" value="0.3333333333333333" />
@@ -334,7 +335,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_show_all_parking_lot_screen.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_show_all_transaction_screen.xml" value="0.3333333333333333" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_sign_up_screen_user_info.xml" value="0.16666666666666666" />
-        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_slspace_main_screen.xml" value="0.22" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_slspace_main_screen.xml" value="0.4466666666666667" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_stationery_splash_screen.xml" value="0.2" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/activity_take_away_address_screen.xml" value="0.19692307692307692" />
@@ -356,6 +357,7 @@
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_dialog_create_account_successful.xml" value="0.19692307692307692" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_dialog_display_notify.xml" value="0.4466666666666667" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_dialog_edit_activities.xml" value="0.19692307692307692" />
+        <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_dialog_four_button.xml" value="0.4466666666666667" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_dialog_login.xml" value="0.19692307692307692" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_dialog_notification.xml" value="0.19692307692307692" />
         <entry key="..\:/WorkingDocumentary/MainStudy/NCKH2021/UELCamp/UELCamp/app/src/main/res/layout/custom_dialog_one_button.xml" value="0.3333333333333333" />
