@@ -24,6 +24,7 @@ import java.util.List;
 
 import nguyenhoanganhkhoa.com.adapter.DrinkIncartAdapter;
 import nguyenhoanganhkhoa.com.adapter.FacultyAdapter;
+import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogFourButton;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogThreeButton;
 import nguyenhoanganhkhoa.com.custom.dialog.CustomDialogTransferConfirm;
 import nguyenhoanganhkhoa.com.custom.spinner.CustomSpinner;
@@ -152,10 +153,19 @@ public class OrderCanteenScreen extends AppCompatActivity {
         btnChangeAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomDialogThreeButton dialog = new CustomDialogThreeButton(OrderCanteenScreen.this, R.layout.custom_dialog_chooss_image);
+                CustomDialogFourButton dialog = new CustomDialogFourButton(OrderCanteenScreen.this, R.layout.custom_dialog_four_button);
                 dialog.txtHeaderDialog.setText("Choose other location");
                 dialog.btnTakePhotos.setText("Canteen 1");
                 dialog.btnChooseFromGallery.setText("Canteen 2");
+                dialog.btnMainCanteen.setText("Main canteen");
+
+                dialog.btnMainCanteen.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        txtChooseYourAddress.setText("Main Canteen");
+                        dialog.dismiss();
+                    }
+                });
                 dialog.btnTakePhotos.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -179,6 +189,7 @@ public class OrderCanteenScreen extends AppCompatActivity {
                 });
                 dialog.show();
             }
+
         });
 
 

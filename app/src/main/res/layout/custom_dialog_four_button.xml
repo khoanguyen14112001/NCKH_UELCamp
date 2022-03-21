@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.12"
+        android:id="@+id/gLeft"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.88"
+        android:id="@+id/gRight"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/dialog_login"
+        app:layout_constraintLeft_toLeftOf="@id/gLeft"
+        app:layout_constraintRight_toRightOf="@id/gRight"
+
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtHeaderDialog"
+            style="@style/dialog_header"
+            android:text="Select avatar"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="180dp"
+            android:background="@drawable/custom_button_dialog"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+            android:id="@+id/btnTakePhotos"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:text="@string/take_photos" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="180dp"
+            android:background="@drawable/custom_button_dialog"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+            android:text="@string/choose_from_gallery"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:id="@+id/btnChooseFromGallery"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="180dp"
+            android:background="@drawable/custom_button_dialog"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+            android:text="@string/choose_from_gallery"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:id="@+id/btnMainCanteen"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="90dp"
+            android:background="@drawable/custom_button_dialog_black"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:textAllCaps="false"
+            android:text="@string/cancel"
+            android:fontFamily="@font/be_vietnam_medium"
+            android:id="@+id/btnCancel"
+            />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

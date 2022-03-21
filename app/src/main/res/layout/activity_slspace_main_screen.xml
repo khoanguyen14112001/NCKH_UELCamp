@@ -32,8 +32,10 @@
             android:id="@+id/txtHeader"/>
         <TextView
             style="@style/in_SmallHeaderText"
-            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:fontFamily="@font/be_vietnam_medium"
             app:layout_constraintTop_toBottomOf="@id/txtHeader"
             app:layout_constraintLeft_toLeftOf="parent"
