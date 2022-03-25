@@ -193,7 +193,7 @@
     <string name="time">Time:</string>
     <string name="please_payment_within">Please payment within</string>
     <string name="_240s">240s</string>
-    <string name="save_qr_cde">Save QR Cde</string>
+    <string name="save_qr_cde">Save QR Code</string>
     <string name="transaction_code">Transaction code:</string>
     <string name="cb07">CB07</string>
     <string name="please_enter_the_correct">Please enter the correct</string>

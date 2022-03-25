@@ -99,7 +99,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:id="@+id/imv1"
                     android:textColor="@color/black80"
-                    android:src="@drawable/ic_money_up"/>
+                    android:src="@drawable/ic_money_down"/>
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
