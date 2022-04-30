@@ -105,6 +105,8 @@ public class LeftNavFragment extends Fragment {
         setText();
         getDataFromFirebase();
         addEvents();
+
+        //Changed
         return view;
     }
 

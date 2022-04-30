@@ -254,7 +254,8 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/be_vietnam_semibold"
                 android:paddingTop="4dp"
-                android:text="TOP UP"
+                android:text="@string/top_up"
+                android:textAllCaps="true"
                 android:textSize="12sp"
                 android:textColor="@color/blackUI" />
         </LinearLayout>
